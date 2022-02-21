@@ -1,6 +1,9 @@
 # My-Portfolio-Website
 
-This repository is dedicated to my portfolio website. Link to the website in the README will be added once deployed on a server.
+Please visit my website!
+https://tkz96.github.io/
+
+This repository is dedicated to my portfolio website.
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
 ## Built With
