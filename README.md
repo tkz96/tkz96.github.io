@@ -17,15 +17,20 @@ To get a local copy up and running follow these simple example steps.
 
 ### Prerequisites
 
-Download these files to your local system or a server
+This website does not have any special pre-requisites.<br />
+You may need to install Node.js to run the code linters (that are included in the source code) locally on your machine.<br />
+<b>[Visit this link to download the latest version of Node.js](https://nodejs.org/en/download/).</b>
 
-### Setup
+* Once you are inside the folder where you have cloned the repository, please run the following code through a shell or command prompt.
 
-No need. Just visit the link on the top of this Readme.
+  ```sh
+  npm install
+  ```
+This will install the npm packages to set the linters up.
 
 ### Usage
 
-This website exists solely for personal use and display of skill proficiency. 
+This website exists solely for personal use and display of skill proficiency. You are free to download and use the source code for your project.
 
 ## Author
 
@@ -47,7 +52,7 @@ Give a ⭐️ if you like this project!
 
 ## Acknowledgments
 
-- Hat tip to Microverse for providing the training and the code
+- Hat tip to Microverse for providing the training, design and code.
 
 ## 📝 License
 
