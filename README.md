@@ -1,15 +1,15 @@
-# My-Portfolio-Website
+# Live Demo to my website
 
 Please visit my website!
-https://tkz96.github.io/
+[Live Demo Link](https://tkz96.github.io/)
 
 This repository is dedicated to my portfolio website.
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
 ## Built With
 
-- HTML 5
-- CSS 3
+- Languages: Vanilla HTML 5 & CSS 3
+- Technologies used: Git, GitHub, VS Code
 
 ## Getting Started
 
@@ -20,6 +20,8 @@ To get a local copy up and running follow these simple example steps.
 Download these files to your local system or a server
 
 ### Setup
+
+No need. Just visit the link on the top of this Readme.
 
 ### Usage
 
@@ -50,3 +52,4 @@ Give a ⭐️ if you like this project!
 ## 📝 License
 
 This project is [MIT](./MIT.md) licensed.
+
