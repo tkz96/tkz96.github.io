@@ -25,7 +25,7 @@ No need. Just visit the link on the top of this Readme.
 
 ### Usage
 
-### Deployment
+This website exists solely for personal use and display of skill proficiency. 
 
 ## Author
 
