@@ -1,0 +1,364 @@
+* {
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: #f7f7f9;
+  margin: 0;
+  padding: 0;
+  min-width: 372px;
+  max-width: 1440px;
+}
+
+.button {
+  text-decoration: none;
+  color: #fff;
+}
+
+h2 {
+  font-weight: 700;
+  color: #172b4d;
+  font-size: 40px;
+  padding: 0;
+  margin: 0;
+  margin-bottom: 12px;
+  line-height: 52px;
+}
+
+p {
+  color: #344563;
+  margin: 0;
+  margin-bottom: 12px;
+  padding: 2px 0;
+}
+
+.icons ul {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 24px;
+  background: #fff;
+  height: 48px;
+}
+
+.app-header p {
+  margin: 0;
+}
+
+.app-header ul {
+  display: none;
+}
+
+.welcome-line {
+  padding: 0 24px;
+  padding-top: 114px;
+  padding-bottom: 136px;
+  background-image: url("/assets/shapes/background-shapes/mobile/mobile-header-shapes.svg");
+  background-color: #fff;
+  border-radius: 0 0 0 80px;
+  background-repeat: no-repeat;
+  background-position: right;
+}
+
+.about-myself {
+  padding: 0 24px;
+  padding-top: 114px;
+  padding-bottom: 136px;
+  background-color: #fff;
+  border-radius: 0 80px 0 0;
+}
+
+.myself-list {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  padding: 0;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.language-list {
+  list-style: none;
+}
+
+.contact-form {
+  padding: 0 24px;
+  padding-top: 114px;
+  padding-bottom: 136px;
+  background-image: url("/assets/shapes/background-shapes/mobile/contact-form-background-shapes.svg");
+  background-color: #6070ff;
+  border-radius: 80px 0 0 0;
+  background-repeat: no-repeat;
+  background-position: right;
+}
+
+.contact-form h2,
+.contact-form p {
+  text-align: center;
+  color: #fff;
+}
+
+#fname {
+  border: 1px solid #cfd8dc;
+}
+
+.portfolio-cards {
+  display: flex;
+  flex-direction: column;
+  margin: 114px 24px;
+  gap: 88px;
+}
+
+.portfolio-cards .card {
+  display: flex;
+  flex-direction: column;
+  padding: 12px;
+  border-radius: 16px;
+  background-color: #fff;
+}
+
+.image2 {
+  display: none;
+}
+
+.caption {
+  display: flex;
+  font-size: 13px;
+  list-style: none;
+  font-weight: 600;
+  color: #7a869a;
+  gap: 12px;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.canopy {
+  color: #344563;
+}
+
+.tags {
+  display: flex;
+  font-size: 13px;
+  list-style: none;
+  padding: 0;
+  gap: 8px;
+}
+
+.tag {
+  font-weight: 500;
+  color: #6070ff;
+  background-color: #ebebff;
+  border-radius: 8px;
+  padding: 4px 12px;
+}
+
+.app-header a {
+  text-decoration: none;
+}
+
+.lets-connect {
+  color: #7f8cff;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.logo-placeholder {
+  color: #6070ff;
+  font-weight: 700;
+}
+
+.card .head,
+.text,
+.action {
+  padding: 0;
+}
+
+.card h2 {
+  margin-bottom: 0;
+}
+
+.lang-list {
+  padding: 0;
+}
+
+.myself-list-item {
+  display: flex;
+  padding: 24px 40px 24px 12px;
+  justify-content: space-between;
+}
+
+.lang {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 12px;
+  background-color: #f7f7f9;
+  list-style: none;
+}
+
+button {
+  color: #396df2;
+  border-radius: 8px;
+  background-color: #fff;
+  border-color: #396df2;
+  border: 1px solid #6070ff;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 12px 16px;
+  transition-duration: 0.2s;
+  font-family: "Poppins", sans-serif;
+  font-size: 17px;
+  font-weight: 500;
+  margin-left: 0;
+}
+
+button:hover {
+  color: #fff;
+  background-color: #6070ff;
+  box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24);
+  cursor: pointer;
+}
+
+button:active {
+  color: #fff;
+  background-color: #2230d2;
+}
+
+button:disabled {
+  color: #5e6c84;
+  background-color: #6070ff;
+  border-color: #5e6c84;
+}
+
+.form-input {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  justify-content: center;
+  width: 100%;
+  gap: 20px;
+  padding: 0;
+  max-width: 427px;
+}
+
+input,
+textarea {
+  width: 100%;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  border-radius: 8px;
+  border-color: #cfd8dc;
+  padding: 15px 38px 15px 16px;
+}
+
+textarea {
+  resize: vertical;
+  height: 170px;
+}
+
+.contact-form-items {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 992px) {
+  .app-wrapper {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .welcome-line {
+    background-image: url("/assets/shapes/background-shapes/desktop/desktop-header-shapes.svg");
+    background-position: center;
+  }
+
+  .welcome-line-text {
+    padding: 0 240px;
+  }
+
+  .portfolio-cards {
+    margin: 142px;
+    gap: 142px;
+  }
+
+  .portfolio-cards .card {
+    flex-direction: row;
+  }
+
+  .portfolio-cards .card .left-block {
+    flex-direction: column;
+  }
+
+  .card .head {
+    flex-direction: column;
+  }
+
+  .image1 {
+    display: none;
+  }
+
+  .image2 {
+    display: block;
+  }
+
+  .image2:hover {
+    transition: 400ms;
+    transition-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
+    transform: scale(0.96);
+    box-shadow: -1px 1px 30px 8px rgba(0, 0, 0, 0.28);
+  }
+
+  .about-myself {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr;
+    grid-column-gap: 25px;
+    grid-row-gap: 0;
+    padding-left: 142px;
+    padding-right: 142px;
+  }
+
+  .contact-form {
+    /* padding-left: 400px;
+    padding-right: 0; */
+    background-image: url("/assets/shapes/background-shapes/desktop/contact-form-background-shapes.svg");
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .app-header {
+    padding: 0 155px;
+  }
+
+  .app-header ul {
+    display: flex;
+    list-style: none;
+    gap: 32px;
+  }
+}
+
+.icons li:hover {
+  transition: 150ms;
+  transition-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
+  transform: scale(1.2);
+}
