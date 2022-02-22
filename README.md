@@ -1,6 +1,10 @@
 # Live Demo to my website
 
+<<<<<<< HEAD
+Please visit my website! <br />
+=======
 <b>Please visit my website!</b> <br />
+>>>>>>> c2cbce181a5a4b20da281a218161a6e30387ea88
 [Live Demo Link](https://tkz96.github.io/)
 
 This repository is dedicated to my portfolio website.
