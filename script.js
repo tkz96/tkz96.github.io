@@ -1,7 +1,13 @@
-let navButton = document.querySelector('#nav-button');
+const hamburger = document.querySelector(".hamburger");
+const navMenu = document.querySelector(".nav-menu");
 
-function display() {
-    alert('It was clicked!');
-}
+//stay away from toggle in the future
+hamburger.addEventListener("click", () => {
+    hamburger.classList.toggle("active");
+    navMenu.classList.toggle("active");
+});
 
-navButton.addEventListener('click', display);
+// document.querySelectorAll(".nav-item").forEach(n => addEventListener("click", () => {
+//     hamburger.classList.remove("active");
+//     navMenu.classList.remove("active");
+// }));
