@@ -167,6 +167,7 @@ p {
 
 .app-header a {
   text-decoration: none;
+  list-style: none;
 }
 
 .lets-connect {
@@ -284,6 +285,10 @@ textarea {
     width: 100vw;
     display: flex;
     flex-direction: column;
+  }
+
+  .nav-button {
+    display: none;
   }
 
   .welcome-line {
