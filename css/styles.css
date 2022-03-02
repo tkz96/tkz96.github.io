@@ -3,8 +3,8 @@
 }
 
 html {
-  min-width: 372px;
-  max-width: 1440px;
+  /* min-width: 372px; */
+  /* max-width: 1440px; */
 }
 
 body {
@@ -170,7 +170,8 @@ p {
 .portfolio-cards {
   display: flex;
   flex-direction: column;
-  margin: 114px 24px;
+  padding: 114px 24px;
+  margin: auto;
   gap: 88px;
 }
 
@@ -354,8 +355,11 @@ textarea {
   }
 
   .portfolio-cards {
-    margin: 142px;
+    /* align-items: center; */
+    /* margin: 142px; */
     gap: 142px;
+    min-width: 790px;
+    max-width: 1152px;
   }
 
   .portfolio-cards .card {
@@ -409,6 +413,7 @@ textarea {
     justify-content: space-between;
     align-items: center;
     padding: 0 155px;
+    box-shadow: 0 5px 35px -12px rgba(0,0,0,0.45);
   }
 
   .nav-item {
