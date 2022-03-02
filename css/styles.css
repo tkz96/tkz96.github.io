@@ -1,10 +1,8 @@
 * {
   font-family: "Poppins", sans-serif;
-}
-
-html {
-  /* min-width: 372px; */
-  /* max-width: 1440px; */
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
 body {
@@ -62,13 +60,6 @@ p {
   margin: 0;
 }
 
-/* .nav-menu {
-  display: flex;
-  flex-direction: column;
-  list-style: none;
-  gap: 32px;
-} */
-
 .bar {
   display: block;
   width: 25px;
@@ -77,10 +68,6 @@ p {
   background-color: #6070ff;
   transition: all 0.3s ease-in-out 0.3s;
 }
-
-/* .hamburger.active .bar {
-  background-color: #fff;
-} */
 
 .hamburger.active .bar:nth-child(2) {
   opacity: 0;
@@ -98,20 +85,32 @@ p {
   display: flex;
   flex-direction: column;
   list-style: none;
-  gap: 32px;
   position: fixed;
-  background-color: #6070ff;
-  opacity: 90%;
+  background-color: rgba(96, 112, 255, 0.85);
+  backdrop-filter: blur(3px);
+  opacity: 100%;
   width: 100%;
   height: 100vh;
-  right: -120%;
-  top: 52px;
+  right: -100%;
+  top: 0;
   transition: 0.3s;
-  padding-left: 28px;
+  margin: none;
+  padding: 32px 0 40px 28px;
 }
 
 .nav-menu.active {
   right: 0;
+}
+
+.nav-item {
+  color: #fff;
+  font-weight: 600;
+  font-size: 32px;
+  /* padding: 40px 0; */
+}
+
+.nav-menu li {
+  padding: 40px 0;
 }
 
 .welcome-line {
@@ -413,7 +412,7 @@ textarea {
     justify-content: space-between;
     align-items: center;
     padding: 0 155px;
-    box-shadow: 0 5px 35px -12px rgba(0,0,0,0.45);
+    box-shadow: 0 5px 35px -12px rgba(0, 0, 0, 0.45);
   }
 
   .nav-item {
