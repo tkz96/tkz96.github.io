@@ -77,7 +77,6 @@ p {
 .hamburger.active .bar:nth-child(1) {
   transform: translateY(8px) rotate(45deg);
   background-color: #fff;
-
 }
 
 .hamburger.active .bar:nth-child(3) {
