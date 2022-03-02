@@ -411,11 +411,6 @@ textarea {
     padding: 0 155px;
   }
 
-  .nav-menu {
-    display: flex;
-    list-style: none;
-    background-color: none;
-  }
   .nav-menu.active {
     display: none;
   }
