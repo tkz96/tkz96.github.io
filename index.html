@@ -27,7 +27,39 @@
     </script>
   </head>
   <body>
-    
+    <div id="overlay">
+      <div id="modal">
+        <div class="card head">
+          <div class="modal-close-and-h2">
+            <h2>Tonic</h2>
+            <button id="close-modal-btn">X</button>
+          </div>
+          <ul class="caption">
+            <li class="canopy"><h3>CANOPY</h3></li>
+            <li><img src="assets/shapes/dot.svg" alt="dot" /></li>
+            <li><h3>Back End Dev</h3></li>
+            <li><img src="assets/shapes/dot.svg" alt="dot" /></li>
+            <li><h3>2015</h3></li>
+          </ul>
+        </div>
+        <img src="assets/card-images/mobile/1.png" class="image1" alt="" />
+        <img src="assets/card-images/desktop/1.png" class="image2" alt="" />
+        <div class="card text">
+          <p>
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essent
+          </p>
+        </div>
+        <ul class="tags">
+          <li class="tag">HTML</li>
+          <li class="tag">CSS</li>
+          <li class="tag">JavaScript</li>
+        </ul>
+        <div class="card action">
+          <button type="button" class="see-project">See Live</button>
+          <button type="button" class="see-project">See Source</button>
+        </div>
+      </div>
+    </div>
     <header>
       <nav class="app-header">
         <a href="index.html"><p class="logo-placeholder">Welcome!</p></a>
@@ -43,7 +75,7 @@
           <li><a href="#about-myself" class="nav-item">About</a></li>
           <li><a href="#contact-form" class="nav-item">Contact</a></li>
         </ul>
-        
+
         <div class="hamburger">
           <span class="bar"></span>
           <span class="bar"></span>
@@ -374,9 +406,9 @@
                 <input
                   type="email"
                   name="email"
+                  id="email"
                   pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
                   placeholder="Enter Your Email"
-                  required
                 />
               </li>
               <li>

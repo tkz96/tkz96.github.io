@@ -43,6 +43,39 @@ p {
   align-items: center;
   margin: 0;
   padding: 0;
+  z-index: 1;
+}
+
+#overlay {
+  /* display: none; */
+  background-color: rgba(193, 199, 208, 0.45);
+  backdrop-filter: blur(3px);
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+#modal {
+  background-color: #fff;
+  position: absolute;
+  min-width: 343px;
+  height: 713px;
+  margin: auto;
+  top: 20px;
+  border-radius: 16px;
+  padding: 16px;
+}
+
+.modal-close-and-h2 {
+  display: flex;
+  justify-content: space-between;
+}
+
+#close-modal-btn {
+  border: none;
+  color: #67798e;
 }
 
 .app-header {
@@ -55,6 +88,7 @@ p {
   position: fixed;
   width: 100vw;
   box-shadow: 0 5px 35px -12px rgba(0, 0, 0, 0.45);
+  z-index: -1;
 }
 
 .app-header p {
