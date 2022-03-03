@@ -1,5 +1,8 @@
 * {
   font-family: "Poppins", sans-serif;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
 body {
@@ -9,8 +12,6 @@ body {
   background-color: #f7f7f9;
   margin: 0;
   padding: 0;
-  min-width: 372px;
-  max-width: 1440px;
 }
 
 .button {
@@ -48,17 +49,73 @@ p {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 24px;
+  padding: 0 36px 0 24px;
   background: #fff;
   height: 48px;
+  position: fixed;
+  width: 100vw;
+  box-shadow: 0 5px 35px -12px rgba(0, 0, 0, 0.45);
 }
 
 .app-header p {
   margin: 0;
 }
 
-.app-header ul {
+.desktop-menu {
   display: none;
+}
+
+.bar {
+  display: block;
+  width: 25px;
+  height: 3px;
+  margin: 5px auto;
+  background-color: #6070ff;
+  transition: all 0.3s ease-in-out 0.3s;
+}
+
+.hamburger.active .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active .bar:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+  background-color: #fff;
+}
+
+.hamburger.active .bar:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+  background-color: #fff;
+}
+
+.nav-menu {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  position: fixed;
+  background-color: rgba(96, 112, 255, 0.85);
+  backdrop-filter: blur(3px);
+  opacity: 100%;
+  width: 100%;
+  height: 100vh;
+  right: -100%;
+  top: 0;
+  transition: 0.3s;
+  padding: 32px 0 40px 28px;
+}
+
+.nav-menu.active {
+  right: 0;
+}
+
+.nav-item {
+  color: #fff;
+  font-weight: 600;
+  font-size: 32px;
+}
+
+.nav-menu li {
+  padding-bottom: 40px;
 }
 
 .welcome-line {
@@ -117,7 +174,8 @@ p {
 .portfolio-cards {
   display: flex;
   flex-direction: column;
-  margin: 114px 24px;
+  padding: 114px 24px;
+  margin: auto;
   gap: 88px;
 }
 
@@ -167,6 +225,7 @@ p {
 
 .app-header a {
   text-decoration: none;
+  list-style: none;
 }
 
 .lets-connect {
@@ -286,6 +345,10 @@ textarea {
     flex-direction: column;
   }
 
+  .nav-button {
+    display: none;
+  }
+
   .welcome-line {
     background-image: url("/assets/shapes/background-shapes/desktop/desktop-header-shapes.svg");
     background-position: center;
@@ -296,8 +359,9 @@ textarea {
   }
 
   .portfolio-cards {
-    margin: 142px;
     gap: 142px;
+    min-width: 790px;
+    max-width: 1152px;
   }
 
   .portfolio-cards .card {
@@ -338,8 +402,6 @@ textarea {
   }
 
   .contact-form {
-    /* padding-left: 400px;
-    padding-right: 0; */
     background-image: url("/assets/shapes/background-shapes/desktop/contact-form-background-shapes.svg");
     background-position: center;
     display: flex;
@@ -347,13 +409,38 @@ textarea {
   }
 
   .app-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     padding: 0 155px;
   }
 
-  .app-header ul {
+  .nav-menu,
+  .nav-menu.active {
+    display: none;
+  }
+
+  .desktop-menu {
     display: flex;
     list-style: none;
     gap: 32px;
+  }
+
+  .nav-item {
+    color: #344563;
+    font-weight: 500;
+    font-size: 15px;
+    transition: 0.2s ease-in-out;
+  }
+
+  .nav-item:hover {
+    color: #ffaa60;
+    font-weight: bold;
+  }
+
+  .hamburger {
+    display: none;
+    cursor: pointer;
   }
 }
 

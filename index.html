@@ -13,36 +13,54 @@
     />
     <link rel="stylesheet" href="css/styles.css" />
     <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1P5M8T1Z9B"></script>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-1P5M8T1Z9B"
+    ></script>
     <script>
       window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-1P5M8T1Z9B');
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-1P5M8T1Z9B");
     </script>
   </head>
   <body>
+    
     <header>
       <nav class="app-header">
         <a href="index.html"><p class="logo-placeholder">Welcome!</p></a>
-        <img src="assets/shapes/menu-button.svg" class="image1" alt="Navigation" />
-        <ul>
-          <li><a href=""></a>Portfolio</li>
-          <li><a href=""></a>About</li>
-          <li><a href=""></a>Contact</li>
+
+        <ul class="nav-menu">
+          <li><a href="#portfolio-cards" class="nav-item">Portfolio</a></li>
+          <li><a href="#about-myself" class="nav-item">About</a></li>
+          <li><a href="#contact-form" class="nav-item">Contact</a></li>
         </ul>
+
+        <ul class="desktop-menu">
+          <li><a href="#portfolio-cards" class="nav-item">Portfolio</a></li>
+          <li><a href="#about-myself" class="nav-item">About</a></li>
+          <li><a href="#contact-form" class="nav-item">Contact</a></li>
+        </ul>
+        
+        <div class="hamburger">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
       </nav>
     </header>
-    
+
     <main>
       <section class="welcome-line">
         <div class="welcome-line-text">
           <h1>I am Talha.<br />Glad to see you!</h1>
           <p>
-            I’m a software developer! I can help you build a product , feature or
-            website Look through some of my work and experience! If you like what
-            you see and have a project you need coded, don’t hestiate to contact
-            me.
+            I’m a software developer! I can help you build a product, feature or
+            website Look through some of my work and experience! If you like
+            what you see and have a project you need coded, don’t hestiate to
+            contact me.
           </p>
           <h2 class="lets-connect">LET'S CONNECT</h2>
 
@@ -50,39 +68,54 @@
             <ul>
               <li>
                 <a href="https://www.twitter.com/"
-                  ><img src="assets/icons/social-icons/icon-twitter.svg" alt="Twitter" />
+                  ><img
+                    src="assets/icons/social-icons/icon-twitter.svg"
+                    alt="Twitter"
+                  />
                 </a>
               </li>
               <li>
                 <a href="https://www.linkedin.com/"
-                  ><img src="assets/icons/social-icons/icon-linkedin.svg" alt="LinkedIn" />
+                  ><img
+                    src="assets/icons/social-icons/icon-linkedin.svg"
+                    alt="LinkedIn"
+                  />
                 </a>
               </li>
               <li>
                 <a href="https://www.medium.com/"
-                  ><img src="assets/icons/social-icons/icon-medium.svg" alt="Medium" />
+                  ><img
+                    src="assets/icons/social-icons/icon-medium.svg"
+                    alt="Medium"
+                  />
                 </a>
               </li>
               <li>
                 <a href="https://www.github.com/"
-                  ><img src="assets/icons/social-icons/icon-github.svg" alt="GitHub" />
+                  ><img
+                    src="assets/icons/social-icons/icon-github.svg"
+                    alt="GitHub"
+                  />
                 </a>
               </li>
               <li>
                 <a href="https://www.angellist.com/"
-                  ><img src="assets/icons/social-icons/icon-angellist.svg" alt="angellist" />
+                  ><img
+                    src="assets/icons/social-icons/icon-angellist.svg"
+                    alt="angellist"
+                  />
                 </a>
               </li>
             </ul>
           </div>
-      </div>
+        </div>
       </section>
-      
-      <section class="portfolio-cards">
+
+      <section class="portfolio-cards" id="portfolio-cards">
         <div class="card">
           <img src="assets/card-images/mobile/1.png" class="image1" alt="" />
           <img src="assets/card-images/desktop/1.png" class="image2" alt="" />
-          
+
           <div class="card left-block">
             <div class="card head">
               <h2>Tonic</h2>
@@ -113,8 +146,12 @@
         </div>
 
         <div class="card">
-          <div class="card image"><img src="assets/card-images/mobile/2.png" class="image1" alt="" /></div>
-          <div class="card"><img src="assets/card-images/desktop/2.png" class="image2" alt="" /></div>
+          <div class="card image">
+            <img src="assets/card-images/mobile/2.png" class="image1" alt="" />
+          </div>
+          <div class="card">
+            <img src="assets/card-images/desktop/2.png" class="image2" alt="" />
+          </div>
           <div class="card left-block">
             <div class="card head">
               <h2>Multi-Post Stories</h2>
@@ -145,8 +182,12 @@
         </div>
 
         <div class="card">
-          <div class="card image"><img src="assets/card-images/mobile/3.png" class="image1" alt="" /></div>
-          <div class="card"><img src="assets/card-images/desktop/3.png" class="image2" alt="" /></div>
+          <div class="card image">
+            <img src="assets/card-images/mobile/3.png" class="image1" alt="" />
+          </div>
+          <div class="card">
+            <img src="assets/card-images/desktop/3.png" class="image2" alt="" />
+          </div>
           <div class="card left-block">
             <div class="card head">
               <h2>Tonic</h2>
@@ -177,8 +218,12 @@
         </div>
 
         <div class="card">
-          <div class="card image"><img src="assets/card-images/mobile/4.png" class="image1" alt="" /></div>
-          <div class="card"><img src="assets/card-images/desktop/4.png" class="image2" alt="" /></div>
+          <div class="card image">
+            <img src="assets/card-images/mobile/4.png" class="image1" alt="" />
+          </div>
+          <div class="card">
+            <img src="assets/card-images/desktop/4.png" class="image2" alt="" />
+          </div>
           <div class="card left-block">
             <div class="card head">
               <h2>Tonic</h2>
@@ -209,80 +254,110 @@
         </div>
       </section>
 
-      <section class="about-myself">
+      <section class="about-myself" id="about-myself">
         <div class="left-block">
-        <h2>About Myself</h2>
-        <p>
-          Hello. I’m a software developer! I can help you build a product,
-          feature or website, look through some of my work and experience! If
-          you like what you see and have a project you need coded, don’t
-          hestiate to contact me.
-        </p>
-        <h2 class="lets-connect">LET'S CONNECT</h2>
-        <div class="icons">
-          <ul>
-            <li>
-              <a href="https://www.github.com/"
-                ><img src="assets/icons/social-icons/icon-github.svg" alt="GitHub" />
-              </a>
-            </li>
-            <li>
-              <a href="https://www.linkedin.com/"
-                ><img src="assets/icons/social-icons/icon-linkedin.svg" alt="LinkedIn" />
-              </a>
-            </li>
-            <li>
-              <a href="https://www.angellist.com/"
-                ><img src="assets/icons/social-icons/icon-angellist.svg" alt="angellist" />
-              </a>
-            </li>
-            <li>
-              <a href="https://www.twitter.com/"
-                ><img src="assets/icons/social-icons/icon-twitter.svg" alt="Twitter" />
-              </a>
-            </li>
-            <li>
-              <a href="https://www.medium.com/"
-                ><img src="assets/icons/social-icons/icon-medium.svg" alt="Medium" />
-              </a>
-            </li>
-          </ul>
+          <h2>About Myself</h2>
+          <p>
+            Hello. I’m a software developer! I can help you build a product,
+            feature or website, look through some of my work and experience! If
+            you like what you see and have a project you need coded, don’t
+            hestiate to contact me.
+          </p>
+          <h2 class="lets-connect">LET'S CONNECT</h2>
+          <div class="icons">
+            <ul>
+              <li>
+                <a href="https://www.github.com/"
+                  ><img
+                    src="assets/icons/social-icons/icon-github.svg"
+                    alt="GitHub"
+                  />
+                </a>
+              </li>
+              <li>
+                <a href="https://www.linkedin.com/"
+                  ><img
+                    src="assets/icons/social-icons/icon-linkedin.svg"
+                    alt="LinkedIn"
+                  />
+                </a>
+              </li>
+              <li>
+                <a href="https://www.angellist.com/"
+                  ><img
+                    src="assets/icons/social-icons/icon-angellist.svg"
+                    alt="angellist"
+                  />
+                </a>
+              </li>
+              <li>
+                <a href="https://www.twitter.com/"
+                  ><img
+                    src="assets/icons/social-icons/icon-twitter.svg"
+                    alt="Twitter"
+                  />
+                </a>
+              </li>
+              <li>
+                <a href="https://www.medium.com/"
+                  ><img
+                    src="assets/icons/social-icons/icon-medium.svg"
+                    alt="Medium"
+                  />
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="card action">
+            <button type="button" class="see-project">Get my resume</button>
+          </div>
         </div>
-        
-        <div class="card action">
-          <button type="button" class="see-project">Get my resume</button>
-        </div>
-      </div>
         <ul class="myself-list">
           <li class="myself-list-item">
-            Languages <img class="arrow-icon" src="down-arrow.svg" alt="" />
+            Languages
+            <img class="arrow-icon" src="assets/shapes/down-arrow.svg" alt="" />
           </li>
           <li>
             <ul class="lang-list">
-              <li class="lang"><img src="assets/icons/html-icon.svg" alt="html" />HTML</li>
-              <li class="lang"><img src="assets/icons/css-icon.svg" alt="css" />CSS</li>
               <li class="lang">
-                <img src="assets/icons/javascript-icon.svg" alt="js" /> JavaScript
+                <img src="assets/icons/html-icon.svg" alt="html" />HTML
+              </li>
+              <li class="lang">
+                <img src="assets/icons/css-icon.svg" alt="css" />CSS
+              </li>
+              <li class="lang">
+                <img src="assets/icons/javascript-icon.svg" alt="js" />
+                JavaScript
               </li>
             </ul>
           </li>
           <li class="myself-list-item">
-            Frameworks<img class="arrow-icon" src="right-arrow.svg" alt="" />
+            Frameworks<img
+              class="arrow-icon"
+              src="assets/shapes/right-arrow.svg"
+              alt=""
+            />
           </li>
           <li><hr /></li>
           <li class="myself-list-item">
-            Skills<img class="arrow-icon" src="right-arrow.svg" alt="" />
+            Skills<img
+              class="arrow-icon"
+              src="assets/shapes/right-arrow.svg"
+              alt=""
+            />
           </li>
           <li><hr /></li>
         </ul>
       </section>
 
-      <section class="contact-form">
+      <section class="contact-form" id="contact-form">
         <div class="contact-form-items">
           <h2>Contact Me</h2>
           <p>
-            If you have an application you are interested in developing, a feature
-            that you need built, or a project that needs coding, I'd love to help :)
+            If you have an application you are interested in developing, a
+            feature that you need built, or a project that needs coding, I'd
+            love to help :)
           </p>
           <form action="https://formspree.io/f/xvolakag" method="post">
             <ul class="form-input">
@@ -314,10 +389,11 @@
                 ></textarea>
               </li>
             </ul>
-          <button type="submit">Get In Touch</button>
-        </form>
-      </div>
+            <button type="submit">Get In Touch</button>
+          </form>
+        </div>
       </section>
     </main>
+    <script src="script.js"></script>
   </body>
 </html>
