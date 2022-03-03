@@ -44,9 +44,14 @@
         </div>
         <img src="assets/card-images/mobile/1.png" class="image1" alt="" />
         <img src="assets/card-images/desktop/1.png" class="image2" alt="" />
-        <div class="card text">
+        <div class="card text" id="modal-text">
           <p>
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essent
+            Lorem Ipsum is simply dummy text of the printing and typesetting
+            industry. Lorem Ipsum has been the industry's standard dummy text
+            ever since the 1500s, when an unknown printer took a galley of type
+            and scrambled it to make a type specimen book. It has survived not
+            only five centuries, but also the leap into electronic typesetting,
+            remaining essent
           </p>
         </div>
         <ul class="tags">
@@ -54,9 +59,9 @@
           <li class="tag">CSS</li>
           <li class="tag">JavaScript</li>
         </ul>
-        <div class="card action">
-          <button type="button" class="see-project">See Live</button>
-          <button type="button" class="see-project">See Source</button>
+        <div class="card action" id="modal-btns">
+          <button type="button" class="modal see-live">See Live</button>
+          <button type="button" class="modal see-source">See Source</button>
         </div>
       </div>
     </div>
@@ -172,7 +177,9 @@
               <li class="tag">JavaScript</li>
             </ul>
             <div class="card action">
-              <button type="button" class="see-project">See Project</button>
+              <button type="button" class="see-project" id="show-modal-btn">
+                See Project
+              </button>
             </div>
           </div>
         </div>
@@ -427,5 +434,6 @@
       </section>
     </main>
     <script src="script.js"></script>
+    <script src="modal.js"></script>
   </body>
 </html>

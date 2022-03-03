@@ -47,7 +47,7 @@ p {
 }
 
 #overlay {
-  /* display: none; */
+  display: none;
   background-color: rgba(193, 199, 208, 0.45);
   backdrop-filter: blur(3px);
   position: fixed;
@@ -61,8 +61,11 @@ p {
   background-color: #fff;
   position: absolute;
   min-width: 343px;
-  height: 713px;
-  margin: auto;
+  top: 0;
+  right: 0;
+  /* bottom: ; */
+  left: 0;
+  margin: 0 16px;
   top: 20px;
   border-radius: 16px;
   padding: 16px;
@@ -76,6 +79,10 @@ p {
 #close-modal-btn {
   border: none;
   color: #67798e;
+}
+
+#modal-btns {
+  margin: 59px 72px;
 }
 
 .app-header {
