@@ -1,1 +1,1 @@
-import modal_data from "./modal-data";
+import modal_data from './modal-data';
