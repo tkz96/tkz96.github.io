@@ -1,4 +1,4 @@
-const modal_data = [
+const modalData = [
   {
     name: 'Tonic',
     desc: '',
@@ -33,4 +33,4 @@ const modal_data = [
   },
 ];
 
-export default modal_data;
+export default modalData;

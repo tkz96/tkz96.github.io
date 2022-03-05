@@ -1,1 +1,1 @@
-import modal_data from './modal-data';
+import modalData from './modal-data.js';
