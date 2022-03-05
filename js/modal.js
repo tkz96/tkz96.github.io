@@ -1,0 +1,1 @@
+import modal_data from "./modal-data";
