@@ -10,7 +10,7 @@ This repository is dedicated to my portfolio website.
 
 ## Built With
 
-- Languages: Vanilla HTML 5 & CSS 3
+- Languages: Vanilla HTML 5 & CSS 3 Javascript
 - Technologies used: Git, GitHub, VS Code
 
 ## Getting Started
