@@ -1,10 +1,8 @@
 # Live Demo to my website
 
-<<<<<<< HEAD
-Please visit my website! <br />
-=======
+# Please visit my website! <br />
+
 <b>Please visit my website!</b> <br />
->>>>>>> c2cbce181a5a4b20da281a218161a6e30387ea88
 [Live Demo Link](https://tkz96.github.io/)
 
 This repository is dedicated to my portfolio website.
@@ -25,12 +23,13 @@ This website does not have any special pre-requisites.<br />
 You may need to install Node.js to run the code linters (that are included in the source code) locally on your machine.<br />
 <b>[Visit this link to download the latest version of Node.js](https://nodejs.org/en/download/).</b>
 
-* Once you are inside the folder where you have cloned the repository, please run the following code through a shell or command prompt.
+- Once you are inside the folder where you have cloned the repository, please run the following code through a shell or command prompt.
 
   ```sh
   npm install
   ```
-This will install the npm packages to set the linters up.
+
+  This will install the npm packages to set the linters up.
 
 ### Usage
 
@@ -61,4 +60,3 @@ Give a ⭐️ if you like this project!
 ## 📝 License
 
 This project is [MIT](./MIT.md) licensed.
-
