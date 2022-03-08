@@ -46,7 +46,7 @@ p {
 }
 
 #overlay {
-  display: flex;
+  display: none;
   /* flex-direction: column; */
   justify-content: center;
   min-width: 320px;
@@ -62,9 +62,11 @@ p {
   backdrop-filter: blur(5px);
   height: 100vh;
   border: solid 2px blue;
+  box-sizing: border-box;
 }
 
 #modal {
+  display: block;
   max-width: 600px;
   /* max-height: 600px; */
   background-color: #fff;
