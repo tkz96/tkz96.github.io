@@ -11,7 +11,8 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/desktop-style.css" />
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script
       async
@@ -42,31 +43,38 @@
           <li><img src="assets/shapes/dot.svg" alt="dot" /></li>
           <li><h3>2015</h3></li>
         </ul>
-        <img
-          id="modal-img-mobile"
-          src="assets/card-images/mobile/1.png"
-          class="image1"
-          alt=""
-        />
+        <div id="modal-img">
+          <img
+            id="modal-img-mobile"
+            src="assets/card-images/mobile/1.png"
+            class="image1"
+            alt=""
+          />
+        </div>
+
         <img
           id="modal-img-desktop"
           src="assets/card-images/desktop/1.png"
           class="image2"
           alt=""
         />
-        <p id="modal-desc"></p>
-        <ul id="modal-tags" class="tags">
-          <li class="tag">html</li>
-          <li class="tag">css</li>
-          <li class="tag">js</li>
-        </ul>
-        <div>
-          <button class="modal-buttons" id="modal-button-live">
-            See Live <img src="live.svg" alt="live" />
-          </button>
-          <button class="modal-buttons" id="modal-button-source">
-            See Source <img src="github.svg" alt="github" />
-          </button>
+        <div class="modal-bottom">
+          <p id="modal-desc"></p>
+          <div class="modal-button-and-tags">
+            <ul id="modal-tags" class="tags">
+              <li class="tag">html</li>
+              <li class="tag">css</li>
+              <li class="tag">js</li>
+            </ul>
+            <div class="modal-buttons">
+              <button id="modal-button-live">
+                See Live <img src="live.svg" alt="live" />
+              </button>
+              <button id="modal-button-source">
+                See Source <img src="github.svg" alt="github" />
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </div>

@@ -47,8 +47,7 @@ p {
 
 #overlay {
   display: none;
-
-  /* flex-direction: column; */
+  flex-direction: column;
   justify-content: center;
   min-width: 320px;
   align-items: center;
@@ -68,14 +67,17 @@ p {
 #modal {
   display: block;
   max-width: 600px;
-
-  /* max-height: 600px; */
   background-color: #fff;
   border: 1px solid #dfe1e6;
-
-  /* box-sizing: inherit; */
   border-radius: 16px;
   padding: 16px;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  padding: 24px;
 }
 
 .modal-head {
@@ -83,8 +85,17 @@ p {
   justify-content: space-between;
 }
 
+#modal-img {
+  display: flex;
+}
+
+#modal-img-mobile {
+  margin: 12px auto;
+}
+
 #close-modal-btn {
   border: none;
+  font-size: 35px;
 }
 
 .app-header {
@@ -378,112 +389,6 @@ textarea {
   max-width: 500px;
   display: flex;
   flex-direction: column;
-}
-
-@media (min-width: 992px) {
-  .app-wrapper {
-    width: 100vw;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .nav-button {
-    display: none;
-  }
-
-  .welcome-line {
-    background-image: url("/assets/shapes/background-shapes/desktop/desktop-header-shapes.svg");
-    background-position: center;
-  }
-
-  .welcome-line-text {
-    padding: 0 240px;
-  }
-
-  .portfolio-cards {
-    gap: 142px;
-    min-width: 790px;
-    max-width: 1152px;
-  }
-
-  .portfolio-cards .card {
-    flex-direction: row;
-  }
-
-  .portfolio-cards .card .left-block {
-    flex-direction: column;
-  }
-
-  .card .head {
-    flex-direction: column;
-  }
-
-  .image1 {
-    display: none;
-  }
-
-  .image2 {
-    display: block;
-  }
-
-  .image2:hover {
-    transition: 400ms;
-    transition-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
-    transform: scale(0.96);
-    box-shadow: -1px 1px 30px 8px rgba(0, 0, 0, 0.28);
-  }
-
-  .about-myself {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: 1fr;
-    grid-column-gap: 25px;
-    grid-row-gap: 0;
-    padding-left: 142px;
-    padding-right: 142px;
-  }
-
-  .contact-form {
-    background-image: url("/assets/shapes/background-shapes/desktop/contact-form-background-shapes.svg");
-    background-position: center;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .app-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 155px;
-  }
-
-  .nav-menu,
-  .nav-menu.active {
-    display: none;
-  }
-
-  .desktop-menu {
-    display: flex;
-    list-style: none;
-    gap: 32px;
-  }
-
-  .nav-item {
-    color: #344563;
-    font-weight: 500;
-    font-size: 15px;
-    transition: 0.2s ease-in-out;
-  }
-
-  .nav-item:hover {
-    color: #ffaa60;
-    font-weight: bold;
-  }
-
-  .hamburger {
-    display: none;
-    cursor: pointer;
-  }
 }
 
 .icons li:hover {
