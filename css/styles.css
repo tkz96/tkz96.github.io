@@ -61,7 +61,6 @@ p {
   background-color: rgba(193, 199, 208, 0.45);
   backdrop-filter: blur(5px);
   height: 100vh;
-  border: solid 2px blue;
   box-sizing: border-box;
 }
 
@@ -70,8 +69,7 @@ p {
   max-width: 600px;
   /* max-height: 600px; */
   background-color: #fff;
-  /* border: 1px solid #dfe1e6; */
-  border: 2px solid red;
+  border: 1px solid #dfe1e6;
   /* box-sizing: inherit; */
   border-radius: 16px;
   padding: 16px;
