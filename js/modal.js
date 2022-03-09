@@ -36,6 +36,7 @@ const modalData = [
     link_github: 'https://github.com/tkz96/tkz96.github.io',
   },
 ];
+
 const overlay = document.getElementById('overlay');
 
 const openModal = () => {

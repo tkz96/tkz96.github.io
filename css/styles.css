@@ -47,6 +47,7 @@ p {
 
 #overlay {
   display: none;
+
   /* flex-direction: column; */
   justify-content: center;
   min-width: 320px;
@@ -67,9 +68,11 @@ p {
 #modal {
   display: block;
   max-width: 600px;
+
   /* max-height: 600px; */
   background-color: #fff;
   border: 1px solid #dfe1e6;
+
   /* box-sizing: inherit; */
   border-radius: 16px;
   padding: 16px;
