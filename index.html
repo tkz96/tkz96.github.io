@@ -27,7 +27,6 @@
     </script>
   </head>
   <body>
-    
     <header>
       <nav class="app-header">
         <a href="index.html"><p class="logo-placeholder">Welcome!</p></a>
@@ -43,7 +42,7 @@
           <li><a href="#about-myself" class="nav-item">About</a></li>
           <li><a href="#contact-form" class="nav-item">Contact</a></li>
         </ul>
-        
+
         <div class="hamburger">
           <span class="bar"></span>
           <span class="bar"></span>
@@ -359,7 +358,8 @@
             feature that you need built, or a project that needs coding, I'd
             love to help :)
           </p>
-          <form action="https://formspree.io/f/xvolakag" method="post">
+          <!-- pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" -->
+          <form id="form" action="https://formspree.io/f/xvolakag" method="post">
             <ul class="form-input">
               <li>
                 <input
@@ -372,9 +372,9 @@
               </li>
               <li>
                 <input
+                  id="email"
                   type="email"
                   name="email"
-                  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
                   placeholder="Enter Your Email"
                   required
                 />
@@ -391,9 +391,11 @@
             </ul>
             <button type="submit">Get In Touch</button>
           </form>
+          <div id="error"></div>
         </div>
       </section>
     </main>
     <script src="script.js"></script>
+    <script src="form-validation.js"></script>
   </body>
 </html>
