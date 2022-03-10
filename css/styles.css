@@ -49,7 +49,6 @@ p {
   display: none;
   flex-direction: column;
   justify-content: center;
-  min-width: 320px;
   align-items: center;
   position: fixed;
   left: 0;
@@ -62,15 +61,18 @@ p {
   backdrop-filter: blur(5px);
   height: 100vh;
   box-sizing: border-box;
+  overflow: auto;
 }
 
 #modal {
-  display: block;
+  margin: auto;
   max-width: 600px;
+  position: relative;
   background-color: #fff;
   border: 1px solid #dfe1e6;
   border-radius: 16px;
   padding: 16px;
+  overflow: auto;
 }
 
 .modal-buttons {
