@@ -12,6 +12,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/desktop-style.css" />
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script
       async
@@ -27,7 +28,57 @@
     </script>
   </head>
   <body>
-    
+    <div id="overlay">
+      <div id="modal">
+        <div class="modal-head">
+          <h2 id="modal-title">Tonic</h2>
+          <button type="button" onclick="closeModal()" id="close-modal-btn">
+            &times;
+          </button>
+        </div>
+        <ul class="caption">
+          <li class="canopy"><h3>CANOPY</h3></li>
+          <li><img src="assets/shapes/dot.svg" alt="dot" /></li>
+          <li><h3>Back End Dev</h3></li>
+          <li><img src="assets/shapes/dot.svg" alt="dot" /></li>
+          <li><h3>2015</h3></li>
+        </ul>
+        <div id="modal-img">
+          <img
+            id="modal-img-mobile"
+            src="assets/card-images/mobile/1.png"
+            class="image1"
+            alt=""
+          />
+        </div>
+
+        <img
+          id="modal-img-desktop"
+          src="assets/card-images/desktop/1.png"
+          class="image2"
+          alt=""
+        />
+        <div class="modal-bottom">
+          <p id="modal-desc"></p>
+          <div class="modal-button-and-tags">
+            <ul id="modal-tags" class="tags">
+              <li class="tag">html</li>
+              <li class="tag">css</li>
+              <li class="tag">js</li>
+            </ul>
+            <div class="modal-buttons">
+              <button id="modal-button-live">
+                See Live <img src="live.svg" alt="live" />
+              </button>
+              <button id="modal-button-source">
+                See Source <img src="github.svg" alt="github" />
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <header>
       <nav class="app-header">
         <a href="index.html"><p class="logo-placeholder">Welcome!</p></a>
@@ -43,7 +94,7 @@
           <li><a href="#about-myself" class="nav-item">About</a></li>
           <li><a href="#contact-form" class="nav-item">Contact</a></li>
         </ul>
-        
+
         <div class="hamburger">
           <span class="bar"></span>
           <span class="bar"></span>
@@ -140,7 +191,13 @@
               <li class="tag">JavaScript</li>
             </ul>
             <div class="card action">
-              <button type="button" class="see-project">See Project</button>
+              <button
+                type="button"
+                class="see-project"
+                onclick="openModalWithData(0)"
+              >
+                See Project
+              </button>
             </div>
           </div>
         </div>
@@ -176,7 +233,13 @@
               <li class="tag">JavaScript</li>
             </ul>
             <div class="card action">
-              <button type="button" class="see-project">See Project</button>
+              <button
+                type="button"
+                class="see-project"
+                onclick="openModalWithData(1)"
+              >
+                See Project
+              </button>
             </div>
           </div>
         </div>
@@ -212,7 +275,13 @@
               <li class="tag">JavaScript</li>
             </ul>
             <div class="card action">
-              <button type="button" class="see-project">See Project</button>
+              <button
+                type="button"
+                class="see-project"
+                onclick="openModalWithData(2)"
+              >
+                See Project
+              </button>
             </div>
           </div>
         </div>
@@ -248,7 +317,13 @@
               <li class="tag">JavaScript</li>
             </ul>
             <div class="card action">
-              <button type="button" class="see-project">See Project</button>
+              <button
+                type="button"
+                class="see-project"
+                onclick="openModalWithData(3)"
+              >
+                See Project
+              </button>
             </div>
           </div>
         </div>
@@ -394,6 +469,7 @@
         </div>
       </section>
     </main>
-    <script src="script.js"></script>
+    <script src="js/script.js"></script>
+    <script type="text/javaScript" src="js/modal.js"></script>
   </body>
 </html>
