@@ -434,7 +434,12 @@
             feature that you need built, or a project that needs coding, I'd
             love to help :)
           </p>
-          <form action="https://formspree.io/f/xvolakag" method="post">
+          <!-- pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" -->
+          <form
+            id="form"
+            action="https://formspree.io/f/xvolakag"
+            method="post"
+          >
             <ul class="form-input">
               <li>
                 <input
@@ -447,9 +452,9 @@
               </li>
               <li>
                 <input
+                  id="email"
                   type="email"
                   name="email"
-                  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
                   placeholder="Enter Your Email"
                   required
                 />
@@ -466,10 +471,12 @@
             </ul>
             <button type="submit">Get In Touch</button>
           </form>
+          <div id="error"></div>
         </div>
       </section>
     </main>
     <script src="js/script.js"></script>
+    <script src="js/form-validation.js"></script>
     <script type="text/javaScript" src="js/modal.js"></script>
   </body>
 </html>

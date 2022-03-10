@@ -223,6 +223,11 @@ p {
   color: #fff;
 }
 
+#error {
+  color: #fff;
+  font-size: 24px;
+}
+
 #fname {
   border: 1px solid #cfd8dc;
 }
