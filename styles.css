@@ -1,0 +1,359 @@
+* {
+    box-sizing: border-box;
+    color: #ffffff;
+    /* font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; */
+    font-family: 'Manrope', sans-serif;
+    margin: 0;
+    padding: 0;
+    max-width: 100vw;
+}
+
+body {
+    background-color: #111827;
+    display: flex;
+    flex-direction: column;
+    max-width: 1184px;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    margin-top: 5rem;
+}
+
+main {
+    padding: 1rem;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    background: rgba(255, 255, 255, 0.034);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(8.5px);
+    -webkit-backdrop-filter: blur(8.5px);
+}
+
+nav ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 2rem;
+}
+
+nav a {
+    max-width: 100vw;
+}
+
+li {
+    text-decoration: none;
+    list-style: none;
+}
+
+h1 {
+    font-size: 3.236rem;
+    font-weight: 600;
+}
+
+h2 {
+    font-size: 1.618rem;
+    font-weight: 600;
+}
+
+h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+p {
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    border-top: #E5E7EB 1px solid;
+    background: rgba(255, 255, 255, 0.034);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(8.5px);
+    -webkit-backdrop-filter: blur(8.5px);
+}
+
+footer ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 2rem;
+}
+
+footer a {
+    font-weight: 100;
+}
+
+footer li {
+    text-decoration: none;
+    list-style: none;
+}
+
+button {
+    display: inline-block;
+    border: none;
+    padding: 1rem 2rem;
+    margin: 0;
+    text-decoration: none;
+    background: #12caaa;
+    color: #ffffff;
+    font-family: sans-serif;
+    font-size: 1rem;
+    cursor: pointer;
+    text-align: center;
+    transition: background 250ms ease-in-out,
+        transform 150ms ease;
+    border-radius: 10px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+button:hover,
+button:focus {
+    background: #aabcd1;
+}
+
+button:focus {
+    outline: 1px solid #fff;
+    outline-offset: -4px;
+}
+
+button:active {
+    transform: scale(0.99);
+}
+
+/* custom classes */
+
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.034);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(8.5px);
+    -webkit-backdrop-filter: blur(8.5px);
+    border-radius: 10px;
+    margin: 4rem 1rem;
+}
+
+.heading {
+    text-align: center;
+    text-decoration: underline;
+    text-underline-offset: 1rem;
+    text-decoration-thickness: 0.125rem;
+    margin: 4rem auto;
+}
+
+.hero-section {
+    margin: 3rem 0 6rem 0;
+}
+
+.the-northern-lights {
+    position: fixed;
+    z-index: -1;
+}
+
+.project-highlight {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 1rem;
+    padding: 0;
+}
+
+.form-input {
+    background-color: #E5E7EB;
+    color: #111827;
+    border-radius: 10px;
+    padding: 1rem 2rem;
+    border: none;
+    margin: 0.25rem 0;
+    font-size: 1rem;
+    font-weight: 400;
+    width: 100%;
+}
+
+#textarea {
+    min-width: 100%;
+    min-height: 12rem;
+}
+
+.my-name {
+    background: linear-gradient(282deg, #b912ca, #00b0b9, #009fb9, #12caaa);
+    background-size: 800% 800%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    -webkit-animation: AnimationName 5s ease infinite;
+    -moz-animation: AnimationName 5s ease infinite;
+    animation: AnimationName 5s ease infinite;
+}
+
+.project-image {
+    width: 100%;
+    max-width: 768px;
+    border-radius: 10px;
+}
+
+.social-icons {
+    margin: 1rem 0;
+}
+
+.social-icons li {
+    display: inline-block;
+    margin: 0 0.5rem;
+}
+
+.tags {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+
+.tags li {
+    background-color: #E5E7EB;
+    color: #111827;
+    border-radius: 10px;
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+    font-weight: 800;
+}
+
+@-webkit-keyframes AnimationName {
+    0% {
+        background-position: 0% 4%
+    }
+
+    50% {
+        background-position: 100% 97%
+    }
+
+    100% {
+        background-position: 0% 4%
+    }
+}
+
+@-moz-keyframes AnimationName {
+    0% {
+        background-position: 0% 4%
+    }
+
+    50% {
+        background-position: 100% 97%
+    }
+
+    100% {
+        background-position: 0% 4%
+    }
+}
+
+@keyframes AnimationName {
+    0% {
+        background-position: 0% 4%
+    }
+
+    50% {
+        background-position: 100% 97%
+    }
+
+    100% {
+        background-position: 0% 4%
+    }
+}
+
+/* desktop */
+
+@media screen and (min-width: 768px) {
+    h1 {
+        font-size: 4.854rem;
+        font-weight: 600;
+    }
+
+    h2 {
+        font-size: 3.236rem;
+        font-weight: 600;
+    }
+
+    h3 {
+        font-size: 1.618rem;
+        font-weight: 600;
+    }
+
+    p {
+        font-size: 1rem;
+        font-weight: 400;
+    }
+}
+
+@media screen and (min-width: 1184px) {
+    .card {
+        display: flex;
+        flex-direction: row;
+        gap: 2rem;
+    }
+
+    .project-image {
+        flex: 1;
+    }
+
+    .right-block {
+        flex: 1;
+    }
+
+    .contact-form {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: 1fr;
+        grid-column-gap: 32px;
+        grid-row-gap: 0px;
+    }
+}
+
+
+h1,
+h2,
+h3,
+p,
+button {
+    margin: 0.5rem 0;
+}
+
+a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 600;
+}
