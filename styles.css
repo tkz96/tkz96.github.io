@@ -118,8 +118,8 @@ footer li {
     list-style: none;
 }
 
-button,
-a.action {
+a.action,
+button {
     display: inline-block;
     border: none;
     padding: 1rem 2rem;
@@ -136,10 +136,10 @@ a.action {
     -moz-appearance: none;
 }
 
-button:hover,
-button:focus,
 a.action:hover,
-a.action:focus {
+a.action:focus,
+button:hover,
+button:focus {
     background: #08A5A5;
 }
 
