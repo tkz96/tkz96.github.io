@@ -1,0 +1,59 @@
+@media screen and (min-width: 768px) {
+    h1 {
+        font-size: 4.854rem;
+        font-weight: 600;
+    }
+
+    h2 {
+        font-size: 3.236rem;
+        font-weight: 600;
+    }
+
+    h3 {
+        font-size: 1.618rem;
+        font-weight: 600;
+    }
+
+    p {
+        font-size: 1rem;
+        font-weight: 400;
+    }
+
+    .skills {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+@media screen and (min-width: 1184px) {
+
+    .menu-icon {
+        display: none;
+    }
+
+    .card {
+        display: flex;
+        flex-direction: row;
+        gap: 2rem;
+    }
+
+    .project-image {
+        flex: 1;
+    }
+
+    .right-block {
+        flex: 1;
+    }
+
+    .contact-form {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: 1fr;
+        grid-column-gap: 32px;
+        grid-row-gap: 0px;
+    }
+
+    .skills {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
