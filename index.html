@@ -12,59 +12,61 @@
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="scroll.css">
+    <link rel="stylesheet" href="desktop-media-queries.css">
 </head>
 
 <body>
     <header>
         <nav>
-            <a href="index.html">
+            <a href="#">
                 <p class="logo-placeholder">TKZ</p>
             </a>
-            <!-- <ul>
-                <li><a href=""></a>Portfolio</li>
-                <li><a href=""></a>About</li>
-                <li><a href=""></a>Contact</li>
-            </ul> -->
-            <img src="assets/shapes/menu-button.svg" class="image1" alt="Navigation" />
+            <ul>
+                <li><a href=#portfolio-section>Portfolio</a></li>
+                <li><a href="#about-me-section">About</a></li>
+                <li><a href="#contact-section">Contact</a></li>
+            </ul>
+            <img src="assets/shapes/menu-button.svg" class="menu-icon" alt="Navigation" />
         </nav>
     </header>
 
     <main>
         <div class="the-northern-lights"><img src="./assets/bg-images/1.png" alt="the-northern-lights"></div>
-        <section class="hero-section">
+        <section id="hero-section">
             <div class="welcome-line-text">
                 <h3>Hi, my name is</h3>
                 <div class="my-name">
                     <h1>Talha Khalid Zuberi.</h1>
                 </div>
                 <h2>I am a software developer!</h2>
-                <h3>LET US CONNECT</h3>
+                <h3>LET'S CONNECT</h3>
 
                 <div class="social-icons">
                     <ul>
                         <li>
-                            <a href="https://www.twitter.com/tkz96" target="_blank" rel="noopener noreferrer"><img
+                            <a class="social-icon" href="https://www.twitter.com/tkz96" target="_blank" rel="noopener noreferrer"><img
                                     src="assets/icons/social-icons/icon-twitter.svg" alt="Twitter" />
                             </a>
                         </li>
                         <li>
-                            <a href="https://www.linkedin.com/in/talha-zuberi" target="_blank"
+                            <a class="social-icon" href="https://www.linkedin.com/in/talha-zuberi" target="_blank"
                                 rel="noopener noreferrer"><img src="assets/icons/social-icons/icon-linkedin.svg"
                                     alt="LinkedIn" />
                             </a>
                         </li>
                         <li>
-                            <a href="https://www.medium.com/" target="_blank" rel="noopener noreferrer"><img
+                            <a class="social-icon" href="https://medium.com/@tkz_96" target="_blank" rel="noopener noreferrer"><img
                                     src="assets/icons/social-icons/icon-medium.svg" alt="Medium" />
                             </a>
                         </li>
                         <li>
-                            <a href="https://www.github.com/tkz96" target="_blank" rel="noopener noreferrer"><img
+                            <a class="social-icon" href="https://www.github.com/tkz96" target="_blank" rel="noopener noreferrer"><img
                                     src="assets/icons/social-icons/icon-github.svg" alt="GitHub" />
                             </a>
                         </li>
                         <li>
-                            <a href="https://www.angellist.com/" target="_blank" rel="noopener noreferrer"><img
+                            <a class="social-icon" href="https://angel.co/u/talha-zuberi" target="_blank" rel="noopener noreferrer"><img
                                     src="assets/icons/social-icons/icon-angellist.svg" alt="angellist" />
                             </a>
                         </li>
@@ -73,7 +75,7 @@
             </div>
         </section>
 
-        <section class="portfolio-card">
+        <section id="portfolio-section">
             <h2 class="heading">Featured Work</h2>
             <div class="card">
                 <img src="assets/card-images/mobile/1.jpeg" class="project-image" alt="" />
@@ -108,19 +110,16 @@
                         </p>
 
 
-                        <div class="action">
-                            <button type="button" class="see-project">
-                                <a href="https://github.com/sharon-odhiambo/jet-log-frontend" target="_blank" rel="noopener noreferrer">
-                                    See Source
-                                    <img src="assets/icons/social-icons/icon-github.svg" alt="GitHub" />
-                                </a></button>
+                        <div>
+                            <a class="action" href="https://github.com/sharon-odhiambo/jet-log-frontend" target="_blank"
+                                rel="noopener noreferrer">
+                                See Source
+                            </a>
                         </div>
-                        <div class="action">
-                            <button type="button" class="see-project">
-                                <a href="https://the-awesome-berkay-akbas-site.netlify.app/" target="_blank"
-                                    rel="noopener noreferrer">
-                                    Visit Live
-                                </a></button>
+                        <div>
+                            <a class="action" href="https://the-awesome-berkay-akbas-site.netlify.app/" target="_blank"
+                                rel="noopener noreferrer">Visit Live
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -151,22 +150,20 @@
                     <div class="project-body">
                         <!-- keep this max 700 characters -->
                         <p>
-                            Who doesn't love math? This project was built for math lovers. It is a simple calculator and a quote generator.
+                            Who doesn't love math? This project was built for math lovers. It is a simple calculator and
+                            a quote generator.
                         </p>
-                        <div class="action">
-                            <button type="button" class="see-project">
-                                <a href="https://www.github.com/tkz96/Math-Magicians" target="_blank"
-                                    rel="noopener noreferrer">
-                                    See Source
-                                    <img src="assets/icons/social-icons/icon-github.svg" alt="GitHub" />
-                                </a></button>
+                        <div>
+                            <a class="action" href="https://www.github.com/tkz96/Math-Magicians" target="_blank"
+                                rel="noopener noreferrer">
+                                See Source
+                            </a>
                         </div>
-                        <div class="action">
-                            <button type="button" class="see-project">
-                                <a href="https://lambent-paletas-6e4604.netlify.app/" target="_blank"
-                                    rel="noopener noreferrer">
-                                    Visit Live
-                                </a></button>
+                        <div>
+                            <a class="action" href="https://lambent-paletas-6e4604.netlify.app/" target="_blank"
+                                rel="noopener noreferrer">
+                                Visit Live
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -199,59 +196,143 @@
                     <div class="project-body">
                         <!-- keep this max 700 characters -->
                         <p>
-                            Better air quality is a must for a healthy life. This project was built to help people understand the air quality in European countries.
+                            Better air quality is a must for a healthy life. This project was built to help people
+                            understand the air quality in European countries.
                         </p>
 
-                        <div class="action">
-                            <button type="button" class="see-project">
-                                <a href="https://www.github.com/tkz96/air-pollution-capstone" target="_blank"
-                                    rel="noopener noreferrer">
-                                    See Source
-                                    <img src="assets/icons/social-icons/icon-github.svg" alt="GitHub" />
-                                </a></button>
+                        <div>
+                            <a class="action" href="https://www.github.com/tkz96/air-pollution-capstone" target="_blank"
+                                rel="noopener noreferrer">
+                                See Source
+                            </a>
                         </div>
-                        <div class="action">
-                            <button type="button" class="see-project">
-                                <a href="https://silly-toffee-5e20a0.netlify.app/" target="_blank"
-                                    rel="noopener noreferrer">
-                                    Visit Live
-                                </a></button>
+                        <div>
+                            <a class="action" href="https://silly-toffee-5e20a0.netlify.app/" target="_blank"
+                                rel="noopener noreferrer">
+                                Visit Live
+                            </a>
                         </div>
                     </div>
                 </div>
             </div>
+            <div class="card">
+                <img src="assets/card-images/mobile/4.png" class="project-image" alt="" />
+                <!-- <img src="assets/card-images/desktop/1.png" class="image2" alt="" /> -->
 
+                <div class="right-block">
+                    <div class="project-head">
+                        <h2>Portfolio v2</h2>
+                        <ul class="project-highlight">
+                            <li>
+                                <h3>Front End</h3>
+                            </li>
+                            <li><img src="assets/shapes/dot.svg" alt="dot" /></li>
+                            <li>
+                                <h3>2023</h3>
+                            </li>
+                        </ul>
+
+                        <ul class="tags">
+                            <li>HTML</li>
+                            <li>CSS</li>
+                            <li>GitHub Pages</li>
+                        </ul>
+                    </div>
+                    <div class="project-body">
+                        <!-- keep this max 700 characters -->
+                        <p>
+                            What better way to show off your <i>technical prowess</i> than to build a portfolio website? I will post all my new projects here. Thank you for your continued support :)
+                        </p>
+
+                        <div>
+                            <a class="action" href="https://github.com/tkz96/tkz96.github.io" target="_blank"
+                                rel="noopener noreferrer">
+                                See Source
+                            </a>
+                        </div>
+                        <div>
+                            <a class="action" href="#">
+                                Visit Live
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
 
-        <section class="about-myself">
+        <section id="about-me-section">
             <div class="left-block">
-                <h2 class="heading">About Myself</h2>
+                <h2 class="heading">About Me</h2>
                 <p>
-                    I am a software developer and designer!<br>
-                    I can help you build a product, feature or website.<br>
-                    I have experience in HTML, CSS, JavaScript, React, Ruby, Ruby on Rails, PostgreSQL and many other
-                    technologies.
-                    Check out some of my work and experience! If you like what you see and have a project you need
-                    completed, please contact me.
+                    I am a software developer and designer!
+                    I can help you build a product, feature, or website.<br />
+                    I have experience in HTML, CSS, JavaScript, React, Ruby, Ruby on Rails, PostgreSQL, and many other
+                    technologies. Check out some of my work and experience! If you like what you see and have a project
+                    you need completing, please contact me.
+                    I love technology and continue to learn new things daily. I also have a passion for animated movies :D
                 </p>
             </div>
 
-            <div class="action">
-                <button type="button">
-                    <a
-                        href="https://docs.google.com/document/d/14AZJuBgNCKhpTuCMTls_YcPgB7hV_q0_7rrkrQtbZ1A/edit?usp=sharing">
-                        Get my resume</a>
-                </button>
+            <div>
+                <a class="action"
+                    href="https://docs.google.com/document/d/14AZJuBgNCKhpTuCMTls_YcPgB7hV_q0_7rrkrQtbZ1A/edit?usp=sharing">
+                    Get my resume</a>
             </div>
 
         </section>
+        <section id="skills-section">
+            <h2 class="heading">My Skills</h2>
+            <div class="skills">
+                <ul class="skills-card">
+                    <li>
+                        <h3>Languages</h3>
+                    </li>
+                    <li>HTML & CSS</li>
+                    <li></li>
+                    <li>JavaScript (ES6+)</li>
+                    <li>Ruby</li>
+                    <li>SQL</li>
+                </ul>
+                <ul class="skills-card">
+                    <li>
+                        <h3>Frameworks & Libraries</h3>
+                    </li>
+                    <li>React</li>
+                    <li>Tailwind</li>
+                    <li>PostgreSQL</li>
+                    <li>Ruby on Rails</li>
+                    <li>RSpec</li>
+                    <li>Capybara</li>
+                    <li>Jest</li>
+                </ul>
+                <ul class="skills-card">
+                    <li>
+                        <h3>Skills</h3>
+                    </li>
+                    <li>Git/GitHub</li>
+                    <li>Remote Pair-Programming</li>
+                    <li>Test-Driven Development</li>
+                    <li>Designing</li>
+                    <li></li>
+                </ul>
+                <ul class="skills-card">
+                    <li>
+                        <h3>Other Tools</h3>
+                    </li>
+                    <li>Figma</li>
+                    <li>After Effects</li>
+                    <li>Photoshop</li>
+                    <li>Illustrator</li>
+                </ul>
+            </div>
+        </section>
 
-        <section>
+        <section id="contact-section">
             <h2 class="heading">Contact Me</h2>
             <div class="contact-form">
                 <p>
-                    If you have an application you are interested in developing, a feature
-                    that you need built, or a project that needs coding, I'd love to help :)
+                    If you have an application you are interested in developing, a feature that you need to be built, or
+                    a project that needs coding, I'd love to help :)
                 </p>
                 <form action="https://formspree.io/f/xvolakag" method="post">
                     <ul>
