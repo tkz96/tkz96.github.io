@@ -1,0 +1,1124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Operational standard for enterprise development organizations integrating autonomous AI agents across every stage of the SDLC.">
+  <title>The AI Development Playbook</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to content</a>
+
+  <header class="site-header">
+    <div class="header-container">
+      <div class="header-logo">
+        <span class="logo-bold">SDLC</span>
+        <span class="logo-light">/ STANDARD</span>
+      </div>
+      <div class="header-meta">
+        <span>VERSION 4.0</span>
+        <span>•</span>
+        <span>AZURE DEVOPS INTEGRATION</span>
+      </div>
+      <button type="button" class="mobile-menu-btn" aria-label="Toggle Table of Contents" onclick="toggleMobileDrawer()">
+        <span class="menu-icon-line"></span>
+        <span class="menu-icon-line"></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="layout-container">
+    <aside class="sidebar" id="sidebar-drawer">
+      <div class="sidebar-header">
+        <span class="sidebar-title">INDEX STRUCTURE</span>
+        <button type="button" class="close-menu-btn" aria-label="Close Table of Contents" onclick="closeMobileDrawer()">×</button>
+      </div>
+      <nav class="sidebar-nav" aria-label="Table of Contents">
+        <ul class="toc-list">
+      <li class="toc-item toc-level-2">
+        <a href="#1-core-concepts" onclick="closeMobileDrawer()">
+          <span class="toc-num">01. </span>
+          <span class="toc-text">Core Concepts</span>
+        </a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#tokens-and-token-management" onclick="closeMobileDrawer()">
+          
+          <span class="toc-text">Tokens and Token Management</span>
+        </a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#rules" onclick="closeMobileDrawer()">
+          
+          <span class="toc-text">Rules</span>
+        </a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#skills" onclick="closeMobileDrawer()">
+          
+          <span class="toc-text">Skills</span>
+        </a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#loops" onclick="closeMobileDrawer()">
+          
+          <span class="toc-text">Loops</span>
+        </a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#prompt-context-and-harness-engineering" onclick="closeMobileDrawer()">
+          
+          <span class="toc-text">Prompt, Context, and Harness Engineering</span>
+        </a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#agentic-workflows-gates" onclick="closeMobileDrawer()">
+          
+          <span class="toc-text">Agentic Workflows & Gates</span>
+        </a>
+      </li>
+    
+      <li class="toc-item toc-level-2">
+        <a href="#2-the-ai-augmented-sdlc" onclick="closeMobileDrawer()">
+          <span class="toc-num">02. </span>
+          <span class="toc-text">The AI-Augmented SDLC</span>
+        </a>
+      </li>
+    
+      <li class="toc-item toc-level-2">
+        <a href="#3-phase-1-preparing-the-codebase-to-be-ai-friendly" onclick="closeMobileDrawer()">
+          <span class="toc-num">03. </span>
+          <span class="toc-text">Phase 1: Preparing the Codebase to Be AI-Friendly</span>
+        </a>
+      </li>
+    
+      <li class="toc-item toc-level-2">
+        <a href="#4-phase-2-designing-the-developer-experience" onclick="closeMobileDrawer()">
+          <span class="toc-num">04. </span>
+          <span class="toc-text">Phase 2: Designing the Developer Experience</span>
+        </a>
+      </li>
+    
+      <li class="toc-item toc-level-2">
+        <a href="#5-phase-3-reviewing-everything-for-flaws-quality-security-assurance" onclick="closeMobileDrawer()">
+          <span class="toc-num">05. </span>
+          <span class="toc-text">Phase 3: Reviewing Everything for Flaws (Quality & Security Assurance)</span>
+        </a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#automated-edge-case-generation" onclick="closeMobileDrawer()">
+          
+          <span class="toc-text">Automated Edge-Case Generation</span>
+        </a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#two-tiered-review-architecture" onclick="closeMobileDrawer()">
+          
+          <span class="toc-text">Two-Tiered Review Architecture</span>
+        </a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#security-vulnerability-auditing" onclick="closeMobileDrawer()">
+          
+          <span class="toc-text">Security & Vulnerability Auditing</span>
+        </a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#continuous-workflow-critiques" onclick="closeMobileDrawer()">
+          
+          <span class="toc-text">Continuous Workflow Critiques</span>
+        </a>
+      </li>
+    
+      <li class="toc-item toc-level-2">
+        <a href="#6-end-to-end-enterprise-workflows-gates-governance" onclick="closeMobileDrawer()">
+          <span class="toc-num">06. </span>
+          <span class="toc-text">End-to-End Enterprise Workflows, Gates & Governance</span>
+        </a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#the-four-gate-enterprise-protocol" onclick="closeMobileDrawer()">
+          
+          <span class="toc-text">The Four-Gate Enterprise Protocol</span>
+        </a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#agent-access-permissions-matrix" onclick="closeMobileDrawer()">
+          
+          <span class="toc-text">Agent Access & Permissions Matrix</span>
+        </a>
+      </li>
+    
+      <li class="toc-item toc-level-2">
+        <a href="#7-how-to-write-tickets-for-azure-devops-dev-azure-com" onclick="closeMobileDrawer()">
+          <span class="toc-num">07. </span>
+          <span class="toc-text">How to Write Tickets for Azure DevOps (dev.azure.com)</span>
+        </a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#azure-devops-baseline-configuration-standards" onclick="closeMobileDrawer()">
+          
+          <span class="toc-text">Azure DevOps Baseline Configuration Standards</span>
+        </a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#1-epic" onclick="closeMobileDrawer()">
+          <span class="toc-num">01. </span>
+          <span class="toc-text">Epic</span>
+        </a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#2-feature" onclick="closeMobileDrawer()">
+          <span class="toc-num">02. </span>
+          <span class="toc-text">Feature</span>
+        </a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#3-issue-product-backlog-item" onclick="closeMobileDrawer()">
+          <span class="toc-num">03. </span>
+          <span class="toc-text">Issue (Product Backlog Item)</span>
+        </a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#4-task" onclick="closeMobileDrawer()">
+          <span class="toc-num">04. </span>
+          <span class="toc-text">Task</span>
+        </a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#5-bug" onclick="closeMobileDrawer()">
+          <span class="toc-num">05. </span>
+          <span class="toc-text">Bug</span>
+        </a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#azure-devops-ticket-quality-matrix" onclick="closeMobileDrawer()">
+          
+          <span class="toc-text">Azure DevOps Ticket Quality Matrix</span>
+        </a>
+      </li>
+    
+      <li class="toc-item toc-level-2">
+        <a href="#8-documentation-as-a-first-class-citizen-planning-standards" onclick="closeMobileDrawer()">
+          <span class="toc-num">08. </span>
+          <span class="toc-text">Documentation as a First-Class Citizen & Planning Standards</span>
+        </a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#1-system-level-documentation-outside-of-code" onclick="closeMobileDrawer()">
+          <span class="toc-num">01. </span>
+          <span class="toc-text">System-Level Documentation (Outside of Code)</span>
+        </a>
+      </li>
+    
+      <li class="toc-item toc-level-4">
+        <a href="#a-ubiquitous-domain-glossary-glossary-md" onclick="closeMobileDrawer()">
+          
+          <span class="toc-text">A. Ubiquitous Domain Glossary (`GLOSSARY.md`)</span>
+        </a>
+      </li>
+    
+      <li class="toc-item toc-level-4">
+        <a href="#b-ai-ready-product-requirement-documents-prds" onclick="closeMobileDrawer()">
+          
+          <span class="toc-text">B. AI-Ready Product Requirement Documents (PRDs)</span>
+        </a>
+      </li>
+    
+      <li class="toc-item toc-level-4">
+        <a href="#c-architecture-decision-records-adrs" onclick="closeMobileDrawer()">
+          
+          <span class="toc-text">C. Architecture Decision Records (ADRs)</span>
+        </a>
+      </li>
+    
+      <li class="toc-item toc-level-4">
+        <a href="#d-schema-first-api-contracts" onclick="closeMobileDrawer()">
+          
+          <span class="toc-text">D. Schema-First API Contracts</span>
+        </a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#2-code-level-documentation-standards" onclick="closeMobileDrawer()">
+          <span class="toc-num">02. </span>
+          <span class="toc-text">Code-Level Documentation Standards</span>
+        </a>
+      </li>
+    
+      <li class="toc-item toc-level-4">
+        <a href="#a-self-documenting-code-vs-explanatory-comments" onclick="closeMobileDrawer()">
+          
+          <span class="toc-text">A. Self-Documenting Code vs. Explanatory Comments</span>
+        </a>
+      </li>
+    
+      <li class="toc-item toc-level-4">
+        <a href="#b-standardized-module-function-docstrings" onclick="closeMobileDrawer()">
+          
+          <span class="toc-text">B. Standardized Module & Function Docstrings</span>
+        </a>
+      </li>
+    
+      <li class="toc-item toc-level-4">
+        <a href="#c-commit-messages-pr-descriptions" onclick="closeMobileDrawer()">
+          
+          <span class="toc-text">C. Commit Messages & PR Descriptions</span>
+        </a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#3-mandatory-execution-rules-for-engineers-ai-agents" onclick="closeMobileDrawer()">
+          <span class="toc-num">03. </span>
+          <span class="toc-text">Mandatory Execution Rules for Engineers & AI Agents</span>
+        </a>
+      </li>
+    
+      <li class="toc-item toc-level-3">
+        <a href="#4-documentation-do-s-and-don-ts-matrix" onclick="closeMobileDrawer()">
+          <span class="toc-num">04. </span>
+          <span class="toc-text">Documentation Do's and Don'ts Matrix</span>
+        </a>
+      </li>
+    
+      <li class="toc-item toc-level-2">
+        <a href="#9-recommended-skills-library" onclick="closeMobileDrawer()">
+          <span class="toc-num">09. </span>
+          <span class="toc-text">Recommended Skills Library</span>
+        </a>
+      </li>
+    
+      <li class="toc-item toc-level-2">
+        <a href="#10-the-dream-hybrid-frontier-local-execution-architecture" onclick="closeMobileDrawer()">
+          <span class="toc-num">10. </span>
+          <span class="toc-text">The Dream: Hybrid Frontier/Local Execution Architecture</span>
+        </a>
+      </li>
+    </ul>
+      </nav>
+    </aside>
+
+    <main class="content-wrapper" id="main-content">
+      <article class="prose">
+        <h1 id="the-ai-development-playbook-an-enterprise-sdlc-guide" class="doc-title">The AI Development Playbook: An Enterprise SDLC Guide</h1>
+<h2 id="version-4-complete-enterprise-operational-standard-with-azure-devops-integration-documentation-standards" class="heading-anchor-group">
+  <span class="heading-text">Version 4: Complete Enterprise Operational Standard with Azure DevOps Integration & Documentation Standards</span>
+  <a class="heading-anchor" href="#version-4-complete-enterprise-operational-standard-with-azure-devops-integration-documentation-standards" aria-label="Anchor link to Version 4: Complete Enterprise Operational Standard with Azure DevOps Integration & Documentation Standards">#</a>
+</h2><p>This playbook serves as both a practical field guide for software engineers and an operational standard for enterprise development organizations. It provides a complete framework for integrating autonomous AI agents across every stage of the Software Development Life Cycle (SDLC) while enforcing strict quality, security, governance standards, precise work item structuring in Azure DevOps (<code>dev.azure.com</code>), and rigorous documentation practices.</p>
+<hr>
+<hr>
+
+<h2 id="1-core-concepts" class="heading-anchor-group">
+  <span class="heading-text">1. Core Concepts</span>
+  <a class="heading-anchor" href="#1-core-concepts" aria-label="Anchor link to 1. Core Concepts">#</a>
+</h2><p>Before deploying AI agents effectively, teams need a shared vocabulary. The following core concepts define how agents interact with systems and humans:</p>
+
+<h3 id="tokens-and-token-management" class="heading-anchor-group">
+  <span class="heading-text">Tokens and Token Management</span>
+  <a class="heading-anchor" href="#tokens-and-token-management" aria-label="Anchor link to Tokens and Token Management">#</a>
+</h3><p>A token is a chunk of text (roughly 3/4 of a word) that an AI model reads and writes. The <strong>context window</strong> is the model&#39;s active working memory—like a whiteboard with limited space. Once filled, older context must be cleared or summarized. <strong>Token management</strong> is the discipline of keeping only essential files, rules, and context in the whiteboard to avoid the &quot;needle in a haystack&quot; problem, where critical instructions get lost in prompt bloat.</p>
+<p>Underneath sits the <strong>KV cache</strong> (Key-Value cache). When prompt structures remain static at the beginning (such as system rules and tool definitions), models reuse precomputed values, making agent runs faster and dramatically cheaper via prompt caching.</p>
+
+<h3 id="rules" class="heading-anchor-group">
+  <span class="heading-text">Rules</span>
+  <a class="heading-anchor" href="#rules" aria-label="Anchor link to Rules">#</a>
+</h3><p>Rules are persistent repository-level instructions stored in files like <code>AGENTS.md</code>, <code>CLAUDE.md</code>, or a <code>.cursor/rules</code> directory. They set standard conventions, build instructions, and prohibited actions once, so every agent automatically adheres to team norms without repeated prompting.</p>
+
+<h3 id="skills" class="heading-anchor-group">
+  <span class="heading-text">Skills</span>
+  <a class="heading-anchor" href="#skills" aria-label="Anchor link to Skills">#</a>
+</h3><p>Skills are modular, task-specific playbooks loaded only when needed (e.g., performing a security audit or refactoring a function). They act as expert checklists, keeping the main context window lightweight while ensuring repeatable execution quality.</p>
+
+<h3 id="loops" class="heading-anchor-group">
+  <span class="heading-text">Loops</span>
+  <a class="heading-anchor" href="#loops" aria-label="Anchor link to Loops">#</a>
+</h3><p>An agentic loop is the continuous cycle of <em>act, observe, and adjust</em>. Unlike single-shot responses, an agent executes a command (e.g., writes code or runs a build), reads errors, adjusts its solution, and re-runs tests until the task criteria are met.</p>
+
+<h3 id="prompt-context-and-harness-engineering" class="heading-anchor-group">
+  <span class="heading-text">Prompt, Context, and Harness Engineering</span>
+  <a class="heading-anchor" href="#prompt-context-and-harness-engineering" aria-label="Anchor link to Prompt, Context, and Harness Engineering">#</a>
+</h3><ul class="swiss-list"><li>**Prompt Engineering:** Crafting clear, direct instructions for specific individual tasks.
+
+</li><li>**Context Engineering:** Dynamically delivering the exact required background information (using techniques like RAG—Retrieval-Augmented Generation) to the agent before it acts.
+
+</li><li>**Harness Engineering:** The environment wrapped around the model, granting tool capabilities (running bash commands, editing files, making API calls). The standard protocol for connecting tools and data sources seamlessly across models is **MCP (Model Context Protocol)**.</li></ul>
+<h3 id="agentic-workflows-gates" class="heading-anchor-group">
+  <span class="heading-text">Agentic Workflows & Gates</span>
+  <a class="heading-anchor" href="#agentic-workflows-gates" aria-label="Anchor link to Agentic Workflows & Gates">#</a>
+</h3><p>Agents carry out real-world actions with side effects (editing repositories, creating pull requests, triggering deployments). To maintain safety and quality, workflows rely on <strong>gates</strong>—mandatory checkpoints where human engineers or automated review agents must inspect and approve progress before the workflow proceeds.</p>
+<hr>
+
+<h2 id="2-the-ai-augmented-sdlc" class="heading-anchor-group">
+  <span class="heading-text">2. The AI-Augmented SDLC</span>
+  <a class="heading-anchor" href="#2-the-ai-augmented-sdlc" aria-label="Anchor link to 2. The AI-Augmented SDLC">#</a>
+</h2><p>AI solutions can be integrated across the entire software development lifecycle, providing end-to-end augmentation from initial planning to long-term system maintenance:</p>
+
+<div class="table-container">
+  <table class="swiss-table">
+    <thead>
+      <tr><th>SDLC Phase</th><th>AI Capabilities & Focus</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>**1. Planning**</td><td>Summarizes stakeholder interviews, translates unstructured notes into roadmaps, and assists with timeline and resource estimation.</td></tr>
+    </tbody>
+  </table>
+</div><p> |
+| <strong>2. Analysis</strong> | Converts emails, support tickets, and chat logs into structured PRDs; validates technical stack feasibility and flags early bottlenecks.</p>
+<p> |
+| <strong>3. Design</strong> | Recommends system architectures, designs database schemas, generates design-system-compliant UI prototypes, and creates OpenAPI contracts.</p>
+<p> |
+| <strong>4. Coding</strong> | IDE-native agent pair programming, real-time complexity monitoring, technical debt prevention, and inline documentation generation.</p>
+<p> |
+| <strong>5. Testing</strong> | Generates comprehensive unit and integration test suites, tests complex edge cases, and executes visual regression checks.</p>
+<p> |
+| <strong>6. Deployment</strong> | Optimizes CI/CD pipelines, predicts release bottlenecks, and continuously monitors real-time telemetry logs to prevent downtime.</p>
+<p> |
+| <strong>7. Maintenance</strong> | Auto-triages and categorizes incoming bug reports, identifies incident root causes, and generates proposed patches.</p>
+<p> |</p>
+<hr>
+
+<h2 id="3-phase-1-preparing-the-codebase-to-be-ai-friendly" class="heading-anchor-group">
+  <span class="heading-text">3. Phase 1: Preparing the Codebase to Be AI-Friendly</span>
+  <a class="heading-anchor" href="#3-phase-1-preparing-the-codebase-to-be-ai-friendly" aria-label="Anchor link to 3. Phase 1: Preparing the Codebase to Be AI-Friendly">#</a>
+</h2><p>An AI agent is only as effective as the repository it operates within. Essential preparation steps include:</p>
+<ul class="swiss-list"><li>**Root Rules File:** Maintain an `AGENTS.md` file detailing build commands, style rules, and hard boundaries.
+
+</li><li>**Consistent Naming & Architecture:** Ensure domain terms are standardized across API, application, and database layers.
+
+</li><li>**Modular Architecture:** Break large monolithic files (3,000+ lines) into small, single-responsibility modules that fit easily into context windows.
+
+</li><li>**Comprehensive Test Suite & Static Analysis:** High test coverage and strict type checking provide instant feedback loops for agents to verify their own edits.
+
+</li><li>**Explicit Error Reporting:** Ensure errors yield detailed contextual traces rather than failing silently.</li></ul><hr>
+
+<h2 id="4-phase-2-designing-the-developer-experience" class="heading-anchor-group">
+  <span class="heading-text">4. Phase 2: Designing the Developer Experience</span>
+  <a class="heading-anchor" href="#4-phase-2-designing-the-developer-experience" aria-label="Anchor link to 4. Phase 2: Designing the Developer Experience">#</a>
+</h2><p>Day-to-day interactions with agents require specific execution patterns depending on the task domain:</p>
+<ul class="swiss-list"><li>**Environment Configuration:** Agents operating in developer environments must run within sandboxed containers, isolated from production credentials or sensitive keys.
+
+</li><li>**Frontend Workflows:** Provide agents with strict design tokens (color scales, typography, spacing variables). Mandate accessibility standards and automated visual regression testing.
+
+</li><li>**Backend Workflows:** Always supply documented API contracts (OpenAPI specifications) before implementation. Enforce additive, reversible database migrations.
+
+</li><li>**Feature Development, Bugs & Refactoring:** Use planning skills to achieve complete alignment before coding. Reproduce bugs with failing tests first. Execute small, incremental refactors backed by test suites.</li></ul><hr>
+
+<h2 id="5-phase-3-reviewing-everything-for-flaws-quality-security-assurance" class="heading-anchor-group">
+  <span class="heading-text">5. Phase 3: Reviewing Everything for Flaws (Quality & Security Assurance)</span>
+  <a class="heading-anchor" href="#5-phase-3-reviewing-everything-for-flaws-quality-security-assurance" aria-label="Anchor link to 5. Phase 3: Reviewing Everything for Flaws (Quality & Security Assurance)">#</a>
+</h2><p>Automated verification is the cornerstone of enterprise safety. No agent-generated output should reach production without passing multi-layered verification:</p>
+
+<h3 id="automated-edge-case-generation" class="heading-anchor-group">
+  <span class="heading-text">Automated Edge-Case Generation</span>
+  <a class="heading-anchor" href="#automated-edge-case-generation" aria-label="Anchor link to Automated Edge-Case Generation">#</a>
+</h3><p>Beyond standard unit tests, QA agents must actively generate adversarial test vectors to uncover latent bugs before deployment. This includes:</p>
+<ul class="swiss-list"><li>**Boundary & Payload Stressing:** Injecting empty strings, massive payloads, overflow numbers, and unexpected character encodings (e.g., UTF-8 multibyte, null-byte injection).
+
+</li><li>**Concurrency & State Collisions:** Stressing database transactions with concurrent requests to flag potential race conditions or lock contention.
+
+</li><li>**Failure Mode Simulation:** Mocking downstream API outages, timeout latency, and network dropouts to verify application fault tolerance.</li></ul>
+<h3 id="two-tiered-review-architecture" class="heading-anchor-group">
+  <span class="heading-text">Two-Tiered Review Architecture</span>
+  <a class="heading-anchor" href="#two-tiered-review-architecture" aria-label="Anchor link to Two-Tiered Review Architecture">#</a>
+</h3><p>To balance speed and thoroughness, code review must occur across two distinct tiers:</p>
+<ul class="swiss-list"><li>**Tier 1: Automated Mechanical Review (Agent-Driven):** Specialized review agents (such as BugBot) automatically inspect every diff for mechanical defects: off-by-one errors, unhandled null pointers, missing try/catch blocks, unclosed resource handles, and syntax inconsistencies.
+
+</li><li>**Tier 2: Architectural & Business Review (Human-Driven):** Human engineers review PRs focusing exclusively on strategic questions: *Does this solve the core business problem? Is the architectural direction sound? Will this be maintainable long-term?*</li></ul>
+<h3 id="security-vulnerability-auditing" class="heading-anchor-group">
+  <span class="heading-text">Security & Vulnerability Auditing</span>
+  <a class="heading-anchor" href="#security-vulnerability-auditing" aria-label="Anchor link to Security & Vulnerability Auditing">#</a>
+</h3><p>Security checks are non-negotiable and integrated directly into the automated pipeline:</p>
+<ul class="swiss-list"><li>**Static Application Security Testing (SAST):** Automated tools scan every commit for common security antipatterns (SQL injection, XSS, insecure deserialization).
+
+</li><li>**Dependency & Secret Scanning:** Scans third-party dependencies for known CVEs and blocks any commit containing accidental secrets, private keys, or API tokens.
+
+</li><li>**Least-Privilege Verification:** Audit tools verify that agents operating within CI/CD loops hold zero read/write access to production environments or secrets.</li></ul>
+<h3 id="continuous-workflow-critiques" class="heading-anchor-group">
+  <span class="heading-text">Continuous Workflow Critiques</span>
+  <a class="heading-anchor" href="#continuous-workflow-critiques" aria-label="Anchor link to Continuous Workflow Critiques">#</a>
+</h3><p>Engineering teams must establish a monthly workflow retrospective. If agents consistently ship repetitive bugs, teams must refine repository rules (<code>AGENTS.md</code>), update automated test suites, or improve skill definitions rather than fixing bugs piecemeal.</p>
+<hr>
+
+<h2 id="6-end-to-end-enterprise-workflows-gates-governance" class="heading-anchor-group">
+  <span class="heading-text">6. End-to-End Enterprise Workflows, Gates & Governance</span>
+  <a class="heading-anchor" href="#6-end-to-end-enterprise-workflows-gates-governance" aria-label="Anchor link to 6. End-to-End Enterprise Workflows, Gates & Governance">#</a>
+</h2><p>To safely scale agent operations across an enterprise, workflows must combine automated execution with strict approval gates and granular permission boundaries.</p>
+
+<h3 id="the-four-gate-enterprise-protocol" class="heading-anchor-group">
+  <span class="heading-text">The Four-Gate Enterprise Protocol</span>
+  <a class="heading-anchor" href="#the-four-gate-enterprise-protocol" aria-label="Anchor link to The Four-Gate Enterprise Protocol">#</a>
+</h3><p>Agents are granted high operational autonomy within sandboxed environments, but work cannot move between lifecycle stages without explicit approval at four key gates:</p>
+
+<div class="table-container">
+  <table class="swiss-table">
+    <thead>
+      <tr><th>Gate Level</th><th>Stage</th><th>Required Approval & Verification</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>**Gate 1**</td><td>Planning & Scope Approval</td><td>Human lead reviews the agent's proposed implementation plan, story point estimate, and architectural impact before coding starts.</td></tr>
+    </tbody>
+  </table>
+</div><p> |
+| <strong>Gate 2</strong> | Automated Verification | Automated test suite, static linters, SAST scanners, and review agents (e.g., BugBot) must pass with zero critical errors.</p>
+<p> |
+| <strong>Gate 3</strong> | Human PR Review | Human engineer reviews code diff for business logic compliance, security integrity, and maintainability before merging into <code>main</code>.</p>
+<p> |
+| <strong>Gate 4</strong> | Deployment &amp; Health Check | Automated canary deployment checks and real-time log monitoring verify post-release system stability before full rollout.</p>
+<p> |</p>
+
+<h3 id="agent-access-permissions-matrix" class="heading-anchor-group">
+  <span class="heading-text">Agent Access & Permissions Matrix</span>
+  <a class="heading-anchor" href="#agent-access-permissions-matrix" aria-label="Anchor link to Agent Access & Permissions Matrix">#</a>
+</h3><p>Security compliance requires strict isolation of agent credentials and capabilities depending on the operational environment:</p>
+
+<div class="table-container">
+  <table class="swiss-table">
+    <thead>
+      <tr><th>System Asset</th><th>Local Dev Sandbox</th><th>CI/CD Agent Pipeline</th><th>Production Environment</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>**Local Codebase**</td><td>Read / Write</td><td>Read Only</td><td>Denied</td></tr><tr><td>**Test Suite Execution**</td><td>Full Execution</td><td>Full Execution</td><td>Denied</td></tr><tr><td>**Development Database**</td><td>Read / Write (Mock Data)</td><td>Isolated Ephemeral DB</td><td>Denied</td></tr><tr><td>**Production Database**</td><td>Denied</td><td>Denied</td><td>Denied (Read-Only via Telemetry Logs)</td></tr><tr><td>**Production Deployment Keys**</td><td>Denied</td><td>Scoped Deployment Token</td><td>Denied</td></tr>
+    </tbody>
+  </table>
+</div><hr>
+
+<h2 id="7-how-to-write-tickets-for-azure-devops-dev-azure-com" class="heading-anchor-group">
+  <span class="heading-text">7. How to Write Tickets for Azure DevOps (dev.azure.com)</span>
+  <a class="heading-anchor" href="#7-how-to-write-tickets-for-azure-devops-dev-azure-com" aria-label="Anchor link to 7. How to Write Tickets for Azure DevOps (dev.azure.com)">#</a>
+</h2><p>In an AI-augmented engineering organization, Azure DevOps (<code>dev.azure.com</code>) serves as the primary operational hub across the entire SDLC. Work items in Azure DevOps are not merely human tracking tickets—they function as direct inputs for autonomous AI agents via API integrations and Model Context Protocol (MCP) servers. When an AI agent picks up a work item, ambiguous scope or missing fields force the model to make unverified assumptions, leading to hallucinated requirements, bloated execution loops, and rejected pull requests.</p>
+<p>To ensure deterministic and reliable agent execution, every work item created in <code>dev.azure.com</code> must follow strict structural standards tailored to its specific Work Item Type: <strong>Epic</strong>, <strong>Feature</strong>, <strong>Issue</strong>, <strong>Task</strong>, or <strong>Bug</strong>.</p>
+
+<h3 id="azure-devops-baseline-configuration-standards" class="heading-anchor-group">
+  <span class="heading-text">Azure DevOps Baseline Configuration Standards</span>
+  <a class="heading-anchor" href="#azure-devops-baseline-configuration-standards" aria-label="Anchor link to Azure DevOps Baseline Configuration Standards">#</a>
+</h3><p>Prior to moving any work item into an active sprint or agent processing queue, the following mandatory metadata fields must be populated:</p>
+<ul class="swiss-list"><li>**Area Path:** Identifies the exact owning team or system boundary (e.g., `PlatformTeam\Authentication`).
+
+</li><li>**Iteration Path:** Defines the target sprint timeline (e.g., `Sprint 42`).
+
+</li><li>**Parent / Child Linkage:** Maintains explicit structural hierarchy (`Epic` → `Feature` → `Issue` → `Task`).
+
+</li><li>**Tags:** Standardized labels to enable automated agent filtering (e.g., `agent-eligible`, `backend`, `security`, `database`).</li></ul>
+<h3 id="1-epic" class="heading-anchor-group">
+  <span class="heading-text">1. Epic</span>
+  <a class="heading-anchor" href="#1-epic" aria-label="Anchor link to 1. Epic">#</a>
+</h3><p>An <strong>Epic</strong> represents a multi-sprint strategic initiative or business outcome spanning multiple teams. Epics break down into individual Features. Epics are never assigned directly to AI agents for immediate code execution; instead, agents analyze Epics during early planning (SDLC Phase 1) to assist human architects in decomposing scope into discrete Features and Issues.</p>
+<ul class="swiss-list"><li>**Title Structure:** `[EPIC] [Domain] High-Level Strategic Outcome`
+</li><li>**Risk Field:** `1 - High` | `2 - Medium` | `3 - Low`
+</li><li>**Priority Field:** `1` (Highest) to `4` (Lowest)
+
+</li><li>**Description:** High-level business impact, regulatory drivers, and executive summary.
+
+</li><li>**Success Criteria (Definition of Done):** Quantitative business metrics and architectural milestones.</li></ul>
+<div class="code-block-wrapper">
+  <div class="code-header">
+    <span class="code-lang">text</span>
+    <button type="button" class="copy-btn" aria-label="Copy code snippet" onclick="copyCode(this)">Copy</button>
+  </div>
+  <pre><code class="hljs language-text">Title: [EPIC] [Auth] Implement Multi-Factor Authentication (MFA) Across Enterprise Portals
+Area Path: Identity\Auth
+Iteration Path: Release 2026.Q3
+Risk: 1 - High | Priority: 1
+Tags: security, compliance, epic
+
+Description:
+To comply with updated SOC2 requirements and reduce account takeover risks, our core web platform must enforce mandatory Multi-Factor Authentication (MFA) for all administrative and end-user accounts by end of Q3.
+
+Business Value:
+- Achieves SOC2 compliance certification.
+- Reduces credential stuffing vulnerability by 99%.
+
+Success Criteria (Definition of Done):
+- SMS OTP and Authenticator App (TOTP) supported as secondary verification factors.
+- 100% of admin users mandated to enroll upon next login.
+- Zero downtime deployment across all web and mobile client applications.
+- Audit logging enabled for all MFA state changes and failed verification attempts.
+</code></pre>
+</div>
+<h3 id="2-feature" class="heading-anchor-group">
+  <span class="heading-text">2. Feature</span>
+  <a class="heading-anchor" href="#2-feature" aria-label="Anchor link to 2. Feature">#</a>
+</h3><p>A <strong>Feature</strong> delivers a functional system capability under a parent Epic, usually spanning 1 to 3 sprints. AI agents evaluate Features during system design (SDLC Phase 3) to draft database schemas, OpenAPI contracts, and child Issue backlogs.</p>
+<ul class="swiss-list"><li>**Title Structure:** `[FEATURE] [Component] Action Verb + Functional Capability`
+</li><li>**Parent Link:** Link to target Epic.
+
+</li><li>**Story Points / Effort:** Aggregate estimate (sum of child Issues).
+
+</li><li>**Risk & Priority:** Assigned on 1–3 and 1–4 scales respectively.
+
+</li><li>**Description:** Functional architecture outline, target personas, and scope boundaries (In Scope vs Out of Scope).
+
+</li><li>**Acceptance Criteria:** High-level functional capabilities required for completion.</li></ul>
+<div class="code-block-wrapper">
+  <div class="code-header">
+    <span class="code-lang">text</span>
+    <button type="button" class="copy-btn" aria-label="Copy code snippet" onclick="copyCode(this)">Copy</button>
+  </div>
+  <pre><code class="hljs language-text">Title: [FEATURE] [Auth] Authenticator App (TOTP) Verification &amp; Setup Flow
+Parent Link: Epic 10402: Implement Multi-Factor Authentication (MFA)
+Area Path: Identity\Auth
+Iteration Path: Sprint 42
+Story Points: 13 | Risk: 2 - Medium | Priority: 1
+Tags: auth, backend, frontend
+
+Description:
+Provide users with the ability to pair a time-based one-time password (TOTP) authenticator application (e.g., Google Authenticator, 1Password) with their account, store encrypted secrets, and verify TOTP tokens during login.
+
+Scope Boundaries:
+- In Scope: QR code generation, secret key display, TOTP code validation, 10 single-use recovery backup codes.
+- Out of Scope: Hardware key support (YubiKey/WebAuthn - handled in separate Feature).
+
+Acceptance Criteria:
+- Users can navigate to /settings/mfa and initiate QR code pairing.
+- Secret keys are stored in database encrypted at rest using AES-256.
+- Login endpoint accepts and validates 6-digit TOTP codes with a 30-second clock skew tolerance window.
+- User is issued 10 single-use recovery codes upon successful pairing.
+</code></pre>
+</div>
+<h3 id="3-issue-product-backlog-item" class="heading-anchor-group">
+  <span class="heading-text">3. Issue (Product Backlog Item)</span>
+  <a class="heading-anchor" href="#3-issue-product-backlog-item" aria-label="Anchor link to 3. Issue (Product Backlog Item)">#</a>
+</h3><p>An <strong>Issue</strong> represents the primary unit of executable work assigned to developers and autonomous AI agents. An Issue MUST represent a single, testable deliverable capable of being completed within a single sprint or agent loop.</p>
+<p>Every Issue assigned to an AI agent <strong>must</strong> utilize Behavior-Driven Development (BDD) <em>Given / When / Then</em> syntax inside its Acceptance Criteria to completely remove scope ambiguity.</p>
+<ul class="swiss-list"><li>**Title Structure:** `[ISSUE] [Service/Module] Action Verb + Specific Deliverable`
+</li><li>**Parent Link:** Link to parent Feature.
+
+</li><li>**Story Points:** Fibonacci scale (`1`, `2`, `3`, `5`, `8`).
+
+</li><li>**Risk & Priority:** Assigned baseline risk and priority ratings.
+
+</li><li>**Description:** User story statement (*As a... I want... So that...*) along with technical routes and payload specs.
+
+</li><li>**Acceptance Criteria (BDD Syntax):** Explicit scenario blocks detailing pre-conditions, trigger actions, and expected outputs.</li></ul>
+<div class="code-block-wrapper">
+  <div class="code-header">
+    <span class="code-lang">text</span>
+    <button type="button" class="copy-btn" aria-label="Copy code snippet" onclick="copyCode(this)">Copy</button>
+  </div>
+  <pre><code class="hljs language-text">Title: [ISSUE] [API] Implement Redis Sliding-Window Rate Limiting on TOTP Verification Endpoint
+Parent Link: Feature 10515: Authenticator App (TOTP) Verification &amp; Setup Flow
+Area Path: Identity\Auth
+Iteration Path: Sprint 42
+Story Points: 3 | Risk: 2 - Medium | Priority: 1
+Tags: agent-eligible, backend, redis, security
+
+Description:
+As a Platform Security Engineer,
+I want to enforce rate limiting on the /api/v1/auth/mfa/verify endpoint,
+So that malicious actors cannot brute-force 6-digit TOTP tokens.
+
+Technical Context:
+- Target Endpoint: POST /api/v1/auth/mfa/verify
+- Tech Stack: Node.js / Express, ioredis client.
+- Rate Limit Rule: Max 5 failed attempts per user ID per 15-minute sliding window.
+
+Acceptance Criteria (BDD Format):
+
+Scenario 1: Successful verification under limit
+Given an authenticated user submitting a valid 6-digit TOTP code
+When the user has submitted fewer than 5 failed attempts in the last 15 minutes
+Then return HTTP 200 OK with payload { &quot;status&quot;: &quot;verified&quot; }
+And reset the failed attempt counter in Redis for this user.
+
+Scenario 2: Exceeding failed attempt threshold
+Given a user who has accumulated 5 failed TOTP verification attempts within 15 minutes
+When the user submits a 6th verification request (valid or invalid)
+Then return HTTP 429 Too Many Requests
+And return header Retry-After: &lt;seconds_remaining&gt;
+And publish an audit event to events.auth.rate_limited.
+
+Scenario 3: Rate limit expiry
+Given a user who was rate limited at timestamp T
+When 15 minutes have elapsed since the first failed attempt in the window (T + 900s)
+Then allow subsequent verification attempts without returning 429.
+</code></pre>
+</div>
+<h3 id="4-task" class="heading-anchor-group">
+  <span class="heading-text">4. Task</span>
+  <a class="heading-anchor" href="#4-task" aria-label="Anchor link to 4. Task">#</a>
+</h3><p>A <strong>Task</strong> represents a granular technical step required to complete an Issue or Bug. Tasks break down implementation details into localized code changes, database migrations, or unit test files. AI agents in local sandboxed environments execute Tasks within individual iterative cycles.</p>
+<ul class="swiss-list"><li>**Title Structure:** `[TASK] [Subsystem] Actionable Development Step`
+</li><li>**Parent Link:** Link to target Issue or Bug.
+
+</li><li>**Original Estimate / Remaining Work:** Estimated execution hours (e.g., `2.0`, `4.0`).
+
+</li><li>**Activity:** `Development` | `Testing` | `Design` | `Documentation` | `Deployment`.
+
+</li><li>**Description:** Step-by-step developer guidelines, targeted file paths, and class definitions.</li></ul>
+<div class="code-block-wrapper">
+  <div class="code-header">
+    <span class="code-lang">text</span>
+    <button type="button" class="copy-btn" aria-label="Copy code snippet" onclick="copyCode(this)">Copy</button>
+  </div>
+  <pre><code class="hljs language-text">Title: [TASK] [DB] Create Redis Key Schema and Helper Class for Sliding Window Counters
+Parent Link: Issue 10820: Implement Redis Sliding-Window Rate Limiting on TOTP Endpoint
+Area Path: Identity\Auth
+Iteration Path: Sprint 42
+Original Estimate: 3.0 Hours | Activity: Development
+Tags: redis, backend
+
+Description:
+Write a modular helper class in src/services/rateLimiter.ts that interacts with Redis using atomic pipeline commands (MULTI/EXEC).
+
+Implementation Steps:
+1. Define key structure: rate_limit:mfa_verify:{userId} as a Redis Sorted Set (ZSET).
+2. Implement isRateLimited(userId: string): Promise&lt;RateLimitResult&gt; method.
+3. Use current UNIX timestamp in milliseconds as both the score and member value.
+4. Execute atomic pipeline:
+   - ZREMRANGEBYSCORE key 0 (now - 900000) (remove entries older than 15 mins)
+   - ZCARD key (count remaining attempts)
+   - EXPIRE key 900 (refresh key TTL)
+5. Add unit tests in tests/services/rateLimiter.test.ts mocking Redis responses.
+</code></pre>
+</div>
+<h3 id="5-bug" class="heading-anchor-group">
+  <span class="heading-text">5. Bug</span>
+  <a class="heading-anchor" href="#5-bug" aria-label="Anchor link to 5. Bug">#</a>
+</h3><p>A <strong>Bug</strong> documents an application defect, security vulnerability, or functional regression. To allow an AI agent to fix a bug autonomously, the ticket <strong>must include explicit reproduction steps</strong>, environment configuration, and expected versus actual output. AI agents must execute a failing automated test reproducing the defect prior to submitting a fix pull request.</p>
+<ul class="swiss-list"><li>**Title Structure:** `[BUG] [Module/API] Clear Failure Summary`
+</li><li>**Severity:** `1 - Critical` | `2 - High` | `3 - Medium` | `4 - Low`.
+
+</li><li>**Priority:** `1` to `4`.
+
+</li><li>**System Info:** Operating system, browser version, environment (Staging/Prod), commit SHA / container image.
+
+</li><li>**Repro Steps & Behavior:** Numbered steps to trigger failure, actual error output, and expected correct behavior.
+
+</li><li>**Acceptance Criteria:** Mandatory failing test requirement and zero-regression validation.</li></ul>
+<div class="code-block-wrapper">
+  <div class="code-header">
+    <span class="code-lang">text</span>
+    <button type="button" class="copy-btn" aria-label="Copy code snippet" onclick="copyCode(this)">Copy</button>
+  </div>
+  <pre><code class="hljs language-text">Title: [BUG] [API] TOTP Verification Throws HTTP 500 When User ID Contains Uppercase Characters
+Area Path: Identity\Auth
+Iteration Path: Sprint 42
+Severity: 2 - High | Priority: 1 | Risk: 1 - High
+Tags: bug, agent-eligible, production-issue
+
+System Info:
+- Environment: Staging &amp; Production
+- Service: auth-service:v2.14.1
+- Database: PostgreSQL 15 / Redis 7.0
+
+Steps to Reproduce:
+1. Log in with an account whose user_id contains uppercase letters (e.g., User_992A).
+2. Navigate to MFA prompt and enter valid TOTP token 123456.
+3. Submit form to POST /api/v1/auth/mfa/verify.
+
+Actual Behavior:
+API responds with HTTP 500 Internal Server Error.
+Stack trace log: Unhandled Exception: KeyNotFoundException in Redis lookup for rate_limit:mfa_verify:User_992A due to casing mismatch in DB query join.
+
+Expected Behavior:
+API should normalize user_id to lowercase before executing database queries and Redis lookups, returning HTTP 200 OK upon valid TOTP submission.
+
+Acceptance Criteria:
+- Write a failing integration test in tests/integration/mfa_casing.test.ts passing uppercase user IDs.
+- Normalize user_id string inputs to lowercase at API route handling layer (src/routes/mfa.ts).
+- Verify bug fix with zero regression on standard lowercase user IDs.
+- All existing test suites pass successfully in CI/CD pipeline.
+</code></pre>
+</div>
+<h3 id="azure-devops-ticket-quality-matrix" class="heading-anchor-group">
+  <span class="heading-text">Azure DevOps Ticket Quality Matrix</span>
+  <a class="heading-anchor" href="#azure-devops-ticket-quality-matrix" aria-label="Anchor link to Azure DevOps Ticket Quality Matrix">#</a>
+</h3>
+<div class="table-container">
+  <table class="swiss-table">
+    <thead>
+      <tr><th>Work Item Type</th><th>Primary Role in AI SDLC</th><th>Key Azure DevOps Fields</th><th>Required Detail Standard</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>**Epic**</td><td>Strategic direction & roadmap grouping</td><td></td><td></td></tr>
+    </tbody>
+  </table>
+</div><p> | Risk, Priority, Success Criteria</p>
+<p> | High-level business impact &amp; compliance goals</p>
+<p> |
+| <strong>Feature</strong> | Architectural component scoping</p>
+<p> | Story Points, Parent Link, Scope Boundaries</p>
+<p> | Technical boundaries &amp; system deliverables</p>
+<p> |
+| <strong>Issue</strong> | <strong>Direct Agent Execution Unit</strong><br> | Story Points, BDD Criteria, Tags</p>
+<p> | <strong>Given/When/Then</strong> explicit test scenarios</p>
+<p> |
+| <strong>Task</strong> | Sub-unit execution step</p>
+<p> | Activity, Original Estimate, Parent Link</p>
+<p> | Precise code paths, file names, &amp; technical steps</p>
+<p> |
+| <strong>Bug</strong> | Regression &amp; defect remediation</p>
+<p> | Severity, System Info, Repro Steps</p>
+<p> | Exact repro steps, stack trace, &amp; expected vs actual</p>
+<p> |</p>
+<hr>
+
+<h2 id="8-documentation-as-a-first-class-citizen-planning-standards" class="heading-anchor-group">
+  <span class="heading-text">8. Documentation as a First-Class Citizen & Planning Standards</span>
+  <a class="heading-anchor" href="#8-documentation-as-a-first-class-citizen-planning-standards" aria-label="Anchor link to 8. Documentation as a First-Class Citizen & Planning Standards">#</a>
+</h2><p>In a traditional software organization, documentation is often treated as an afterthought—written right before a release or skipped entirely due to time constraints. In an AI-augmented enterprise, <strong>outdated or missing documentation is an outage waiting to happen</strong>. AI agents do not have &quot;tribal knowledge&quot; or institutional memory; they rely strictly on the context provided in repository files, API schemas, design docs, and ticket descriptions. If documentation is ambiguous, incomplete, or wrong, agents will produce hallucinated architectures, violate domain boundaries, and break production.</p>
+<p>Documentation must be treated as a <strong>first-class citizen</strong>, held to the exact same quality and review standards as production code.</p>
+
+<h3 id="1-system-level-documentation-outside-of-code" class="heading-anchor-group">
+  <span class="heading-text">1. System-Level Documentation (Outside of Code)</span>
+  <a class="heading-anchor" href="#1-system-level-documentation-outside-of-code" aria-label="Anchor link to 1. System-Level Documentation (Outside of Code)">#</a>
+</h3><p>System-level documentation establishes the architectural boundaries, business rules, and design trade-offs before a single line of code is written.</p>
+
+<h4 id="a-ubiquitous-domain-glossary-glossary-md" class="heading-anchor-group">
+  <span class="heading-text">A. Ubiquitous Domain Glossary (`GLOSSARY.md`)</span>
+  <a class="heading-anchor" href="#a-ubiquitous-domain-glossary-glossary-md" aria-label="Anchor link to A. Ubiquitous Domain Glossary (`GLOSSARY.md`)">#</a>
+</h4><p>To prevent semantic ambiguity across frontend, backend, database, and prompt layers, every repository must maintain a root-level <code>GLOSSARY.md</code> file. Terms must have a single, canonical definition across all systems.</p>
+
+<div class="code-block-wrapper">
+  <div class="code-header">
+    <span class="code-lang">markdown</span>
+    <button type="button" class="copy-btn" aria-label="Copy code snippet" onclick="copyCode(this)">Copy</button>
+  </div>
+  <pre><code class="hljs language-markdown"><span class="hljs-section"># Domain Glossary</span>
+
+<span class="hljs-section">### Active User</span>
+A user account with status = &#x27;ACTIVE&#x27; that has authenticated within the last 30 rolling days. 
+<span class="hljs-bullet">*</span> Anti-Pattern: Do not confuse with &quot;Registered User&quot; (created account but may never have logged in) or &quot;Subscribed User&quot; (has an active billing plan).
+
+<span class="hljs-section">### Organization Tenant</span>
+A top-level entity (tenant<span class="hljs-emphasis">_id) representing an enterprise client. All database queries for multi-tenant data MUST include WHERE tenant_</span>id = :tenant<span class="hljs-emphasis">_id.
+
+### TOTP (Time-Based One-Time Password)
+A 6-digit cryptographic code generated by an authenticator application (RFC 6238) valid for a 30-second window.
+</span></code></pre>
+</div>
+<h4 id="b-ai-ready-product-requirement-documents-prds" class="heading-anchor-group">
+  <span class="heading-text">B. AI-Ready Product Requirement Documents (PRDs)</span>
+  <a class="heading-anchor" href="#b-ai-ready-product-requirement-documents-prds" aria-label="Anchor link to B. AI-Ready Product Requirement Documents (PRDs)">#</a>
+</h4><p>PRDs translate raw product ideation and stakeholder interviews into structured, machine-readable specifications. PRDs live in the repository under <code>/docs/prds/</code> or are linked directly in Azure DevOps Epics/Features.</p>
+<ul class="swiss-list"><li>**Problem Statement & Business Goal:** Clear, quantitative outcome statement.
+
+</li><li>**User Personas & Flows:** Step-by-step user interaction journey.
+
+</li><li>**Functional Requirements:** BDD-style functional requirement statements.
+
+</li><li>**Non-Functional Requirements:** Performance SLAs, security boundaries, and rate limits.
+
+</li><li>**Data & Schema Impact:** New database entities or field migration requirements.</li></ul>
+<h4 id="c-architecture-decision-records-adrs" class="heading-anchor-group">
+  <span class="heading-text">C. Architecture Decision Records (ADRs)</span>
+  <a class="heading-anchor" href="#c-architecture-decision-records-adrs" aria-label="Anchor link to C. Architecture Decision Records (ADRs)">#</a>
+</h4><p>ADRs capture <strong>why</strong> architectural decisions were made, what alternatives were evaluated, and what trade-offs were accepted. Without ADRs, AI agents (and human engineers) will routinely propose refactoring code back into an anti-pattern that was intentionally discarded six months prior.</p>
+<p>ADRs live in <code>/docs/adr/000X-short-title.md</code>.</p>
+
+<div class="code-block-wrapper">
+  <div class="code-header">
+    <span class="code-lang">markdown</span>
+    <button type="button" class="copy-btn" aria-label="Copy code snippet" onclick="copyCode(this)">Copy</button>
+  </div>
+  <pre><code class="hljs language-markdown"><span class="hljs-section"># ADR 0003: Use Redis Sliding-Window for TOTP Rate Limiting</span>
+
+<span class="hljs-bullet">*</span> Status: Accepted
+<span class="hljs-bullet">*</span> Date: 2026-07-21
+<span class="hljs-bullet">*</span> Deciders: Principal Architect, Lead Security Engineer
+
+<span class="hljs-section">## Context</span>
+To prevent brute-force attacks on our 6-digit TOTP authentication endpoint (/api/v1/auth/mfa/verify), we must enforce strict rate limiting (max 5 failed attempts per user per 15-minute window).
+
+<span class="hljs-section">## Considered Options</span>
+<span class="hljs-bullet">1.</span> PostgreSQL Database Lookup: Querying failed<span class="hljs-emphasis">_attempts table on every login request.
+2. In-Memory Local App Cache (Node.js Memory): Tracking attempts in process memory.
+3. Redis Sorted Set (ZSET) Sliding-Window: Distributed rate-limiting counter in Redis.
+
+## Decision
+We chose Option 3 (Redis Sorted Set) because:
+* PostgreSQL queries under high authentication load introduce unacceptable DB lock latency.
+* In-memory local app cache fails in horizontally scaled multi-pod Kubernetes deployments because requests are round-robined across pods.
+
+## Consequences
+* Positive: Atomic, distributed rate-limiting across all app instances with sub-millisecond response latency.
+* Negative: Introduces a dependency on the Redis cluster. If Redis goes down, authentication falls back to fail-closed state.
+</span></code></pre>
+</div>
+<h4 id="d-schema-first-api-contracts" class="heading-anchor-group">
+  <span class="heading-text">D. Schema-First API Contracts</span>
+  <a class="heading-anchor" href="#d-schema-first-api-contracts" aria-label="Anchor link to D. Schema-First API Contracts">#</a>
+</h4><p>Never let an agent infer API shapes from implementation code. Define OpenAPI (Swagger) or Protocol Buffer contracts <strong>before</strong> writing frontend or backend code.</p>
+<ul class="swiss-list"><li>**Location:** `/docs/api/openapi.yaml`
+</li><li>**Rule:** Frontend and backend code generators must bind to this file. Changes to endpoints must happen in `openapi.yaml` first.</li></ul>
+<h3 id="2-code-level-documentation-standards" class="heading-anchor-group">
+  <span class="heading-text">2. Code-Level Documentation Standards</span>
+  <a class="heading-anchor" href="#2-code-level-documentation-standards" aria-label="Anchor link to 2. Code-Level Documentation Standards">#</a>
+</h3><p>Code-level documentation explains the <strong>intent, logic boundaries, and assumptions</strong> of individual modules.</p>
+
+<h4 id="a-self-documenting-code-vs-explanatory-comments" class="heading-anchor-group">
+  <span class="heading-text">A. Self-Documenting Code vs. Explanatory Comments</span>
+  <a class="heading-anchor" href="#a-self-documenting-code-vs-explanatory-comments" aria-label="Anchor link to A. Self-Documenting Code vs. Explanatory Comments">#</a>
+</h4><ul class="swiss-list"><li>**Code describes WHAT and HOW:** Clean variable naming, modular functions, and strong type annotations reduce redundant noise.
+
+</li><li>**Comments describe WHY:** Comments should explain non-obvious business rules, workaround hacks, or performance trade-offs.</li></ul>
+<div class="code-block-wrapper">
+  <div class="code-header">
+    <span class="code-lang">typescript</span>
+    <button type="button" class="copy-btn" aria-label="Copy code snippet" onclick="copyCode(this)">Copy</button>
+  </div>
+  <pre><code class="hljs language-typescript"><span class="hljs-comment">// BAD COMMENT: Explaining what the code clearly already says</span>
+<span class="hljs-comment">// Increment count by 1</span>
+count = count + <span class="hljs-number">1</span>;
+
+<span class="hljs-comment">// BAD COMMENT: Fetch user from database</span>
+<span class="hljs-keyword">const</span> user = <span class="hljs-keyword">await</span> db.<span class="hljs-property">users</span>.<span class="hljs-title function_">findById</span>(id);
+
+<span class="hljs-comment">// GOOD COMMENT: Explaining the &quot;WHY&quot;, business rules, or non-obvious constraints</span>
+<span class="hljs-comment">// We enforce a 30-second clock skew tolerance window to account for drift </span>
+<span class="hljs-comment">// between client authenticator devices and our NTP servers (RFC 6238 section 5.2).</span>
+<span class="hljs-keyword">const</span> isTotpValid = totp.<span class="hljs-title function_">verify</span>({
+  <span class="hljs-attr">token</span>: userProvidedCode,
+  <span class="hljs-attr">secret</span>: userMfaSecret,
+  <span class="hljs-attr">window</span>: <span class="hljs-number">1</span> <span class="hljs-comment">// +/- 30 seconds</span>
+});
+</code></pre>
+</div>
+<h4 id="b-standardized-module-function-docstrings" class="heading-anchor-group">
+  <span class="heading-text">B. Standardized Module & Function Docstrings</span>
+  <a class="heading-anchor" href="#b-standardized-module-function-docstrings" aria-label="Anchor link to B. Standardized Module & Function Docstrings">#</a>
+</h4><p>All exported functions, types, and classes must include structured docstrings (TSDoc, JSDoc, Python Docstrings).</p>
+
+<div class="code-block-wrapper">
+  <div class="code-header">
+    <span class="code-lang">typescript</span>
+    <button type="button" class="copy-btn" aria-label="Copy code snippet" onclick="copyCode(this)">Copy</button>
+  </div>
+  <pre><code class="hljs language-typescript"><span class="hljs-comment">/**
+ * Verifies a time-based one-time password (TOTP) against a user&#x27;s encrypted secret.
+ *
+ * <span class="hljs-doctag">@param</span> <span class="hljs-variable">userId</span> - Unique UUID of the user attempting verification.
+ * <span class="hljs-doctag">@param</span> <span class="hljs-variable">token</span> - 6-digit numeric string provided by the user.
+ * <span class="hljs-doctag">@returns</span> Promise resolving to `true` if valid, or `false` if expired/incorrect.
+ * 
+ * <span class="hljs-doctag">@throws</span> {<span class="hljs-type">@link RateLimitExceededException</span>} If user has exceeded 5 failed attempts in 15 mins.
+ * <span class="hljs-doctag">@throws</span> {<span class="hljs-type">@link UserNotFoundException</span>} If user ID does not exist in active database.
+ * 
+ * <span class="hljs-doctag">@example</span>
+ * ```ts
+ * const isValid = await verifyTotpToken(&quot;usr_992a&quot;, &quot;123456&quot;);
+ * ```
+ */</span>
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">async</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">verifyTotpToken</span>(<span class="hljs-params"><span class="hljs-attr">userId</span>: <span class="hljs-built_in">string</span>, <span class="hljs-attr">token</span>: <span class="hljs-built_in">string</span></span>): <span class="hljs-title class_">Promise</span>&lt;<span class="hljs-built_in">boolean</span>&gt; {
+  <span class="hljs-comment">// Implementation</span>
+}
+</code></pre>
+</div>
+<h4 id="c-commit-messages-pr-descriptions" class="heading-anchor-group">
+  <span class="heading-text">C. Commit Messages & PR Descriptions</span>
+  <a class="heading-anchor" href="#c-commit-messages-pr-descriptions" aria-label="Anchor link to C. Commit Messages & PR Descriptions">#</a>
+</h4><p>Commits and Pull Requests are historical documentation. Every commit and PR must follow conventional formats linked directly to Azure DevOps work items.</p>
+
+<div class="code-block-wrapper">
+  <div class="code-header">
+    <span class="code-lang">text</span>
+    <button type="button" class="copy-btn" aria-label="Copy code snippet" onclick="copyCode(this)">Copy</button>
+  </div>
+  <pre><code class="hljs language-text">feat(auth): add Redis sliding-window rate limiting for TOTP verification [AB#10820]
+
+- Implement Redis Sorted Set counter in rateLimiter.ts
+- Add unit tests verifying 5-attempt limit and 15-min expiry window
+- Update openapi.yaml to include HTTP 429 response schema
+
+Closes AB#10820
+</code></pre>
+</div>
+<h3 id="3-mandatory-execution-rules-for-engineers-ai-agents" class="heading-anchor-group">
+  <span class="heading-text">3. Mandatory Execution Rules for Engineers & AI Agents</span>
+  <a class="heading-anchor" href="#3-mandatory-execution-rules-for-engineers-ai-agents" aria-label="Anchor link to 3. Mandatory Execution Rules for Engineers & AI Agents">#</a>
+</h3><p>To ensure documentation remains accurate over time, human developers and AI agents must follow these explicit rules while working on a ticket:</p>
+<ul class="swiss-list"><li>**Rule 1: The Atomic PR Rule (Code + Docs in One PR):** If a PR modifies function signatures, API schemas, or environment variables, the corresponding documentation (`openapi.yaml`, `README.md`, or docstrings) **must** be updated inside the *exact same PR*. CI gates will reject PRs if API schemas or export signatures are altered without doc updates.
+
+</li><li>**Rule 2: Continuous In-Flight Work Logging:** Before writing code, engineers or agents must post an implementation plan as a comment on the Azure DevOps ticket. If an unexpected technical blocker changes the approach mid-task, add a comment explaining the pivot before proceeding.
+
+</li><li>**Rule 3: The ADR Trigger:** If an engineer or agent makes an architectural choice that introduces a new dependency, alters a data model, or impacts system security, an ADR **must** be drafted under `/docs/adr/` as part of that ticket.</li></ul>
+<h3 id="4-documentation-do-s-and-don-ts-matrix" class="heading-anchor-group">
+  <span class="heading-text">4. Documentation Do's and Don'ts Matrix</span>
+  <a class="heading-anchor" href="#4-documentation-do-s-and-don-ts-matrix" aria-label="Anchor link to 4. Documentation Do's and Don'ts Matrix">#</a>
+</h3>
+<div class="table-container">
+  <table class="swiss-table">
+    <thead>
+      <tr><th>Area</th><th>DO ✅</th><th>DON'T ❌</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>**System Terms**</td><td>Maintain a single `GLOSSARY.md` file for domain entity definitions.</td><td></td></tr>
+    </tbody>
+  </table>
+</div><p> | Allow &quot;User&quot;, &quot;Account&quot;, and &quot;Member&quot; to be used interchangeably without definition.</p>
+<p> |
+| <strong>Code Comments</strong> | Comment on <strong>why</strong> a complex workaround or security window exists.</p>
+<p> | Comment on obvious code operations (e.g., <code>// increment i by 1</code>).</p>
+<p> |
+| <strong>API Design</strong> | Write OpenAPI/Swagger specs <strong>before</strong> writing backend/frontend code.</p>
+<p> | Build API routes first and try to auto-generate docs from messy code later.</p>
+<p> |
+| <strong>Pull Requests</strong> | Update code, docstrings, and design docs together in a single atomic PR.</p>
+<p> | Merge code changes with a promise to &quot;update the docs next week&quot;.</p>
+<p> |
+| <strong>Architecture</strong> | Record trade-offs and discarded options in <code>ADR</code> files.</p>
+<p> | Rely on private chats or meetings to decide architectural direction.</p>
+<p> |
+| <strong>Ticket Writing</strong> | Use BDD <em>Given / When / Then</em> syntax in Azure DevOps acceptance criteria.</p>
+<p> | Write vague bullet points like &quot;Fix authentication page bugs&quot;.</p>
+<p> |</p>
+<hr>
+
+<h2 id="9-recommended-skills-library" class="heading-anchor-group">
+  <span class="heading-text">9. Recommended Skills Library</span>
+  <a class="heading-anchor" href="#9-recommended-skills-library" aria-label="Anchor link to 9. Recommended Skills Library">#</a>
+</h2><p>Skills are reusable playbooks loaded into an agent&#39;s working context when a specific task requires domain expertise:</p>
+<ul class="swiss-list"><li>`/grill-me`: Conducts exhaustive alignment interviews to clarify specs, edge cases, and business intent before writing code.
+
+</li><li>`/grill-with-docs`: Interrogates planning decisions while building lasting codebase glossary terms and architectural decision records.
+
+</li><li>`ponytail` (`/ponytail-review`, `/ponytail-audit`, `/ponytail-debt`): Drives solutions toward minimal complexity, audits technical debt, and enforces simple architectural patterns.
+
+</li><li>`BugBot`: Specialized, automated pull-request auditing agent for catching low-level code bugs and security regressions in diffs.</li></ul><hr>
+
+<h2 id="10-the-dream-hybrid-frontier-local-execution-architecture" class="heading-anchor-group">
+  <span class="heading-text">10. The Dream: Hybrid Frontier/Local Execution Architecture</span>
+  <a class="heading-anchor" href="#10-the-dream-hybrid-frontier-local-execution-architecture" aria-label="Anchor link to 10. The Dream: Hybrid Frontier/Local Execution Architecture">#</a>
+</h2><p>The optimal enterprise AI architecture splits tasks between cloud-based frontier models and fast local models to achieve frontier-level reasoning at local execution cost:</p>
+
+<div class="table-container">
+  <table class="swiss-table">
+    <thead>
+      <tr><th>Model Layer</th><th>Examples</th><th>Core Responsibilities</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>**Frontier Models**</td><td>Claude Opus 4.8, GPT-5.6 class</td><td></td></tr>
+    </tbody>
+  </table>
+</div><p> | High-level system design, complex planning, gating reviews, and architectural judgment.</p>
+<p> |
+| <strong>Local / Edge Models</strong> | Gemma 4, Qwen 3.6, DeepSeek V4 class</p>
+<p> | Repetitive code generation, linter loops, unit test writing, and localized refactoring in sandboxed setups.</p>
+<p> |</p>
+<p>This hybrid structure ensures expensive frontier models are reserved for critical judgment calls, while fast local models handle repetitive implementation tasks across large engineering organizations.</p>
+
+      </article>
+    </main>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-container">
+      <span>THE AI DEVELOPMENT PLAYBOOK © 2026</span>
+      <span>•</span>
+      <span>INTERNATIONAL TYPOGRAPHIC STYLE</span>
+    </div>
+  </footer>
+
+  <script>
+    // Copy-to-clipboard function
+    function copyCode(button) {
+      const wrapper = button.closest('.code-block-wrapper');
+      const code = wrapper.querySelector('code').textContent;
+      
+      navigator.clipboard.writeText(code).then(() => {
+        button.textContent = 'Copied';
+        button.classList.add('copied');
+        
+        setTimeout(() => {
+          button.textContent = 'Copy';
+          button.classList.remove('copied');
+        }, 2000);
+      }).catch(err => {
+        console.error('Failed to copy: ', err);
+      });
+    }
+
+    // Mobile drawer toggles
+    function toggleMobileDrawer() {
+      const drawer = document.getElementById('sidebar-drawer');
+      drawer.classList.toggle('active');
+      document.body.classList.toggle('drawer-open');
+    }
+
+    function closeMobileDrawer() {
+      const drawer = document.getElementById('sidebar-drawer');
+      drawer.classList.remove('active');
+      document.body.classList.remove('drawer-open');
+    }
+
+    // Scrollspy and mathematical caliper indicator logic
+    document.addEventListener('DOMContentLoaded', () => {
+      const sections = [];
+      const tocLinks = document.querySelectorAll('.toc-list a');
+      
+      // Get all headings in the document that have corresponding TOC links
+      tocLinks.forEach(link => {
+        const id = link.getAttribute('href').substring(1);
+        const element = document.getElementById(id);
+        if (element) {
+          sections.push({ id, element, link });
+        }
+      });
+
+      function updateActiveToc() {
+        const scrollPosition = window.scrollY + 120; // offset for sticky header
+        
+        let activeIndex = -1;
+        for (let i = 0; i < sections.length; i++) {
+          if (scrollPosition >= sections[i].element.offsetTop) {
+            activeIndex = i;
+          } else {
+            break;
+          }
+        }
+
+        tocLinks.forEach(link => link.classList.remove('active'));
+        
+        if (activeIndex !== -1) {
+          const activeLink = sections[activeIndex].link;
+          activeLink.classList.add('active');
+          
+          // Align the indicator container
+          const activeLi = activeLink.closest('li');
+          if (activeLi) {
+            // Scroll sidebar if active item is out of view
+            const sidebarNav = document.querySelector('.sidebar-nav');
+            const liTop = activeLi.offsetTop;
+            const liBottom = liTop + activeLi.offsetHeight;
+            const viewTop = sidebarNav.scrollTop;
+            const viewBottom = viewTop + sidebarNav.clientHeight;
+            
+            if (liTop < viewTop) {
+              sidebarNav.scrollTop = liTop;
+            } else if (liBottom > viewBottom) {
+              sidebarNav.scrollTop = liBottom - sidebarNav.clientHeight;
+            }
+          }
+        }
+      }
+
+      window.addEventListener('scroll', updateActiveToc);
+      updateActiveToc(); // Initial run
+    });
+  </script>
+</body>
+</html>
