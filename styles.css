@@ -751,4 +751,97 @@ code:not(pre code) {
   word-break: break-word;
 }
 
+/* Mobile Navigation Drawer (UI Craft) */
+.mobile-menu-btn {
+  display: none;
+}
+
+@media screen and (max-width: 767px) {
+  nav {
+    position: relative;
+  }
+
+  .mobile-menu-btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 40px;
+    height: 40px;
+    padding: 8px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    border-radius: var(--radius-xs);
+  }
+
+  .mobile-menu-btn:focus-visible {
+    outline: 2px solid var(--accent-primary);
+    outline-offset: 2px;
+  }
+
+  .menu-icon-line {
+    width: 100%;
+    height: 2px;
+    background-color: var(--text-primary);
+    display: block;
+    border-radius: 1px;
+  }
+
+  nav ul {
+    display: none;
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    min-height: 100vh;
+    min-height: 100dvh;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    background: var(--bg-base);
+    border: none;
+    border-radius: 0;
+    padding: 2rem;
+    z-index: 1000;
+  }
+
+  nav.nav-open ul {
+    display: flex;
+  }
+
+  .mobile-close-item {
+    position: absolute;
+    top: 1.25rem;
+    right: 1.25rem;
+    display: block;
+  }
+
+  .mobile-close-item .close-menu-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    background: transparent;
+    border: 1px solid var(--border-default);
+    color: var(--text-primary);
+    cursor: pointer;
+    border-radius: var(--radius-xs);
+  }
+
+  nav ul li a {
+    display: block;
+    padding: 0.75rem 1.5rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+  }
+
+  nav ul li a:hover {
+    color: var(--accent-primary);
+  }
+}
+
 

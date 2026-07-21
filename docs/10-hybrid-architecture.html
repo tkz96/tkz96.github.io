@@ -253,10 +253,16 @@
     function closeMobileDrawer() {
       const drawer = document.getElementById('sidebar-drawer');
       const btn = document.querySelector('.mobile-menu-btn');
-      drawer.classList.remove('active');
+      if (drawer) drawer.classList.remove('active');
       document.body.classList.remove('drawer-open');
       if (btn) btn.setAttribute('aria-expanded', 'false');
     }
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        closeMobileDrawer();
+      }
+    });
 
     document.addEventListener('DOMContentLoaded', updateThemeIcon);
   </script>

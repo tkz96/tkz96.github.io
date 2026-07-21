@@ -21,11 +21,20 @@
                 <p class="logo-placeholder">TKZ</p>
             </a>
             <ul>
+                <li class="mobile-close-item">
+                    <button type="button" class="close-menu-btn" aria-label="Close Main Navigation" onclick="toggleLandingNav()">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6L6 18M6 6l12 12"/></svg>
+                    </button>
+                </li>
                 <li><a href="#portfolio-section">Portfolio</a></li>
                 <li><a href="#about-me-section">About</a></li>
                 <li><a href="#contact-section">Contact</a></li>
             </ul>
-            <img src="assets/shapes/menu-button.svg" class="menu-icon" alt="Toggle Menu" />
+            <button type="button" class="mobile-menu-btn" aria-label="Toggle Main Navigation" aria-expanded="false" onclick="toggleLandingNav()">
+                <span class="menu-icon-line" aria-hidden="true"></span>
+                <span class="menu-icon-line" aria-hidden="true"></span>
+                <span class="menu-icon-line" aria-hidden="true"></span>
+            </button>
         </nav>
     </header>
 
@@ -324,6 +333,22 @@
         </div>
         <a href="#hero-section" aria-label="Back to Top">Back to Top ↑</a>
     </footer>
+    <script>
+        function toggleLandingNav() {
+            const nav = document.querySelector('header nav');
+            const btn = document.querySelector('.mobile-menu-btn');
+            const isOpen = nav.classList.toggle('nav-open');
+            if (btn) btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        }
+        document.querySelectorAll('header nav ul a').forEach(link => {
+            link.addEventListener('click', () => {
+                const nav = document.querySelector('header nav');
+                const btn = document.querySelector('.mobile-menu-btn');
+                if (nav) nav.classList.remove('nav-open');
+                if (btn) btn.setAttribute('aria-expanded', 'false');
+            });
+        });
+    </script>
 </body>
 
 </html>
