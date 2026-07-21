@@ -8,16 +8,14 @@ This playbook serves as both a practical field guide for software engineers and 
 
 ## Table of Contents
 
-1. [Core Concepts](https://www.google.com/search?q=%231-core-concepts)
-2. [The AI-Augmented SDLC](https://www.google.com/search?q=%232-the-ai-augmented-sdlc)
-3. [Phase 1: Preparing the Codebase to Be AI-Friendly](https://www.google.com/search?q=%233-phase-1-preparing-the-codebase-to-be-ai-friendly)
-4. [Phase 2: Designing the Developer Experience](https://www.google.com/search?q=%234-phase-2-designing-the-developer-experience)
-5. [Phase 3: Reviewing Everything for Flaws (Quality & Security Assurance)](https://www.google.com/search?q=%235-phase-3-reviewing-everything-for-flaws-quality--security-assurance)
-6. [End-to-End Enterprise Workflows, Gates & Governance](https://www.google.com/search?q=%236-end-to-end-enterprise-workflows-gates--governance)
-7. [How to Write Tickets for Azure DevOps (dev.azure.com)](https://www.google.com/search?q=%237-how-to-write-tickets-for-azure-devops-devazurecom)
-8. [Documentation as a First-Class Citizen & Planning Standards](https://www.google.com/search?q=%238-documentation-as-a-first-class-citizen--planning-standards)
-9. [Recommended Skills Library](https://www.google.com/search?q=%239-recommended-skills-library)
-10. [The Dream: Hybrid Frontier/Local Execution Architecture](https://www.google.com/search?q=%2310-the-dream-hybrid-frontierlocal-execution-architecture)
+1. [Core Concepts](01-core-concepts.html)
+2. [The AI-Augmented SDLC](02-ai-augmented-sdlc.html)
+3. [Phase 1: Preparing the Codebase to Be AI-Friendly](03-preparing-codebase.html)
+4. [Phase 2: Designing the Developer Experience](04-developer-experience.html)
+5. [Phase 3: Reviewing Everything for Flaws (Quality & Security Assurance)](05-quality-security-assurance.html)
+6. [End-to-End Enterprise Workflows, Gates & Governance](06-enterprise-workflows-gates.html)
+7. [How to Write Tickets for Azure DevOps](07-azure-devops-tickets.html)
+8. [Documentation as a First-Class Citizen & Planning Standards](08-documentation-planning.html)
 
 ---
 
