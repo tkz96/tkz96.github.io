@@ -347,13 +347,13 @@ chapters.forEach((chapter, index) => {
     <nav class="pagination-nav" aria-label="Chapter Pagination">
       ${prevChapter ? `
         <a href="${prevChapter.filename}" class="pagination-btn prev-btn">
-          <span class="pagination-label">← PREVIOUS CHAPTER</span>
+          <span class="pagination-label"><span class="nav-arrow">←</span> PREVIOUS CHAPTER</span>
           <span class="pagination-title">${prevChapter.title}</span>
         </a>
       ` : '<div class="pagination-placeholder"></div>'}
       ${nextChapter ? `
         <a href="${nextChapter.filename}" class="pagination-btn next-btn">
-          <span class="pagination-label">NEXT CHAPTER →</span>
+          <span class="pagination-label">NEXT CHAPTER <span class="nav-arrow">→</span></span>
           <span class="pagination-title">${nextChapter.title}</span>
         </a>
       ` : '<div class="pagination-placeholder"></div>'}

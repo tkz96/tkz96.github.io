@@ -984,7 +984,7 @@ code:not(pre code) {
 
 /* Directional Red Accent Borders on Hover */
 .pagination-btn.prev-btn {
-  border-left: 2px solid transparent;
+  border: 1px solid var(--color-divider);
 }
 
 .pagination-btn.prev-btn:hover {
@@ -998,7 +998,7 @@ code:not(pre code) {
 .pagination-btn.next-btn {
   align-items: flex-end;
   text-align: right;
-  border-right: 2px solid transparent;
+  border: 1px solid var(--color-divider);
 }
 
 .pagination-btn.next-btn:hover {
@@ -1016,15 +1016,18 @@ code:not(pre code) {
   letter-spacing: 0.05em;
   color: var(--color-accent);
   margin-bottom: 4px;
+}
+
+.nav-arrow {
   display: inline-block;
   transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.prev-btn:hover .pagination-label {
+.prev-btn:hover .nav-arrow {
   transform: translateX(-4px);
 }
 
-.next-btn:hover .pagination-label {
+.next-btn:hover .nav-arrow {
   transform: translateX(4px);
 }
 
