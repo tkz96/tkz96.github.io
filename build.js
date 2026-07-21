@@ -100,13 +100,9 @@ renderer.table = function({ header, rows }) {
 
   rows.forEach(row => {
     bodyHtml += '<tr>';
-    row.forEach((cell, idx) => {
+    row.forEach(cell => {
       const content = marked.parseInline(cell.text);
-      if (idx === 0) {
-        bodyHtml += `<th scope="row">${content}</th>`;
-      } else {
-        bodyHtml += `<td>${content}</td>`;
-      }
+      bodyHtml += `<td>${content}</td>`;
     });
     bodyHtml += '</tr>';
   });

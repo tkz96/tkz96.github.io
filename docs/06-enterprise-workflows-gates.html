@@ -153,7 +153,7 @@
       <tr><th scope="col">Gate Level</th><th scope="col">Stage</th><th scope="col">Required Approval &amp; Verification</th></tr>
     </thead>
     <tbody>
-      <tr><th scope="row"><strong>Gate 1</strong></th><td>Planning &amp; Scope Approval</td><td>Human lead reviews the agent&#39;s proposed implementation plan, story point estimate, and architectural impact before coding starts.</td></tr><tr><th scope="row"><strong>Gate 2</strong></th><td>Automated Verification</td><td>Automated test suite, static linters, SAST scanners, and review agents (e.g., BugBot) must pass with zero critical errors.</td></tr><tr><th scope="row"><strong>Gate 3</strong></th><td>Human PR Review</td><td>Human engineer reviews code diff for business logic compliance, security integrity, and maintainability before merging into <code>main</code>.</td></tr><tr><th scope="row"><strong>Gate 4</strong></th><td>Deployment &amp; Health Check</td><td>Automated canary deployment checks and real-time log monitoring verify post-release system stability before full rollout.</td></tr>
+      <tr><td><strong>Gate 1</strong></td><td>Planning &amp; Scope Approval</td><td>Human lead reviews the agent&#39;s proposed implementation plan, story point estimate, and architectural impact before coding starts.</td></tr><tr><td><strong>Gate 2</strong></td><td>Automated Verification</td><td>Automated test suite, static linters, SAST scanners, and review agents (e.g., BugBot) must pass with zero critical errors.</td></tr><tr><td><strong>Gate 3</strong></td><td>Human PR Review</td><td>Human engineer reviews code diff for business logic compliance, security integrity, and maintainability before merging into <code>main</code>.</td></tr><tr><td><strong>Gate 4</strong></td><td>Deployment &amp; Health Check</td><td>Automated canary deployment checks and real-time log monitoring verify post-release system stability before full rollout.</td></tr>
     </tbody>
   </table>
 </div><h2 id="agent-access-permissions-matrix" class="heading-anchor-group">
@@ -166,7 +166,7 @@
       <tr><th scope="col">System Asset</th><th scope="col">Local Dev Sandbox</th><th scope="col">CI/CD Agent Pipeline</th><th scope="col">Production Environment</th></tr>
     </thead>
     <tbody>
-      <tr><th scope="row"><strong>Local Codebase</strong></th><td>Read / Write</td><td>Read Only</td><td>Denied</td></tr><tr><th scope="row"><strong>Test Suite Execution</strong></th><td>Full Execution</td><td>Full Execution</td><td>Denied</td></tr><tr><th scope="row"><strong>Development Database</strong></th><td>Read / Write (Mock Data)</td><td>Isolated Ephemeral DB</td><td>Denied</td></tr><tr><th scope="row"><strong>Production Database</strong></th><td>Denied</td><td>Denied</td><td>Denied (Read-Only via Telemetry Logs)</td></tr><tr><th scope="row"><strong>Production Deployment Keys</strong></th><td>Denied</td><td>Scoped Deployment Token</td><td>Denied</td></tr>
+      <tr><td><strong>Local Codebase</strong></td><td>Read / Write</td><td>Read Only</td><td>Denied</td></tr><tr><td><strong>Test Suite Execution</strong></td><td>Full Execution</td><td>Full Execution</td><td>Denied</td></tr><tr><td><strong>Development Database</strong></td><td>Read / Write (Mock Data)</td><td>Isolated Ephemeral DB</td><td>Denied</td></tr><tr><td><strong>Production Database</strong></td><td>Denied</td><td>Denied</td><td>Denied (Read-Only via Telemetry Logs)</td></tr><tr><td><strong>Production Deployment Keys</strong></td><td>Denied</td><td>Scoped Deployment Token</td><td>Denied</td></tr>
     </tbody>
   </table>
 </div><hr>

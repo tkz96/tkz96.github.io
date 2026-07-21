@@ -11,6 +11,9 @@
   --color-divider: #e2e2dc;           /* Soft line divider */
   --color-accent: #d62828;            /* Rich Swiss Red */
   --color-code-bg: #eae9e4;           /* Soft warm code block background */
+  --color-inline-code-bg: #ebeae4;    /* Standout inline code background */
+  --color-inline-code-text: #1a1a1e;  /* High-contrast inline code text */
+  --color-inline-code-border: #d8d7d0;/* Subtle border for inline code pill */
   --color-card-bg: #ffffff;
   --color-border-subtle: #e6e6e0;
   --color-header-bg: rgba(248, 248, 246, 0.95);
@@ -36,6 +39,9 @@
   --color-divider: #28282e;           /* Subtle dark divider */
   --color-accent: #e5484d;            /* Vibrant yet comfortable red */
   --color-code-bg: #202025;           /* Slate code block background */
+  --color-inline-code-bg: #242429;    /* Standout dark inline code background */
+  --color-inline-code-text: #f0f0f5;  /* High-contrast dark inline code text */
+  --color-inline-code-border: #36363e;/* Subtle dark border for inline code pill */
   --color-card-bg: #1c1c20;
   --color-border-subtle: #26262c;
   --color-header-bg: rgba(22, 22, 25, 0.95);
@@ -51,6 +57,9 @@
     --color-divider: #28282e;
     --color-accent: #e5484d;
     --color-code-bg: #202025;
+    --color-inline-code-bg: #242429;
+    --color-inline-code-text: #f0f0f5;
+    --color-inline-code-border: #36363e;
     --color-card-bg: #1c1c20;
     --color-border-subtle: #26262c;
     --color-header-bg: rgba(22, 22, 25, 0.95);
@@ -453,38 +462,85 @@ pre {
   line-height: 1.5;
 }
 
-/* Hairline Swiss Table */
+/* Standout Inline Code Pills (UI Craft) */
+:not(pre) > code,
+code:not(pre code) {
+  font-family: var(--font-mono);
+  font-size: 0.85em;
+  font-weight: 600;
+  color: var(--color-inline-code-text);
+  background-color: var(--color-inline-code-bg);
+  border: 1px solid var(--color-inline-code-border);
+  border-radius: 4px;
+  padding: 0.15em 0.45em;
+  margin: 0 0.12em;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+  vertical-align: baseline;
+  word-break: break-word;
+}
+
+/* Standardized High-Craft Table Design */
 .table-container {
+  width: 100%;
   overflow-x: auto;
   margin: var(--spacing-md) 0;
-  border: 1px solid var(--color-text-primary);
+  border: 1px solid var(--color-divider);
+  border-radius: 0;
+  background-color: var(--color-card-bg);
 }
 
 .swiss-table {
   width: 100%;
   border-collapse: collapse;
   font-size: 0.875rem;
+  line-height: 1.5;
   text-align: left;
 }
 
-.swiss-table th {
+/* Header Row */
+.swiss-table thead {
   background-color: var(--color-code-bg);
-  font-weight: 700;
+  border-bottom: 2px solid var(--color-divider);
+}
+
+.swiss-table thead th {
+  padding: 12px 16px;
+  font-weight: 600;
+  font-size: 0.8125rem;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-  padding: var(--spacing-sm);
-  border-bottom: 2px solid var(--color-text-primary);
+  letter-spacing: 0.04em;
+  color: var(--color-text-primary);
   border-right: 1px solid var(--color-divider);
 }
 
-.swiss-table td {
-  padding: var(--spacing-sm);
+.swiss-table thead th:last-child {
+  border-right: none;
+}
+
+/* Body Rows & Hover */
+.swiss-table tbody tr {
   border-bottom: 1px solid var(--color-divider);
+  transition: background-color 0.15s ease;
+}
+
+.swiss-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.swiss-table tbody tr:hover {
+  background-color: var(--color-hover-bg);
+}
+
+/* Body Cells */
+.swiss-table tbody td {
+  padding: 12px 16px;
+  color: var(--color-text-primary);
+  vertical-align: top;
   border-right: 1px solid var(--color-divider);
 }
 
-.swiss-table tr:last-child td {
-  border-bottom: none;
+.swiss-table tbody td:last-child {
+  border-right: none;
 }
 
 /* Swiss Lists */
