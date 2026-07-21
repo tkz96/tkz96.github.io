@@ -3,18 +3,19 @@
    Grid System: 12 columns, 24px gutters, 8px baseline rhythm
    ========================================================================== */
 
-/* Design Tokens & Custom Variables */
+/* Design Tokens & Custom Variables (Comfortable Eye-Friendly Contrast) */
 :root {
-  --color-bg: #fdfdfd;
-  --color-text-primary: #111111;
-  --color-text-secondary: #666666;
-  --color-divider: #e5e5e5;
-  --color-accent: #e30613; /* Canonical Swiss Red */
-  --color-code-bg: #faf9f6;
+  --color-bg: #f8f8f6;               /* Warm soft off-white paper */
+  --color-text-primary: #1f1f24;      /* Comfortable soft charcoal text */
+  --color-text-secondary: #5e5e68;    /* Soft secondary text */
+  --color-divider: #e2e2dc;           /* Soft line divider */
+  --color-accent: #d62828;            /* Rich Swiss Red */
+  --color-code-bg: #eae9e4;           /* Soft warm code block background */
   --color-card-bg: #ffffff;
-  --color-border-subtle: #eeeeee;
-  --color-header-bg: rgba(253, 253, 253, 0.95);
-  --color-hover-bg: #f0f0f0;
+  --color-border-subtle: #e6e6e0;
+  --color-header-bg: rgba(248, 248, 246, 0.95);
+  --color-hover-bg: #ebeae4;
+  --icon-filter: none;
   --font-sans: 'Inter', -apple-system, blinkmacsystemfont, "Segoe UI", roboto, sans-serif;
   --font-mono: 'JetBrains Mono', "SFMono-Regular", consolas, "Liberation Mono", menlo, monospace;
   --spacing-base: 8px;
@@ -27,32 +28,34 @@
   --spacing-huge: 80px; /* 10x baseline */
 }
 
-/* Dark Theme Overrides */
+/* Dark Theme Overrides (Comfortable Dark Slate) */
 [data-theme="dark"] {
-  --color-bg: #0f0f12;
-  --color-text-primary: #f5f5f8;
-  --color-text-secondary: #a0a0ab;
-  --color-divider: #26262e;
-  --color-accent: #ff3b30; /* High Contrast Swiss Red */
-  --color-code-bg: #18181c;
-  --color-card-bg: #141417;
-  --color-border-subtle: #222226;
-  --color-header-bg: rgba(15, 15, 18, 0.95);
-  --color-hover-bg: #22222a;
+  --color-bg: #161619;               /* Slate dark charcoal background */
+  --color-text-primary: #e4e4e9;      /* Off-white comfortable text */
+  --color-text-secondary: #90909c;    /* Muted secondary text */
+  --color-divider: #28282e;           /* Subtle dark divider */
+  --color-accent: #e5484d;            /* Vibrant yet comfortable red */
+  --color-code-bg: #202025;           /* Slate code block background */
+  --color-card-bg: #1c1c20;
+  --color-border-subtle: #26262c;
+  --color-header-bg: rgba(22, 22, 25, 0.95);
+  --color-hover-bg: #25252b;
+  --icon-filter: invert(0.9) brightness(1.2);
 }
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --color-bg: #0f0f12;
-    --color-text-primary: #f5f5f8;
-    --color-text-secondary: #a0a0ab;
-    --color-divider: #26262e;
-    --color-accent: #ff3b30;
-    --color-code-bg: #18181c;
-    --color-card-bg: #141417;
-    --color-border-subtle: #222226;
-    --color-header-bg: rgba(15, 15, 18, 0.95);
-    --color-hover-bg: #22222a;
+    --color-bg: #161619;
+    --color-text-primary: #e4e4e9;
+    --color-text-secondary: #90909c;
+    --color-divider: #28282e;
+    --color-accent: #e5484d;
+    --color-code-bg: #202025;
+    --color-card-bg: #1c1c20;
+    --color-border-subtle: #26262c;
+    --color-header-bg: rgba(22, 22, 25, 0.95);
+    --color-hover-bg: #25252b;
+    --icon-filter: invert(0.9) brightness(1.2);
   }
 }
 
@@ -522,12 +525,53 @@ pre {
   margin: 0 auto;
   padding: 0 var(--spacing-lg);
   display: flex;
-  gap: var(--spacing-sm);
+  justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
   font-size: 0.75rem;
   font-weight: 600;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.05em;
   color: var(--color-text-secondary);
+}
+
+.footer-left {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  flex-wrap: wrap;
+}
+
+.footer-author {
+  color: var(--color-text-primary);
+  font-weight: 700;
+}
+
+.footer-socials {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.footer-social-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  opacity: 0.75;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.footer-social-icon:hover {
+  opacity: 1;
+  transform: translateY(-2px);
+}
+
+.footer-social-icon img {
+  width: 18px;
+  height: 18px;
+  filter: var(--icon-filter);
 }
 
 /* Responsive Breakpoints */

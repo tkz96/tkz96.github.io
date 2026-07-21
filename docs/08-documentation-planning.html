@@ -8,9 +8,10 @@
   <script>
     (function() {
       const savedTheme = localStorage.getItem('theme');
-      if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      const isDark = savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      if (isDark) {
         document.documentElement.setAttribute('data-theme', 'dark');
-      } else if (savedTheme === 'light') {
+      } else {
         document.documentElement.setAttribute('data-theme', 'light');
       }
     })();
@@ -27,19 +28,16 @@
     <div class="header-container">
       <div class="header-logo">
         <a href="index.html" class="logo-link">
-          <span class="logo-bold">SDLC</span>
-          <span class="logo-light">/ STANDARD</span>
+          <span class="logo-text">The new </span><span class="logo-accent">AI-SDLC</span>
         </a>
       </div>
       <div class="header-controls">
         <div class="header-meta">
           <span class="chapter-badge">CHAPTER 08</span>
-          <span>•</span>
-          <span>VERSION 4.0</span>
         </div>
-        <button type="button" class="theme-toggle-btn" id="theme-toggle" aria-label="Toggle light and dark mode" onclick="toggleTheme()">
-          <span class="theme-toggle-icon" aria-hidden="true">◐</span>
-          <span class="theme-toggle-label">THEME</span>
+        <button type="button" class="theme-toggle-btn" id="theme-toggle" aria-label="Switch theme" onclick="toggleTheme()">
+          <span class="theme-toggle-icon" id="theme-toggle-icon" aria-hidden="true">🌙</span>
+          <span class="theme-toggle-label">Switch theme</span>
         </button>
         <button type="button" class="mobile-menu-btn" aria-label="Toggle Navigation Index" onclick="toggleMobileDrawer()">
           <span class="menu-icon-line" aria-hidden="true"></span>
@@ -336,9 +334,28 @@ Closes AB#10820
 
   <footer class="site-footer">
     <div class="footer-container">
-      <span>THE AI DEVELOPMENT PLAYBOOK © 2026</span>
-      <span>•</span>
-      <span>INTERNATIONAL TYPOGRAPHIC STYLE</span>
+      <div class="footer-left">
+        <span>THE AI DEVELOPMENT PLAYBOOK © 2026</span>
+        <span>•</span>
+        <span class="footer-author">Talha Khalid Zuberi</span>
+      </div>
+      <div class="footer-socials">
+        <a class="footer-social-icon" href="https://www.twitter.com/tkz96" target="_blank" rel="noopener noreferrer" aria-label="Twitter Profile">
+          <img src="../assets/icons/social-icons/icon-twitter.svg" alt="" aria-hidden="true" />
+        </a>
+        <a class="footer-social-icon" href="https://www.linkedin.com/in/talha-zuberi" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile">
+          <img src="../assets/icons/social-icons/icon-linkedin.svg" alt="" aria-hidden="true" />
+        </a>
+        <a class="footer-social-icon" href="https://medium.com/@tkz_96" target="_blank" rel="noopener noreferrer" aria-label="Medium Profile">
+          <img src="../assets/icons/social-icons/icon-medium.svg" alt="" aria-hidden="true" />
+        </a>
+        <a class="footer-social-icon" href="https://www.github.com/tkz96" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile">
+          <img src="../assets/icons/social-icons/icon-github.svg" alt="" aria-hidden="true" />
+        </a>
+        <a class="footer-social-icon" href="https://angel.co/u/talha-zuberi" target="_blank" rel="noopener noreferrer" aria-label="AngelList Profile">
+          <img src="../assets/icons/social-icons/icon-angellist.svg" alt="" aria-hidden="true" />
+        </a>
+      </div>
     </div>
   </footer>
 
@@ -357,12 +374,22 @@ Closes AB#10820
       }).catch(err => console.error('Failed to copy: ', err));
     }
 
+    function updateThemeIcon() {
+      const current = document.documentElement.getAttribute('data-theme');
+      const isDark = current === 'dark' || (!current && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      const iconSpan = document.getElementById('theme-toggle-icon');
+      if (iconSpan) {
+        iconSpan.textContent = isDark ? '☀️' : '🌙';
+      }
+    }
+
     function toggleTheme() {
       const current = document.documentElement.getAttribute('data-theme');
       const isDark = current === 'dark' || (!current && window.matchMedia('(prefers-color-scheme: dark)').matches);
       const next = isDark ? 'light' : 'dark';
       document.documentElement.setAttribute('data-theme', next);
       localStorage.setItem('theme', next);
+      updateThemeIcon();
     }
 
     function toggleMobileDrawer() {
@@ -376,6 +403,8 @@ Closes AB#10820
       drawer.classList.remove('active');
       document.body.classList.remove('drawer-open');
     }
+
+    document.addEventListener('DOMContentLoaded', updateThemeIcon);
   </script>
 </body>
 </html>
