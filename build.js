@@ -9,6 +9,23 @@ if (!fs.existsSync(outputDir)) {
   fs.mkdirSync(outputDir, { recursive: true });
 }
 
+// Copy assets to docs/assets for deployment
+function copyDirRecursive(src, dest) {
+  if (!fs.existsSync(src)) return;
+  if (!fs.existsSync(dest)) fs.mkdirSync(dest, { recursive: true });
+  const entries = fs.readdirSync(src, { withFileTypes: true });
+  for (const entry of entries) {
+    const srcPath = path.join(src, entry.name);
+    const destPath = path.join(dest, entry.name);
+    if (entry.isDirectory()) {
+      copyDirRecursive(srcPath, destPath);
+    } else {
+      fs.copyFileSync(srcPath, destPath);
+    }
+  }
+}
+copyDirRecursive(path.join(__dirname, 'assets'), path.join(outputDir, 'assets'));
+
 // Read markdown source
 const markdownPath = path.join(__dirname, 'aiplaybook.md');
 const markdownContent = fs.readFileSync(markdownPath, 'utf8');
@@ -398,7 +415,7 @@ chapters.forEach((chapter, index) => {
           <span class="theme-toggle-icon" id="theme-toggle-icon" aria-hidden="true">🌙</span>
           <span class="theme-toggle-label">Switch theme</span>
         </button>
-        <button type="button" class="mobile-menu-btn" aria-label="Toggle Navigation Index" onclick="toggleMobileDrawer()">
+        <button type="button" class="mobile-menu-btn" aria-label="Toggle Navigation Index" aria-expanded="false" aria-controls="sidebar-drawer" onclick="toggleMobileDrawer()">
           <span class="menu-icon-line" aria-hidden="true"></span>
           <span class="menu-icon-line" aria-hidden="true"></span>
           <span class="menu-icon-line" aria-hidden="true"></span>
@@ -435,19 +452,19 @@ chapters.forEach((chapter, index) => {
       </div>
       <div class="footer-socials">
         <a class="footer-social-icon" href="https://www.twitter.com/tkz96" target="_blank" rel="noopener noreferrer" aria-label="Twitter Profile">
-          <img src="../assets/icons/social-icons/icon-twitter.svg" alt="" aria-hidden="true" />
+          <img src="assets/icons/social-icons/icon-twitter.svg" alt="" aria-hidden="true" />
         </a>
         <a class="footer-social-icon" href="https://www.linkedin.com/in/talha-zuberi" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile">
-          <img src="../assets/icons/social-icons/icon-linkedin.svg" alt="" aria-hidden="true" />
+          <img src="assets/icons/social-icons/icon-linkedin.svg" alt="" aria-hidden="true" />
         </a>
         <a class="footer-social-icon" href="https://medium.com/@tkz_96" target="_blank" rel="noopener noreferrer" aria-label="Medium Profile">
-          <img src="../assets/icons/social-icons/icon-medium.svg" alt="" aria-hidden="true" />
+          <img src="assets/icons/social-icons/icon-medium.svg" alt="" aria-hidden="true" />
         </a>
         <a class="footer-social-icon" href="https://www.github.com/tkz96" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile">
-          <img src="../assets/icons/social-icons/icon-github.svg" alt="" aria-hidden="true" />
+          <img src="assets/icons/social-icons/icon-github.svg" alt="" aria-hidden="true" />
         </a>
         <a class="footer-social-icon" href="https://angel.co/u/talha-zuberi" target="_blank" rel="noopener noreferrer" aria-label="AngelList Profile">
-          <img src="../assets/icons/social-icons/icon-angellist.svg" alt="" aria-hidden="true" />
+          <img src="assets/icons/social-icons/icon-angellist.svg" alt="" aria-hidden="true" />
         </a>
       </div>
     </div>
@@ -488,14 +505,18 @@ chapters.forEach((chapter, index) => {
 
     function toggleMobileDrawer() {
       const drawer = document.getElementById('sidebar-drawer');
-      drawer.classList.toggle('active');
-      document.body.classList.toggle('drawer-open');
+      const btn = document.querySelector('.mobile-menu-btn');
+      const isActive = drawer.classList.toggle('active');
+      document.body.classList.toggle('drawer-open', isActive);
+      if (btn) btn.setAttribute('aria-expanded', isActive ? 'true' : 'false');
     }
 
     function closeMobileDrawer() {
       const drawer = document.getElementById('sidebar-drawer');
+      const btn = document.querySelector('.mobile-menu-btn');
       drawer.classList.remove('active');
       document.body.classList.remove('drawer-open');
+      if (btn) btn.setAttribute('aria-expanded', 'false');
     }
 
     document.addEventListener('DOMContentLoaded', updateThemeIcon);
