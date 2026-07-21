@@ -6,7 +6,7 @@ const hljs = require('highlight.js');
 // Ensure output directory exists
 const outputDir = path.join(__dirname, 'docs');
 if (!fs.existsSync(outputDir)) {
-  fs.mkdirSync(outputDir);
+  fs.mkdirSync(outputDir, { recursive: true });
 }
 
 // Read markdown source
@@ -19,14 +19,10 @@ function generateSlug(text) {
   let slug = text
     .toLowerCase()
     .trim()
-    // Replace non-alphanumeric chars with hyphens
     .replace(/[^a-z0-9]+/g, '-')
-    // Collapse multiple hyphens
     .replace(/-+/g, '-')
-    // Trim hyphens from start/end
     .replace(/^-+|-+$/g, '');
   
-  // Ensure uniqueness
   let baseSlug = slug;
   let counter = 1;
   while (headingSlugs.has(slug)) {
@@ -37,49 +33,9 @@ function generateSlug(text) {
   return slug;
 }
 
-// Generate the TOC tree using marked lexer
-const tokens = marked.lexer(markdownContent);
-const toc = [];
-const filteredTokens = [];
-let skipMode = false;
-
-// Filter out the static "Table of Contents" in markdown to avoid duplicates
-for (const token of tokens) {
-  if (token.type === 'heading' && token.text.trim() === 'Table of Contents') {
-    skipMode = true;
-    continue;
-  }
-  if (skipMode) {
-    if (token.type === 'heading' || token.type === 'hr') {
-      skipMode = false;
-    } else {
-      continue;
-    }
-  }
-  filteredTokens.push(token);
-
-  // Extract headings for the TOC nav
-  if (token.type === 'heading') {
-    const text = token.text.trim();
-    // Exclude the document title (H1) and version (first H2) from active TOC lists,
-    // as they are page headers, not content sections.
-    if (token.depth > 1 && !text.startsWith('Version 4:')) {
-      toc.push({
-        text: text,
-        level: token.depth,
-        slug: generateSlug(text)
-      });
-    }
-  }
-}
-
-// Reset headingSlugs for the rendering pass to make sure the generated IDs match the TOC
-headingSlugs.clear();
-
-// Set up custom renderer to support Swiss design components
+// Custom marked renderer for Swiss Design
 const renderer = new marked.Renderer();
 
-// Custom code renderer with syntax highlighting, language label, and copy button
 renderer.code = function({ text, lang, escaped }) {
   const language = lang || 'plaintext';
   let highlighted;
@@ -103,8 +59,7 @@ renderer.code = function({ text, lang, escaped }) {
 </div>`;
 };
 
-// Custom heading renderer to generate stable anchor links
-renderer.heading = function({ text, depth, raw }) {
+renderer.heading = function({ text, depth }) {
   const textClean = text.trim();
   const slug = generateSlug(textClean);
   
@@ -119,7 +74,6 @@ renderer.heading = function({ text, depth, raw }) {
 </h${depth}>`;
 };
 
-// Custom table renderer to ensure horizontal scrolling support
 renderer.table = function({ header, rows }) {
   let headerHtml = '';
   let bodyHtml = '';
@@ -149,8 +103,7 @@ renderer.table = function({ header, rows }) {
 </div>`;
 };
 
-// Custom list renderer to ensure clean print-like alignment
-renderer.list = function({ items, ordered, start }) {
+renderer.list = function({ items, ordered }) {
   const type = ordered ? 'ol' : 'ul';
   let itemsHtml = '';
   items.forEach(item => {
@@ -161,10 +114,6 @@ renderer.list = function({ items, ordered, start }) {
 
 marked.use({ renderer });
 
-// Compile Markdown to HTML
-const htmlContent = marked.parser(filteredTokens);
-
-// Helper function to escape HTML if fallback is needed
 function escapeHtml(text) {
   return text
     .replace(/&/g, '&amp;')
@@ -174,44 +123,130 @@ function escapeHtml(text) {
     .replace(/'/g, '&#039;');
 }
 
-// Generate the sidebar TOC list HTML
-function buildTocHtml(tocItems) {
-  let html = '<ul class="toc-list">';
-  tocItems.forEach(item => {
-    // Determine section numbering if starts with digits, otherwise keep text
-    let num = '';
-    let label = item.text;
-    const match = item.text.match(/^(\d+)\.\s*(.*)/);
-    
-    if (match) {
-      num = match[1].padStart(2, '0') + '. ';
-      label = match[2];
-    }
+// Parse markdown into AST tokens
+const rawTokens = marked.lexer(markdownContent);
 
-    const itemClass = `toc-item toc-level-${item.level}`;
-    html += `
-      <li class="${itemClass}">
-        <a href="#${item.slug}" onclick="closeMobileDrawer()">
-          ${num ? `<span class="toc-num">${num}</span>` : ''}
-          <span class="toc-text">${label}</span>
+// Chapter Definitions for Multi-Page Pagination
+const chapterConfigs = [
+  { id: 'overview', filename: 'index.html', title: 'Overview & Index', num: '00', match: null },
+  { id: 'core-concepts', filename: '01-core-concepts.html', title: '1. Core Concepts', num: '01', match: '1. Core Concepts' },
+  { id: 'ai-augmented-sdlc', filename: '02-ai-augmented-sdlc.html', title: '2. The AI-Augmented SDLC', num: '02', match: '2. The AI-Augmented SDLC' },
+  { id: 'preparing-codebase', filename: '03-preparing-codebase.html', title: '3. Phase 1: Preparing Codebase', num: '03', match: '3. Phase 1: Preparing the Codebase to Be AI-Friendly' },
+  { id: 'developer-experience', filename: '04-developer-experience.html', title: '4. Phase 2: Developer Experience', num: '04', match: '4. Phase 2: Designing the Developer Experience' },
+  { id: 'quality-security-assurance', filename: '05-quality-security-assurance.html', title: '5. Phase 3: Quality & Security', num: '05', match: '5. Phase 3: Reviewing Everything for Flaws (Quality & Security Assurance)' },
+  { id: 'enterprise-workflows-gates', filename: '06-enterprise-workflows-gates.html', title: '6. Enterprise Workflows & Gates', num: '06', match: '6. End-to-End Enterprise Workflows, Gates & Governance' },
+  { id: 'azure-devops-tickets', filename: '07-azure-devops-tickets.html', title: '7. Azure DevOps Ticket Standards', num: '07', match: '7. How to Write Tickets for Azure DevOps (dev.azure.com)' },
+  { id: 'documentation-planning', filename: '08-documentation-planning.html', title: '8. Documentation Standards', num: '08', match: '8. Documentation as a First-Class Citizen & Planning Standards' }
+];
+
+// Group tokens by chapter
+const chapters = chapterConfigs.map(config => ({
+  ...config,
+  tokens: [],
+  subheadings: []
+}));
+
+let currentChapterIndex = 0; // Starts at Overview
+
+for (const token of rawTokens) {
+  // Skip the static Markdown TOC block
+  if (token.type === 'heading' && token.text.trim() === 'Table of Contents') {
+    continue;
+  }
+
+  if (token.type === 'heading' && token.depth === 2) {
+    const textClean = token.text.trim();
+    // Check if this matches a chapter definition
+    const matchIndex = chapterConfigs.findIndex(c => c.match && textClean.startsWith(c.match));
+    if (matchIndex !== -1) {
+      currentChapterIndex = matchIndex;
+    }
+  }
+
+  chapters[currentChapterIndex].tokens.push(token);
+
+  if (token.type === 'heading' && token.depth >= 2) {
+    const textClean = token.text.trim();
+    if (textClean !== 'Table of Contents' && textClean !== 'Overview') {
+      chapters[currentChapterIndex].subheadings.push({
+        text: textClean,
+        level: token.depth
+      });
+    }
+  }
+}
+
+// Generate Overview Chapter Content for index.html if empty
+if (chapters[0].tokens.length < 5) {
+  const overviewMarkdown = `
+# The AI Development Playbook
+## Executive Operational Standard for AI-Augmented Software Engineering
+
+Welcome to the enterprise operational standard for software development organizations integrating autonomous AI agents across the SDLC.
+
+### Playbook Chapters
+
+- [01. Core Concepts](01-core-concepts.html) — Tokens, Rules, Skills, Loops, and Prompt/Harness Engineering.
+- [02. The AI-Augmented SDLC](02-ai-augmented-sdlc.html) — Shift-left architecture, continuous context, and gate loops.
+- [03. Phase 1: Preparing Codebase](03-preparing-codebase.html) — Codebase readiness, domain models, and AI navigation.
+- [04. Phase 2: Developer Experience](04-developer-experience.html) — Human-AI pair programming workflows and DX patterns.
+- [05. Phase 3: Quality & Security](05-quality-security-assurance.html) — Two-tiered review architecture, automated edge cases, and auditing.
+- [06. Enterprise Workflows & Gates](06-enterprise-workflows-gates.html) — Four-gate protocol, permission matrices, and safety.
+- [07. Azure DevOps Ticket Standards](07-azure-devops-tickets.html) — Epic, Feature, PBI, Task, and Bug structural standards.
+- [08. Documentation Standards](08-documentation-planning.html) — ADRs, PRDs, Glossaries, and code-level documentation rules.
+`;
+  chapters[0].tokens = marked.lexer(overviewMarkdown);
+}
+
+// Render each chapter to its HTML file
+chapters.forEach((chapter, index) => {
+  headingSlugs.clear(); // Reset slug generator per page for clean anchor IDs
+
+  const prevChapter = index > 0 ? chapters[index - 1] : null;
+  const nextChapter = index < chapters.length - 1 ? chapters[index + 1] : null;
+
+  const bodyHtml = marked.parser(chapter.tokens);
+
+  // Generate Swiss Sidebar HTML with active status
+  let sidebarHtml = '<ul class="toc-list">';
+  chapters.forEach(c => {
+    const isActive = c.id === chapter.id;
+    sidebarHtml += `
+      <li class="toc-item ${isActive ? 'active-chapter' : ''}">
+        <a href="${c.filename}" onclick="closeMobileDrawer()">
+          <span class="toc-num">${c.num}.</span>
+          <span class="toc-text">${c.title}</span>
         </a>
       </li>
     `;
   });
-  html += '</ul>';
-  return html;
-}
+  sidebarHtml += '</ul>';
 
-const tocHtml = buildTocHtml(toc);
+  // Generate Pagination Controls
+  const paginationHtml = `
+    <nav class="pagination-nav" aria-label="Chapter Pagination">
+      ${prevChapter ? `
+        <a href="${prevChapter.filename}" class="pagination-btn prev-btn">
+          <span class="pagination-label">← PREVIOUS CHAPTER</span>
+          <span class="pagination-title">${prevChapter.title}</span>
+        </a>
+      ` : '<div class="pagination-placeholder"></div>'}
+      ${nextChapter ? `
+        <a href="${nextChapter.filename}" class="pagination-btn next-btn">
+          <span class="pagination-label">NEXT CHAPTER →</span>
+          <span class="pagination-title">${nextChapter.title}</span>
+        </a>
+      ` : '<div class="pagination-placeholder"></div>'}
+    </nav>
+  `;
 
-// Full HTML Template in Swiss / International Typographic Style
-const fullHtml = `<!DOCTYPE html>
+  const fullHtml = `<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Operational standard for enterprise development organizations integrating autonomous AI agents across every stage of the SDLC.">
-  <title>The AI Development Playbook</title>
+  <meta name="description" content="Swiss design operational standard for enterprise AI software development.">
+  <title>${chapter.title} — The AI Development Playbook</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
@@ -223,15 +258,17 @@ const fullHtml = `<!DOCTYPE html>
   <header class="site-header">
     <div class="header-container">
       <div class="header-logo">
-        <span class="logo-bold">SDLC</span>
-        <span class="logo-light">/ STANDARD</span>
+        <a href="index.html" class="logo-link">
+          <span class="logo-bold">SDLC</span>
+          <span class="logo-light">/ STANDARD</span>
+        </a>
       </div>
       <div class="header-meta">
-        <span>VERSION 4.0</span>
+        <span class="chapter-badge">CHAPTER ${chapter.num}</span>
         <span>•</span>
-        <span>AZURE DEVOPS INTEGRATION</span>
+        <span>VERSION 4.0</span>
       </div>
-      <button type="button" class="mobile-menu-btn" aria-label="Toggle Table of Contents" onclick="toggleMobileDrawer()">
+      <button type="button" class="mobile-menu-btn" aria-label="Toggle Navigation Index" onclick="toggleMobileDrawer()">
         <span class="menu-icon-line"></span>
         <span class="menu-icon-line"></span>
       </button>
@@ -241,18 +278,19 @@ const fullHtml = `<!DOCTYPE html>
   <div class="layout-container">
     <aside class="sidebar" id="sidebar-drawer">
       <div class="sidebar-header">
-        <span class="sidebar-title">INDEX STRUCTURE</span>
-        <button type="button" class="close-menu-btn" aria-label="Close Table of Contents" onclick="closeMobileDrawer()">×</button>
+        <span class="sidebar-title">CHAPTER INDEX</span>
+        <button type="button" class="close-menu-btn" aria-label="Close Index" onclick="closeMobileDrawer()">×</button>
       </div>
       <nav class="sidebar-nav" aria-label="Table of Contents">
-        ${tocHtml}
+        ${sidebarHtml}
       </nav>
     </aside>
 
     <main class="content-wrapper" id="main-content">
       <article class="prose">
-        ${htmlContent}
+        ${bodyHtml}
       </article>
+      ${paginationHtml}
     </main>
   </div>
 
@@ -265,7 +303,6 @@ const fullHtml = `<!DOCTYPE html>
   </footer>
 
   <script>
-    // Copy-to-clipboard function
     function copyCode(button) {
       const wrapper = button.closest('.code-block-wrapper');
       const code = wrapper.querySelector('code').textContent;
@@ -273,17 +310,13 @@ const fullHtml = `<!DOCTYPE html>
       navigator.clipboard.writeText(code).then(() => {
         button.textContent = 'Copied';
         button.classList.add('copied');
-        
         setTimeout(() => {
           button.textContent = 'Copy';
           button.classList.remove('copied');
         }, 2000);
-      }).catch(err => {
-        console.error('Failed to copy: ', err);
-      });
+      }).catch(err => console.error('Failed to copy: ', err));
     }
 
-    // Mobile drawer toggles
     function toggleMobileDrawer() {
       const drawer = document.getElementById('sidebar-drawer');
       drawer.classList.toggle('active');
@@ -295,66 +328,12 @@ const fullHtml = `<!DOCTYPE html>
       drawer.classList.remove('active');
       document.body.classList.remove('drawer-open');
     }
-
-    // Scrollspy and mathematical caliper indicator logic
-    document.addEventListener('DOMContentLoaded', () => {
-      const sections = [];
-      const tocLinks = document.querySelectorAll('.toc-list a');
-      
-      // Get all headings in the document that have corresponding TOC links
-      tocLinks.forEach(link => {
-        const id = link.getAttribute('href').substring(1);
-        const element = document.getElementById(id);
-        if (element) {
-          sections.push({ id, element, link });
-        }
-      });
-
-      function updateActiveToc() {
-        const scrollPosition = window.scrollY + 120; // offset for sticky header
-        
-        let activeIndex = -1;
-        for (let i = 0; i < sections.length; i++) {
-          if (scrollPosition >= sections[i].element.offsetTop) {
-            activeIndex = i;
-          } else {
-            break;
-          }
-        }
-
-        tocLinks.forEach(link => link.classList.remove('active'));
-        
-        if (activeIndex !== -1) {
-          const activeLink = sections[activeIndex].link;
-          activeLink.classList.add('active');
-          
-          // Align the indicator container
-          const activeLi = activeLink.closest('li');
-          if (activeLi) {
-            // Scroll sidebar if active item is out of view
-            const sidebarNav = document.querySelector('.sidebar-nav');
-            const liTop = activeLi.offsetTop;
-            const liBottom = liTop + activeLi.offsetHeight;
-            const viewTop = sidebarNav.scrollTop;
-            const viewBottom = viewTop + sidebarNav.clientHeight;
-            
-            if (liTop < viewTop) {
-              sidebarNav.scrollTop = liTop;
-            } else if (liBottom > viewBottom) {
-              sidebarNav.scrollTop = liBottom - sidebarNav.clientHeight;
-            }
-          }
-        }
-      }
-
-      window.addEventListener('scroll', updateActiveToc);
-      updateActiveToc(); // Initial run
-    });
   </script>
 </body>
-</html>
-`;
+</html>`;
 
-// Write the index.html file
-fs.writeFileSync(path.join(outputDir, 'index.html'), fullHtml, 'utf8');
-console.log('Successfully generated docs/index.html');
+  fs.writeFileSync(path.join(outputDir, chapter.filename), fullHtml, 'utf8');
+  console.log(`Generated docs/${chapter.filename}`);
+});
+
+console.log('Successfully generated all 9 Swiss Docs pages!');

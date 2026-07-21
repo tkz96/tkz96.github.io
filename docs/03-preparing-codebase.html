@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Swiss design operational standard for enterprise AI software development.">
-  <title>Overview & Index — The AI Development Playbook</title>
+  <title>3. Phase 1: Preparing Codebase — The AI Development Playbook</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
@@ -22,7 +22,7 @@
         </a>
       </div>
       <div class="header-meta">
-        <span class="chapter-badge">CHAPTER 00</span>
+        <span class="chapter-badge">CHAPTER 03</span>
         <span>•</span>
         <span>VERSION 4.0</span>
       </div>
@@ -41,7 +41,7 @@
       </div>
       <nav class="sidebar-nav" aria-label="Table of Contents">
         <ul class="toc-list">
-      <li class="toc-item active-chapter">
+      <li class="toc-item ">
         <a href="index.html" onclick="closeMobileDrawer()">
           <span class="toc-num">00.</span>
           <span class="toc-text">Overview & Index</span>
@@ -62,7 +62,7 @@
         </a>
       </li>
     
-      <li class="toc-item ">
+      <li class="toc-item active-chapter">
         <a href="03-preparing-codebase.html" onclick="closeMobileDrawer()">
           <span class="toc-num">03.</span>
           <span class="toc-text">3. Phase 1: Preparing Codebase</span>
@@ -109,22 +109,34 @@
 
     <main class="content-wrapper" id="main-content">
       <article class="prose">
-        <h1 id="the-ai-development-playbook-an-enterprise-sdlc-guide" class="doc-title">The AI Development Playbook: An Enterprise SDLC Guide</h1>
-<h2 id="version-4-complete-enterprise-operational-standard-with-azure-devops-integration-documentation-standards" class="heading-anchor-group">
-  <span class="heading-text">Version 4: Complete Enterprise Operational Standard with Azure DevOps Integration & Documentation Standards</span>
-  <a class="heading-anchor" href="#version-4-complete-enterprise-operational-standard-with-azure-devops-integration-documentation-standards" aria-label="Anchor link to Version 4: Complete Enterprise Operational Standard with Azure DevOps Integration & Documentation Standards">#</a>
-</h2><p>This playbook serves as both a practical field guide for software engineers and an operational standard for enterprise development organizations. It provides a complete framework for integrating autonomous AI agents across every stage of the Software Development Life Cycle (SDLC) while enforcing strict quality, security, governance standards, precise work item structuring in Azure DevOps (<code>dev.azure.com</code>), and rigorous documentation practices.</p>
-<hr>
-<ol class="swiss-list"><li>[Core Concepts](https://www.google.com/search?q=%231-core-concepts)</li><li>[The AI-Augmented SDLC](https://www.google.com/search?q=%232-the-ai-augmented-sdlc)</li><li>[Phase 1: Preparing the Codebase to Be AI-Friendly](https://www.google.com/search?q=%233-phase-1-preparing-the-codebase-to-be-ai-friendly)</li><li>[Phase 2: Designing the Developer Experience](https://www.google.com/search?q=%234-phase-2-designing-the-developer-experience)</li><li>[Phase 3: Reviewing Everything for Flaws (Quality & Security Assurance)](https://www.google.com/search?q=%235-phase-3-reviewing-everything-for-flaws-quality--security-assurance)</li><li>[End-to-End Enterprise Workflows, Gates & Governance](https://www.google.com/search?q=%236-end-to-end-enterprise-workflows-gates--governance)</li><li>[How to Write Tickets for Azure DevOps (dev.azure.com)](https://www.google.com/search?q=%237-how-to-write-tickets-for-azure-devops-devazurecom)</li><li>[Documentation as a First-Class Citizen & Planning Standards](https://www.google.com/search?q=%238-documentation-as-a-first-class-citizen--planning-standards)</li><li>[Recommended Skills Library](https://www.google.com/search?q=%239-recommended-skills-library)</li><li>[The Dream: Hybrid Frontier/Local Execution Architecture](https://www.google.com/search?q=%2310-the-dream-hybrid-frontierlocal-execution-architecture)</li></ol><hr>
+        
+<h2 id="3-phase-1-preparing-the-codebase-to-be-ai-friendly" class="heading-anchor-group">
+  <span class="heading-text">3. Phase 1: Preparing the Codebase to Be AI-Friendly</span>
+  <a class="heading-anchor" href="#3-phase-1-preparing-the-codebase-to-be-ai-friendly" aria-label="Anchor link to 3. Phase 1: Preparing the Codebase to Be AI-Friendly">#</a>
+</h2><p>An AI agent is only as effective as the repository it operates within. Essential preparation steps include:</p>
+<ul class="swiss-list"><li>**Root Rules File:** Maintain an `AGENTS.md` file detailing build commands, style rules, and hard boundaries.
+
+</li><li>**Consistent Naming & Architecture:** Ensure domain terms are standardized across API, application, and database layers.
+
+</li><li>**Modular Architecture:** Break large monolithic files (3,000+ lines) into small, single-responsibility modules that fit easily into context windows.
+
+</li><li>**Comprehensive Test Suite & Static Analysis:** High test coverage and strict type checking provide instant feedback loops for agents to verify their own edits.
+
+</li><li>**Explicit Error Reporting:** Ensure errors yield detailed contextual traces rather than failing silently.</li></ul><hr>
 
       </article>
       
     <nav class="pagination-nav" aria-label="Chapter Pagination">
-      <div class="pagination-placeholder"></div>
       
-        <a href="01-core-concepts.html" class="pagination-btn next-btn">
+        <a href="02-ai-augmented-sdlc.html" class="pagination-btn prev-btn">
+          <span class="pagination-label">← PREVIOUS CHAPTER</span>
+          <span class="pagination-title">2. The AI-Augmented SDLC</span>
+        </a>
+      
+      
+        <a href="04-developer-experience.html" class="pagination-btn next-btn">
           <span class="pagination-label">NEXT CHAPTER →</span>
-          <span class="pagination-title">1. Core Concepts</span>
+          <span class="pagination-title">4. Phase 2: Developer Experience</span>
         </a>
       
     </nav>

@@ -5,12 +5,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Talha Khalid Zuberi - Welcome to my website!</title>
+    <title>Talha Khalid Zuberi — Software Developer & Designer</title>
+    <meta name="description" content="Portfolio of Talha Khalid Zuberi, a software developer and designer building high-performance web applications.">
     <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="scroll.css">
     <link rel="stylesheet" href="desktop-media-queries.css">
@@ -18,56 +18,64 @@
 
 <body>
     <header>
-        <nav>
-            <a href="#">
+        <nav aria-label="Main Navigation">
+            <a href="#" aria-label="Talha Khalid Zuberi Home">
                 <p class="logo-placeholder">TKZ</p>
             </a>
             <ul>
-                <li><a href=#portfolio-section>Portfolio</a></li>
+                <li><a href="#portfolio-section">Portfolio</a></li>
                 <li><a href="#about-me-section">About</a></li>
                 <li><a href="#contact-section">Contact</a></li>
             </ul>
-            <img src="assets/shapes/menu-button.svg" class="menu-icon" alt="Navigation" />
+            <img src="assets/shapes/menu-button.svg" class="menu-icon" alt="Toggle Menu" />
         </nav>
     </header>
 
     <main>
-        <div class="the-northern-lights"><img src="./assets/bg-images/1.png" alt="the-northern-lights"></div>
         <section id="hero-section">
             <div class="welcome-line-text">
-                <h3>Hi, my name is</h3>
+                <div class="hero-badge">
+                    <span class="status-dot"></span>
+                    Available for new projects
+                </div>
+                <h3 class="greeting">Hi, my name is</h3>
                 <div class="my-name">
                     <h1>Talha Khalid Zuberi.</h1>
                 </div>
-                <h2>I am a software developer!</h2>
-                <h3>LET'S CONNECT</h3>
+                <h2 class="hero-subtitle">Software Developer & Designer crafting high-performance web applications and sleek digital experiences.</h2>
 
+                <div class="hero-cta-group">
+                    <a href="#portfolio-section" class="action primary">View Featured Work ↓</a>
+                    <a href="https://docs.google.com/document/d/14AZJuBgNCKhpTuCMTls_YcPgB7hV_q0_7rrkrQtbZ1A/edit?usp=sharing" target="_blank" rel="noopener noreferrer" class="action secondary">Get Resume</a>
+                </div>
+
+                <p class="connect-heading">Connect With Me</p>
                 <div class="social-icons">
                     <ul>
                         <li>
-                            <a class="social-icon" href="https://www.twitter.com/tkz96" target="_blank" rel="noopener noreferrer"><img
-                                    src="assets/icons/social-icons/icon-twitter.svg" alt="Twitter" />
+                            <a class="social-icon" href="https://www.twitter.com/tkz96" target="_blank" rel="noopener noreferrer" aria-label="Twitter Profile"><img
+                                    src="assets/icons/social-icons/icon-twitter.svg" alt="" aria-hidden="true" />
                             </a>
                         </li>
                         <li>
                             <a class="social-icon" href="https://www.linkedin.com/in/talha-zuberi" target="_blank"
-                                rel="noopener noreferrer"><img src="assets/icons/social-icons/icon-linkedin.svg"
-                                    alt="LinkedIn" />
+                                rel="noopener noreferrer" aria-label="LinkedIn Profile"><img src="assets/icons/social-icons/icon-linkedin.svg"
+                                    alt="" aria-hidden="true" />
                             </a>
                         </li>
                         <li>
-                            <a class="social-icon" href="https://medium.com/@tkz_96" target="_blank" rel="noopener noreferrer"><img
-                                    src="assets/icons/social-icons/icon-medium.svg" alt="Medium" />
+                            <a class="social-icon" href="https://medium.com/@tkz_96" target="_blank" rel="noopener noreferrer" aria-label="Medium Profile"><img
+                                    src="assets/icons/social-icons/icon-medium.svg" alt="" aria-hidden="true" />
                             </a>
                         </li>
                         <li>
-                            <a class="social-icon" href="https://www.github.com/tkz96" target="_blank" rel="noopener noreferrer"><img
-                                    src="assets/icons/social-icons/icon-github.svg" alt="GitHub" />
+                            <a class="social-icon" href="https://www.github.com/tkz96" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile"><img
+                                    src="assets/icons/social-icons/icon-github.svg" alt="" aria-hidden="true" />
                             </a>
                         </li>
                         <li>
-                            <a class="social-icon" href="https://angel.co/u/talha-zuberi" target="_blank" rel="noopener noreferrer"><img
-                                    src="assets/icons/social-icons/icon-angellist.svg" alt="angellist" />
+                            <a class="social-icon" href="https://angel.co/u/talha-zuberi" target="_blank" rel="noopener noreferrer" aria-label="AngelList Profile"><img
+                                    src="assets/icons/social-icons/icon-angellist.svg" alt="" aria-hidden="true" />
                             </a>
                         </li>
                     </ul>
@@ -75,185 +83,146 @@
             </div>
         </section>
 
+        <!-- Proof Strip (UI Craft Landing Recipe) -->
+        <div class="proof-strip">
+            <div class="proof-item">
+                <span class="proof-num">4+</span>
+                <span class="proof-label">Years Experience</span>
+            </div>
+            <div class="proof-item">
+                <span class="proof-num">15+</span>
+                <span class="proof-label">Projects Shipped</span>
+            </div>
+            <div class="proof-item">
+                <span class="proof-num">100%</span>
+                <span class="proof-label">Open Source & Responsive</span>
+            </div>
+        </div>
+
         <section id="portfolio-section">
             <h2 class="heading">Featured Work</h2>
-            <div class="card">
-                <img src="assets/card-images/mobile/1.jpeg" class="project-image" alt="" />
-                <!-- <img src="assets/card-images/desktop/1.png" class="image2" alt="" /> -->
+            <div class="portfolio-grid">
+                <!-- Hero Project Showcase -->
+                <div class="card featured-hero">
+                    <img src="assets/card-images/mobile/1.jpeg" class="project-image" alt="Jet Log web application preview" />
 
-                <div class="right-block">
-                    <div class="project-head">
-                        <h2>Jet Log</h2>
-                        <ul class="project-highlight">
-                            <li>
-                                <h3>Full Stack</h3>
-                            </li>
-                            <li><img src="assets/shapes/dot.svg" alt="dot" /></li>
-                            <li>
-                                <h3>2022</h3>
-                            </li>
-                        </ul>
+                    <div class="right-block">
+                        <div class="project-head">
+                            <h2>Jet Log</h2>
+                            <ul class="project-highlight">
+                                <li>
+                                    <h3>Full Stack</h3>
+                                </li>
+                                <li><img src="assets/shapes/dot.svg" alt="" aria-hidden="true" /></li>
+                                <li>
+                                    <h3>2022</h3>
+                                </li>
+                            </ul>
 
-
-                        <ul class="tags">
-                            <li>React</li>
-                            <li>CSS</li>
-                            <li>Ruby on Rails</li>
-                            <li>PostgreSQL</li>
-                        </ul>
-                    </div>
-                    <div class="project-body">
-                        <!-- keep this max 700 characters -->
-                        <p>
-                            A smart way to book your next plane without hassle. This project was built in collaboration
-                            with my partners from Microverse.
-                        </p>
-
-
-                        <div>
-                            <a class="action" href="https://github.com/sharon-odhiambo/jet-log-frontend" target="_blank"
-                                rel="noopener noreferrer">
-                                See Source
-                            </a>
+                            <ul class="tags">
+                                <li>React</li>
+                                <li>CSS</li>
+                                <li>Ruby on Rails</li>
+                                <li>PostgreSQL</li>
+                            </ul>
                         </div>
-                        <div>
-                            <a class="action" href="https://the-awesome-berkay-akbas-site.netlify.app/" target="_blank"
-                                rel="noopener noreferrer">Visit Live
-                            </a>
+                        <div class="project-body">
+                            <p>
+                                A smart way to book private flight services without hassle. Built as a collaborative full-stack application featuring responsive search, booking management, and relational database persistence.
+                            </p>
+
+                            <div class="project-actions">
+                                <a class="action primary" href="https://the-awesome-berkay-akbas-site.netlify.app/" target="_blank"
+                                    rel="noopener noreferrer">Visit Live
+                                </a>
+                                <a class="action secondary" href="https://github.com/sharon-odhiambo/jet-log-frontend" target="_blank"
+                                    rel="noopener noreferrer">
+                                    See Source
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="card">
-                <img src="assets/card-images/mobile/2.png" class="project-image" alt="" />
-                <!-- <img src="assets/card-images/desktop/1.png" class="image2" alt="" /> -->
+                <!-- Secondary Projects Grid -->
+                <div class="secondary-projects-grid">
+                    <div class="card">
+                        <img src="assets/card-images/mobile/2.png" class="project-image" alt="Math Magicians web application preview" />
 
-                <div class="right-block">
-                    <div class="project-head">
-                        <h2>Math Magicians</h2>
-                        <ul class="project-highlight">
-                            <li>
-                                <h3>Front End</h3>
-                            </li>
-                            <li><img src="assets/shapes/dot.svg" alt="dot" /></li>
-                            <li>
-                                <h3>2022</h3>
-                            </li>
-                        </ul>
-                        <ul class="tags">
-                            <li>React</li>
-                            <li>CSS</li>
-                            <li>Netlify</li>
-                        </ul>
-                    </div>
-                    <div class="project-body">
-                        <!-- keep this max 700 characters -->
-                        <p>
-                            Who doesn't love math? This project was built for math lovers. It is a simple calculator and
-                            a quote generator.
-                        </p>
-                        <div>
-                            <a class="action" href="https://www.github.com/tkz96/Math-Magicians" target="_blank"
-                                rel="noopener noreferrer">
-                                See Source
-                            </a>
-                        </div>
-                        <div>
-                            <a class="action" href="https://lambent-paletas-6e4604.netlify.app/" target="_blank"
-                                rel="noopener noreferrer">
-                                Visit Live
-                            </a>
+                        <div class="right-block">
+                            <div class="project-head">
+                                <h2>Math Magicians</h2>
+                                <ul class="project-highlight">
+                                    <li>
+                                        <h3>Front End</h3>
+                                    </li>
+                                    <li><img src="assets/shapes/dot.svg" alt="" aria-hidden="true" /></li>
+                                    <li>
+                                        <h3>2022</h3>
+                                    </li>
+                                </ul>
+                                <ul class="tags">
+                                    <li>React</li>
+                                    <li>CSS</li>
+                                    <li>Netlify</li>
+                                </ul>
+                            </div>
+                            <div class="project-body">
+                                <p>
+                                    A single-page React application for math lovers featuring a calculator & quote generator.
+                                </p>
+                                <div class="project-actions">
+                                    <a class="action primary" href="https://lambent-paletas-6e4604.netlify.app/" target="_blank"
+                                        rel="noopener noreferrer">
+                                        Visit Live
+                                    </a>
+                                    <a class="action secondary" href="https://www.github.com/tkz96/Math-Magicians" target="_blank"
+                                        rel="noopener noreferrer">
+                                        See Source
+                                    </a>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
 
-            <div class="card">
-                <img src="assets/card-images/mobile/3.png" class="project-image" alt="" />
-                <!-- <img src="assets/card-images/desktop/1.png" class="image2" alt="" /> -->
+                    <div class="card">
+                        <img src="assets/card-images/mobile/3.png" class="project-image" alt="Air Pollution Report dashboard preview" />
 
-                <div class="right-block">
-                    <div class="project-head">
-                        <h2>Air Pollution Report</h2>
-                        <ul class="project-highlight">
-                            <li>
-                                <h3>Front End</h3>
-                            </li>
-                            <li><img src="assets/shapes/dot.svg" alt="dot" /></li>
-                            <li>
-                                <h3>2022</h3>
-                            </li>
-                        </ul>
+                        <div class="right-block">
+                            <div class="project-head">
+                                <h2>Air Pollution Report</h2>
+                                <ul class="project-highlight">
+                                    <li>
+                                        <h3>Front End</h3>
+                                    </li>
+                                    <li><img src="assets/shapes/dot.svg" alt="" aria-hidden="true" /></li>
+                                    <li>
+                                        <h3>2022</h3>
+                                    </li>
+                                </ul>
 
-                        <ul class="tags">
-                            <li>React</li>
-                            <li>Redux</li>
-                            <li>CSS</li>
-                            <li>Netlify</li>
-                        </ul>
-                    </div>
-                    <div class="project-body">
-                        <!-- keep this max 700 characters -->
-                        <p>
-                            Better air quality is a must for a healthy life. This project was built to help people
-                            understand the air quality in European countries.
-                        </p>
+                                <ul class="tags">
+                                    <li>React</li>
+                                    <li>Redux</li>
+                                    <li>Netlify</li>
+                                </ul>
+                            </div>
+                            <div class="project-body">
+                                <p>
+                                    An interactive web metrics tool providing real-time air quality indexing across Europe.
+                                </p>
 
-                        <div>
-                            <a class="action" href="https://www.github.com/tkz96/air-pollution-capstone" target="_blank"
-                                rel="noopener noreferrer">
-                                See Source
-                            </a>
-                        </div>
-                        <div>
-                            <a class="action" href="https://silly-toffee-5e20a0.netlify.app/" target="_blank"
-                                rel="noopener noreferrer">
-                                Visit Live
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="card">
-                <img src="assets/card-images/mobile/4.png" class="project-image" alt="" />
-                <!-- <img src="assets/card-images/desktop/1.png" class="image2" alt="" /> -->
-
-                <div class="right-block">
-                    <div class="project-head">
-                        <h2>Portfolio v2</h2>
-                        <ul class="project-highlight">
-                            <li>
-                                <h3>Front End</h3>
-                            </li>
-                            <li><img src="assets/shapes/dot.svg" alt="dot" /></li>
-                            <li>
-                                <h3>2023</h3>
-                            </li>
-                        </ul>
-
-                        <ul class="tags">
-                            <li>HTML</li>
-                            <li>CSS</li>
-                            <li>GitHub Pages</li>
-                        </ul>
-                    </div>
-                    <div class="project-body">
-                        <!-- keep this max 700 characters -->
-                        <p>
-                            What better way to show off your <i>technical prowess</i> than to build a portfolio website? I will post all my new projects here. Thank you for your continued support :)
-                        </p>
-
-                        <div>
-                            <a class="action" href="https://github.com/tkz96/tkz96.github.io" target="_blank"
-                                rel="noopener noreferrer">
-                                See Source
-                            </a>
-                        </div>
-                        <div>
-                            <a class="action" href="#">
-                                Visit Live
-                            </a>
+                                <div class="project-actions">
+                                    <a class="action primary" href="https://silly-toffee-5e20a0.netlify.app/" target="_blank"
+                                        rel="noopener noreferrer">
+                                        Visit Live
+                                    </a>
+                                    <a class="action secondary" href="https://www.github.com/tkz96/air-pollution-capstone" target="_blank"
+                                        rel="noopener noreferrer">
+                                        See Source
+                                    </a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -264,22 +233,20 @@
             <div class="left-block">
                 <h2 class="heading">About Me</h2>
                 <p>
-                    I am a software developer and designer!
-                    I can help you build a product, feature, or website.<br />
-                    I have experience in HTML, CSS, JavaScript, React, Ruby, Ruby on Rails, PostgreSQL, and many other
-                    technologies. Check out some of my work and experience! If you like what you see and have a project
-                    you need completing, please contact me.
-                    I love technology and continue to learn new things daily. I also have a passion for animated movies :D
+                    I am a software developer and designer passionate about crafting clean, responsive, and intuitive web experiences.
+                    I help clients and engineering teams build robust products, user features, and modern web applications.<br /><br />
+                    My tech stack spans HTML, CSS, JavaScript (ES6+), React, Redux, Ruby on Rails, PostgreSQL, and modern UI engineering standards.
                 </p>
             </div>
 
-            <div>
-                <a class="action"
-                    href="https://docs.google.com/document/d/14AZJuBgNCKhpTuCMTls_YcPgB7hV_q0_7rrkrQtbZ1A/edit?usp=sharing">
-                    Get my resume</a>
+            <div class="project-actions">
+                <a class="action primary"
+                    href="https://docs.google.com/document/d/14AZJuBgNCKhpTuCMTls_YcPgB7hV_q0_7rrkrQtbZ1A/edit?usp=sharing"
+                    target="_blank" rel="noopener noreferrer">
+                    Get My Resume</a>
             </div>
-
         </section>
+
         <section id="skills-section">
             <h2 class="heading">My Skills</h2>
             <div class="skills">
@@ -287,37 +254,33 @@
                     <li>
                         <h3>Languages</h3>
                     </li>
-                    <li>HTML & CSS</li>
-                    <li></li>
+                    <li>HTML5 & CSS3</li>
                     <li>JavaScript (ES6+)</li>
                     <li>Ruby</li>
                     <li>SQL</li>
                 </ul>
                 <ul class="skills-card">
                     <li>
-                        <h3>Frameworks & Libraries</h3>
+                        <h3>Frameworks & Tools</h3>
                     </li>
                     <li>React</li>
-                    <li>Tailwind</li>
+                    <li>Tailwind CSS</li>
                     <li>PostgreSQL</li>
                     <li>Ruby on Rails</li>
-                    <li>RSpec</li>
-                    <li>Capybara</li>
-                    <li>Jest</li>
+                    <li>Jest & RSpec</li>
                 </ul>
                 <ul class="skills-card">
                     <li>
-                        <h3>Skills</h3>
+                        <h3>Engineering Practices</h3>
                     </li>
-                    <li>Git/GitHub</li>
+                    <li>Git & GitHub</li>
                     <li>Remote Pair-Programming</li>
                     <li>Test-Driven Development</li>
-                    <li>Designing</li>
-                    <li></li>
+                    <li>UI/UX Design Engineering</li>
                 </ul>
                 <ul class="skills-card">
                     <li>
-                        <h3>Other Tools</h3>
+                        <h3>Design & Media</h3>
                     </li>
                     <li>Figma</li>
                     <li>After Effects</li>
@@ -331,34 +294,37 @@
             <h2 class="heading">Contact Me</h2>
             <div class="contact-form">
                 <p>
-                    If you have an application you are interested in developing, a feature that you need to be built, or
-                    a project that needs coding, I'd love to help :)
+                    Interested in collaborating or building a project together? Fill out the form below or send me a message!
                 </p>
                 <form action="https://formspree.io/f/xvolakag" method="post">
                     <ul>
-                        <li>
-                            <input class="form-input" type="text" name="name" placeholder="Enter Your Full Name"
-                                maxlength="30" required />
+                        <li class="form-group">
+                            <label for="full-name">Full Name</label>
+                            <input class="form-input" id="full-name" type="text" name="name" placeholder="John Doe"
+                                maxlength="50" required />
                         </li>
-                        <li>
-                            <input class="form-input" type="email" name="email"
-                                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" placeholder="Enter Your Email"
+                        <li class="form-group">
+                            <label for="email-address">Email Address</label>
+                            <input class="form-input" id="email-address" type="email" name="email"
+                                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" placeholder="john@example.com"
                                 required />
                         </li>
-                        <li>
-                            <textarea class="form-input" id="textarea" name="textarea"
-                                placeholder="Write Your Message Here!" maxlength="500" required></textarea>
+                        <li class="form-group">
+                            <label for="textarea">Your Message</label>
+                            <textarea class="form-input" id="textarea" name="message"
+                                placeholder="Write your message here..." maxlength="500" required></textarea>
                         </li>
                     </ul>
-                    <button type="submit">Get In Touch</button>
+                    <button type="submit" class="action primary">Get In Touch</button>
                 </form>
             </div>
         </section>
     </main>
     <footer>
         <div class="copyright">
-            <p>&#169; 2023 Talha Khalid Zuberi</p>
+            <p>&#169; 2026 Talha Khalid Zuberi</p>
         </div>
+        <a href="#hero-section" aria-label="Back to Top">Back to Top ↑</a>
     </footer>
 </body>
 

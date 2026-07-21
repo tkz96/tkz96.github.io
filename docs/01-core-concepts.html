@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Swiss design operational standard for enterprise AI software development.">
-  <title>Overview & Index — The AI Development Playbook</title>
+  <title>1. Core Concepts — The AI Development Playbook</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
@@ -22,7 +22,7 @@
         </a>
       </div>
       <div class="header-meta">
-        <span class="chapter-badge">CHAPTER 00</span>
+        <span class="chapter-badge">CHAPTER 01</span>
         <span>•</span>
         <span>VERSION 4.0</span>
       </div>
@@ -41,14 +41,14 @@
       </div>
       <nav class="sidebar-nav" aria-label="Table of Contents">
         <ul class="toc-list">
-      <li class="toc-item active-chapter">
+      <li class="toc-item ">
         <a href="index.html" onclick="closeMobileDrawer()">
           <span class="toc-num">00.</span>
           <span class="toc-text">Overview & Index</span>
         </a>
       </li>
     
-      <li class="toc-item ">
+      <li class="toc-item active-chapter">
         <a href="01-core-concepts.html" onclick="closeMobileDrawer()">
           <span class="toc-num">01.</span>
           <span class="toc-text">1. Core Concepts</span>
@@ -109,22 +109,60 @@
 
     <main class="content-wrapper" id="main-content">
       <article class="prose">
-        <h1 id="the-ai-development-playbook-an-enterprise-sdlc-guide" class="doc-title">The AI Development Playbook: An Enterprise SDLC Guide</h1>
-<h2 id="version-4-complete-enterprise-operational-standard-with-azure-devops-integration-documentation-standards" class="heading-anchor-group">
-  <span class="heading-text">Version 4: Complete Enterprise Operational Standard with Azure DevOps Integration & Documentation Standards</span>
-  <a class="heading-anchor" href="#version-4-complete-enterprise-operational-standard-with-azure-devops-integration-documentation-standards" aria-label="Anchor link to Version 4: Complete Enterprise Operational Standard with Azure DevOps Integration & Documentation Standards">#</a>
-</h2><p>This playbook serves as both a practical field guide for software engineers and an operational standard for enterprise development organizations. It provides a complete framework for integrating autonomous AI agents across every stage of the Software Development Life Cycle (SDLC) while enforcing strict quality, security, governance standards, precise work item structuring in Azure DevOps (<code>dev.azure.com</code>), and rigorous documentation practices.</p>
+        
+<h2 id="1-core-concepts" class="heading-anchor-group">
+  <span class="heading-text">1. Core Concepts</span>
+  <a class="heading-anchor" href="#1-core-concepts" aria-label="Anchor link to 1. Core Concepts">#</a>
+</h2><p>Before deploying AI agents effectively, teams need a shared vocabulary. The following core concepts define how agents interact with systems and humans:</p>
+
+<h3 id="tokens-and-token-management" class="heading-anchor-group">
+  <span class="heading-text">Tokens and Token Management</span>
+  <a class="heading-anchor" href="#tokens-and-token-management" aria-label="Anchor link to Tokens and Token Management">#</a>
+</h3><p>A token is a chunk of text (roughly 3/4 of a word) that an AI model reads and writes. The <strong>context window</strong> is the model&#39;s active working memory—like a whiteboard with limited space. Once filled, older context must be cleared or summarized. <strong>Token management</strong> is the discipline of keeping only essential files, rules, and context in the whiteboard to avoid the &quot;needle in a haystack&quot; problem, where critical instructions get lost in prompt bloat.</p>
+<p>Underneath sits the <strong>KV cache</strong> (Key-Value cache). When prompt structures remain static at the beginning (such as system rules and tool definitions), models reuse precomputed values, making agent runs faster and dramatically cheaper via prompt caching.</p>
+
+<h3 id="rules" class="heading-anchor-group">
+  <span class="heading-text">Rules</span>
+  <a class="heading-anchor" href="#rules" aria-label="Anchor link to Rules">#</a>
+</h3><p>Rules are persistent repository-level instructions stored in files like <code>AGENTS.md</code>, <code>CLAUDE.md</code>, or a <code>.cursor/rules</code> directory. They set standard conventions, build instructions, and prohibited actions once, so every agent automatically adheres to team norms without repeated prompting.</p>
+
+<h3 id="skills" class="heading-anchor-group">
+  <span class="heading-text">Skills</span>
+  <a class="heading-anchor" href="#skills" aria-label="Anchor link to Skills">#</a>
+</h3><p>Skills are modular, task-specific playbooks loaded only when needed (e.g., performing a security audit or refactoring a function). They act as expert checklists, keeping the main context window lightweight while ensuring repeatable execution quality.</p>
+
+<h3 id="loops" class="heading-anchor-group">
+  <span class="heading-text">Loops</span>
+  <a class="heading-anchor" href="#loops" aria-label="Anchor link to Loops">#</a>
+</h3><p>An agentic loop is the continuous cycle of <em>act, observe, and adjust</em>. Unlike single-shot responses, an agent executes a command (e.g., writes code or runs a build), reads errors, adjusts its solution, and re-runs tests until the task criteria are met.</p>
+
+<h3 id="prompt-context-and-harness-engineering" class="heading-anchor-group">
+  <span class="heading-text">Prompt, Context, and Harness Engineering</span>
+  <a class="heading-anchor" href="#prompt-context-and-harness-engineering" aria-label="Anchor link to Prompt, Context, and Harness Engineering">#</a>
+</h3><ul class="swiss-list"><li>**Prompt Engineering:** Crafting clear, direct instructions for specific individual tasks.
+
+</li><li>**Context Engineering:** Dynamically delivering the exact required background information (using techniques like RAG—Retrieval-Augmented Generation) to the agent before it acts.
+
+</li><li>**Harness Engineering:** The environment wrapped around the model, granting tool capabilities (running bash commands, editing files, making API calls). The standard protocol for connecting tools and data sources seamlessly across models is **MCP (Model Context Protocol)**.</li></ul>
+<h3 id="agentic-workflows-gates" class="heading-anchor-group">
+  <span class="heading-text">Agentic Workflows & Gates</span>
+  <a class="heading-anchor" href="#agentic-workflows-gates" aria-label="Anchor link to Agentic Workflows & Gates">#</a>
+</h3><p>Agents carry out real-world actions with side effects (editing repositories, creating pull requests, triggering deployments). To maintain safety and quality, workflows rely on <strong>gates</strong>—mandatory checkpoints where human engineers or automated review agents must inspect and approve progress before the workflow proceeds.</p>
 <hr>
-<ol class="swiss-list"><li>[Core Concepts](https://www.google.com/search?q=%231-core-concepts)</li><li>[The AI-Augmented SDLC](https://www.google.com/search?q=%232-the-ai-augmented-sdlc)</li><li>[Phase 1: Preparing the Codebase to Be AI-Friendly](https://www.google.com/search?q=%233-phase-1-preparing-the-codebase-to-be-ai-friendly)</li><li>[Phase 2: Designing the Developer Experience](https://www.google.com/search?q=%234-phase-2-designing-the-developer-experience)</li><li>[Phase 3: Reviewing Everything for Flaws (Quality & Security Assurance)](https://www.google.com/search?q=%235-phase-3-reviewing-everything-for-flaws-quality--security-assurance)</li><li>[End-to-End Enterprise Workflows, Gates & Governance](https://www.google.com/search?q=%236-end-to-end-enterprise-workflows-gates--governance)</li><li>[How to Write Tickets for Azure DevOps (dev.azure.com)](https://www.google.com/search?q=%237-how-to-write-tickets-for-azure-devops-devazurecom)</li><li>[Documentation as a First-Class Citizen & Planning Standards](https://www.google.com/search?q=%238-documentation-as-a-first-class-citizen--planning-standards)</li><li>[Recommended Skills Library](https://www.google.com/search?q=%239-recommended-skills-library)</li><li>[The Dream: Hybrid Frontier/Local Execution Architecture](https://www.google.com/search?q=%2310-the-dream-hybrid-frontierlocal-execution-architecture)</li></ol><hr>
 
       </article>
       
     <nav class="pagination-nav" aria-label="Chapter Pagination">
-      <div class="pagination-placeholder"></div>
       
-        <a href="01-core-concepts.html" class="pagination-btn next-btn">
+        <a href="index.html" class="pagination-btn prev-btn">
+          <span class="pagination-label">← PREVIOUS CHAPTER</span>
+          <span class="pagination-title">Overview & Index</span>
+        </a>
+      
+      
+        <a href="02-ai-augmented-sdlc.html" class="pagination-btn next-btn">
           <span class="pagination-label">NEXT CHAPTER →</span>
-          <span class="pagination-title">1. Core Concepts</span>
+          <span class="pagination-title">2. The AI-Augmented SDLC</span>
         </a>
       
     </nav>

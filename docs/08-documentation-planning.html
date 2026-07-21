@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Swiss design operational standard for enterprise AI software development.">
+  <title>8. Documentation Standards — The AI Development Playbook</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to content</a>
+
+  <header class="site-header">
+    <div class="header-container">
+      <div class="header-logo">
+        <a href="index.html" class="logo-link">
+          <span class="logo-bold">SDLC</span>
+          <span class="logo-light">/ STANDARD</span>
+        </a>
+      </div>
+      <div class="header-meta">
+        <span class="chapter-badge">CHAPTER 08</span>
+        <span>•</span>
+        <span>VERSION 4.0</span>
+      </div>
+      <button type="button" class="mobile-menu-btn" aria-label="Toggle Navigation Index" onclick="toggleMobileDrawer()">
+        <span class="menu-icon-line"></span>
+        <span class="menu-icon-line"></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="layout-container">
+    <aside class="sidebar" id="sidebar-drawer">
+      <div class="sidebar-header">
+        <span class="sidebar-title">CHAPTER INDEX</span>
+        <button type="button" class="close-menu-btn" aria-label="Close Index" onclick="closeMobileDrawer()">×</button>
+      </div>
+      <nav class="sidebar-nav" aria-label="Table of Contents">
+        <ul class="toc-list">
+      <li class="toc-item ">
+        <a href="index.html" onclick="closeMobileDrawer()">
+          <span class="toc-num">00.</span>
+          <span class="toc-text">Overview & Index</span>
+        </a>
+      </li>
+    
+      <li class="toc-item ">
+        <a href="01-core-concepts.html" onclick="closeMobileDrawer()">
+          <span class="toc-num">01.</span>
+          <span class="toc-text">1. Core Concepts</span>
+        </a>
+      </li>
+    
+      <li class="toc-item ">
+        <a href="02-ai-augmented-sdlc.html" onclick="closeMobileDrawer()">
+          <span class="toc-num">02.</span>
+          <span class="toc-text">2. The AI-Augmented SDLC</span>
+        </a>
+      </li>
+    
+      <li class="toc-item ">
+        <a href="03-preparing-codebase.html" onclick="closeMobileDrawer()">
+          <span class="toc-num">03.</span>
+          <span class="toc-text">3. Phase 1: Preparing Codebase</span>
+        </a>
+      </li>
+    
+      <li class="toc-item ">
+        <a href="04-developer-experience.html" onclick="closeMobileDrawer()">
+          <span class="toc-num">04.</span>
+          <span class="toc-text">4. Phase 2: Developer Experience</span>
+        </a>
+      </li>
+    
+      <li class="toc-item ">
+        <a href="05-quality-security-assurance.html" onclick="closeMobileDrawer()">
+          <span class="toc-num">05.</span>
+          <span class="toc-text">5. Phase 3: Quality & Security</span>
+        </a>
+      </li>
+    
+      <li class="toc-item ">
+        <a href="06-enterprise-workflows-gates.html" onclick="closeMobileDrawer()">
+          <span class="toc-num">06.</span>
+          <span class="toc-text">6. Enterprise Workflows & Gates</span>
+        </a>
+      </li>
+    
+      <li class="toc-item ">
+        <a href="07-azure-devops-tickets.html" onclick="closeMobileDrawer()">
+          <span class="toc-num">07.</span>
+          <span class="toc-text">7. Azure DevOps Ticket Standards</span>
+        </a>
+      </li>
+    
+      <li class="toc-item active-chapter">
+        <a href="08-documentation-planning.html" onclick="closeMobileDrawer()">
+          <span class="toc-num">08.</span>
+          <span class="toc-text">8. Documentation Standards</span>
+        </a>
+      </li>
+    </ul>
+      </nav>
+    </aside>
+
+    <main class="content-wrapper" id="main-content">
+      <article class="prose">
+        
+<h2 id="8-documentation-as-a-first-class-citizen-planning-standards" class="heading-anchor-group">
+  <span class="heading-text">8. Documentation as a First-Class Citizen & Planning Standards</span>
+  <a class="heading-anchor" href="#8-documentation-as-a-first-class-citizen-planning-standards" aria-label="Anchor link to 8. Documentation as a First-Class Citizen & Planning Standards">#</a>
+</h2><p>In a traditional software organization, documentation is often treated as an afterthought—written right before a release or skipped entirely due to time constraints. In an AI-augmented enterprise, <strong>outdated or missing documentation is an outage waiting to happen</strong>. AI agents do not have &quot;tribal knowledge&quot; or institutional memory; they rely strictly on the context provided in repository files, API schemas, design docs, and ticket descriptions. If documentation is ambiguous, incomplete, or wrong, agents will produce hallucinated architectures, violate domain boundaries, and break production.</p>
+<p>Documentation must be treated as a <strong>first-class citizen</strong>, held to the exact same quality and review standards as production code.</p>
+
+<h3 id="1-system-level-documentation-outside-of-code" class="heading-anchor-group">
+  <span class="heading-text">1. System-Level Documentation (Outside of Code)</span>
+  <a class="heading-anchor" href="#1-system-level-documentation-outside-of-code" aria-label="Anchor link to 1. System-Level Documentation (Outside of Code)">#</a>
+</h3><p>System-level documentation establishes the architectural boundaries, business rules, and design trade-offs before a single line of code is written.</p>
+
+<h4 id="a-ubiquitous-domain-glossary-glossary-md" class="heading-anchor-group">
+  <span class="heading-text">A. Ubiquitous Domain Glossary (`GLOSSARY.md`)</span>
+  <a class="heading-anchor" href="#a-ubiquitous-domain-glossary-glossary-md" aria-label="Anchor link to A. Ubiquitous Domain Glossary (`GLOSSARY.md`)">#</a>
+</h4><p>To prevent semantic ambiguity across frontend, backend, database, and prompt layers, every repository must maintain a root-level <code>GLOSSARY.md</code> file. Terms must have a single, canonical definition across all systems.</p>
+
+<div class="code-block-wrapper">
+  <div class="code-header">
+    <span class="code-lang">markdown</span>
+    <button type="button" class="copy-btn" aria-label="Copy code snippet" onclick="copyCode(this)">Copy</button>
+  </div>
+  <pre><code class="hljs language-markdown"><span class="hljs-section"># Domain Glossary</span>
+
+<span class="hljs-section">### Active User</span>
+A user account with status = &#x27;ACTIVE&#x27; that has authenticated within the last 30 rolling days. 
+<span class="hljs-bullet">*</span> Anti-Pattern: Do not confuse with &quot;Registered User&quot; (created account but may never have logged in) or &quot;Subscribed User&quot; (has an active billing plan).
+
+<span class="hljs-section">### Organization Tenant</span>
+A top-level entity (tenant<span class="hljs-emphasis">_id) representing an enterprise client. All database queries for multi-tenant data MUST include WHERE tenant_</span>id = :tenant<span class="hljs-emphasis">_id.
+
+### TOTP (Time-Based One-Time Password)
+A 6-digit cryptographic code generated by an authenticator application (RFC 6238) valid for a 30-second window.
+</span></code></pre>
+</div>
+<h4 id="b-ai-ready-product-requirement-documents-prds" class="heading-anchor-group">
+  <span class="heading-text">B. AI-Ready Product Requirement Documents (PRDs)</span>
+  <a class="heading-anchor" href="#b-ai-ready-product-requirement-documents-prds" aria-label="Anchor link to B. AI-Ready Product Requirement Documents (PRDs)">#</a>
+</h4><p>PRDs translate raw product ideation and stakeholder interviews into structured, machine-readable specifications. PRDs live in the repository under <code>/docs/prds/</code> or are linked directly in Azure DevOps Epics/Features.</p>
+<ul class="swiss-list"><li>**Problem Statement & Business Goal:** Clear, quantitative outcome statement.
+
+</li><li>**User Personas & Flows:** Step-by-step user interaction journey.
+
+</li><li>**Functional Requirements:** BDD-style functional requirement statements.
+
+</li><li>**Non-Functional Requirements:** Performance SLAs, security boundaries, and rate limits.
+
+</li><li>**Data & Schema Impact:** New database entities or field migration requirements.</li></ul>
+<h4 id="c-architecture-decision-records-adrs" class="heading-anchor-group">
+  <span class="heading-text">C. Architecture Decision Records (ADRs)</span>
+  <a class="heading-anchor" href="#c-architecture-decision-records-adrs" aria-label="Anchor link to C. Architecture Decision Records (ADRs)">#</a>
+</h4><p>ADRs capture <strong>why</strong> architectural decisions were made, what alternatives were evaluated, and what trade-offs were accepted. Without ADRs, AI agents (and human engineers) will routinely propose refactoring code back into an anti-pattern that was intentionally discarded six months prior.</p>
+<p>ADRs live in <code>/docs/adr/000X-short-title.md</code>.</p>
+
+<div class="code-block-wrapper">
+  <div class="code-header">
+    <span class="code-lang">markdown</span>
+    <button type="button" class="copy-btn" aria-label="Copy code snippet" onclick="copyCode(this)">Copy</button>
+  </div>
+  <pre><code class="hljs language-markdown"><span class="hljs-section"># ADR 0003: Use Redis Sliding-Window for TOTP Rate Limiting</span>
+
+<span class="hljs-bullet">*</span> Status: Accepted
+<span class="hljs-bullet">*</span> Date: 2026-07-21
+<span class="hljs-bullet">*</span> Deciders: Principal Architect, Lead Security Engineer
+
+<span class="hljs-section">## Context</span>
+To prevent brute-force attacks on our 6-digit TOTP authentication endpoint (/api/v1/auth/mfa/verify), we must enforce strict rate limiting (max 5 failed attempts per user per 15-minute window).
+
+<span class="hljs-section">## Considered Options</span>
+<span class="hljs-bullet">1.</span> PostgreSQL Database Lookup: Querying failed<span class="hljs-emphasis">_attempts table on every login request.
+2. In-Memory Local App Cache (Node.js Memory): Tracking attempts in process memory.
+3. Redis Sorted Set (ZSET) Sliding-Window: Distributed rate-limiting counter in Redis.
+
+## Decision
+We chose Option 3 (Redis Sorted Set) because:
+* PostgreSQL queries under high authentication load introduce unacceptable DB lock latency.
+* In-memory local app cache fails in horizontally scaled multi-pod Kubernetes deployments because requests are round-robined across pods.
+
+## Consequences
+* Positive: Atomic, distributed rate-limiting across all app instances with sub-millisecond response latency.
+* Negative: Introduces a dependency on the Redis cluster. If Redis goes down, authentication falls back to fail-closed state.
+</span></code></pre>
+</div>
+<h4 id="d-schema-first-api-contracts" class="heading-anchor-group">
+  <span class="heading-text">D. Schema-First API Contracts</span>
+  <a class="heading-anchor" href="#d-schema-first-api-contracts" aria-label="Anchor link to D. Schema-First API Contracts">#</a>
+</h4><p>Never let an agent infer API shapes from implementation code. Define OpenAPI (Swagger) or Protocol Buffer contracts <strong>before</strong> writing frontend or backend code.</p>
+<ul class="swiss-list"><li>**Location:** `/docs/api/openapi.yaml`
+</li><li>**Rule:** Frontend and backend code generators must bind to this file. Changes to endpoints must happen in `openapi.yaml` first.</li></ul>
+<h3 id="2-code-level-documentation-standards" class="heading-anchor-group">
+  <span class="heading-text">2. Code-Level Documentation Standards</span>
+  <a class="heading-anchor" href="#2-code-level-documentation-standards" aria-label="Anchor link to 2. Code-Level Documentation Standards">#</a>
+</h3><p>Code-level documentation explains the <strong>intent, logic boundaries, and assumptions</strong> of individual modules.</p>
+
+<h4 id="a-self-documenting-code-vs-explanatory-comments" class="heading-anchor-group">
+  <span class="heading-text">A. Self-Documenting Code vs. Explanatory Comments</span>
+  <a class="heading-anchor" href="#a-self-documenting-code-vs-explanatory-comments" aria-label="Anchor link to A. Self-Documenting Code vs. Explanatory Comments">#</a>
+</h4><ul class="swiss-list"><li>**Code describes WHAT and HOW:** Clean variable naming, modular functions, and strong type annotations reduce redundant noise.
+
+</li><li>**Comments describe WHY:** Comments should explain non-obvious business rules, workaround hacks, or performance trade-offs.</li></ul>
+<div class="code-block-wrapper">
+  <div class="code-header">
+    <span class="code-lang">typescript</span>
+    <button type="button" class="copy-btn" aria-label="Copy code snippet" onclick="copyCode(this)">Copy</button>
+  </div>
+  <pre><code class="hljs language-typescript"><span class="hljs-comment">// BAD COMMENT: Explaining what the code clearly already says</span>
+<span class="hljs-comment">// Increment count by 1</span>
+count = count + <span class="hljs-number">1</span>;
+
+<span class="hljs-comment">// BAD COMMENT: Fetch user from database</span>
+<span class="hljs-keyword">const</span> user = <span class="hljs-keyword">await</span> db.<span class="hljs-property">users</span>.<span class="hljs-title function_">findById</span>(id);
+
+<span class="hljs-comment">// GOOD COMMENT: Explaining the &quot;WHY&quot;, business rules, or non-obvious constraints</span>
+<span class="hljs-comment">// We enforce a 30-second clock skew tolerance window to account for drift </span>
+<span class="hljs-comment">// between client authenticator devices and our NTP servers (RFC 6238 section 5.2).</span>
+<span class="hljs-keyword">const</span> isTotpValid = totp.<span class="hljs-title function_">verify</span>({
+  <span class="hljs-attr">token</span>: userProvidedCode,
+  <span class="hljs-attr">secret</span>: userMfaSecret,
+  <span class="hljs-attr">window</span>: <span class="hljs-number">1</span> <span class="hljs-comment">// +/- 30 seconds</span>
+});
+</code></pre>
+</div>
+<h4 id="b-standardized-module-function-docstrings" class="heading-anchor-group">
+  <span class="heading-text">B. Standardized Module & Function Docstrings</span>
+  <a class="heading-anchor" href="#b-standardized-module-function-docstrings" aria-label="Anchor link to B. Standardized Module & Function Docstrings">#</a>
+</h4><p>All exported functions, types, and classes must include structured docstrings (TSDoc, JSDoc, Python Docstrings).</p>
+
+<div class="code-block-wrapper">
+  <div class="code-header">
+    <span class="code-lang">typescript</span>
+    <button type="button" class="copy-btn" aria-label="Copy code snippet" onclick="copyCode(this)">Copy</button>
+  </div>
+  <pre><code class="hljs language-typescript"><span class="hljs-comment">/**
+ * Verifies a time-based one-time password (TOTP) against a user&#x27;s encrypted secret.
+ *
+ * <span class="hljs-doctag">@param</span> <span class="hljs-variable">userId</span> - Unique UUID of the user attempting verification.
+ * <span class="hljs-doctag">@param</span> <span class="hljs-variable">token</span> - 6-digit numeric string provided by the user.
+ * <span class="hljs-doctag">@returns</span> Promise resolving to `true` if valid, or `false` if expired/incorrect.
+ * 
+ * <span class="hljs-doctag">@throws</span> {<span class="hljs-type">@link RateLimitExceededException</span>} If user has exceeded 5 failed attempts in 15 mins.
+ * <span class="hljs-doctag">@throws</span> {<span class="hljs-type">@link UserNotFoundException</span>} If user ID does not exist in active database.
+ * 
+ * <span class="hljs-doctag">@example</span>
+ * ```ts
+ * const isValid = await verifyTotpToken(&quot;usr_992a&quot;, &quot;123456&quot;);
+ * ```
+ */</span>
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">async</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">verifyTotpToken</span>(<span class="hljs-params"><span class="hljs-attr">userId</span>: <span class="hljs-built_in">string</span>, <span class="hljs-attr">token</span>: <span class="hljs-built_in">string</span></span>): <span class="hljs-title class_">Promise</span>&lt;<span class="hljs-built_in">boolean</span>&gt; {
+  <span class="hljs-comment">// Implementation</span>
+}
+</code></pre>
+</div>
+<h4 id="c-commit-messages-pr-descriptions" class="heading-anchor-group">
+  <span class="heading-text">C. Commit Messages & PR Descriptions</span>
+  <a class="heading-anchor" href="#c-commit-messages-pr-descriptions" aria-label="Anchor link to C. Commit Messages & PR Descriptions">#</a>
+</h4><p>Commits and Pull Requests are historical documentation. Every commit and PR must follow conventional formats linked directly to Azure DevOps work items.</p>
+
+<div class="code-block-wrapper">
+  <div class="code-header">
+    <span class="code-lang">text</span>
+    <button type="button" class="copy-btn" aria-label="Copy code snippet" onclick="copyCode(this)">Copy</button>
+  </div>
+  <pre><code class="hljs language-text">feat(auth): add Redis sliding-window rate limiting for TOTP verification [AB#10820]
+
+- Implement Redis Sorted Set counter in rateLimiter.ts
+- Add unit tests verifying 5-attempt limit and 15-min expiry window
+- Update openapi.yaml to include HTTP 429 response schema
+
+Closes AB#10820
+</code></pre>
+</div>
+<h3 id="3-mandatory-execution-rules-for-engineers-ai-agents" class="heading-anchor-group">
+  <span class="heading-text">3. Mandatory Execution Rules for Engineers & AI Agents</span>
+  <a class="heading-anchor" href="#3-mandatory-execution-rules-for-engineers-ai-agents" aria-label="Anchor link to 3. Mandatory Execution Rules for Engineers & AI Agents">#</a>
+</h3><p>To ensure documentation remains accurate over time, human developers and AI agents must follow these explicit rules while working on a ticket:</p>
+<ul class="swiss-list"><li>**Rule 1: The Atomic PR Rule (Code + Docs in One PR):** If a PR modifies function signatures, API schemas, or environment variables, the corresponding documentation (`openapi.yaml`, `README.md`, or docstrings) **must** be updated inside the *exact same PR*. CI gates will reject PRs if API schemas or export signatures are altered without doc updates.
+
+</li><li>**Rule 2: Continuous In-Flight Work Logging:** Before writing code, engineers or agents must post an implementation plan as a comment on the Azure DevOps ticket. If an unexpected technical blocker changes the approach mid-task, add a comment explaining the pivot before proceeding.
+
+</li><li>**Rule 3: The ADR Trigger:** If an engineer or agent makes an architectural choice that introduces a new dependency, alters a data model, or impacts system security, an ADR **must** be drafted under `/docs/adr/` as part of that ticket.</li></ul>
+<h3 id="4-documentation-do-s-and-don-ts-matrix" class="heading-anchor-group">
+  <span class="heading-text">4. Documentation Do's and Don'ts Matrix</span>
+  <a class="heading-anchor" href="#4-documentation-do-s-and-don-ts-matrix" aria-label="Anchor link to 4. Documentation Do's and Don'ts Matrix">#</a>
+</h3>
+<div class="table-container">
+  <table class="swiss-table">
+    <thead>
+      <tr><th>Area</th><th>DO ✅</th><th>DON'T ❌</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>**System Terms**</td><td>Maintain a single `GLOSSARY.md` file for domain entity definitions.</td><td></td></tr>
+    </tbody>
+  </table>
+</div><p> | Allow &quot;User&quot;, &quot;Account&quot;, and &quot;Member&quot; to be used interchangeably without definition.</p>
+<p> |
+| <strong>Code Comments</strong> | Comment on <strong>why</strong> a complex workaround or security window exists.</p>
+<p> | Comment on obvious code operations (e.g., <code>// increment i by 1</code>).</p>
+<p> |
+| <strong>API Design</strong> | Write OpenAPI/Swagger specs <strong>before</strong> writing backend/frontend code.</p>
+<p> | Build API routes first and try to auto-generate docs from messy code later.</p>
+<p> |
+| <strong>Pull Requests</strong> | Update code, docstrings, and design docs together in a single atomic PR.</p>
+<p> | Merge code changes with a promise to &quot;update the docs next week&quot;.</p>
+<p> |
+| <strong>Architecture</strong> | Record trade-offs and discarded options in <code>ADR</code> files.</p>
+<p> | Rely on private chats or meetings to decide architectural direction.</p>
+<p> |
+| <strong>Ticket Writing</strong> | Use BDD <em>Given / When / Then</em> syntax in Azure DevOps acceptance criteria.</p>
+<p> | Write vague bullet points like &quot;Fix authentication page bugs&quot;.</p>
+<p> |</p>
+<hr>
+
+<h2 id="9-recommended-skills-library" class="heading-anchor-group">
+  <span class="heading-text">9. Recommended Skills Library</span>
+  <a class="heading-anchor" href="#9-recommended-skills-library" aria-label="Anchor link to 9. Recommended Skills Library">#</a>
+</h2><p>Skills are reusable playbooks loaded into an agent&#39;s working context when a specific task requires domain expertise:</p>
+<ul class="swiss-list"><li>`/grill-me`: Conducts exhaustive alignment interviews to clarify specs, edge cases, and business intent before writing code.
+
+</li><li>`/grill-with-docs`: Interrogates planning decisions while building lasting codebase glossary terms and architectural decision records.
+
+</li><li>`ponytail` (`/ponytail-review`, `/ponytail-audit`, `/ponytail-debt`): Drives solutions toward minimal complexity, audits technical debt, and enforces simple architectural patterns.
+
+</li><li>`BugBot`: Specialized, automated pull-request auditing agent for catching low-level code bugs and security regressions in diffs.</li></ul><hr>
+
+<h2 id="10-the-dream-hybrid-frontier-local-execution-architecture" class="heading-anchor-group">
+  <span class="heading-text">10. The Dream: Hybrid Frontier/Local Execution Architecture</span>
+  <a class="heading-anchor" href="#10-the-dream-hybrid-frontier-local-execution-architecture" aria-label="Anchor link to 10. The Dream: Hybrid Frontier/Local Execution Architecture">#</a>
+</h2><p>The optimal enterprise AI architecture splits tasks between cloud-based frontier models and fast local models to achieve frontier-level reasoning at local execution cost:</p>
+
+<div class="table-container">
+  <table class="swiss-table">
+    <thead>
+      <tr><th>Model Layer</th><th>Examples</th><th>Core Responsibilities</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>**Frontier Models**</td><td>Claude Opus 4.8, GPT-5.6 class</td><td></td></tr>
+    </tbody>
+  </table>
+</div><p> | High-level system design, complex planning, gating reviews, and architectural judgment.</p>
+<p> |
+| <strong>Local / Edge Models</strong> | Gemma 4, Qwen 3.6, DeepSeek V4 class</p>
+<p> | Repetitive code generation, linter loops, unit test writing, and localized refactoring in sandboxed setups.</p>
+<p> |</p>
+<p>This hybrid structure ensures expensive frontier models are reserved for critical judgment calls, while fast local models handle repetitive implementation tasks across large engineering organizations.</p>
+
+      </article>
+      
+    <nav class="pagination-nav" aria-label="Chapter Pagination">
+      
+        <a href="07-azure-devops-tickets.html" class="pagination-btn prev-btn">
+          <span class="pagination-label">← PREVIOUS CHAPTER</span>
+          <span class="pagination-title">7. Azure DevOps Ticket Standards</span>
+        </a>
+      
+      <div class="pagination-placeholder"></div>
+    </nav>
+  
+    </main>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-container">
+      <span>THE AI DEVELOPMENT PLAYBOOK © 2026</span>
+      <span>•</span>
+      <span>INTERNATIONAL TYPOGRAPHIC STYLE</span>
+    </div>
+  </footer>
+
+  <script>
+    function copyCode(button) {
+      const wrapper = button.closest('.code-block-wrapper');
+      const code = wrapper.querySelector('code').textContent;
+      
+      navigator.clipboard.writeText(code).then(() => {
+        button.textContent = 'Copied';
+        button.classList.add('copied');
+        setTimeout(() => {
+          button.textContent = 'Copy';
+          button.classList.remove('copied');
+        }, 2000);
+      }).catch(err => console.error('Failed to copy: ', err));
+    }
+
+    function toggleMobileDrawer() {
+      const drawer = document.getElementById('sidebar-drawer');
+      drawer.classList.toggle('active');
+      document.body.classList.toggle('drawer-open');
+    }
+
+    function closeMobileDrawer() {
+      const drawer = document.getElementById('sidebar-drawer');
+      drawer.classList.remove('active');
+      document.body.classList.remove('drawer-open');
+    }
+  </script>
+</body>
+</html>

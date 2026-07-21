@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Swiss design operational standard for enterprise AI software development.">
+  <title>7. Azure DevOps Ticket Standards — The AI Development Playbook</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to content</a>
+
+  <header class="site-header">
+    <div class="header-container">
+      <div class="header-logo">
+        <a href="index.html" class="logo-link">
+          <span class="logo-bold">SDLC</span>
+          <span class="logo-light">/ STANDARD</span>
+        </a>
+      </div>
+      <div class="header-meta">
+        <span class="chapter-badge">CHAPTER 07</span>
+        <span>•</span>
+        <span>VERSION 4.0</span>
+      </div>
+      <button type="button" class="mobile-menu-btn" aria-label="Toggle Navigation Index" onclick="toggleMobileDrawer()">
+        <span class="menu-icon-line"></span>
+        <span class="menu-icon-line"></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="layout-container">
+    <aside class="sidebar" id="sidebar-drawer">
+      <div class="sidebar-header">
+        <span class="sidebar-title">CHAPTER INDEX</span>
+        <button type="button" class="close-menu-btn" aria-label="Close Index" onclick="closeMobileDrawer()">×</button>
+      </div>
+      <nav class="sidebar-nav" aria-label="Table of Contents">
+        <ul class="toc-list">
+      <li class="toc-item ">
+        <a href="index.html" onclick="closeMobileDrawer()">
+          <span class="toc-num">00.</span>
+          <span class="toc-text">Overview & Index</span>
+        </a>
+      </li>
+    
+      <li class="toc-item ">
+        <a href="01-core-concepts.html" onclick="closeMobileDrawer()">
+          <span class="toc-num">01.</span>
+          <span class="toc-text">1. Core Concepts</span>
+        </a>
+      </li>
+    
+      <li class="toc-item ">
+        <a href="02-ai-augmented-sdlc.html" onclick="closeMobileDrawer()">
+          <span class="toc-num">02.</span>
+          <span class="toc-text">2. The AI-Augmented SDLC</span>
+        </a>
+      </li>
+    
+      <li class="toc-item ">
+        <a href="03-preparing-codebase.html" onclick="closeMobileDrawer()">
+          <span class="toc-num">03.</span>
+          <span class="toc-text">3. Phase 1: Preparing Codebase</span>
+        </a>
+      </li>
+    
+      <li class="toc-item ">
+        <a href="04-developer-experience.html" onclick="closeMobileDrawer()">
+          <span class="toc-num">04.</span>
+          <span class="toc-text">4. Phase 2: Developer Experience</span>
+        </a>
+      </li>
+    
+      <li class="toc-item ">
+        <a href="05-quality-security-assurance.html" onclick="closeMobileDrawer()">
+          <span class="toc-num">05.</span>
+          <span class="toc-text">5. Phase 3: Quality & Security</span>
+        </a>
+      </li>
+    
+      <li class="toc-item ">
+        <a href="06-enterprise-workflows-gates.html" onclick="closeMobileDrawer()">
+          <span class="toc-num">06.</span>
+          <span class="toc-text">6. Enterprise Workflows & Gates</span>
+        </a>
+      </li>
+    
+      <li class="toc-item active-chapter">
+        <a href="07-azure-devops-tickets.html" onclick="closeMobileDrawer()">
+          <span class="toc-num">07.</span>
+          <span class="toc-text">7. Azure DevOps Ticket Standards</span>
+        </a>
+      </li>
+    
+      <li class="toc-item ">
+        <a href="08-documentation-planning.html" onclick="closeMobileDrawer()">
+          <span class="toc-num">08.</span>
+          <span class="toc-text">8. Documentation Standards</span>
+        </a>
+      </li>
+    </ul>
+      </nav>
+    </aside>
+
+    <main class="content-wrapper" id="main-content">
+      <article class="prose">
+        
+<h2 id="7-how-to-write-tickets-for-azure-devops-dev-azure-com" class="heading-anchor-group">
+  <span class="heading-text">7. How to Write Tickets for Azure DevOps (dev.azure.com)</span>
+  <a class="heading-anchor" href="#7-how-to-write-tickets-for-azure-devops-dev-azure-com" aria-label="Anchor link to 7. How to Write Tickets for Azure DevOps (dev.azure.com)">#</a>
+</h2><p>In an AI-augmented engineering organization, Azure DevOps (<code>dev.azure.com</code>) serves as the primary operational hub across the entire SDLC. Work items in Azure DevOps are not merely human tracking tickets—they function as direct inputs for autonomous AI agents via API integrations and Model Context Protocol (MCP) servers. When an AI agent picks up a work item, ambiguous scope or missing fields force the model to make unverified assumptions, leading to hallucinated requirements, bloated execution loops, and rejected pull requests.</p>
+<p>To ensure deterministic and reliable agent execution, every work item created in <code>dev.azure.com</code> must follow strict structural standards tailored to its specific Work Item Type: <strong>Epic</strong>, <strong>Feature</strong>, <strong>Issue</strong>, <strong>Task</strong>, or <strong>Bug</strong>.</p>
+
+<h3 id="azure-devops-baseline-configuration-standards" class="heading-anchor-group">
+  <span class="heading-text">Azure DevOps Baseline Configuration Standards</span>
+  <a class="heading-anchor" href="#azure-devops-baseline-configuration-standards" aria-label="Anchor link to Azure DevOps Baseline Configuration Standards">#</a>
+</h3><p>Prior to moving any work item into an active sprint or agent processing queue, the following mandatory metadata fields must be populated:</p>
+<ul class="swiss-list"><li>**Area Path:** Identifies the exact owning team or system boundary (e.g., `PlatformTeam\Authentication`).
+
+</li><li>**Iteration Path:** Defines the target sprint timeline (e.g., `Sprint 42`).
+
+</li><li>**Parent / Child Linkage:** Maintains explicit structural hierarchy (`Epic` → `Feature` → `Issue` → `Task`).
+
+</li><li>**Tags:** Standardized labels to enable automated agent filtering (e.g., `agent-eligible`, `backend`, `security`, `database`).</li></ul>
+<h3 id="1-epic" class="heading-anchor-group">
+  <span class="heading-text">1. Epic</span>
+  <a class="heading-anchor" href="#1-epic" aria-label="Anchor link to 1. Epic">#</a>
+</h3><p>An <strong>Epic</strong> represents a multi-sprint strategic initiative or business outcome spanning multiple teams. Epics break down into individual Features. Epics are never assigned directly to AI agents for immediate code execution; instead, agents analyze Epics during early planning (SDLC Phase 1) to assist human architects in decomposing scope into discrete Features and Issues.</p>
+<ul class="swiss-list"><li>**Title Structure:** `[EPIC] [Domain] High-Level Strategic Outcome`
+</li><li>**Risk Field:** `1 - High` | `2 - Medium` | `3 - Low`
+</li><li>**Priority Field:** `1` (Highest) to `4` (Lowest)
+
+</li><li>**Description:** High-level business impact, regulatory drivers, and executive summary.
+
+</li><li>**Success Criteria (Definition of Done):** Quantitative business metrics and architectural milestones.</li></ul>
+<div class="code-block-wrapper">
+  <div class="code-header">
+    <span class="code-lang">text</span>
+    <button type="button" class="copy-btn" aria-label="Copy code snippet" onclick="copyCode(this)">Copy</button>
+  </div>
+  <pre><code class="hljs language-text">Title: [EPIC] [Auth] Implement Multi-Factor Authentication (MFA) Across Enterprise Portals
+Area Path: Identity\Auth
+Iteration Path: Release 2026.Q3
+Risk: 1 - High | Priority: 1
+Tags: security, compliance, epic
+
+Description:
+To comply with updated SOC2 requirements and reduce account takeover risks, our core web platform must enforce mandatory Multi-Factor Authentication (MFA) for all administrative and end-user accounts by end of Q3.
+
+Business Value:
+- Achieves SOC2 compliance certification.
+- Reduces credential stuffing vulnerability by 99%.
+
+Success Criteria (Definition of Done):
+- SMS OTP and Authenticator App (TOTP) supported as secondary verification factors.
+- 100% of admin users mandated to enroll upon next login.
+- Zero downtime deployment across all web and mobile client applications.
+- Audit logging enabled for all MFA state changes and failed verification attempts.
+</code></pre>
+</div>
+<h3 id="2-feature" class="heading-anchor-group">
+  <span class="heading-text">2. Feature</span>
+  <a class="heading-anchor" href="#2-feature" aria-label="Anchor link to 2. Feature">#</a>
+</h3><p>A <strong>Feature</strong> delivers a functional system capability under a parent Epic, usually spanning 1 to 3 sprints. AI agents evaluate Features during system design (SDLC Phase 3) to draft database schemas, OpenAPI contracts, and child Issue backlogs.</p>
+<ul class="swiss-list"><li>**Title Structure:** `[FEATURE] [Component] Action Verb + Functional Capability`
+</li><li>**Parent Link:** Link to target Epic.
+
+</li><li>**Story Points / Effort:** Aggregate estimate (sum of child Issues).
+
+</li><li>**Risk & Priority:** Assigned on 1–3 and 1–4 scales respectively.
+
+</li><li>**Description:** Functional architecture outline, target personas, and scope boundaries (In Scope vs Out of Scope).
+
+</li><li>**Acceptance Criteria:** High-level functional capabilities required for completion.</li></ul>
+<div class="code-block-wrapper">
+  <div class="code-header">
+    <span class="code-lang">text</span>
+    <button type="button" class="copy-btn" aria-label="Copy code snippet" onclick="copyCode(this)">Copy</button>
+  </div>
+  <pre><code class="hljs language-text">Title: [FEATURE] [Auth] Authenticator App (TOTP) Verification &amp; Setup Flow
+Parent Link: Epic 10402: Implement Multi-Factor Authentication (MFA)
+Area Path: Identity\Auth
+Iteration Path: Sprint 42
+Story Points: 13 | Risk: 2 - Medium | Priority: 1
+Tags: auth, backend, frontend
+
+Description:
+Provide users with the ability to pair a time-based one-time password (TOTP) authenticator application (e.g., Google Authenticator, 1Password) with their account, store encrypted secrets, and verify TOTP tokens during login.
+
+Scope Boundaries:
+- In Scope: QR code generation, secret key display, TOTP code validation, 10 single-use recovery backup codes.
+- Out of Scope: Hardware key support (YubiKey/WebAuthn - handled in separate Feature).
+
+Acceptance Criteria:
+- Users can navigate to /settings/mfa and initiate QR code pairing.
+- Secret keys are stored in database encrypted at rest using AES-256.
+- Login endpoint accepts and validates 6-digit TOTP codes with a 30-second clock skew tolerance window.
+- User is issued 10 single-use recovery codes upon successful pairing.
+</code></pre>
+</div>
+<h3 id="3-issue-product-backlog-item" class="heading-anchor-group">
+  <span class="heading-text">3. Issue (Product Backlog Item)</span>
+  <a class="heading-anchor" href="#3-issue-product-backlog-item" aria-label="Anchor link to 3. Issue (Product Backlog Item)">#</a>
+</h3><p>An <strong>Issue</strong> represents the primary unit of executable work assigned to developers and autonomous AI agents. An Issue MUST represent a single, testable deliverable capable of being completed within a single sprint or agent loop.</p>
+<p>Every Issue assigned to an AI agent <strong>must</strong> utilize Behavior-Driven Development (BDD) <em>Given / When / Then</em> syntax inside its Acceptance Criteria to completely remove scope ambiguity.</p>
+<ul class="swiss-list"><li>**Title Structure:** `[ISSUE] [Service/Module] Action Verb + Specific Deliverable`
+</li><li>**Parent Link:** Link to parent Feature.
+
+</li><li>**Story Points:** Fibonacci scale (`1`, `2`, `3`, `5`, `8`).
+
+</li><li>**Risk & Priority:** Assigned baseline risk and priority ratings.
+
+</li><li>**Description:** User story statement (*As a... I want... So that...*) along with technical routes and payload specs.
+
+</li><li>**Acceptance Criteria (BDD Syntax):** Explicit scenario blocks detailing pre-conditions, trigger actions, and expected outputs.</li></ul>
+<div class="code-block-wrapper">
+  <div class="code-header">
+    <span class="code-lang">text</span>
+    <button type="button" class="copy-btn" aria-label="Copy code snippet" onclick="copyCode(this)">Copy</button>
+  </div>
+  <pre><code class="hljs language-text">Title: [ISSUE] [API] Implement Redis Sliding-Window Rate Limiting on TOTP Verification Endpoint
+Parent Link: Feature 10515: Authenticator App (TOTP) Verification &amp; Setup Flow
+Area Path: Identity\Auth
+Iteration Path: Sprint 42
+Story Points: 3 | Risk: 2 - Medium | Priority: 1
+Tags: agent-eligible, backend, redis, security
+
+Description:
+As a Platform Security Engineer,
+I want to enforce rate limiting on the /api/v1/auth/mfa/verify endpoint,
+So that malicious actors cannot brute-force 6-digit TOTP tokens.
+
+Technical Context:
+- Target Endpoint: POST /api/v1/auth/mfa/verify
+- Tech Stack: Node.js / Express, ioredis client.
+- Rate Limit Rule: Max 5 failed attempts per user ID per 15-minute sliding window.
+
+Acceptance Criteria (BDD Format):
+
+Scenario 1: Successful verification under limit
+Given an authenticated user submitting a valid 6-digit TOTP code
+When the user has submitted fewer than 5 failed attempts in the last 15 minutes
+Then return HTTP 200 OK with payload { &quot;status&quot;: &quot;verified&quot; }
+And reset the failed attempt counter in Redis for this user.
+
+Scenario 2: Exceeding failed attempt threshold
+Given a user who has accumulated 5 failed TOTP verification attempts within 15 minutes
+When the user submits a 6th verification request (valid or invalid)
+Then return HTTP 429 Too Many Requests
+And return header Retry-After: &lt;seconds_remaining&gt;
+And publish an audit event to events.auth.rate_limited.
+
+Scenario 3: Rate limit expiry
+Given a user who was rate limited at timestamp T
+When 15 minutes have elapsed since the first failed attempt in the window (T + 900s)
+Then allow subsequent verification attempts without returning 429.
+</code></pre>
+</div>
+<h3 id="4-task" class="heading-anchor-group">
+  <span class="heading-text">4. Task</span>
+  <a class="heading-anchor" href="#4-task" aria-label="Anchor link to 4. Task">#</a>
+</h3><p>A <strong>Task</strong> represents a granular technical step required to complete an Issue or Bug. Tasks break down implementation details into localized code changes, database migrations, or unit test files. AI agents in local sandboxed environments execute Tasks within individual iterative cycles.</p>
+<ul class="swiss-list"><li>**Title Structure:** `[TASK] [Subsystem] Actionable Development Step`
+</li><li>**Parent Link:** Link to target Issue or Bug.
+
+</li><li>**Original Estimate / Remaining Work:** Estimated execution hours (e.g., `2.0`, `4.0`).
+
+</li><li>**Activity:** `Development` | `Testing` | `Design` | `Documentation` | `Deployment`.
+
+</li><li>**Description:** Step-by-step developer guidelines, targeted file paths, and class definitions.</li></ul>
+<div class="code-block-wrapper">
+  <div class="code-header">
+    <span class="code-lang">text</span>
+    <button type="button" class="copy-btn" aria-label="Copy code snippet" onclick="copyCode(this)">Copy</button>
+  </div>
+  <pre><code class="hljs language-text">Title: [TASK] [DB] Create Redis Key Schema and Helper Class for Sliding Window Counters
+Parent Link: Issue 10820: Implement Redis Sliding-Window Rate Limiting on TOTP Endpoint
+Area Path: Identity\Auth
+Iteration Path: Sprint 42
+Original Estimate: 3.0 Hours | Activity: Development
+Tags: redis, backend
+
+Description:
+Write a modular helper class in src/services/rateLimiter.ts that interacts with Redis using atomic pipeline commands (MULTI/EXEC).
+
+Implementation Steps:
+1. Define key structure: rate_limit:mfa_verify:{userId} as a Redis Sorted Set (ZSET).
+2. Implement isRateLimited(userId: string): Promise&lt;RateLimitResult&gt; method.
+3. Use current UNIX timestamp in milliseconds as both the score and member value.
+4. Execute atomic pipeline:
+   - ZREMRANGEBYSCORE key 0 (now - 900000) (remove entries older than 15 mins)
+   - ZCARD key (count remaining attempts)
+   - EXPIRE key 900 (refresh key TTL)
+5. Add unit tests in tests/services/rateLimiter.test.ts mocking Redis responses.
+</code></pre>
+</div>
+<h3 id="5-bug" class="heading-anchor-group">
+  <span class="heading-text">5. Bug</span>
+  <a class="heading-anchor" href="#5-bug" aria-label="Anchor link to 5. Bug">#</a>
+</h3><p>A <strong>Bug</strong> documents an application defect, security vulnerability, or functional regression. To allow an AI agent to fix a bug autonomously, the ticket <strong>must include explicit reproduction steps</strong>, environment configuration, and expected versus actual output. AI agents must execute a failing automated test reproducing the defect prior to submitting a fix pull request.</p>
+<ul class="swiss-list"><li>**Title Structure:** `[BUG] [Module/API] Clear Failure Summary`
+</li><li>**Severity:** `1 - Critical` | `2 - High` | `3 - Medium` | `4 - Low`.
+
+</li><li>**Priority:** `1` to `4`.
+
+</li><li>**System Info:** Operating system, browser version, environment (Staging/Prod), commit SHA / container image.
+
+</li><li>**Repro Steps & Behavior:** Numbered steps to trigger failure, actual error output, and expected correct behavior.
+
+</li><li>**Acceptance Criteria:** Mandatory failing test requirement and zero-regression validation.</li></ul>
+<div class="code-block-wrapper">
+  <div class="code-header">
+    <span class="code-lang">text</span>
+    <button type="button" class="copy-btn" aria-label="Copy code snippet" onclick="copyCode(this)">Copy</button>
+  </div>
+  <pre><code class="hljs language-text">Title: [BUG] [API] TOTP Verification Throws HTTP 500 When User ID Contains Uppercase Characters
+Area Path: Identity\Auth
+Iteration Path: Sprint 42
+Severity: 2 - High | Priority: 1 | Risk: 1 - High
+Tags: bug, agent-eligible, production-issue
+
+System Info:
+- Environment: Staging &amp; Production
+- Service: auth-service:v2.14.1
+- Database: PostgreSQL 15 / Redis 7.0
+
+Steps to Reproduce:
+1. Log in with an account whose user_id contains uppercase letters (e.g., User_992A).
+2. Navigate to MFA prompt and enter valid TOTP token 123456.
+3. Submit form to POST /api/v1/auth/mfa/verify.
+
+Actual Behavior:
+API responds with HTTP 500 Internal Server Error.
+Stack trace log: Unhandled Exception: KeyNotFoundException in Redis lookup for rate_limit:mfa_verify:User_992A due to casing mismatch in DB query join.
+
+Expected Behavior:
+API should normalize user_id to lowercase before executing database queries and Redis lookups, returning HTTP 200 OK upon valid TOTP submission.
+
+Acceptance Criteria:
+- Write a failing integration test in tests/integration/mfa_casing.test.ts passing uppercase user IDs.
+- Normalize user_id string inputs to lowercase at API route handling layer (src/routes/mfa.ts).
+- Verify bug fix with zero regression on standard lowercase user IDs.
+- All existing test suites pass successfully in CI/CD pipeline.
+</code></pre>
+</div>
+<h3 id="azure-devops-ticket-quality-matrix" class="heading-anchor-group">
+  <span class="heading-text">Azure DevOps Ticket Quality Matrix</span>
+  <a class="heading-anchor" href="#azure-devops-ticket-quality-matrix" aria-label="Anchor link to Azure DevOps Ticket Quality Matrix">#</a>
+</h3>
+<div class="table-container">
+  <table class="swiss-table">
+    <thead>
+      <tr><th>Work Item Type</th><th>Primary Role in AI SDLC</th><th>Key Azure DevOps Fields</th><th>Required Detail Standard</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>**Epic**</td><td>Strategic direction & roadmap grouping</td><td></td><td></td></tr>
+    </tbody>
+  </table>
+</div><p> | Risk, Priority, Success Criteria</p>
+<p> | High-level business impact &amp; compliance goals</p>
+<p> |
+| <strong>Feature</strong> | Architectural component scoping</p>
+<p> | Story Points, Parent Link, Scope Boundaries</p>
+<p> | Technical boundaries &amp; system deliverables</p>
+<p> |
+| <strong>Issue</strong> | <strong>Direct Agent Execution Unit</strong><br> | Story Points, BDD Criteria, Tags</p>
+<p> | <strong>Given/When/Then</strong> explicit test scenarios</p>
+<p> |
+| <strong>Task</strong> | Sub-unit execution step</p>
+<p> | Activity, Original Estimate, Parent Link</p>
+<p> | Precise code paths, file names, &amp; technical steps</p>
+<p> |
+| <strong>Bug</strong> | Regression &amp; defect remediation</p>
+<p> | Severity, System Info, Repro Steps</p>
+<p> | Exact repro steps, stack trace, &amp; expected vs actual</p>
+<p> |</p>
+<hr>
+
+      </article>
+      
+    <nav class="pagination-nav" aria-label="Chapter Pagination">
+      
+        <a href="06-enterprise-workflows-gates.html" class="pagination-btn prev-btn">
+          <span class="pagination-label">← PREVIOUS CHAPTER</span>
+          <span class="pagination-title">6. Enterprise Workflows & Gates</span>
+        </a>
+      
+      
+        <a href="08-documentation-planning.html" class="pagination-btn next-btn">
+          <span class="pagination-label">NEXT CHAPTER →</span>
+          <span class="pagination-title">8. Documentation Standards</span>
+        </a>
+      
+    </nav>
+  
+    </main>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-container">
+      <span>THE AI DEVELOPMENT PLAYBOOK © 2026</span>
+      <span>•</span>
+      <span>INTERNATIONAL TYPOGRAPHIC STYLE</span>
+    </div>
+  </footer>
+
+  <script>
+    function copyCode(button) {
+      const wrapper = button.closest('.code-block-wrapper');
+      const code = wrapper.querySelector('code').textContent;
+      
+      navigator.clipboard.writeText(code).then(() => {
+        button.textContent = 'Copied';
+        button.classList.add('copied');
+        setTimeout(() => {
+          button.textContent = 'Copy';
+          button.classList.remove('copied');
+        }, 2000);
+      }).catch(err => console.error('Failed to copy: ', err));
+    }
+
+    function toggleMobileDrawer() {
+      const drawer = document.getElementById('sidebar-drawer');
+      drawer.classList.toggle('active');
+      document.body.classList.toggle('drawer-open');
+    }
+
+    function closeMobileDrawer() {
+      const drawer = document.getElementById('sidebar-drawer');
+      drawer.classList.remove('active');
+      document.body.classList.remove('drawer-open');
+    }
+  </script>
+</body>
+</html>
