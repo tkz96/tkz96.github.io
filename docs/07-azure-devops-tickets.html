@@ -144,23 +144,33 @@
   <span class="heading-text">Azure DevOps Baseline Configuration Standards</span>
   <a class="heading-anchor" href="#azure-devops-baseline-configuration-standards" aria-label="Anchor link to Azure DevOps Baseline Configuration Standards">#</a>
 </h2><p>Prior to moving any work item into an active sprint or agent processing queue, the following mandatory metadata fields must be populated:</p>
-<ul class="swiss-list"><li><strong>Area Path:</strong> Identifies the exact owning team or system boundary (e.g., <code>PlatformTeam\Authentication</code>).
-
-</li><li><strong>Iteration Path:</strong> Defines the target sprint timeline (e.g., <code>Sprint 42</code>).
-
-</li><li><strong>Parent / Child Linkage:</strong> Maintains explicit structural hierarchy (<code>Epic</code> → <code>Feature</code> → <code>Issue</code> → <code>Task</code>).
-
-</li><li><strong>Tags:</strong> Standardized labels to enable automated agent filtering (e.g., <code>agent-eligible</code>, <code>backend</code>, <code>security</code>, <code>database</code>).</li></ul><h2 id="1-epic" class="heading-anchor-group">
+<ul>
+<li><p><strong>Area Path:</strong> Identifies the exact owning team or system boundary (e.g., <code>PlatformTeam\Authentication</code>).</p>
+</li>
+<li><p><strong>Iteration Path:</strong> Defines the target sprint timeline (e.g., <code>Sprint 42</code>).</p>
+</li>
+<li><p><strong>Parent / Child Linkage:</strong> Maintains explicit structural hierarchy (<code>Epic</code> → <code>Feature</code> → <code>Issue</code> → <code>Task</code>).</p>
+</li>
+<li><p><strong>Tags:</strong> Standardized labels to enable automated agent filtering (e.g., <code>agent-eligible</code>, <code>backend</code>, <code>security</code>, <code>database</code>).</p>
+</li>
+</ul>
+<h2 id="1-epic" class="heading-anchor-group">
   <span class="heading-text">1. Epic</span>
   <a class="heading-anchor" href="#1-epic" aria-label="Anchor link to 1. Epic">#</a>
 </h2><p>An <strong>Epic</strong> represents a multi-sprint strategic initiative or business outcome spanning multiple teams. Epics break down into individual Features. Epics are never assigned directly to AI agents for immediate code execution; instead, agents analyze Epics during early planning (SDLC Phase 1) to assist human architects in decomposing scope into discrete Features and Issues.</p>
-<ul class="swiss-list"><li><strong>Title Structure:</strong> <code>[EPIC] [Domain] High-Level Strategic Outcome</code>
-</li><li><strong>Risk Field:</strong> <code>1 - High</code> | <code>2 - Medium</code> | <code>3 - Low</code>
-</li><li><strong>Priority Field:</strong> <code>1</code> (Highest) to <code>4</code> (Lowest)
-
-</li><li><strong>Description:</strong> High-level business impact, regulatory drivers, and executive summary.
-
-</li><li><strong>Success Criteria (Definition of Done):</strong> Quantitative business metrics and architectural milestones.</li></ul><div class="code-block-wrapper">
+<ul>
+<li><p><strong>Title Structure:</strong> <code>[EPIC] [Domain] High-Level Strategic Outcome</code></p>
+</li>
+<li><p><strong>Risk Field:</strong> <code>1 - High</code> | <code>2 - Medium</code> | <code>3 - Low</code></p>
+</li>
+<li><p><strong>Priority Field:</strong> <code>1</code> (Highest) to <code>4</code> (Lowest)</p>
+</li>
+<li><p><strong>Description:</strong> High-level business impact, regulatory drivers, and executive summary.</p>
+</li>
+<li><p><strong>Success Criteria (Definition of Done):</strong> Quantitative business metrics and architectural milestones.</p>
+</li>
+</ul>
+<div class="code-block-wrapper">
   <div class="code-header">
     <span class="code-lang">text</span>
     <button type="button" class="copy-btn" aria-label="Copy code snippet" onclick="copyCode(this)">Copy</button>
@@ -188,16 +198,21 @@ Success Criteria (Definition of Done):
   <span class="heading-text">2. Feature</span>
   <a class="heading-anchor" href="#2-feature" aria-label="Anchor link to 2. Feature">#</a>
 </h2><p>A <strong>Feature</strong> delivers a functional system capability under a parent Epic, usually spanning 1 to 3 sprints. AI agents evaluate Features during system design (SDLC Phase 3) to draft database schemas, OpenAPI contracts, and child Issue backlogs.</p>
-<ul class="swiss-list"><li><strong>Title Structure:</strong> <code>[FEATURE] [Component] Action Verb + Functional Capability</code>
-</li><li><strong>Parent Link:</strong> Link to target Epic.
-
-</li><li><strong>Story Points / Effort:</strong> Aggregate estimate (sum of child Issues).
-
-</li><li><strong>Risk &amp; Priority:</strong> Assigned on 1–3 and 1–4 scales respectively.
-
-</li><li><strong>Description:</strong> Functional architecture outline, target personas, and scope boundaries (In Scope vs Out of Scope).
-
-</li><li><strong>Acceptance Criteria:</strong> High-level functional capabilities required for completion.</li></ul><div class="code-block-wrapper">
+<ul>
+<li><p><strong>Title Structure:</strong> <code>[FEATURE] [Component] Action Verb + Functional Capability</code></p>
+</li>
+<li><p><strong>Parent Link:</strong> Link to target Epic.</p>
+</li>
+<li><p><strong>Story Points / Effort:</strong> Aggregate estimate (sum of child Issues).</p>
+</li>
+<li><p><strong>Risk &amp; Priority:</strong> Assigned on 1–3 and 1–4 scales respectively.</p>
+</li>
+<li><p><strong>Description:</strong> Functional architecture outline, target personas, and scope boundaries (In Scope vs Out of Scope).</p>
+</li>
+<li><p><strong>Acceptance Criteria:</strong> High-level functional capabilities required for completion.</p>
+</li>
+</ul>
+<div class="code-block-wrapper">
   <div class="code-header">
     <span class="code-lang">text</span>
     <button type="button" class="copy-btn" aria-label="Copy code snippet" onclick="copyCode(this)">Copy</button>
@@ -227,16 +242,21 @@ Acceptance Criteria:
   <a class="heading-anchor" href="#3-issue-product-backlog-item" aria-label="Anchor link to 3. Issue (Product Backlog Item)">#</a>
 </h2><p>An <strong>Issue</strong> represents the primary unit of executable work assigned to developers and autonomous AI agents. An Issue MUST represent a single, testable deliverable capable of being completed within a single sprint or agent loop.</p>
 <p>Every Issue assigned to an AI agent <strong>must</strong> utilize Behavior-Driven Development (BDD) <em>Given / When / Then</em> syntax inside its Acceptance Criteria to completely remove scope ambiguity.</p>
-<ul class="swiss-list"><li><strong>Title Structure:</strong> <code>[ISSUE] [Service/Module] Action Verb + Specific Deliverable</code>
-</li><li><strong>Parent Link:</strong> Link to parent Feature.
-
-</li><li><strong>Story Points:</strong> Fibonacci scale (<code>1</code>, <code>2</code>, <code>3</code>, <code>5</code>, <code>8</code>).
-
-</li><li><strong>Risk &amp; Priority:</strong> Assigned baseline risk and priority ratings.
-
-</li><li><strong>Description:</strong> User story statement (<em>As a... I want... So that...</em>) along with technical routes and payload specs.
-
-</li><li><strong>Acceptance Criteria (BDD Syntax):</strong> Explicit scenario blocks detailing pre-conditions, trigger actions, and expected outputs.</li></ul><div class="code-block-wrapper">
+<ul>
+<li><p><strong>Title Structure:</strong> <code>[ISSUE] [Service/Module] Action Verb + Specific Deliverable</code></p>
+</li>
+<li><p><strong>Parent Link:</strong> Link to parent Feature.</p>
+</li>
+<li><p><strong>Story Points:</strong> Fibonacci scale (<code>1</code>, <code>2</code>, <code>3</code>, <code>5</code>, <code>8</code>).</p>
+</li>
+<li><p><strong>Risk &amp; Priority:</strong> Assigned baseline risk and priority ratings.</p>
+</li>
+<li><p><strong>Description:</strong> User story statement (<em>As a... I want... So that...</em>) along with technical routes and payload specs.</p>
+</li>
+<li><p><strong>Acceptance Criteria (BDD Syntax):</strong> Explicit scenario blocks detailing pre-conditions, trigger actions, and expected outputs.</p>
+</li>
+</ul>
+<div class="code-block-wrapper">
   <div class="code-header">
     <span class="code-lang">text</span>
     <button type="button" class="copy-btn" aria-label="Copy code snippet" onclick="copyCode(this)">Copy</button>
@@ -282,14 +302,19 @@ Then allow subsequent verification attempts without returning 429.
   <span class="heading-text">4. Task</span>
   <a class="heading-anchor" href="#4-task" aria-label="Anchor link to 4. Task">#</a>
 </h2><p>A <strong>Task</strong> represents a granular technical step required to complete an Issue or Bug. Tasks break down implementation details into localized code changes, database migrations, or unit test files. AI agents in local sandboxed environments execute Tasks within individual iterative cycles.</p>
-<ul class="swiss-list"><li><strong>Title Structure:</strong> <code>[TASK] [Subsystem] Actionable Development Step</code>
-</li><li><strong>Parent Link:</strong> Link to target Issue or Bug.
-
-</li><li><strong>Original Estimate / Remaining Work:</strong> Estimated execution hours (e.g., <code>2.0</code>, <code>4.0</code>).
-
-</li><li><strong>Activity:</strong> <code>Development</code> | <code>Testing</code> | <code>Design</code> | <code>Documentation</code> | <code>Deployment</code>.
-
-</li><li><strong>Description:</strong> Step-by-step developer guidelines, targeted file paths, and class definitions.</li></ul><div class="code-block-wrapper">
+<ul>
+<li><p><strong>Title Structure:</strong> <code>[TASK] [Subsystem] Actionable Development Step</code></p>
+</li>
+<li><p><strong>Parent Link:</strong> Link to target Issue or Bug.</p>
+</li>
+<li><p><strong>Original Estimate / Remaining Work:</strong> Estimated execution hours (e.g., <code>2.0</code>, <code>4.0</code>).</p>
+</li>
+<li><p><strong>Activity:</strong> <code>Development</code> | <code>Testing</code> | <code>Design</code> | <code>Documentation</code> | <code>Deployment</code>.</p>
+</li>
+<li><p><strong>Description:</strong> Step-by-step developer guidelines, targeted file paths, and class definitions.</p>
+</li>
+</ul>
+<div class="code-block-wrapper">
   <div class="code-header">
     <span class="code-lang">text</span>
     <button type="button" class="copy-btn" aria-label="Copy code snippet" onclick="copyCode(this)">Copy</button>
@@ -318,16 +343,21 @@ Implementation Steps:
   <span class="heading-text">5. Bug</span>
   <a class="heading-anchor" href="#5-bug" aria-label="Anchor link to 5. Bug">#</a>
 </h2><p>A <strong>Bug</strong> documents an application defect, security vulnerability, or functional regression. To allow an AI agent to fix a bug autonomously, the ticket <strong>must include explicit reproduction steps</strong>, environment configuration, and expected versus actual output. AI agents must execute a failing automated test reproducing the defect prior to submitting a fix pull request.</p>
-<ul class="swiss-list"><li><strong>Title Structure:</strong> <code>[BUG] [Module/API] Clear Failure Summary</code>
-</li><li><strong>Severity:</strong> <code>1 - Critical</code> | <code>2 - High</code> | <code>3 - Medium</code> | <code>4 - Low</code>.
-
-</li><li><strong>Priority:</strong> <code>1</code> to <code>4</code>.
-
-</li><li><strong>System Info:</strong> Operating system, browser version, environment (Staging/Prod), commit SHA / container image.
-
-</li><li><strong>Repro Steps &amp; Behavior:</strong> Numbered steps to trigger failure, actual error output, and expected correct behavior.
-
-</li><li><strong>Acceptance Criteria:</strong> Mandatory failing test requirement and zero-regression validation.</li></ul><div class="code-block-wrapper">
+<ul>
+<li><p><strong>Title Structure:</strong> <code>[BUG] [Module/API] Clear Failure Summary</code></p>
+</li>
+<li><p><strong>Severity:</strong> <code>1 - Critical</code> | <code>2 - High</code> | <code>3 - Medium</code> | <code>4 - Low</code>.</p>
+</li>
+<li><p><strong>Priority:</strong> <code>1</code> to <code>4</code>.</p>
+</li>
+<li><p><strong>System Info:</strong> Operating system, browser version, environment (Staging/Prod), commit SHA / container image.</p>
+</li>
+<li><p><strong>Repro Steps &amp; Behavior:</strong> Numbered steps to trigger failure, actual error output, and expected correct behavior.</p>
+</li>
+<li><p><strong>Acceptance Criteria:</strong> Mandatory failing test requirement and zero-regression validation.</p>
+</li>
+</ul>
+<div class="code-block-wrapper">
   <div class="code-header">
     <span class="code-lang">text</span>
     <button type="button" class="copy-btn" aria-label="Copy code snippet" onclick="copyCode(this)">Copy</button>

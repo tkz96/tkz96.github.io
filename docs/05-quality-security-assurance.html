@@ -143,25 +143,37 @@
   <span class="heading-text">Automated Edge-Case Generation</span>
   <a class="heading-anchor" href="#automated-edge-case-generation" aria-label="Anchor link to Automated Edge-Case Generation">#</a>
 </h2><p>Beyond standard unit tests, QA agents must actively generate adversarial test vectors to uncover latent bugs before deployment. This includes:</p>
-<ul class="swiss-list"><li><strong>Boundary &amp; Payload Stressing:</strong> Injecting empty strings, massive payloads, overflow numbers, and unexpected character encodings (e.g., UTF-8 multibyte, null-byte injection).
-
-</li><li><strong>Concurrency &amp; State Collisions:</strong> Stressing database transactions with concurrent requests to flag potential race conditions or lock contention.
-
-</li><li><strong>Failure Mode Simulation:</strong> Mocking downstream API outages, timeout latency, and network dropouts to verify application fault tolerance.</li></ul><h2 id="two-tiered-review-architecture" class="heading-anchor-group">
+<ul>
+<li><p><strong>Boundary &amp; Payload Stressing:</strong> Injecting empty strings, massive payloads, overflow numbers, and unexpected character encodings (e.g., UTF-8 multibyte, null-byte injection).</p>
+</li>
+<li><p><strong>Concurrency &amp; State Collisions:</strong> Stressing database transactions with concurrent requests to flag potential race conditions or lock contention.</p>
+</li>
+<li><p><strong>Failure Mode Simulation:</strong> Mocking downstream API outages, timeout latency, and network dropouts to verify application fault tolerance.</p>
+</li>
+</ul>
+<h2 id="two-tiered-review-architecture" class="heading-anchor-group">
   <span class="heading-text">Two-Tiered Review Architecture</span>
   <a class="heading-anchor" href="#two-tiered-review-architecture" aria-label="Anchor link to Two-Tiered Review Architecture">#</a>
 </h2><p>To balance speed and thoroughness, code review must occur across two distinct tiers:</p>
-<ul class="swiss-list"><li><strong>Tier 1: Automated Mechanical Review (Agent-Driven):</strong> Specialized review agents (such as BugBot) automatically inspect every diff for mechanical defects: off-by-one errors, unhandled null pointers, missing try/catch blocks, unclosed resource handles, and syntax inconsistencies.
-
-</li><li><strong>Tier 2: Architectural &amp; Business Review (Human-Driven):</strong> Human engineers review PRs focusing exclusively on strategic questions: <em>Does this solve the core business problem? Is the architectural direction sound? Will this be maintainable long-term?</em></li></ul><h2 id="security-vulnerability-auditing" class="heading-anchor-group">
+<ul>
+<li><p><strong>Tier 1: Automated Mechanical Review (Agent-Driven):</strong> Specialized review agents (such as BugBot) automatically inspect every diff for mechanical defects: off-by-one errors, unhandled null pointers, missing try/catch blocks, unclosed resource handles, and syntax inconsistencies.</p>
+</li>
+<li><p><strong>Tier 2: Architectural &amp; Business Review (Human-Driven):</strong> Human engineers review PRs focusing exclusively on strategic questions: <em>Does this solve the core business problem? Is the architectural direction sound? Will this be maintainable long-term?</em></p>
+</li>
+</ul>
+<h2 id="security-vulnerability-auditing" class="heading-anchor-group">
   <span class="heading-text">Security & Vulnerability Auditing</span>
   <a class="heading-anchor" href="#security-vulnerability-auditing" aria-label="Anchor link to Security & Vulnerability Auditing">#</a>
 </h2><p>Security checks are non-negotiable and integrated directly into the automated pipeline:</p>
-<ul class="swiss-list"><li><strong>Static Application Security Testing (SAST):</strong> Automated tools scan every commit for common security antipatterns (SQL injection, XSS, insecure deserialization).
-
-</li><li><strong>Dependency &amp; Secret Scanning:</strong> Scans third-party dependencies for known CVEs and blocks any commit containing accidental secrets, private keys, or API tokens.
-
-</li><li><strong>Least-Privilege Verification:</strong> Audit tools verify that agents operating within CI/CD loops hold zero read/write access to production environments or secrets.</li></ul><h2 id="continuous-workflow-critiques" class="heading-anchor-group">
+<ul>
+<li><p><strong>Static Application Security Testing (SAST):</strong> Automated tools scan every commit for common security antipatterns (SQL injection, XSS, insecure deserialization).</p>
+</li>
+<li><p><strong>Dependency &amp; Secret Scanning:</strong> Scans third-party dependencies for known CVEs and blocks any commit containing accidental secrets, private keys, or API tokens.</p>
+</li>
+<li><p><strong>Least-Privilege Verification:</strong> Audit tools verify that agents operating within CI/CD loops hold zero read/write access to production environments or secrets.</p>
+</li>
+</ul>
+<h2 id="continuous-workflow-critiques" class="heading-anchor-group">
   <span class="heading-text">Continuous Workflow Critiques</span>
   <a class="heading-anchor" href="#continuous-workflow-critiques" aria-label="Anchor link to Continuous Workflow Critiques">#</a>
 </h2><p>Engineering teams must establish a monthly workflow retrospective. If agents consistently ship repetitive bugs, teams must refine repository rules (<code>AGENTS.md</code>), update automated test suites, or improve skill definitions rather than fixing bugs piecemeal.</p>

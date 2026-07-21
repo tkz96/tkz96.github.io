@@ -159,11 +159,15 @@
 <h2 id="prompt-context-and-harness-engineering" class="heading-anchor-group">
   <span class="heading-text">Prompt, Context, and Harness Engineering</span>
   <a class="heading-anchor" href="#prompt-context-and-harness-engineering" aria-label="Anchor link to Prompt, Context, and Harness Engineering">#</a>
-</h2><ul class="swiss-list"><li><strong>Prompt Engineering:</strong> Crafting clear, direct instructions for specific individual tasks.
-
-</li><li><strong>Context Engineering:</strong> Dynamically delivering the exact required background information (using techniques like RAG—Retrieval-Augmented Generation) to the agent before it acts.
-
-</li><li><strong>Harness Engineering:</strong> The environment wrapped around the model, granting tool capabilities (running bash commands, editing files, making API calls). The standard protocol for connecting tools and data sources seamlessly across models is <strong>MCP (Model Context Protocol)</strong>.</li></ul><h2 id="agentic-workflows-gates" class="heading-anchor-group">
+</h2><ul>
+<li><p><strong>Prompt Engineering:</strong> Crafting clear, direct instructions for specific individual tasks.</p>
+</li>
+<li><p><strong>Context Engineering:</strong> Dynamically delivering the exact required background information (using techniques like RAG—Retrieval-Augmented Generation) to the agent before it acts.</p>
+</li>
+<li><p><strong>Harness Engineering:</strong> The environment wrapped around the model, granting tool capabilities (running bash commands, editing files, making API calls). The standard protocol for connecting tools and data sources seamlessly across models is <strong>MCP (Model Context Protocol)</strong>.</p>
+</li>
+</ul>
+<h2 id="agentic-workflows-gates" class="heading-anchor-group">
   <span class="heading-text">Agentic Workflows & Gates</span>
   <a class="heading-anchor" href="#agentic-workflows-gates" aria-label="Anchor link to Agentic Workflows & Gates">#</a>
 </h2><p>Agents carry out real-world actions with side effects (editing repositories, creating pull requests, triggering deployments). To maintain safety and quality, workflows rely on <strong>gates</strong>—mandatory checkpoints where human engineers or automated review agents must inspect and approve progress before the workflow proceeds.</p>

@@ -123,16 +123,6 @@ renderer.table = function({ header, rows }) {
 </div>`;
 };
 
-renderer.list = function({ items, ordered }) {
-  const type = ordered ? 'ol' : 'ul';
-  let itemsHtml = '';
-  items.forEach(item => {
-    const content = marked.parseInline(item.text);
-    itemsHtml += `<li>${content}</li>`;
-  });
-  return `<${type} class="swiss-list">${itemsHtml}</${type}>`;
-};
-
 renderer.image = function({ href, title, text }) {
   const caption = text || title ? `<figcaption>${text || title}</figcaption>` : '';
   return `<figure class="swiss-figure">

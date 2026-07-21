@@ -220,10 +220,6 @@ nav ul {
    HERO SECTION (RECIPE COMPOSITION)
    ========================================== */
 
-.the-northern-lights {
-  display: none;
-}
-
 #hero-section {
   padding: 4.5rem 0 3.5rem 0;
   position: relative;
@@ -677,3 +673,65 @@ footer {
   color: var(--text-tertiary);
   font-size: 0.875rem;
 }
+
+/* Custom Scrollbar */
+body::-webkit-scrollbar {
+  width: 8px;
+}
+
+body::-webkit-scrollbar-track {
+  background: #0a0d14;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: #1e283c;
+  border-radius: 4px;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+  background: #00d294;
+}
+
+/* ==========================================
+   DESKTOP & RESPONSIVE LANDING RECIPE BREAKPOINTS
+   ========================================== */
+
+@media screen and (min-width: 768px) {
+  .card.featured-hero {
+    flex-direction: row;
+    align-items: center;
+    gap: 2.5rem;
+    padding: 2.5rem;
+  }
+
+  .card.featured-hero .project-image {
+    width: 50%;
+    height: 320px;
+    margin-bottom: 0;
+  }
+
+  .card.featured-hero .right-block {
+    width: 50%;
+  }
+
+  .secondary-projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .skills {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .skills {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .contact-form {
+    padding: 3rem;
+  }
+}
+
