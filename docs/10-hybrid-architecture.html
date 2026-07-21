@@ -35,12 +35,51 @@
         <div class="header-meta">
           <span class="chapter-badge">CHAPTER 10</span>
         </div>
-        <button type="button" class="theme-toggle-btn" id="theme-toggle" aria-label="Switch to dark theme" onclick="toggleTheme()">
-          <span class="theme-toggle-icon" id="theme-toggle-icon" aria-hidden="true">
-            <svg class="theme-icon-svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
-          </span>
-          <span class="theme-toggle-label">Dark theme</span>
-        </button>
+        <div class="theme-slider-popover-wrapper">
+          <button type="button" class="theme-toggle-btn" id="theme-popover-trigger" aria-label="Adjust Contrast Theme Level" aria-expanded="false" onclick="toggleThemePopover()">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+            <span class="theme-level-badge" id="theme-level-badge">Theme: 2/6</span>
+          </button>
+
+          <div class="theme-popover-card" id="theme-popover-card" role="dialog" aria-label="Contrast Theme Controller" hidden>
+            <div class="theme-popover-header">
+              <span class="popover-title">CONTRAST & THEME LEVEL</span>
+              <span class="popover-level-readout" id="theme-level-name">Level 2: Deep Midnight</span>
+            </div>
+
+            <div class="theme-slider-container">
+              <div class="theme-slider-track-labels">
+                <span class="track-end-label">Stark OLED</span>
+                <span class="track-end-label">Stark Light</span>
+              </div>
+
+              <input 
+                type="range" 
+                id="theme-level-slider" 
+                class="theme-contrast-slider" 
+                min="1" 
+                max="6" 
+                step="1" 
+                value="2" 
+                aria-label="Contrast Level Slider from 1 (Stark OLED) to 6 (Stark Light)"
+                oninput="onThemeSliderInput(this.value)"
+              />
+
+              <div class="theme-step-ticks" aria-hidden="true">
+                <button type="button" class="step-tick" data-level="1" onclick="setThemeLevel(1)" title="Level 1: Stark OLED (Pure Pitch Black)">1</button>
+                <button type="button" class="step-tick" data-level="2" onclick="setThemeLevel(2)" title="Level 2: Deep Midnight">2</button>
+                <button type="button" class="step-tick" data-level="3" onclick="setThemeLevel(3)" title="Level 3: Dark Slate">3</button>
+                <button type="button" class="step-tick" data-level="4" onclick="setThemeLevel(4)" title="Level 4: Paper Muted">4</button>
+                <button type="button" class="step-tick" data-level="5" onclick="setThemeLevel(5)" title="Level 5: Soft Light">5</button>
+                <button type="button" class="step-tick" data-level="6" onclick="setThemeLevel(6)" title="Level 6: Stark Light (Pure White & Black)">6</button>
+              </div>
+            </div>
+
+            <p class="theme-popover-description" id="theme-level-desc">
+              Rich dark charcoal with emerald accents.
+            </p>
+          </div>
+        </div>
         <button type="button" class="mobile-menu-btn" aria-label="Toggle Navigation Index" aria-expanded="false" aria-controls="sidebar-drawer" onclick="toggleMobileDrawer()">
           <span class="menu-icon-line" aria-hidden="true"></span>
           <span class="menu-icon-line" aria-hidden="true"></span>
@@ -211,36 +250,76 @@
       }).catch(err => console.error('Failed to copy: ', err));
     }
 
-    function updateThemeIcon() {
-      const current = document.documentElement.getAttribute('data-theme');
-      const isDark = current === 'dark' || (!current && window.matchMedia('(prefers-color-scheme: dark)').matches);
-      const iconSpan = document.getElementById('theme-toggle-icon');
-      const button = document.getElementById('theme-toggle');
+    const THEME_LEVELS = {
+      1: { name: 'Level 1: Stark OLED', desc: 'Pure high-contrast pitch black & white (OLED mode).' },
+      2: { name: 'Level 2: Deep Midnight', desc: 'Rich dark charcoal with emerald accents.' },
+      3: { name: 'Level 3: Dark Slate', desc: 'Cool slate gray with soft contrast.' },
+      4: { name: 'Level 4: Paper Muted', desc: 'Warm eye-care sepia tone with soft contrast.' },
+      5: { name: 'Level 5: Soft Light', desc: 'Clean off-white paper with Swiss red accents.' },
+      6: { name: 'Level 6: Stark Light', desc: 'Pure high-contrast white & black (Stark Light mode).' }
+    };
 
-      const sunSvg = '<svg class="theme-icon-svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>';
-      const moonSvg = '<svg class="theme-icon-svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>';
+    function setThemeLevel(level) {
+      level = Math.min(6, Math.max(1, parseInt(level, 10) || 2));
+      document.documentElement.setAttribute('data-theme-level', level);
+      document.documentElement.setAttribute('data-theme', level <= 3 ? 'dark' : 'light');
+      localStorage.setItem('theme-level', level);
+      localStorage.setItem('theme', level <= 3 ? 'dark' : 'light');
+      
+      const slider = document.getElementById('theme-level-slider');
+      if (slider) slider.value = level;
+      
+      const badge = document.getElementById('theme-level-badge');
+      if (badge) badge.textContent = 'Theme: ' + level + '/6';
+      
+      const readout = document.getElementById('theme-level-name');
+      if (readout && THEME_LEVELS[level]) readout.textContent = THEME_LEVELS[level].name;
 
-      if (iconSpan) {
-        iconSpan.innerHTML = isDark ? sunSvg : moonSvg;
+      const desc = document.getElementById('theme-level-desc');
+      if (desc && THEME_LEVELS[level]) desc.textContent = THEME_LEVELS[level].desc;
+
+      document.querySelectorAll('.step-tick').forEach(tick => {
+        const tickLevel = parseInt(tick.getAttribute('data-level'), 10);
+        tick.classList.toggle('active', tickLevel === level);
+      });
+    }
+
+    function onThemeSliderInput(val) {
+      setThemeLevel(val);
+    }
+
+    function toggleThemePopover() {
+      const popover = document.getElementById('theme-popover-card');
+      const btn = document.getElementById('theme-popover-trigger');
+      if (!popover) return;
+      const isHidden = popover.hasAttribute('hidden');
+      if (isHidden) {
+        popover.removeAttribute('hidden');
+        if (btn) btn.setAttribute('aria-expanded', 'true');
+      } else {
+        popover.setAttribute('hidden', '');
+        if (btn) btn.setAttribute('aria-expanded', 'false');
       }
-      if (button) {
-        const actionLabel = isDark ? 'Switch to light theme' : 'Switch to dark theme';
-        button.setAttribute('aria-label', actionLabel);
-        const labelSpan = button.querySelector('.theme-toggle-label');
-        if (labelSpan) {
-          labelSpan.textContent = isDark ? 'Light theme' : 'Dark theme';
+    }
+
+    function closeThemePopover() {
+      const popover = document.getElementById('theme-popover-card');
+      const btn = document.getElementById('theme-popover-trigger');
+      if (popover && !popover.hasAttribute('hidden')) {
+        popover.setAttribute('hidden', '');
+        if (btn) btn.setAttribute('aria-expanded', 'false');
+      }
+    }
+
+    document.addEventListener('click', function(e) {
+      const popover = document.getElementById('theme-popover-card');
+      const btn = document.getElementById('theme-popover-trigger');
+      if (popover && !popover.hasAttribute('hidden')) {
+        if (!popover.contains(e.target) && !btn.contains(e.target)) {
+          closeThemePopover();
         }
       }
-    }
-
-    function toggleTheme() {
-      const current = document.documentElement.getAttribute('data-theme');
-      const isDark = current === 'dark' || (!current && window.matchMedia('(prefers-color-scheme: dark)').matches);
-      const next = isDark ? 'light' : 'dark';
-      document.documentElement.setAttribute('data-theme', next);
-      localStorage.setItem('theme', next);
-      updateThemeIcon();
-    }
+    });
 
     function toggleMobileDrawer() {
       const drawer = document.getElementById('sidebar-drawer');
@@ -261,10 +340,19 @@
     document.addEventListener('keydown', function(e) {
       if (e.key === 'Escape') {
         closeMobileDrawer();
+        closeThemePopover();
       }
     });
 
-    document.addEventListener('DOMContentLoaded', updateThemeIcon);
+    document.addEventListener('DOMContentLoaded', function() {
+      const savedLevel = localStorage.getItem('theme-level');
+      if (savedLevel) {
+        setThemeLevel(savedLevel);
+      } else {
+        const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        setThemeLevel(prefersDark ? 2 : 5);
+      }
+    });
   </script>
 </body>
 </html>

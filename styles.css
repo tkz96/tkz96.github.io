@@ -44,6 +44,97 @@
   --transition-base: 250ms var(--ease-out);
 }
 
+/* 6 CONTRAST THEME LEVELS (Landing Page) */
+[data-theme-level="1"] {
+  --bg-base: #ffffff;
+  --bg-surface: #f2f2f2;
+  --bg-surface-hover: #e5e5e5;
+  --bg-elevated: #ffffff;
+  --border-subtle: #000000;
+  --border-default: #000000;
+  --border-hover: #000000;
+  --text-primary: #000000;
+  --text-secondary: #222222;
+  --text-tertiary: #444444;
+  --accent-primary: #000000;
+  --accent-hover: #333333;
+}
+
+[data-theme-level="2"], [data-theme="light"] {
+  --bg-base: #f8f8f6;
+  --bg-surface: #ffffff;
+  --bg-surface-hover: #f0f0eb;
+  --bg-elevated: #ffffff;
+  --border-subtle: #e2e2dc;
+  --border-default: #d8d8d0;
+  --border-hover: #d62828;
+  --text-primary: #1f1f24;
+  --text-secondary: #5e5e68;
+  --text-tertiary: #80808c;
+  --accent-primary: #d62828;
+  --accent-hover: #b81d1d;
+}
+
+[data-theme-level="3"] {
+  --bg-base: #eeebe5;
+  --bg-surface: #f6f3ec;
+  --bg-surface-hover: #e8e3d8;
+  --bg-elevated: #f8f5ee;
+  --border-subtle: #d9d4c9;
+  --border-default: #cdc6b8;
+  --border-hover: #b84000;
+  --text-primary: #2d2b27;
+  --text-secondary: #656158;
+  --text-tertiary: #888276;
+  --accent-primary: #b84000;
+  --accent-hover: #963400;
+}
+
+[data-theme-level="4"] {
+  --bg-base: #1e222a;
+  --bg-surface: #242933;
+  --bg-surface-hover: #2e3442;
+  --bg-elevated: #282e3a;
+  --border-subtle: #323846;
+  --border-default: #3d4556;
+  --border-hover: #38bdf8;
+  --text-primary: #e6e9f0;
+  --text-secondary: #9aa2b1;
+  --text-tertiary: #6b7485;
+  --accent-primary: #38bdf8;
+  --accent-hover: #0284c7;
+}
+
+[data-theme-level="5"], [data-theme="dark"] {
+  --bg-base: #0c1017;
+  --bg-surface: rgba(255, 255, 255, 0.03);
+  --bg-surface-hover: rgba(255, 255, 255, 0.06);
+  --bg-elevated: rgba(255, 255, 255, 0.05);
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-default: rgba(255, 255, 255, 0.14);
+  --border-hover: rgba(0, 210, 148, 0.45);
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --text-tertiary: #64748b;
+  --accent-primary: #00d294;
+  --accent-hover: #00b882;
+}
+
+[data-theme-level="6"] {
+  --bg-base: #000000;
+  --bg-surface: #0a0a0a;
+  --bg-surface-hover: #181818;
+  --bg-elevated: #111111;
+  --border-subtle: #ffffff;
+  --border-default: #ffffff;
+  --border-hover: #ffffff;
+  --text-primary: #ffffff;
+  --text-secondary: #dddddd;
+  --text-tertiary: #aaaaaa;
+  --accent-primary: #ffffff;
+  --accent-hover: #cccccc;
+}
+
 /* ==========================================
    RESET & ATMOSPHERIC BACKGROUND
    ========================================== */

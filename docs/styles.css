@@ -3,22 +3,22 @@
    Grid System: 12 columns, 24px gutters, 8px baseline rhythm
    ========================================================================== */
 
-/* Design Tokens & Custom Variables (Comfortable Eye-Friendly Contrast) */
+/* Design Tokens & Custom Variables (Default Level 5 Midnight) */
 :root {
-  --color-bg: #f8f8f6;               /* Warm soft off-white paper */
-  --color-text-primary: #1f1f24;      /* Comfortable soft charcoal text */
-  --color-text-secondary: #5e5e68;    /* Soft secondary text */
-  --color-divider: #e2e2dc;           /* Soft line divider */
-  --color-accent: #d62828;            /* Rich Swiss Red */
-  --color-code-bg: #eae9e4;           /* Soft warm code block background */
-  --color-inline-code-bg: #ebeae4;    /* Standout inline code background */
-  --color-inline-code-text: #1a1a1e;  /* High-contrast inline code text */
-  --color-inline-code-border: #d8d7d0;/* Subtle border for inline code pill */
-  --color-card-bg: #ffffff;
-  --color-border-subtle: #e6e6e0;
-  --color-header-bg: rgba(248, 248, 246, 0.95);
-  --color-hover-bg: #ebeae4;
-  --icon-filter: none;
+  --color-bg: #161619;
+  --color-text-primary: #e4e4e9;
+  --color-text-secondary: #90909c;
+  --color-divider: #28282e;
+  --color-accent: #e5484d;
+  --color-code-bg: #202025;
+  --color-inline-code-bg: #242429;
+  --color-inline-code-text: #f0f0f5;
+  --color-inline-code-border: #36363e;
+  --color-card-bg: #1c1c20;
+  --color-border-subtle: #26262c;
+  --color-header-bg: rgba(22, 22, 25, 0.95);
+  --color-hover-bg: #25252b;
+  --icon-filter: invert(0.9) brightness(1.2);
   --font-sans: 'Inter', -apple-system, blinkmacsystemfont, "Segoe UI", roboto, sans-serif;
   --font-mono: 'JetBrains Mono', "SFMono-Regular", consolas, "Liberation Mono", menlo, monospace;
   --spacing-base: 8px;
@@ -31,41 +31,116 @@
   --spacing-huge: 80px; /* 10x baseline */
 }
 
-/* Dark Theme Overrides (Comfortable Dark Slate) */
-[data-theme="dark"] {
-  --color-bg: #161619;               /* Slate dark charcoal background */
-  --color-text-primary: #e4e4e9;      /* Off-white comfortable text */
-  --color-text-secondary: #90909c;    /* Muted secondary text */
-  --color-divider: #28282e;           /* Subtle dark divider */
-  --color-accent: #e5484d;            /* Vibrant yet comfortable red */
-  --color-code-bg: #202025;           /* Slate code block background */
-  --color-inline-code-bg: #242429;    /* Standout dark inline code background */
-  --color-inline-code-text: #f0f0f5;  /* High-contrast dark inline code text */
-  --color-inline-code-border: #36363e;/* Subtle dark border for inline code pill */
-  --color-card-bg: #1c1c20;
-  --color-border-subtle: #26262c;
-  --color-header-bg: rgba(22, 22, 25, 0.95);
-  --color-hover-bg: #25252b;
+/* ==========================================================================
+   6 CONTRAST THEME LEVELS (Left = Dark, Right = Light)
+   ========================================================================== */
+
+/* Level 1: Stark OLED (Leftmost - Pure Pitch Black & White) */
+[data-theme-level="1"] {
+  --color-bg: #000000;
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #e0e0e0;
+  --color-divider: #ffffff;
+  --color-accent: #ffffff;
+  --color-code-bg: #111111;
+  --color-inline-code-bg: #000000;
+  --color-inline-code-text: #ffffff;
+  --color-inline-code-border: #ffffff;
+  --color-card-bg: #080808;
+  --color-border-subtle: #ffffff;
+  --color-header-bg: rgba(0, 0, 0, 0.98);
+  --color-hover-bg: #222222;
+  --icon-filter: invert(1) brightness(2);
+}
+
+/* Level 2: Deep Midnight (Deep Dark Charcoal) */
+[data-theme-level="2"], [data-theme="dark"] {
+  --color-bg: #0c1017;
+  --color-text-primary: #f0f6fc;
+  --color-text-secondary: #8b949e;
+  --color-divider: #30363d;
+  --color-accent: #00d294;
+  --color-code-bg: #161b22;
+  --color-inline-code-bg: #1c2128;
+  --color-inline-code-text: #f0f6fc;
+  --color-inline-code-border: #30363d;
+  --color-card-bg: #161b22;
+  --color-border-subtle: #21262d;
+  --color-header-bg: rgba(12, 16, 23, 0.95);
+  --color-hover-bg: #21262d;
   --icon-filter: invert(0.9) brightness(1.2);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --color-bg: #161619;
-    --color-text-primary: #e4e4e9;
-    --color-text-secondary: #90909c;
-    --color-divider: #28282e;
-    --color-accent: #e5484d;
-    --color-code-bg: #202025;
-    --color-inline-code-bg: #242429;
-    --color-inline-code-text: #f0f0f5;
-    --color-inline-code-border: #36363e;
-    --color-card-bg: #1c1c20;
-    --color-border-subtle: #26262c;
-    --color-header-bg: rgba(22, 22, 25, 0.95);
-    --color-hover-bg: #25252b;
-    --icon-filter: invert(0.9) brightness(1.2);
-  }
+/* Level 3: Dark Slate (Medium Cool Dark) */
+[data-theme-level="3"] {
+  --color-bg: #1e222a;
+  --color-text-primary: #e6e9f0;
+  --color-text-secondary: #9aa2b1;
+  --color-divider: #383e4c;
+  --color-accent: #38bdf8;
+  --color-code-bg: #262b36;
+  --color-inline-code-bg: #2a303c;
+  --color-inline-code-text: #f0f3f9;
+  --color-inline-code-border: #3d4556;
+  --color-card-bg: #242933;
+  --color-border-subtle: #323846;
+  --color-header-bg: rgba(30, 34, 42, 0.95);
+  --color-hover-bg: #2e3442;
+  --icon-filter: invert(0.9) brightness(1.2);
+}
+
+/* Level 4: Paper Muted (Warm Eye-Care Light Sepia) */
+[data-theme-level="4"] {
+  --color-bg: #e5e0d4;
+  --color-text-primary: #2d261e;
+  --color-text-secondary: #635b4f;
+  --color-divider: #c5beaf;
+  --color-accent: #b84000;
+  --color-code-bg: #dcd6c8;
+  --color-inline-code-bg: #ded7ca;
+  --color-inline-code-text: #262018;
+  --color-inline-code-border: #b8b0a0;
+  --color-card-bg: #ede7dc;
+  --color-border-subtle: #d0c8b9;
+  --color-header-bg: rgba(229, 224, 212, 0.95);
+  --color-hover-bg: #dcd6c8;
+  --icon-filter: none;
+}
+
+/* Level 5: Soft Swiss Light (Comfortable Clean Light) */
+[data-theme-level="5"], [data-theme="light"] {
+  --color-bg: #f5f5f0;
+  --color-text-primary: #1c1c21;
+  --color-text-secondary: #5a5a64;
+  --color-divider: #d0d0c8;
+  --color-accent: #d62828;
+  --color-code-bg: #e8e8e0;
+  --color-inline-code-bg: #eaeae2;
+  --color-inline-code-text: #1a1a1e;
+  --color-inline-code-border: #c8c8c0;
+  --color-card-bg: #ffffff;
+  --color-border-subtle: #d8d8d0;
+  --color-header-bg: rgba(245, 245, 240, 0.95);
+  --color-hover-bg: #e8e8e0;
+  --icon-filter: none;
+}
+
+/* Level 6: Stark Light (Rightmost - Pure High Contrast White & Black, Complete opposite to OLED) */
+[data-theme-level="6"] {
+  --color-bg: #ffffff;
+  --color-text-primary: #000000;
+  --color-text-secondary: #222222;
+  --color-divider: #000000;
+  --color-accent: #000000;
+  --color-code-bg: #eeeeee;
+  --color-inline-code-bg: #ffffff;
+  --color-inline-code-text: #000000;
+  --color-inline-code-border: #000000;
+  --color-card-bg: #ffffff;
+  --color-border-subtle: #000000;
+  --color-header-bg: rgba(255, 255, 255, 0.98);
+  --color-hover-bg: #dddddd;
+  --icon-filter: none;
 }
 
 /* Reset & Base Styles */
@@ -235,6 +310,12 @@ textarea:focus-visible {
   gap: var(--spacing-sm);
 }
 
+/* Theme Slider Popover Component */
+.theme-slider-popover-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
 .theme-toggle-btn {
   background: transparent;
   border: 1px solid var(--color-divider);
@@ -242,10 +323,10 @@ textarea:focus-visible {
   font-family: var(--font-sans);
   font-size: 0.75rem;
   font-weight: 600;
-  padding: 4px 10px;
-  border-radius: 0;
+  padding: 6px 12px;
+  border-radius: 4px;
   cursor: pointer;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 6px;
   transition: border-color 0.15s ease, background-color 0.15s ease;
@@ -261,9 +342,140 @@ textarea:focus-visible {
   outline-offset: 2px;
 }
 
-.theme-icon-svg {
-  display: block;
-  flex-shrink: 0;
+.theme-level-badge {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.02em;
+}
+
+.theme-popover-card {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  width: 320px;
+  padding: 16px;
+  background-color: var(--color-card-bg);
+  border: 2px solid var(--color-text-primary);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+  z-index: 1200;
+  border-radius: 0;
+}
+
+.theme-popover-card[hidden] {
+  display: none !important;
+}
+
+.theme-popover-header {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--color-divider);
+}
+
+.popover-title {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+}
+
+.popover-level-readout {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+}
+
+.theme-slider-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.theme-slider-track-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.6875rem;
+  font-family: var(--font-mono);
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+}
+
+.theme-contrast-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 6px;
+  background: var(--color-divider);
+  outline: none;
+  cursor: pointer;
+  border-radius: 3px;
+  margin: 6px 0;
+}
+
+.theme-contrast-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background: var(--color-text-primary);
+  border: 2px solid var(--color-bg);
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+  transition: transform 0.1s ease;
+}
+
+.theme-contrast-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.15);
+}
+
+.theme-contrast-slider::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  background: var(--color-text-primary);
+  border: 2px solid var(--color-bg);
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+}
+
+.theme-step-ticks {
+  display: flex;
+  justify-content: space-between;
+  gap: 4px;
+}
+
+.step-tick {
+  flex: 1;
+  padding: 6px 0;
+  background: var(--color-code-bg);
+  border: 1px solid var(--color-divider);
+  color: var(--color-text-secondary);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.15s ease;
+}
+
+.step-tick.active,
+.step-tick:hover {
+  background: var(--color-text-primary);
+  color: var(--color-bg);
+  border-color: var(--color-text-primary);
+}
+
+.theme-popover-description {
+  font-size: 0.75rem;
+  color: var(--color-text-secondary);
+  line-height: 1.4;
+  margin: 0;
 }
 
 .chapter-badge {
