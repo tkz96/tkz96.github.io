@@ -933,12 +933,13 @@ code:not(pre code) {
 }
 
 .pagination-btn {
+  position: relative;
   display: flex;
   flex-direction: column;
   text-decoration: none;
   padding: var(--spacing-sm) var(--spacing-md);
   border: 1px solid var(--color-divider);
-  border-left: 3px solid transparent;
+  background-color: var(--color-card-bg);
   transition: border-color 0.15s ease, 
               background-color 0.15s ease, 
               transform 0.15s cubic-bezier(0.16, 1, 0.3, 1),
@@ -946,7 +947,47 @@ code:not(pre code) {
   max-width: 340px;
 }
 
-.pagination-btn:hover {
+/* 4-Corner Registration Marks (Matching code block textboxes) */
+.pagination-btn::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  right: -1px;
+  height: 6px;
+  pointer-events: none;
+  background: 
+    linear-gradient(var(--color-text-secondary), var(--color-text-secondary)) top left / 6px 1px no-repeat,
+    linear-gradient(var(--color-text-secondary), var(--color-text-secondary)) top left / 1px 6px no-repeat,
+    linear-gradient(var(--color-text-secondary), var(--color-text-secondary)) top right / 6px 1px no-repeat,
+    linear-gradient(var(--color-text-secondary), var(--color-text-secondary)) top right / 1px 6px no-repeat;
+  opacity: 0.5;
+  z-index: 2;
+}
+
+.pagination-btn::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: -1px;
+  right: -1px;
+  height: 6px;
+  pointer-events: none;
+  background: 
+    linear-gradient(var(--color-text-secondary), var(--color-text-secondary)) bottom left / 6px 1px no-repeat,
+    linear-gradient(var(--color-text-secondary), var(--color-text-secondary)) bottom left / 1px 6px no-repeat,
+    linear-gradient(var(--color-text-secondary), var(--color-text-secondary)) bottom right / 6px 1px no-repeat,
+    linear-gradient(var(--color-text-secondary), var(--color-text-secondary)) bottom right / 1px 6px no-repeat;
+  opacity: 0.5;
+  z-index: 2;
+}
+
+/* Directional Red Accent Borders on Hover */
+.pagination-btn.prev-btn {
+  border-left: 2px solid transparent;
+}
+
+.pagination-btn.prev-btn:hover {
   border-color: var(--color-text-primary);
   border-left-color: var(--color-accent);
   background-color: var(--color-hover-bg);
@@ -957,6 +998,15 @@ code:not(pre code) {
 .pagination-btn.next-btn {
   align-items: flex-end;
   text-align: right;
+  border-right: 2px solid transparent;
+}
+
+.pagination-btn.next-btn:hover {
+  border-color: var(--color-text-primary);
+  border-right-color: var(--color-accent);
+  background-color: var(--color-hover-bg);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .pagination-label {
@@ -966,6 +1016,16 @@ code:not(pre code) {
   letter-spacing: 0.05em;
   color: var(--color-accent);
   margin-bottom: 4px;
+  display: inline-block;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.prev-btn:hover .pagination-label {
+  transform: translateX(-4px);
+}
+
+.next-btn:hover .pagination-label {
+  transform: translateX(4px);
 }
 
 .pagination-title {
