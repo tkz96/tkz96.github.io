@@ -701,7 +701,6 @@ textarea:focus-visible {
   position: relative;
   margin: var(--spacing-md) 0;
   border: 1px solid var(--color-divider);
-  border-left: 2px solid var(--color-accent);
   background-color: var(--color-code-bg);
 }
 
@@ -709,26 +708,34 @@ textarea:focus-visible {
   content: '';
   position: absolute;
   top: -1px;
+  left: -1px;
   right: -1px;
-  width: 6px;
   height: 6px;
-  border-top: 1px solid var(--color-text-secondary);
-  border-right: 1px solid var(--color-text-secondary);
-  opacity: 0.5;
   pointer-events: none;
+  background: 
+    linear-gradient(var(--color-text-secondary), var(--color-text-secondary)) top left / 6px 1px no-repeat,
+    linear-gradient(var(--color-text-secondary), var(--color-text-secondary)) top left / 1px 6px no-repeat,
+    linear-gradient(var(--color-text-secondary), var(--color-text-secondary)) top right / 6px 1px no-repeat,
+    linear-gradient(var(--color-text-secondary), var(--color-text-secondary)) top right / 1px 6px no-repeat;
+  opacity: 0.5;
+  z-index: 2;
 }
 
 .code-block-wrapper::after {
   content: '';
   position: absolute;
   bottom: -1px;
+  left: -1px;
   right: -1px;
-  width: 6px;
   height: 6px;
-  border-bottom: 1px solid var(--color-text-secondary);
-  border-right: 1px solid var(--color-text-secondary);
-  opacity: 0.5;
   pointer-events: none;
+  background: 
+    linear-gradient(var(--color-text-secondary), var(--color-text-secondary)) bottom left / 6px 1px no-repeat,
+    linear-gradient(var(--color-text-secondary), var(--color-text-secondary)) bottom left / 1px 6px no-repeat,
+    linear-gradient(var(--color-text-secondary), var(--color-text-secondary)) bottom right / 6px 1px no-repeat,
+    linear-gradient(var(--color-text-secondary), var(--color-text-secondary)) bottom right / 1px 6px no-repeat;
+  opacity: 0.5;
+  z-index: 2;
 }
 
 .code-header {
@@ -864,13 +871,53 @@ code:not(pre code) {
   border-right: none;
 }
 
-/* Swiss Lists */
+/* Swiss Lists Alignment & Typography */
+.prose ul,
+.prose ol,
 .swiss-list {
-  margin: var(--spacing-sm) 0 var(--spacing-md) var(--spacing-lg);
+  margin: var(--spacing-sm) 0 var(--spacing-md) 0;
+  padding-left: var(--spacing-md);
+  font-size: 1.0625rem;
+  line-height: 1.6;
 }
 
+.prose ul,
+.swiss-list {
+  list-style-type: square;
+}
+
+.prose ol {
+  list-style-type: decimal;
+  font-feature-settings: "tnum";
+}
+
+.prose ul li,
+.prose ol li,
 .swiss-list li {
   margin-bottom: var(--spacing-xs);
+  padding-left: 4px;
+  color: var(--color-text-primary);
+}
+
+.prose ul li::marker,
+.swiss-list li::marker {
+  color: var(--color-accent);
+}
+
+.prose ol li::marker {
+  color: var(--color-text-secondary);
+  font-family: var(--font-departure);
+  font-weight: 700;
+}
+
+/* Reset inner <p> elements generated inside <li> by markdown parsers */
+.prose ul li > p,
+.prose ol li > p,
+.swiss-list li > p {
+  margin: 0;
+  display: inline;
+  font-size: inherit;
+  line-height: inherit;
 }
 
 /* Swiss Multi-Page Pagination Bar */
