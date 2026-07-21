@@ -5,6 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Swiss design operational standard for enterprise AI software development.">
   <title>8. Documentation Standards — The AI Development Playbook</title>
+  <script>
+    (function() {
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      } else if (savedTheme === 'light') {
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
+    })();
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
@@ -21,15 +31,22 @@
           <span class="logo-light">/ STANDARD</span>
         </a>
       </div>
-      <div class="header-meta">
-        <span class="chapter-badge">CHAPTER 08</span>
-        <span>•</span>
-        <span>VERSION 4.0</span>
+      <div class="header-controls">
+        <div class="header-meta">
+          <span class="chapter-badge">CHAPTER 08</span>
+          <span>•</span>
+          <span>VERSION 4.0</span>
+        </div>
+        <button type="button" class="theme-toggle-btn" id="theme-toggle" aria-label="Toggle light and dark mode" onclick="toggleTheme()">
+          <span class="theme-toggle-icon" aria-hidden="true">◐</span>
+          <span class="theme-toggle-label">THEME</span>
+        </button>
+        <button type="button" class="mobile-menu-btn" aria-label="Toggle Navigation Index" onclick="toggleMobileDrawer()">
+          <span class="menu-icon-line" aria-hidden="true"></span>
+          <span class="menu-icon-line" aria-hidden="true"></span>
+          <span class="menu-icon-line" aria-hidden="true"></span>
+        </button>
       </div>
-      <button type="button" class="mobile-menu-btn" aria-label="Toggle Navigation Index" onclick="toggleMobileDrawer()">
-        <span class="menu-icon-line"></span>
-        <span class="menu-icon-line"></span>
-      </button>
     </div>
   </header>
 
@@ -338,6 +355,14 @@ Closes AB#10820
           button.classList.remove('copied');
         }, 2000);
       }).catch(err => console.error('Failed to copy: ', err));
+    }
+
+    function toggleTheme() {
+      const current = document.documentElement.getAttribute('data-theme');
+      const isDark = current === 'dark' || (!current && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      const next = isDark ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
     }
 
     function toggleMobileDrawer() {
