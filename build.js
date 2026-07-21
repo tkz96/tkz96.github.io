@@ -367,17 +367,7 @@ chapters.forEach((chapter, index) => {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Swiss design operational standard for enterprise AI software development.">
   <title>${chapter.title} — The AI Development Playbook</title>
-  <script>
-    (function() {
-      const savedTheme = localStorage.getItem('theme');
-      const isDark = savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches);
-      if (isDark) {
-        document.documentElement.setAttribute('data-theme', 'dark');
-      } else {
-        document.documentElement.setAttribute('data-theme', 'light');
-      }
-    })();
-  </script>
+  <script src="theme-init.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
@@ -499,125 +489,7 @@ chapters.forEach((chapter, index) => {
     </div>
   </footer>
 
-  <script>
-    function copyCode(button) {
-      const wrapper = button.closest('.code-block-wrapper');
-      const code = wrapper.querySelector('code').textContent;
-      
-      navigator.clipboard.writeText(code).then(() => {
-        button.textContent = 'Copied';
-        button.classList.add('copied');
-        setTimeout(() => {
-          button.textContent = 'Copy';
-          button.classList.remove('copied');
-        }, 2000);
-      }).catch(err => console.error('Failed to copy: ', err));
-    }
-
-    const THEME_LEVELS = {
-      1: { name: 'Level 1: Stark OLED', desc: 'Pure high-contrast pitch black & white (OLED mode).' },
-      2: { name: 'Level 2: Deep Midnight', desc: 'Rich dark charcoal with emerald accents.' },
-      3: { name: 'Level 3: Dark Slate', desc: 'Cool slate gray with soft contrast.' },
-      4: { name: 'Level 4: Paper Muted', desc: 'Warm eye-care sepia tone with soft contrast.' },
-      5: { name: 'Level 5: Soft Light', desc: 'Clean off-white paper with Swiss red accents.' },
-      6: { name: 'Level 6: Stark Light', desc: 'Pure high-contrast white & black (Stark Light mode).' }
-    };
-
-    function setThemeLevel(level) {
-      level = Math.min(6, Math.max(1, parseInt(level, 10) || 2));
-      document.documentElement.setAttribute('data-theme-level', level);
-      document.documentElement.setAttribute('data-theme', level <= 3 ? 'dark' : 'light');
-      localStorage.setItem('theme-level', level);
-      localStorage.setItem('theme', level <= 3 ? 'dark' : 'light');
-      
-      const slider = document.getElementById('theme-level-slider');
-      if (slider) slider.value = level;
-      
-      const badge = document.getElementById('theme-level-badge');
-      if (badge) badge.textContent = 'Theme: ' + level + '/6';
-      
-      const readout = document.getElementById('theme-level-name');
-      if (readout && THEME_LEVELS[level]) readout.textContent = THEME_LEVELS[level].name;
-
-      const desc = document.getElementById('theme-level-desc');
-      if (desc && THEME_LEVELS[level]) desc.textContent = THEME_LEVELS[level].desc;
-
-      document.querySelectorAll('.step-tick').forEach(tick => {
-        const tickLevel = parseInt(tick.getAttribute('data-level'), 10);
-        tick.classList.toggle('active', tickLevel === level);
-      });
-    }
-
-    function onThemeSliderInput(val) {
-      setThemeLevel(val);
-    }
-
-    function toggleThemePopover() {
-      const popover = document.getElementById('theme-popover-card');
-      const btn = document.getElementById('theme-popover-trigger');
-      if (!popover) return;
-      const isHidden = popover.hasAttribute('hidden');
-      if (isHidden) {
-        popover.removeAttribute('hidden');
-        if (btn) btn.setAttribute('aria-expanded', 'true');
-      } else {
-        popover.setAttribute('hidden', '');
-        if (btn) btn.setAttribute('aria-expanded', 'false');
-      }
-    }
-
-    function closeThemePopover() {
-      const popover = document.getElementById('theme-popover-card');
-      const btn = document.getElementById('theme-popover-trigger');
-      if (popover && !popover.hasAttribute('hidden')) {
-        popover.setAttribute('hidden', '');
-        if (btn) btn.setAttribute('aria-expanded', 'false');
-      }
-    }
-
-    document.addEventListener('click', function(e) {
-      const popover = document.getElementById('theme-popover-card');
-      const btn = document.getElementById('theme-popover-trigger');
-      if (popover && !popover.hasAttribute('hidden')) {
-        if (!popover.contains(e.target) && !btn.contains(e.target)) {
-          closeThemePopover();
-        }
-      }
-    });
-
-    function toggleMobileDrawer() {
-      const drawer = document.getElementById('sidebar-drawer');
-      const btn = document.querySelector('.mobile-menu-btn');
-      const isActive = drawer.classList.toggle('active');
-      document.body.classList.toggle('drawer-open', isActive);
-      if (btn) btn.setAttribute('aria-expanded', isActive ? 'true' : 'false');
-    }
-
-    function closeMobileDrawer() {
-      const drawer = document.getElementById('sidebar-drawer');
-      const btn = document.querySelector('.mobile-menu-btn');
-      if (drawer) drawer.classList.remove('active');
-      document.body.classList.remove('drawer-open');
-      if (btn) btn.setAttribute('aria-expanded', 'false');
-    }
-
-    document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape') {
-        closeMobileDrawer();
-        closeThemePopover();
-      }
-    });
-
-    document.addEventListener('DOMContentLoaded', function() {
-      const savedLevel = localStorage.getItem('theme-level');
-      if (savedLevel) {
-        setThemeLevel(savedLevel);
-      } else {
-        const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-        setThemeLevel(prefersDark ? 2 : 5);
-      }
-    });
-  </script>
+  <script src="app.js" defer></script>
 </body>
 </html>`;
 
