@@ -65,27 +65,13 @@ AI solutions can be integrated across the entire software development lifecycle,
 
 | SDLC Phase | AI Capabilities & Focus |
 | --- | --- |
-| **1. Planning** | Summarizes stakeholder interviews, translates unstructured notes into roadmaps, and assists with timeline and resource estimation.
-
- |
-| **2. Analysis** | Converts emails, support tickets, and chat logs into structured PRDs; validates technical stack feasibility and flags early bottlenecks.
-
- |
-| **3. Design** | Recommends system architectures, designs database schemas, generates design-system-compliant UI prototypes, and creates OpenAPI contracts.
-
- |
-| **4. Coding** | IDE-native agent pair programming, real-time complexity monitoring, technical debt prevention, and inline documentation generation.
-
- |
-| **5. Testing** | Generates comprehensive unit and integration test suites, tests complex edge cases, and executes visual regression checks.
-
- |
-| **6. Deployment** | Optimizes CI/CD pipelines, predicts release bottlenecks, and continuously monitors real-time telemetry logs to prevent downtime.
-
- |
-| **7. Maintenance** | Auto-triages and categorizes incoming bug reports, identifies incident root causes, and generates proposed patches.
-
- |
+| **1. Planning** | Summarizes stakeholder interviews, translates unstructured notes into roadmaps, and assists with timeline and resource estimation. |
+| **2. Analysis** | Converts emails, support tickets, and chat logs into structured PRDs; validates technical stack feasibility and flags early bottlenecks. |
+| **3. Design** | Recommends system architectures, designs database schemas, generates design-system-compliant UI prototypes, and creates OpenAPI contracts. |
+| **4. Coding** | IDE-native agent pair programming, real-time complexity monitoring, technical debt prevention, and inline documentation generation. |
+| **5. Testing** | Generates comprehensive unit and integration test suites, tests complex edge cases, and executes visual regression checks. |
+| **6. Deployment** | Optimizes CI/CD pipelines, predicts release bottlenecks, and continuously monitors real-time telemetry logs to prevent downtime. |
+| **7. Maintenance** | Auto-triages and categorizes incoming bug reports, identifies incident root causes, and generates proposed patches. |
 
 ---
 
@@ -188,18 +174,10 @@ Agents are granted high operational autonomy within sandboxed environments, but 
 
 | Gate Level | Stage | Required Approval & Verification |
 | --- | --- | --- |
-| **Gate 1** | Planning & Scope Approval | Human lead reviews the agent's proposed implementation plan, story point estimate, and architectural impact before coding starts.
-
- |
-| **Gate 2** | Automated Verification | Automated test suite, static linters, SAST scanners, and review agents (e.g., BugBot) must pass with zero critical errors.
-
- |
-| **Gate 3** | Human PR Review | Human engineer reviews code diff for business logic compliance, security integrity, and maintainability before merging into `main`.
-
- |
-| **Gate 4** | Deployment & Health Check | Automated canary deployment checks and real-time log monitoring verify post-release system stability before full rollout.
-
- |
+| **Gate 1** | Planning & Scope Approval | Human lead reviews the agent's proposed implementation plan, story point estimate, and architectural impact before coding starts. |
+| **Gate 2** | Automated Verification | Automated test suite, static linters, SAST scanners, and review agents (e.g., BugBot) must pass with zero critical errors. |
+| **Gate 3** | Human PR Review | Human engineer reviews code diff for business logic compliance, security integrity, and maintainability before merging into `main`. |
+| **Gate 4** | Deployment & Health Check | Automated canary deployment checks and real-time log monitoring verify post-release system stability before full rollout. |
 
 ### Agent Access & Permissions Matrix
 
@@ -487,39 +465,11 @@ Acceptance Criteria:
 
 | Work Item Type | Primary Role in AI SDLC | Key Azure DevOps Fields | Required Detail Standard |
 | --- | --- | --- | --- |
-| **Epic** | Strategic direction & roadmap grouping
-
- | Risk, Priority, Success Criteria
-
- | High-level business impact & compliance goals
-
- |
-| **Feature** | Architectural component scoping
-
- | Story Points, Parent Link, Scope Boundaries
-
- | Technical boundaries & system deliverables
-
- |
-| **Issue** | **Direct Agent Execution Unit**<br> | Story Points, BDD Criteria, Tags
-
- | **Given/When/Then** explicit test scenarios
-
- |
-| **Task** | Sub-unit execution step
-
- | Activity, Original Estimate, Parent Link
-
- | Precise code paths, file names, & technical steps
-
- |
-| **Bug** | Regression & defect remediation
-
- | Severity, System Info, Repro Steps
-
- | Exact repro steps, stack trace, & expected vs actual
-
- |
+| **Epic** | Strategic direction & roadmap grouping | Risk, Priority, Success Criteria | High-level business impact & compliance goals |
+| **Feature** | Architectural component scoping | Story Points, Parent Link, Scope Boundaries | Technical boundaries & system deliverables |
+| **Issue** | **Direct Agent Execution Unit**<br> | Story Points, BDD Criteria, Tags | **Given/When/Then** explicit test scenarios |
+| **Task** | Sub-unit execution step | Activity, Original Estimate, Parent Link | Precise code paths, file names, & technical steps |
+| **Bug** | Regression & defect remediation | Severity, System Info, Repro Steps | Exact repro steps, stack trace, & expected vs actual |
 
 ---
 
@@ -763,15 +713,7 @@ The optimal enterprise AI architecture splits tasks between cloud-based frontier
 
 | Model Layer | Examples | Core Responsibilities |
 | --- | --- | --- |
-| **Frontier Models** | Claude Opus 4.8, GPT-5.6 class
-
- | High-level system design, complex planning, gating reviews, and architectural judgment.
-
- |
-| **Local / Edge Models** | Gemma 4, Qwen 3.6, DeepSeek V4 class
-
- | Repetitive code generation, linter loops, unit test writing, and localized refactoring in sandboxed setups.
-
- |
+| **Frontier Models** | Claude Opus 4.8, GPT-5.6 class | High-level system design, complex planning, gating reviews, and architectural judgment. |
+| **Local / Edge Models** | Gemma 4, Qwen 3.6, DeepSeek V4 class | Repetitive code generation, linter loops, unit test writing, and localized refactoring in sandboxed setups. |
 
 This hybrid structure ensures expensive frontier models are reserved for critical judgment calls, while fast local models handle repetitive implementation tasks across large engineering organizations.

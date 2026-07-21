@@ -103,42 +103,49 @@
           <span class="toc-text">8. Documentation Standards</span>
         </a>
       </li>
+    
+      <li class="toc-item ">
+        <a href="09-skills-library.html" onclick="closeMobileDrawer()">
+          <span class="toc-num">09.</span>
+          <span class="toc-text">9. Recommended Skills Library</span>
+        </a>
+      </li>
+    
+      <li class="toc-item ">
+        <a href="10-hybrid-architecture.html" onclick="closeMobileDrawer()">
+          <span class="toc-num">10.</span>
+          <span class="toc-text">10. Hybrid Architecture</span>
+        </a>
+      </li>
     </ul>
       </nav>
     </aside>
 
     <main class="content-wrapper" id="main-content">
       <article class="prose">
-        
-<h2 id="7-how-to-write-tickets-for-azure-devops-dev-azure-com" class="heading-anchor-group">
-  <span class="heading-text">7. How to Write Tickets for Azure DevOps (dev.azure.com)</span>
-  <a class="heading-anchor" href="#7-how-to-write-tickets-for-azure-devops-dev-azure-com" aria-label="Anchor link to 7. How to Write Tickets for Azure DevOps (dev.azure.com)">#</a>
-</h2><p>In an AI-augmented engineering organization, Azure DevOps (<code>dev.azure.com</code>) serves as the primary operational hub across the entire SDLC. Work items in Azure DevOps are not merely human tracking tickets—they function as direct inputs for autonomous AI agents via API integrations and Model Context Protocol (MCP) servers. When an AI agent picks up a work item, ambiguous scope or missing fields force the model to make unverified assumptions, leading to hallucinated requirements, bloated execution loops, and rejected pull requests.</p>
+        <h1 id="7-how-to-write-tickets-for-azure-devops-dev-azure-com" class="doc-title">7. How to Write Tickets for Azure DevOps (dev.azure.com)</h1><p>In an AI-augmented engineering organization, Azure DevOps (<code>dev.azure.com</code>) serves as the primary operational hub across the entire SDLC. Work items in Azure DevOps are not merely human tracking tickets—they function as direct inputs for autonomous AI agents via API integrations and Model Context Protocol (MCP) servers. When an AI agent picks up a work item, ambiguous scope or missing fields force the model to make unverified assumptions, leading to hallucinated requirements, bloated execution loops, and rejected pull requests.</p>
 <p>To ensure deterministic and reliable agent execution, every work item created in <code>dev.azure.com</code> must follow strict structural standards tailored to its specific Work Item Type: <strong>Epic</strong>, <strong>Feature</strong>, <strong>Issue</strong>, <strong>Task</strong>, or <strong>Bug</strong>.</p>
-
-<h3 id="azure-devops-baseline-configuration-standards" class="heading-anchor-group">
+<h2 id="azure-devops-baseline-configuration-standards" class="heading-anchor-group">
   <span class="heading-text">Azure DevOps Baseline Configuration Standards</span>
   <a class="heading-anchor" href="#azure-devops-baseline-configuration-standards" aria-label="Anchor link to Azure DevOps Baseline Configuration Standards">#</a>
-</h3><p>Prior to moving any work item into an active sprint or agent processing queue, the following mandatory metadata fields must be populated:</p>
-<ul class="swiss-list"><li>**Area Path:** Identifies the exact owning team or system boundary (e.g., `PlatformTeam\Authentication`).
+</h2><p>Prior to moving any work item into an active sprint or agent processing queue, the following mandatory metadata fields must be populated:</p>
+<ul class="swiss-list"><li><strong>Area Path:</strong> Identifies the exact owning team or system boundary (e.g., <code>PlatformTeam\Authentication</code>).
 
-</li><li>**Iteration Path:** Defines the target sprint timeline (e.g., `Sprint 42`).
+</li><li><strong>Iteration Path:</strong> Defines the target sprint timeline (e.g., <code>Sprint 42</code>).
 
-</li><li>**Parent / Child Linkage:** Maintains explicit structural hierarchy (`Epic` → `Feature` → `Issue` → `Task`).
+</li><li><strong>Parent / Child Linkage:</strong> Maintains explicit structural hierarchy (<code>Epic</code> → <code>Feature</code> → <code>Issue</code> → <code>Task</code>).
 
-</li><li>**Tags:** Standardized labels to enable automated agent filtering (e.g., `agent-eligible`, `backend`, `security`, `database`).</li></ul>
-<h3 id="1-epic" class="heading-anchor-group">
+</li><li><strong>Tags:</strong> Standardized labels to enable automated agent filtering (e.g., <code>agent-eligible</code>, <code>backend</code>, <code>security</code>, <code>database</code>).</li></ul><h2 id="1-epic" class="heading-anchor-group">
   <span class="heading-text">1. Epic</span>
   <a class="heading-anchor" href="#1-epic" aria-label="Anchor link to 1. Epic">#</a>
-</h3><p>An <strong>Epic</strong> represents a multi-sprint strategic initiative or business outcome spanning multiple teams. Epics break down into individual Features. Epics are never assigned directly to AI agents for immediate code execution; instead, agents analyze Epics during early planning (SDLC Phase 1) to assist human architects in decomposing scope into discrete Features and Issues.</p>
-<ul class="swiss-list"><li>**Title Structure:** `[EPIC] [Domain] High-Level Strategic Outcome`
-</li><li>**Risk Field:** `1 - High` | `2 - Medium` | `3 - Low`
-</li><li>**Priority Field:** `1` (Highest) to `4` (Lowest)
+</h2><p>An <strong>Epic</strong> represents a multi-sprint strategic initiative or business outcome spanning multiple teams. Epics break down into individual Features. Epics are never assigned directly to AI agents for immediate code execution; instead, agents analyze Epics during early planning (SDLC Phase 1) to assist human architects in decomposing scope into discrete Features and Issues.</p>
+<ul class="swiss-list"><li><strong>Title Structure:</strong> <code>[EPIC] [Domain] High-Level Strategic Outcome</code>
+</li><li><strong>Risk Field:</strong> <code>1 - High</code> | <code>2 - Medium</code> | <code>3 - Low</code>
+</li><li><strong>Priority Field:</strong> <code>1</code> (Highest) to <code>4</code> (Lowest)
 
-</li><li>**Description:** High-level business impact, regulatory drivers, and executive summary.
+</li><li><strong>Description:</strong> High-level business impact, regulatory drivers, and executive summary.
 
-</li><li>**Success Criteria (Definition of Done):** Quantitative business metrics and architectural milestones.</li></ul>
-<div class="code-block-wrapper">
+</li><li><strong>Success Criteria (Definition of Done):</strong> Quantitative business metrics and architectural milestones.</li></ul><div class="code-block-wrapper">
   <div class="code-header">
     <span class="code-lang">text</span>
     <button type="button" class="copy-btn" aria-label="Copy code snippet" onclick="copyCode(this)">Copy</button>
@@ -162,22 +169,20 @@ Success Criteria (Definition of Done):
 - Zero downtime deployment across all web and mobile client applications.
 - Audit logging enabled for all MFA state changes and failed verification attempts.
 </code></pre>
-</div>
-<h3 id="2-feature" class="heading-anchor-group">
+</div><h2 id="2-feature" class="heading-anchor-group">
   <span class="heading-text">2. Feature</span>
   <a class="heading-anchor" href="#2-feature" aria-label="Anchor link to 2. Feature">#</a>
-</h3><p>A <strong>Feature</strong> delivers a functional system capability under a parent Epic, usually spanning 1 to 3 sprints. AI agents evaluate Features during system design (SDLC Phase 3) to draft database schemas, OpenAPI contracts, and child Issue backlogs.</p>
-<ul class="swiss-list"><li>**Title Structure:** `[FEATURE] [Component] Action Verb + Functional Capability`
-</li><li>**Parent Link:** Link to target Epic.
+</h2><p>A <strong>Feature</strong> delivers a functional system capability under a parent Epic, usually spanning 1 to 3 sprints. AI agents evaluate Features during system design (SDLC Phase 3) to draft database schemas, OpenAPI contracts, and child Issue backlogs.</p>
+<ul class="swiss-list"><li><strong>Title Structure:</strong> <code>[FEATURE] [Component] Action Verb + Functional Capability</code>
+</li><li><strong>Parent Link:</strong> Link to target Epic.
 
-</li><li>**Story Points / Effort:** Aggregate estimate (sum of child Issues).
+</li><li><strong>Story Points / Effort:</strong> Aggregate estimate (sum of child Issues).
 
-</li><li>**Risk & Priority:** Assigned on 1–3 and 1–4 scales respectively.
+</li><li><strong>Risk &amp; Priority:</strong> Assigned on 1–3 and 1–4 scales respectively.
 
-</li><li>**Description:** Functional architecture outline, target personas, and scope boundaries (In Scope vs Out of Scope).
+</li><li><strong>Description:</strong> Functional architecture outline, target personas, and scope boundaries (In Scope vs Out of Scope).
 
-</li><li>**Acceptance Criteria:** High-level functional capabilities required for completion.</li></ul>
-<div class="code-block-wrapper">
+</li><li><strong>Acceptance Criteria:</strong> High-level functional capabilities required for completion.</li></ul><div class="code-block-wrapper">
   <div class="code-header">
     <span class="code-lang">text</span>
     <button type="button" class="copy-btn" aria-label="Copy code snippet" onclick="copyCode(this)">Copy</button>
@@ -202,23 +207,21 @@ Acceptance Criteria:
 - Login endpoint accepts and validates 6-digit TOTP codes with a 30-second clock skew tolerance window.
 - User is issued 10 single-use recovery codes upon successful pairing.
 </code></pre>
-</div>
-<h3 id="3-issue-product-backlog-item" class="heading-anchor-group">
+</div><h2 id="3-issue-product-backlog-item" class="heading-anchor-group">
   <span class="heading-text">3. Issue (Product Backlog Item)</span>
   <a class="heading-anchor" href="#3-issue-product-backlog-item" aria-label="Anchor link to 3. Issue (Product Backlog Item)">#</a>
-</h3><p>An <strong>Issue</strong> represents the primary unit of executable work assigned to developers and autonomous AI agents. An Issue MUST represent a single, testable deliverable capable of being completed within a single sprint or agent loop.</p>
+</h2><p>An <strong>Issue</strong> represents the primary unit of executable work assigned to developers and autonomous AI agents. An Issue MUST represent a single, testable deliverable capable of being completed within a single sprint or agent loop.</p>
 <p>Every Issue assigned to an AI agent <strong>must</strong> utilize Behavior-Driven Development (BDD) <em>Given / When / Then</em> syntax inside its Acceptance Criteria to completely remove scope ambiguity.</p>
-<ul class="swiss-list"><li>**Title Structure:** `[ISSUE] [Service/Module] Action Verb + Specific Deliverable`
-</li><li>**Parent Link:** Link to parent Feature.
+<ul class="swiss-list"><li><strong>Title Structure:</strong> <code>[ISSUE] [Service/Module] Action Verb + Specific Deliverable</code>
+</li><li><strong>Parent Link:</strong> Link to parent Feature.
 
-</li><li>**Story Points:** Fibonacci scale (`1`, `2`, `3`, `5`, `8`).
+</li><li><strong>Story Points:</strong> Fibonacci scale (<code>1</code>, <code>2</code>, <code>3</code>, <code>5</code>, <code>8</code>).
 
-</li><li>**Risk & Priority:** Assigned baseline risk and priority ratings.
+</li><li><strong>Risk &amp; Priority:</strong> Assigned baseline risk and priority ratings.
 
-</li><li>**Description:** User story statement (*As a... I want... So that...*) along with technical routes and payload specs.
+</li><li><strong>Description:</strong> User story statement (<em>As a... I want... So that...</em>) along with technical routes and payload specs.
 
-</li><li>**Acceptance Criteria (BDD Syntax):** Explicit scenario blocks detailing pre-conditions, trigger actions, and expected outputs.</li></ul>
-<div class="code-block-wrapper">
+</li><li><strong>Acceptance Criteria (BDD Syntax):</strong> Explicit scenario blocks detailing pre-conditions, trigger actions, and expected outputs.</li></ul><div class="code-block-wrapper">
   <div class="code-header">
     <span class="code-lang">text</span>
     <button type="button" class="copy-btn" aria-label="Copy code snippet" onclick="copyCode(this)">Copy</button>
@@ -260,20 +263,18 @@ Given a user who was rate limited at timestamp T
 When 15 minutes have elapsed since the first failed attempt in the window (T + 900s)
 Then allow subsequent verification attempts without returning 429.
 </code></pre>
-</div>
-<h3 id="4-task" class="heading-anchor-group">
+</div><h2 id="4-task" class="heading-anchor-group">
   <span class="heading-text">4. Task</span>
   <a class="heading-anchor" href="#4-task" aria-label="Anchor link to 4. Task">#</a>
-</h3><p>A <strong>Task</strong> represents a granular technical step required to complete an Issue or Bug. Tasks break down implementation details into localized code changes, database migrations, or unit test files. AI agents in local sandboxed environments execute Tasks within individual iterative cycles.</p>
-<ul class="swiss-list"><li>**Title Structure:** `[TASK] [Subsystem] Actionable Development Step`
-</li><li>**Parent Link:** Link to target Issue or Bug.
+</h2><p>A <strong>Task</strong> represents a granular technical step required to complete an Issue or Bug. Tasks break down implementation details into localized code changes, database migrations, or unit test files. AI agents in local sandboxed environments execute Tasks within individual iterative cycles.</p>
+<ul class="swiss-list"><li><strong>Title Structure:</strong> <code>[TASK] [Subsystem] Actionable Development Step</code>
+</li><li><strong>Parent Link:</strong> Link to target Issue or Bug.
 
-</li><li>**Original Estimate / Remaining Work:** Estimated execution hours (e.g., `2.0`, `4.0`).
+</li><li><strong>Original Estimate / Remaining Work:</strong> Estimated execution hours (e.g., <code>2.0</code>, <code>4.0</code>).
 
-</li><li>**Activity:** `Development` | `Testing` | `Design` | `Documentation` | `Deployment`.
+</li><li><strong>Activity:</strong> <code>Development</code> | <code>Testing</code> | <code>Design</code> | <code>Documentation</code> | <code>Deployment</code>.
 
-</li><li>**Description:** Step-by-step developer guidelines, targeted file paths, and class definitions.</li></ul>
-<div class="code-block-wrapper">
+</li><li><strong>Description:</strong> Step-by-step developer guidelines, targeted file paths, and class definitions.</li></ul><div class="code-block-wrapper">
   <div class="code-header">
     <span class="code-lang">text</span>
     <button type="button" class="copy-btn" aria-label="Copy code snippet" onclick="copyCode(this)">Copy</button>
@@ -298,22 +299,20 @@ Implementation Steps:
    - EXPIRE key 900 (refresh key TTL)
 5. Add unit tests in tests/services/rateLimiter.test.ts mocking Redis responses.
 </code></pre>
-</div>
-<h3 id="5-bug" class="heading-anchor-group">
+</div><h2 id="5-bug" class="heading-anchor-group">
   <span class="heading-text">5. Bug</span>
   <a class="heading-anchor" href="#5-bug" aria-label="Anchor link to 5. Bug">#</a>
-</h3><p>A <strong>Bug</strong> documents an application defect, security vulnerability, or functional regression. To allow an AI agent to fix a bug autonomously, the ticket <strong>must include explicit reproduction steps</strong>, environment configuration, and expected versus actual output. AI agents must execute a failing automated test reproducing the defect prior to submitting a fix pull request.</p>
-<ul class="swiss-list"><li>**Title Structure:** `[BUG] [Module/API] Clear Failure Summary`
-</li><li>**Severity:** `1 - Critical` | `2 - High` | `3 - Medium` | `4 - Low`.
+</h2><p>A <strong>Bug</strong> documents an application defect, security vulnerability, or functional regression. To allow an AI agent to fix a bug autonomously, the ticket <strong>must include explicit reproduction steps</strong>, environment configuration, and expected versus actual output. AI agents must execute a failing automated test reproducing the defect prior to submitting a fix pull request.</p>
+<ul class="swiss-list"><li><strong>Title Structure:</strong> <code>[BUG] [Module/API] Clear Failure Summary</code>
+</li><li><strong>Severity:</strong> <code>1 - Critical</code> | <code>2 - High</code> | <code>3 - Medium</code> | <code>4 - Low</code>.
 
-</li><li>**Priority:** `1` to `4`.
+</li><li><strong>Priority:</strong> <code>1</code> to <code>4</code>.
 
-</li><li>**System Info:** Operating system, browser version, environment (Staging/Prod), commit SHA / container image.
+</li><li><strong>System Info:</strong> Operating system, browser version, environment (Staging/Prod), commit SHA / container image.
 
-</li><li>**Repro Steps & Behavior:** Numbered steps to trigger failure, actual error output, and expected correct behavior.
+</li><li><strong>Repro Steps &amp; Behavior:</strong> Numbered steps to trigger failure, actual error output, and expected correct behavior.
 
-</li><li>**Acceptance Criteria:** Mandatory failing test requirement and zero-regression validation.</li></ul>
-<div class="code-block-wrapper">
+</li><li><strong>Acceptance Criteria:</strong> Mandatory failing test requirement and zero-regression validation.</li></ul><div class="code-block-wrapper">
   <div class="code-header">
     <span class="code-lang">text</span>
     <button type="button" class="copy-btn" aria-label="Copy code snippet" onclick="copyCode(this)">Copy</button>
@@ -347,39 +346,19 @@ Acceptance Criteria:
 - Verify bug fix with zero regression on standard lowercase user IDs.
 - All existing test suites pass successfully in CI/CD pipeline.
 </code></pre>
-</div>
-<h3 id="azure-devops-ticket-quality-matrix" class="heading-anchor-group">
+</div><h2 id="azure-devops-ticket-quality-matrix" class="heading-anchor-group">
   <span class="heading-text">Azure DevOps Ticket Quality Matrix</span>
   <a class="heading-anchor" href="#azure-devops-ticket-quality-matrix" aria-label="Anchor link to Azure DevOps Ticket Quality Matrix">#</a>
-</h3>
-<div class="table-container">
+</h2><div class="table-container">
   <table class="swiss-table">
     <thead>
-      <tr><th>Work Item Type</th><th>Primary Role in AI SDLC</th><th>Key Azure DevOps Fields</th><th>Required Detail Standard</th></tr>
+      <tr><th scope="col">Work Item Type</th><th scope="col">Primary Role in AI SDLC</th><th scope="col">Key Azure DevOps Fields</th><th scope="col">Required Detail Standard</th></tr>
     </thead>
     <tbody>
-      <tr><td>**Epic**</td><td>Strategic direction & roadmap grouping</td><td></td><td></td></tr>
+      <tr><th scope="row"><strong>Epic</strong></th><td>Strategic direction &amp; roadmap grouping</td><td>Risk, Priority, Success Criteria</td><td>High-level business impact &amp; compliance goals</td></tr><tr><th scope="row"><strong>Feature</strong></th><td>Architectural component scoping</td><td>Story Points, Parent Link, Scope Boundaries</td><td>Technical boundaries &amp; system deliverables</td></tr><tr><th scope="row"><strong>Issue</strong></th><td><strong>Direct Agent Execution Unit</strong><br></td><td>Story Points, BDD Criteria, Tags</td><td><strong>Given/When/Then</strong> explicit test scenarios</td></tr><tr><th scope="row"><strong>Task</strong></th><td>Sub-unit execution step</td><td>Activity, Original Estimate, Parent Link</td><td>Precise code paths, file names, &amp; technical steps</td></tr><tr><th scope="row"><strong>Bug</strong></th><td>Regression &amp; defect remediation</td><td>Severity, System Info, Repro Steps</td><td>Exact repro steps, stack trace, &amp; expected vs actual</td></tr>
     </tbody>
   </table>
-</div><p> | Risk, Priority, Success Criteria</p>
-<p> | High-level business impact &amp; compliance goals</p>
-<p> |
-| <strong>Feature</strong> | Architectural component scoping</p>
-<p> | Story Points, Parent Link, Scope Boundaries</p>
-<p> | Technical boundaries &amp; system deliverables</p>
-<p> |
-| <strong>Issue</strong> | <strong>Direct Agent Execution Unit</strong><br> | Story Points, BDD Criteria, Tags</p>
-<p> | <strong>Given/When/Then</strong> explicit test scenarios</p>
-<p> |
-| <strong>Task</strong> | Sub-unit execution step</p>
-<p> | Activity, Original Estimate, Parent Link</p>
-<p> | Precise code paths, file names, &amp; technical steps</p>
-<p> |
-| <strong>Bug</strong> | Regression &amp; defect remediation</p>
-<p> | Severity, System Info, Repro Steps</p>
-<p> | Exact repro steps, stack trace, &amp; expected vs actual</p>
-<p> |</p>
-<hr>
+</div><hr>
 
       </article>
       

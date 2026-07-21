@@ -33,7 +33,7 @@ function generateSlug(text) {
   return slug;
 }
 
-// Custom marked renderer for Swiss Design
+// Custom marked renderer for Swiss Design & Semantic HTML5
 const renderer = new marked.Renderer();
 
 renderer.code = function({ text, lang, escaped }) {
@@ -49,8 +49,7 @@ renderer.code = function({ text, lang, escaped }) {
     highlighted = escaped ? text : escapeHtml(text);
   }
 
-  return `
-<div class="code-block-wrapper">
+  return `<div class="code-block-wrapper">
   <div class="code-header">
     <span class="code-lang">${language}</span>
     <button type="button" class="copy-btn" aria-label="Copy code snippet" onclick="copyCode(this)">Copy</button>
@@ -67,8 +66,7 @@ renderer.heading = function({ text, depth }) {
     return `<h1 id="${slug}" class="doc-title">${textClean}</h1>`;
   }
   
-  return `
-<h${depth} id="${slug}" class="heading-anchor-group">
+  return `<h${depth} id="${slug}" class="heading-anchor-group">
   <span class="heading-text">${textClean}</span>
   <a class="heading-anchor" href="#${slug}" aria-label="Anchor link to ${textClean}">#</a>
 </h${depth}>`;
@@ -79,19 +77,24 @@ renderer.table = function({ header, rows }) {
   let bodyHtml = '';
 
   header.forEach(cell => {
-    headerHtml += `<th>${cell.text}</th>`;
+    const content = marked.parseInline(cell.text);
+    headerHtml += `<th scope="col">${content}</th>`;
   });
 
   rows.forEach(row => {
     bodyHtml += '<tr>';
-    row.forEach(cell => {
-      bodyHtml += `<td>${cell.text}</td>`;
+    row.forEach((cell, idx) => {
+      const content = marked.parseInline(cell.text);
+      if (idx === 0) {
+        bodyHtml += `<th scope="row">${content}</th>`;
+      } else {
+        bodyHtml += `<td>${content}</td>`;
+      }
     });
     bodyHtml += '</tr>';
   });
 
-  return `
-<div class="table-container">
+  return `<div class="table-container">
   <table class="swiss-table">
     <thead>
       <tr>${headerHtml}</tr>
@@ -107,24 +110,115 @@ renderer.list = function({ items, ordered }) {
   const type = ordered ? 'ol' : 'ul';
   let itemsHtml = '';
   items.forEach(item => {
-    itemsHtml += `<li>${item.text}</li>`;
+    const content = marked.parseInline(item.text);
+    itemsHtml += `<li>${content}</li>`;
   });
   return `<${type} class="swiss-list">${itemsHtml}</${type}>`;
 };
 
+renderer.image = function({ href, title, text }) {
+  const caption = text || title ? `<figcaption>${text || title}</figcaption>` : '';
+  return `<figure class="swiss-figure">
+  <img src="${href}" alt="${text || ''}" ${title ? `title="${title}"` : ''} loading="lazy">
+  ${caption}
+</figure>`;
+};
+
 marked.use({ renderer });
 
-function escapeHtml(text) {
-  return text
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;')
-    .replace(/'/g, '&#039;');
+function cleanMarkdownTables(markdown) {
+  const lines = markdown.split(/\r?\n/);
+  const cleanedLines = [];
+  let inTable = false;
+  let currentTableRow = '';
+  let expectedPipes = 0;
+
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i];
+    const trimmed = line.trim();
+
+    // Isolated pipe line e.g., " |" or "|"
+    const isIsolatedPipe = /^\s*\|\s*$/.test(line);
+
+    if (isIsolatedPipe && inTable) {
+      if (currentTableRow) {
+        if (!currentTableRow.trim().endsWith('|')) {
+          currentTableRow += ' |';
+        }
+        cleanedLines.push(currentTableRow);
+        currentTableRow = '';
+      }
+      continue;
+    }
+
+    if (trimmed.startsWith('|')) {
+      inTable = true;
+      if (!currentTableRow) {
+        currentTableRow = trimmed;
+        const pipeCount = (trimmed.match(/\|/g) || []).length;
+        if (pipeCount > expectedPipes) {
+          expectedPipes = pipeCount;
+        }
+      } else {
+        const currentPipes = (currentTableRow.match(/\|/g) || []).length;
+        if (!currentTableRow.endsWith('|') || (expectedPipes > 2 && currentPipes < expectedPipes && !trimmed.startsWith('| ---'))) {
+          currentTableRow += ' ' + trimmed;
+        } else {
+          cleanedLines.push(currentTableRow);
+          currentTableRow = trimmed;
+          const pipeCount = (trimmed.match(/\|/g) || []).length;
+          if (pipeCount > expectedPipes) {
+            expectedPipes = pipeCount;
+          }
+        }
+      }
+      continue;
+    }
+
+    if (inTable && currentTableRow && trimmed.length > 0) {
+      currentTableRow += ' ' + trimmed;
+      continue;
+    }
+
+    if (trimmed === '') {
+      if (inTable && currentTableRow) {
+        let nextIndex = i + 1;
+        while (nextIndex < lines.length && lines[nextIndex].trim() === '') {
+          nextIndex++;
+        }
+        if (nextIndex < lines.length && /^\s*\|/.test(lines[nextIndex])) {
+          continue;
+        } else {
+          cleanedLines.push(currentTableRow);
+          currentTableRow = '';
+          inTable = false;
+          expectedPipes = 0;
+          cleanedLines.push(line);
+        }
+      } else {
+        cleanedLines.push(line);
+      }
+    } else {
+      if (inTable) {
+        cleanedLines.push(currentTableRow);
+        currentTableRow = '';
+        inTable = false;
+        expectedPipes = 0;
+      }
+      cleanedLines.push(line);
+    }
+  }
+
+  if (currentTableRow) {
+    cleanedLines.push(currentTableRow);
+  }
+
+  return cleanedLines.join('\n');
 }
 
 // Parse markdown into AST tokens
-const rawTokens = marked.lexer(markdownContent);
+const sanitizedMarkdown = cleanMarkdownTables(markdownContent);
+const rawTokens = marked.lexer(sanitizedMarkdown);
 
 // Chapter Definitions for Multi-Page Pagination
 const chapterConfigs = [
@@ -136,7 +230,9 @@ const chapterConfigs = [
   { id: 'quality-security-assurance', filename: '05-quality-security-assurance.html', title: '5. Phase 3: Quality & Security', num: '05', match: '5. Phase 3: Reviewing Everything for Flaws (Quality & Security Assurance)' },
   { id: 'enterprise-workflows-gates', filename: '06-enterprise-workflows-gates.html', title: '6. Enterprise Workflows & Gates', num: '06', match: '6. End-to-End Enterprise Workflows, Gates & Governance' },
   { id: 'azure-devops-tickets', filename: '07-azure-devops-tickets.html', title: '7. Azure DevOps Ticket Standards', num: '07', match: '7. How to Write Tickets for Azure DevOps (dev.azure.com)' },
-  { id: 'documentation-planning', filename: '08-documentation-planning.html', title: '8. Documentation Standards', num: '08', match: '8. Documentation as a First-Class Citizen & Planning Standards' }
+  { id: 'documentation-planning', filename: '08-documentation-planning.html', title: '8. Documentation Standards', num: '08', match: '8. Documentation as a First-Class Citizen & Planning Standards' },
+  { id: 'skills-library', filename: '09-skills-library.html', title: '9. Recommended Skills Library', num: '09', match: '9. Recommended Skills Library' },
+  { id: 'hybrid-architecture', filename: '10-hybrid-architecture.html', title: '10. Hybrid Architecture', num: '10', match: '10. The Dream: Hybrid Frontier/Local Execution Architecture' }
 ];
 
 // Group tokens by chapter
@@ -194,6 +290,8 @@ Welcome to the enterprise operational standard for software development organiza
 - [06. Enterprise Workflows & Gates](06-enterprise-workflows-gates.html) — Four-gate protocol, permission matrices, and safety.
 - [07. Azure DevOps Ticket Standards](07-azure-devops-tickets.html) — Epic, Feature, PBI, Task, and Bug structural standards.
 - [08. Documentation Standards](08-documentation-planning.html) — ADRs, PRDs, Glossaries, and code-level documentation rules.
+- [09. Recommended Skills Library](09-skills-library.html) — Reusable playbooks, audit tools, and custom skills.
+- [10. Hybrid Architecture](10-hybrid-architecture.html) — Frontier vs local model execution split and routing.
 `;
   chapters[0].tokens = marked.lexer(overviewMarkdown);
 }
@@ -205,7 +303,26 @@ chapters.forEach((chapter, index) => {
   const prevChapter = index > 0 ? chapters[index - 1] : null;
   const nextChapter = index < chapters.length - 1 ? chapters[index + 1] : null;
 
-  const bodyHtml = marked.parser(chapter.tokens);
+  // Normalize chapter heading depths so top heading is H1, sub-headings H2, etc.
+  const chapterHeadings = chapter.tokens.filter(t => t.type === 'heading');
+  let tokensToParse = chapter.tokens;
+  if (chapterHeadings.length > 0) {
+    const minDepth = Math.min(...chapterHeadings.map(t => t.depth));
+    const depthOffset = 1 - minDepth;
+    if (depthOffset !== 0) {
+      tokensToParse = chapter.tokens.map(token => {
+        if (token.type === 'heading') {
+          return {
+            ...token,
+            depth: Math.max(1, token.depth + depthOffset)
+          };
+        }
+        return token;
+      });
+    }
+  }
+
+  const bodyHtml = marked.parser(tokensToParse);
 
   // Generate Swiss Sidebar HTML with active status
   let sidebarHtml = '<ul class="toc-list">';
@@ -336,4 +453,4 @@ chapters.forEach((chapter, index) => {
   console.log(`Generated docs/${chapter.filename}`);
 });
 
-console.log('Successfully generated all 9 Swiss Docs pages!');
+console.log(`Successfully generated all ${chapters.length} Swiss Docs pages!`);

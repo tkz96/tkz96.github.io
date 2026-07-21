@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Swiss design operational standard for enterprise AI software development.">
-  <title>3. Phase 1: Preparing Codebase — The AI Development Playbook</title>
+  <title>10. Hybrid Architecture — The AI Development Playbook</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
@@ -22,7 +22,7 @@
         </a>
       </div>
       <div class="header-meta">
-        <span class="chapter-badge">CHAPTER 03</span>
+        <span class="chapter-badge">CHAPTER 10</span>
         <span>•</span>
         <span>VERSION 4.0</span>
       </div>
@@ -62,7 +62,7 @@
         </a>
       </li>
     
-      <li class="toc-item active-chapter">
+      <li class="toc-item ">
         <a href="03-preparing-codebase.html" onclick="closeMobileDrawer()">
           <span class="toc-num">03.</span>
           <span class="toc-text">3. Phase 1: Preparing Codebase</span>
@@ -111,7 +111,7 @@
         </a>
       </li>
     
-      <li class="toc-item ">
+      <li class="toc-item active-chapter">
         <a href="10-hybrid-architecture.html" onclick="closeMobileDrawer()">
           <span class="toc-num">10.</span>
           <span class="toc-text">10. Hybrid Architecture</span>
@@ -123,32 +123,28 @@
 
     <main class="content-wrapper" id="main-content">
       <article class="prose">
-        <h1 id="3-phase-1-preparing-the-codebase-to-be-ai-friendly" class="doc-title">3. Phase 1: Preparing the Codebase to Be AI-Friendly</h1><p>An AI agent is only as effective as the repository it operates within. Essential preparation steps include:</p>
-<ul class="swiss-list"><li><strong>Root Rules File:</strong> Maintain an <code>AGENTS.md</code> file detailing build commands, style rules, and hard boundaries.
-
-</li><li><strong>Consistent Naming &amp; Architecture:</strong> Ensure domain terms are standardized across API, application, and database layers.
-
-</li><li><strong>Modular Architecture:</strong> Break large monolithic files (3,000+ lines) into small, single-responsibility modules that fit easily into context windows.
-
-</li><li><strong>Comprehensive Test Suite &amp; Static Analysis:</strong> High test coverage and strict type checking provide instant feedback loops for agents to verify their own edits.
-
-</li><li><strong>Explicit Error Reporting:</strong> Ensure errors yield detailed contextual traces rather than failing silently.</li></ul><hr>
+        <h1 id="10-the-dream-hybrid-frontier-local-execution-architecture" class="doc-title">10. The Dream: Hybrid Frontier/Local Execution Architecture</h1><p>The optimal enterprise AI architecture splits tasks between cloud-based frontier models and fast local models to achieve frontier-level reasoning at local execution cost:</p>
+<div class="table-container">
+  <table class="swiss-table">
+    <thead>
+      <tr><th scope="col">Model Layer</th><th scope="col">Examples</th><th scope="col">Core Responsibilities</th></tr>
+    </thead>
+    <tbody>
+      <tr><th scope="row"><strong>Frontier Models</strong></th><td>Claude Opus 4.8, GPT-5.6 class</td><td>High-level system design, complex planning, gating reviews, and architectural judgment.</td></tr><tr><th scope="row"><strong>Local / Edge Models</strong></th><td>Gemma 4, Qwen 3.6, DeepSeek V4 class</td><td>Repetitive code generation, linter loops, unit test writing, and localized refactoring in sandboxed setups.</td></tr>
+    </tbody>
+  </table>
+</div><p>This hybrid structure ensures expensive frontier models are reserved for critical judgment calls, while fast local models handle repetitive implementation tasks across large engineering organizations.</p>
 
       </article>
       
     <nav class="pagination-nav" aria-label="Chapter Pagination">
       
-        <a href="02-ai-augmented-sdlc.html" class="pagination-btn prev-btn">
+        <a href="09-skills-library.html" class="pagination-btn prev-btn">
           <span class="pagination-label">← PREVIOUS CHAPTER</span>
-          <span class="pagination-title">2. The AI-Augmented SDLC</span>
+          <span class="pagination-title">9. Recommended Skills Library</span>
         </a>
       
-      
-        <a href="04-developer-experience.html" class="pagination-btn next-btn">
-          <span class="pagination-label">NEXT CHAPTER →</span>
-          <span class="pagination-title">4. Phase 2: Developer Experience</span>
-        </a>
-      
+      <div class="pagination-placeholder"></div>
     </nav>
   
     </main>

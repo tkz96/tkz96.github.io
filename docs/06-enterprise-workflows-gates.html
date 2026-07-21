@@ -103,52 +103,51 @@
           <span class="toc-text">8. Documentation Standards</span>
         </a>
       </li>
+    
+      <li class="toc-item ">
+        <a href="09-skills-library.html" onclick="closeMobileDrawer()">
+          <span class="toc-num">09.</span>
+          <span class="toc-text">9. Recommended Skills Library</span>
+        </a>
+      </li>
+    
+      <li class="toc-item ">
+        <a href="10-hybrid-architecture.html" onclick="closeMobileDrawer()">
+          <span class="toc-num">10.</span>
+          <span class="toc-text">10. Hybrid Architecture</span>
+        </a>
+      </li>
     </ul>
       </nav>
     </aside>
 
     <main class="content-wrapper" id="main-content">
       <article class="prose">
-        
-<h2 id="6-end-to-end-enterprise-workflows-gates-governance" class="heading-anchor-group">
-  <span class="heading-text">6. End-to-End Enterprise Workflows, Gates & Governance</span>
-  <a class="heading-anchor" href="#6-end-to-end-enterprise-workflows-gates-governance" aria-label="Anchor link to 6. End-to-End Enterprise Workflows, Gates & Governance">#</a>
-</h2><p>To safely scale agent operations across an enterprise, workflows must combine automated execution with strict approval gates and granular permission boundaries.</p>
-
-<h3 id="the-four-gate-enterprise-protocol" class="heading-anchor-group">
+        <h1 id="6-end-to-end-enterprise-workflows-gates-governance" class="doc-title">6. End-to-End Enterprise Workflows, Gates & Governance</h1><p>To safely scale agent operations across an enterprise, workflows must combine automated execution with strict approval gates and granular permission boundaries.</p>
+<h2 id="the-four-gate-enterprise-protocol" class="heading-anchor-group">
   <span class="heading-text">The Four-Gate Enterprise Protocol</span>
   <a class="heading-anchor" href="#the-four-gate-enterprise-protocol" aria-label="Anchor link to The Four-Gate Enterprise Protocol">#</a>
-</h3><p>Agents are granted high operational autonomy within sandboxed environments, but work cannot move between lifecycle stages without explicit approval at four key gates:</p>
-
+</h2><p>Agents are granted high operational autonomy within sandboxed environments, but work cannot move between lifecycle stages without explicit approval at four key gates:</p>
 <div class="table-container">
   <table class="swiss-table">
     <thead>
-      <tr><th>Gate Level</th><th>Stage</th><th>Required Approval & Verification</th></tr>
+      <tr><th scope="col">Gate Level</th><th scope="col">Stage</th><th scope="col">Required Approval &amp; Verification</th></tr>
     </thead>
     <tbody>
-      <tr><td>**Gate 1**</td><td>Planning & Scope Approval</td><td>Human lead reviews the agent's proposed implementation plan, story point estimate, and architectural impact before coding starts.</td></tr>
+      <tr><th scope="row"><strong>Gate 1</strong></th><td>Planning &amp; Scope Approval</td><td>Human lead reviews the agent&#39;s proposed implementation plan, story point estimate, and architectural impact before coding starts.</td></tr><tr><th scope="row"><strong>Gate 2</strong></th><td>Automated Verification</td><td>Automated test suite, static linters, SAST scanners, and review agents (e.g., BugBot) must pass with zero critical errors.</td></tr><tr><th scope="row"><strong>Gate 3</strong></th><td>Human PR Review</td><td>Human engineer reviews code diff for business logic compliance, security integrity, and maintainability before merging into <code>main</code>.</td></tr><tr><th scope="row"><strong>Gate 4</strong></th><td>Deployment &amp; Health Check</td><td>Automated canary deployment checks and real-time log monitoring verify post-release system stability before full rollout.</td></tr>
     </tbody>
   </table>
-</div><p> |
-| <strong>Gate 2</strong> | Automated Verification | Automated test suite, static linters, SAST scanners, and review agents (e.g., BugBot) must pass with zero critical errors.</p>
-<p> |
-| <strong>Gate 3</strong> | Human PR Review | Human engineer reviews code diff for business logic compliance, security integrity, and maintainability before merging into <code>main</code>.</p>
-<p> |
-| <strong>Gate 4</strong> | Deployment &amp; Health Check | Automated canary deployment checks and real-time log monitoring verify post-release system stability before full rollout.</p>
-<p> |</p>
-
-<h3 id="agent-access-permissions-matrix" class="heading-anchor-group">
+</div><h2 id="agent-access-permissions-matrix" class="heading-anchor-group">
   <span class="heading-text">Agent Access & Permissions Matrix</span>
   <a class="heading-anchor" href="#agent-access-permissions-matrix" aria-label="Anchor link to Agent Access & Permissions Matrix">#</a>
-</h3><p>Security compliance requires strict isolation of agent credentials and capabilities depending on the operational environment:</p>
-
+</h2><p>Security compliance requires strict isolation of agent credentials and capabilities depending on the operational environment:</p>
 <div class="table-container">
   <table class="swiss-table">
     <thead>
-      <tr><th>System Asset</th><th>Local Dev Sandbox</th><th>CI/CD Agent Pipeline</th><th>Production Environment</th></tr>
+      <tr><th scope="col">System Asset</th><th scope="col">Local Dev Sandbox</th><th scope="col">CI/CD Agent Pipeline</th><th scope="col">Production Environment</th></tr>
     </thead>
     <tbody>
-      <tr><td>**Local Codebase**</td><td>Read / Write</td><td>Read Only</td><td>Denied</td></tr><tr><td>**Test Suite Execution**</td><td>Full Execution</td><td>Full Execution</td><td>Denied</td></tr><tr><td>**Development Database**</td><td>Read / Write (Mock Data)</td><td>Isolated Ephemeral DB</td><td>Denied</td></tr><tr><td>**Production Database**</td><td>Denied</td><td>Denied</td><td>Denied (Read-Only via Telemetry Logs)</td></tr><tr><td>**Production Deployment Keys**</td><td>Denied</td><td>Scoped Deployment Token</td><td>Denied</td></tr>
+      <tr><th scope="row"><strong>Local Codebase</strong></th><td>Read / Write</td><td>Read Only</td><td>Denied</td></tr><tr><th scope="row"><strong>Test Suite Execution</strong></th><td>Full Execution</td><td>Full Execution</td><td>Denied</td></tr><tr><th scope="row"><strong>Development Database</strong></th><td>Read / Write (Mock Data)</td><td>Isolated Ephemeral DB</td><td>Denied</td></tr><tr><th scope="row"><strong>Production Database</strong></th><td>Denied</td><td>Denied</td><td>Denied (Read-Only via Telemetry Logs)</td></tr><tr><th scope="row"><strong>Production Deployment Keys</strong></th><td>Denied</td><td>Scoped Deployment Token</td><td>Denied</td></tr>
     </tbody>
   </table>
 </div><hr>
