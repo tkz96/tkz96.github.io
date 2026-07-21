@@ -247,9 +247,19 @@ textarea:focus-visible {
   background-color: var(--color-hover-bg);
 }
 
+.theme-toggle-btn:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+.theme-icon-svg {
+  display: block;
+  flex-shrink: 0;
+}
+
 .chapter-badge {
   background-color: var(--color-text-primary);
-  color: #fff;
+  color: var(--color-bg);
   padding: 2px 8px;
   font-weight: 700;
   font-size: 0.7rem;
@@ -647,7 +657,35 @@ pre {
   }
 
   .sidebar-header {
-    display: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid var(--color-text-primary);
+    padding-bottom: var(--spacing-sm);
+    margin-bottom: var(--spacing-md);
+  }
+
+  .close-menu-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    background: transparent;
+    border: 1px solid var(--color-divider);
+    color: var(--color-text-primary);
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.15s ease, border-color 0.15s ease;
+  }
+
+  .close-menu-btn:hover,
+  .close-menu-btn:focus-visible {
+    background-color: var(--color-hover-bg);
+    border-color: var(--color-text-primary);
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
   }
 
   .mobile-menu-btn {

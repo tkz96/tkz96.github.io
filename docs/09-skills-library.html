@@ -35,9 +35,11 @@
         <div class="header-meta">
           <span class="chapter-badge">CHAPTER 09</span>
         </div>
-        <button type="button" class="theme-toggle-btn" id="theme-toggle" aria-label="Switch theme" onclick="toggleTheme()">
-          <span class="theme-toggle-icon" id="theme-toggle-icon" aria-hidden="true">🌙</span>
-          <span class="theme-toggle-label">Switch theme</span>
+        <button type="button" class="theme-toggle-btn" id="theme-toggle" aria-label="Switch to dark theme" onclick="toggleTheme()">
+          <span class="theme-toggle-icon" id="theme-toggle-icon" aria-hidden="true">
+            <svg class="theme-icon-svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+          </span>
+          <span class="theme-toggle-label">Dark theme</span>
         </button>
         <button type="button" class="mobile-menu-btn" aria-label="Toggle Navigation Index" aria-expanded="false" aria-controls="sidebar-drawer" onclick="toggleMobileDrawer()">
           <span class="menu-icon-line" aria-hidden="true"></span>
@@ -52,7 +54,9 @@
     <aside class="sidebar" id="sidebar-drawer">
       <div class="sidebar-header">
         <span class="sidebar-title">CHAPTER INDEX</span>
-        <button type="button" class="close-menu-btn" aria-label="Close Index" onclick="closeMobileDrawer()">×</button>
+        <button type="button" class="close-menu-btn" aria-label="Close Chapter Index" onclick="closeMobileDrawer()">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6L6 18M6 6l12 12"/></svg>
+        </button>
       </div>
       <nav class="sidebar-nav" aria-label="Table of Contents">
         <ul class="toc-list">
@@ -217,8 +221,21 @@
       const current = document.documentElement.getAttribute('data-theme');
       const isDark = current === 'dark' || (!current && window.matchMedia('(prefers-color-scheme: dark)').matches);
       const iconSpan = document.getElementById('theme-toggle-icon');
+      const button = document.getElementById('theme-toggle');
+
+      const sunSvg = '<svg class="theme-icon-svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>';
+      const moonSvg = '<svg class="theme-icon-svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>';
+
       if (iconSpan) {
-        iconSpan.textContent = isDark ? '☀️' : '🌙';
+        iconSpan.innerHTML = isDark ? sunSvg : moonSvg;
+      }
+      if (button) {
+        const actionLabel = isDark ? 'Switch to light theme' : 'Switch to dark theme';
+        button.setAttribute('aria-label', actionLabel);
+        const labelSpan = button.querySelector('.theme-toggle-label');
+        if (labelSpan) {
+          labelSpan.textContent = isDark ? 'Light theme' : 'Dark theme';
+        }
       }
     }
 
