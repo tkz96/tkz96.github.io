@@ -773,9 +773,11 @@ The UI craft, design system, and minimal code practices in this documentation en
   * **`tokens`:** 3-layer design token system auditing and establishing theme custom variables.
   * **`heuristic` & `audit`:** Scored heuristic critique based on Nielsen's design laws and automated pre-ship verification passes (`finalize`, `colorize`, `shape`, `brief`, `remember`, `start`, `polish`, `bolder`, `quieter`, `typeset`, `animate`, `delight`).
 
-* **[Matt Pocock & AI Hero](https://aihero.dev/):** Developer experience insights and Matt Pocock's **Ponytail** skill suite:
+* **[Dietrich Gebert — Ponytail Skills](https://github.com/DietrichGebert/ponytail/):** Dietrich Gebert's **Ponytail** skill suite:
   * **`ponytail` & `ponytail-review`:** Hyper-minimal, YAGNI-driven coding methodology enforcing standard library functions, native browser/platform features, and elimination of unnecessary code bloat or speculative abstractions.
   * **`ponytail-audit`, `ponytail-debt`, `ponytail-gain` & `ponytail-help`:** Repository-wide over-engineering debt tracking and minimalism scorecards.
+
+* **[Matt Pocock & AI Hero](https://aihero.dev/):** Matt Pocock's developer experience platform and AI engineering guidelines (`aihero.dev`) shaping AI agent workflows, TypeScript/JavaScript best practices, and code generation patterns.
 
 * **Swiss Docs Site Skill (`swiss-docs-site`):** Custom documentation site skill converting Markdown playbooks into static, grid-aligned, highly accessible documentation sites in the International Typographic Style.
 
