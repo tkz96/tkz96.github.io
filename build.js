@@ -75,6 +75,8 @@ renderer.code = function({ text, lang, escaped }) {
 </div>`;
 };
 
+let currentChapterOTP = [];
+
 renderer.heading = function({ text, depth }) {
   const textClean = text.trim();
   const slug = generateSlug(textClean);
@@ -82,7 +84,11 @@ renderer.heading = function({ text, depth }) {
   if (depth === 1) {
     return `<h1 id="${slug}" class="doc-title">${textClean}</h1>`;
   }
-  
+
+  if (currentChapterOTP) {
+    currentChapterOTP.push({ text: textClean, slug, depth });
+  }
+
   return `<h${depth} id="${slug}" class="heading-anchor-group">
   <span class="heading-text">${textClean}</span>
   <a class="heading-anchor" href="#${slug}" aria-label="Anchor link to ${textClean}">#</a>
@@ -316,6 +322,7 @@ Welcome to the enterprise operational standard for software development organiza
 // Render each chapter to its HTML file
 chapters.forEach((chapter, index) => {
   headingSlugs.clear(); // Reset slug generator per page for clean anchor IDs
+  currentChapterOTP = []; // Clear current chapter OTP list
 
   const prevChapter = index > 0 ? chapters[index - 1] : null;
   const nextChapter = index < chapters.length - 1 ? chapters[index + 1] : null;
@@ -340,6 +347,62 @@ chapters.forEach((chapter, index) => {
   }
 
   const bodyHtml = marked.parser(tokensToParse);
+
+  // Generate On This Page Sidebar HTML & Mobile Collapsible HTML
+  let onThisPageHtml = '';
+  let mobileOtpHtml = '';
+
+  if (currentChapterOTP.length > 0) {
+    let desktopItems = '';
+    let mobileItems = '';
+
+    currentChapterOTP.forEach(item => {
+      desktopItems += `
+        <li class="on-this-page-item depth-${item.depth}">
+          <a href="#${item.slug}" class="on-this-page-link">${item.text}</a>
+        </li>
+      `;
+      mobileItems += `
+        <li class="mobile-otp-item depth-${item.depth}">
+          <a href="#${item.slug}" onclick="this.closest('details').removeAttribute('open')">${item.text}</a>
+        </li>
+      `;
+    });
+
+    onThisPageHtml = `
+      <aside class="on-this-page-sidebar" aria-label="On this page navigation">
+        <div class="on-this-page-header">
+          <span class="on-this-page-title">ON THIS PAGE</span>
+        </div>
+        <nav class="on-this-page-nav" aria-label="Section Index">
+          <ul class="on-this-page-list">
+            ${desktopItems}
+          </ul>
+        </nav>
+      </aside>
+    `;
+
+    mobileOtpHtml = `
+      <details class="mobile-on-this-page">
+        <summary class="mobile-otp-summary">
+          <span class="mobile-otp-title">ON THIS PAGE</span>
+          <svg class="mobile-otp-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+        </summary>
+        <ul class="mobile-otp-list">
+          ${mobileItems}
+        </ul>
+      </details>
+    `;
+  }
+
+  let articleContent = bodyHtml;
+  if (mobileOtpHtml) {
+    if (articleContent.includes('</h1>')) {
+      articleContent = articleContent.replace('</h1>', '</h1>' + mobileOtpHtml);
+    } else {
+      articleContent = mobileOtpHtml + articleContent;
+    }
+  }
 
   // Generate Swiss Sidebar HTML with active status
   let sidebarHtml = '<ul class="toc-list">';
@@ -382,6 +445,7 @@ chapters.forEach((chapter, index) => {
   <meta name="description" content="Swiss design operational standard for enterprise AI software development.">
   <title>${chapter.title} — The AI Development Playbook</title>
   <script src="theme-init.js"></script>
+  <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
@@ -473,10 +537,12 @@ chapters.forEach((chapter, index) => {
 
     <main class="content-wrapper" id="main-content">
       <article class="prose">
-        ${bodyHtml}
+        ${articleContent}
       </article>
       ${paginationHtml}
     </main>
+
+    ${onThisPageHtml}
   </div>
 
   <footer class="site-footer">

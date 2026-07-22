@@ -141,6 +141,60 @@ document.addEventListener('keydown', function(e) {
   }
 });
 
+/**
+ * Scrollspy for On This Page section index
+ */
+function initScrollspy() {
+  const otpLinks = document.querySelectorAll('.on-this-page-link, .mobile-otp-list a');
+  const headings = Array.from(document.querySelectorAll('.prose h2[id], .prose h3[id]'));
+
+  if (!headings.length || !otpLinks.length) return;
+
+  const observerOptions = {
+    rootMargin: '-80px 0px -60% 0px',
+    threshold: 0.1
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.getAttribute('id');
+        otpLinks.forEach(link => {
+          const href = link.getAttribute('href');
+          if (href === `#${id}`) {
+            link.classList.add('active');
+          } else {
+            link.classList.remove('active');
+          }
+        });
+      }
+    });
+  }, observerOptions);
+
+  headings.forEach(heading => observer.observe(heading));
+}
+
+/**
+ * Text opacity interval blink for targeted heading (delayed until heading is in view)
+ */
+function triggerHeadingHighlight(targetId) {
+  if (!targetId) return;
+  const targetEl = document.getElementById(targetId);
+  if (!targetEl) return;
+
+  targetEl.classList.remove('heading-target-blink');
+
+  // Wait 250ms for smooth scroll to settle heading in view before starting text opacity blink
+  setTimeout(() => {
+    void targetEl.offsetWidth; // Force DOM reflow to restart keyframe animation
+    targetEl.classList.add('heading-target-blink');
+
+    setTimeout(() => {
+      targetEl.classList.remove('heading-target-blink');
+    }, 1250);
+  }, 250);
+}
+
 document.addEventListener('DOMContentLoaded', function() {
   const savedLevel = localStorage.getItem('theme-level');
   if (savedLevel) {
@@ -148,6 +202,27 @@ document.addEventListener('DOMContentLoaded', function() {
   } else {
     const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
     setThemeLevel(prefersDark ? 2 : 5);
+  }
+
+  // Initialize Scrollspy for On-This-Page index
+  initScrollspy();
+
+  // Add calm blink trigger on ON-THIS-PAGE and heading anchor clicks
+  document.querySelectorAll('.on-this-page-link, .mobile-otp-list a, .heading-anchor').forEach(link => {
+    link.addEventListener('click', function() {
+      const href = link.getAttribute('href');
+      if (href && href.startsWith('#')) {
+        const targetId = href.substring(1);
+        triggerHeadingHighlight(targetId);
+      }
+    });
+  });
+
+  if (window.location.hash) {
+    const initialHash = window.location.hash.substring(1);
+    setTimeout(() => {
+      triggerHeadingHighlight(initialHash);
+    }, 300);
   }
 
   // Auto-close landing nav link click

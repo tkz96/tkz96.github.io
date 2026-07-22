@@ -6,6 +6,7 @@
   <meta name="description" content="Swiss design operational standard for enterprise AI software development.">
   <title>8. Documentation Standards — The AI Development Playbook</title>
   <script src="theme-init.js"></script>
+  <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
@@ -181,7 +182,61 @@
 
     <main class="content-wrapper" id="main-content">
       <article class="prose">
-        <h1 id="8-documentation-as-a-first-class-citizen-planning-standards" class="doc-title">8. Documentation as a First-Class Citizen & Planning Standards</h1><p>In a traditional software organization, documentation is often treated as an afterthought—written right before a release or skipped entirely due to time constraints. In an AI-augmented enterprise, <strong>outdated or missing documentation is an outage waiting to happen</strong>. AI agents do not have &quot;tribal knowledge&quot; or institutional memory; they rely strictly on the context provided in repository files, API schemas, design docs, and ticket descriptions. If documentation is ambiguous, incomplete, or wrong, agents will produce hallucinated architectures, violate domain boundaries, and break production.</p>
+        <h1 id="8-documentation-as-a-first-class-citizen-planning-standards" class="doc-title">8. Documentation as a First-Class Citizen & Planning Standards</h1>
+      <details class="mobile-on-this-page">
+        <summary class="mobile-otp-summary">
+          <span class="mobile-otp-title">ON THIS PAGE</span>
+          <svg class="mobile-otp-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+        </summary>
+        <ul class="mobile-otp-list">
+          
+        <li class="mobile-otp-item depth-2">
+          <a href="#1-system-level-documentation-outside-of-code" onclick="this.closest('details').removeAttribute('open')">1. System-Level Documentation (Outside of Code)</a>
+        </li>
+      
+        <li class="mobile-otp-item depth-3">
+          <a href="#a-ubiquitous-domain-glossary-glossary-md" onclick="this.closest('details').removeAttribute('open')">A. Ubiquitous Domain Glossary (`GLOSSARY.md`)</a>
+        </li>
+      
+        <li class="mobile-otp-item depth-3">
+          <a href="#b-ai-ready-product-requirement-documents-prds" onclick="this.closest('details').removeAttribute('open')">B. AI-Ready Product Requirement Documents (PRDs)</a>
+        </li>
+      
+        <li class="mobile-otp-item depth-3">
+          <a href="#c-architecture-decision-records-adrs" onclick="this.closest('details').removeAttribute('open')">C. Architecture Decision Records (ADRs)</a>
+        </li>
+      
+        <li class="mobile-otp-item depth-3">
+          <a href="#d-schema-first-api-contracts" onclick="this.closest('details').removeAttribute('open')">D. Schema-First API Contracts</a>
+        </li>
+      
+        <li class="mobile-otp-item depth-2">
+          <a href="#2-code-level-documentation-standards" onclick="this.closest('details').removeAttribute('open')">2. Code-Level Documentation Standards</a>
+        </li>
+      
+        <li class="mobile-otp-item depth-3">
+          <a href="#a-self-documenting-code-vs-explanatory-comments" onclick="this.closest('details').removeAttribute('open')">A. Self-Documenting Code vs. Explanatory Comments</a>
+        </li>
+      
+        <li class="mobile-otp-item depth-3">
+          <a href="#b-standardized-module-function-docstrings" onclick="this.closest('details').removeAttribute('open')">B. Standardized Module & Function Docstrings</a>
+        </li>
+      
+        <li class="mobile-otp-item depth-3">
+          <a href="#c-commit-messages-pr-descriptions" onclick="this.closest('details').removeAttribute('open')">C. Commit Messages & PR Descriptions</a>
+        </li>
+      
+        <li class="mobile-otp-item depth-2">
+          <a href="#3-mandatory-execution-rules-for-engineers-ai-agents" onclick="this.closest('details').removeAttribute('open')">3. Mandatory Execution Rules for Engineers & AI Agents</a>
+        </li>
+      
+        <li class="mobile-otp-item depth-2">
+          <a href="#4-documentation-do-s-and-don-ts-matrix" onclick="this.closest('details').removeAttribute('open')">4. Documentation Do's and Don'ts Matrix</a>
+        </li>
+      
+        </ul>
+      </details>
+    <p>In a traditional software organization, documentation is often treated as an afterthought—written right before a release or skipped entirely due to time constraints. In an AI-augmented enterprise, <strong>outdated or missing documentation is an outage waiting to happen</strong>. AI agents do not have &quot;tribal knowledge&quot; or institutional memory; they rely strictly on the context provided in repository files, API schemas, design docs, and ticket descriptions. If documentation is ambiguous, incomplete, or wrong, agents will produce hallucinated architectures, violate domain boundaries, and break production.</p>
 <p>Documentation must be treated as a <strong>first-class citizen</strong>, held to the exact same quality and review standards as production code.</p>
 <h2 id="1-system-level-documentation-outside-of-code" class="heading-anchor-group">
   <span class="heading-text">1. System-Level Documentation (Outside of Code)</span>
@@ -390,6 +445,63 @@ Closes AB#10820
     </nav>
   
     </main>
+
+    
+      <aside class="on-this-page-sidebar" aria-label="On this page navigation">
+        <div class="on-this-page-header">
+          <span class="on-this-page-title">ON THIS PAGE</span>
+        </div>
+        <nav class="on-this-page-nav" aria-label="Section Index">
+          <ul class="on-this-page-list">
+            
+        <li class="on-this-page-item depth-2">
+          <a href="#1-system-level-documentation-outside-of-code" class="on-this-page-link">1. System-Level Documentation (Outside of Code)</a>
+        </li>
+      
+        <li class="on-this-page-item depth-3">
+          <a href="#a-ubiquitous-domain-glossary-glossary-md" class="on-this-page-link">A. Ubiquitous Domain Glossary (`GLOSSARY.md`)</a>
+        </li>
+      
+        <li class="on-this-page-item depth-3">
+          <a href="#b-ai-ready-product-requirement-documents-prds" class="on-this-page-link">B. AI-Ready Product Requirement Documents (PRDs)</a>
+        </li>
+      
+        <li class="on-this-page-item depth-3">
+          <a href="#c-architecture-decision-records-adrs" class="on-this-page-link">C. Architecture Decision Records (ADRs)</a>
+        </li>
+      
+        <li class="on-this-page-item depth-3">
+          <a href="#d-schema-first-api-contracts" class="on-this-page-link">D. Schema-First API Contracts</a>
+        </li>
+      
+        <li class="on-this-page-item depth-2">
+          <a href="#2-code-level-documentation-standards" class="on-this-page-link">2. Code-Level Documentation Standards</a>
+        </li>
+      
+        <li class="on-this-page-item depth-3">
+          <a href="#a-self-documenting-code-vs-explanatory-comments" class="on-this-page-link">A. Self-Documenting Code vs. Explanatory Comments</a>
+        </li>
+      
+        <li class="on-this-page-item depth-3">
+          <a href="#b-standardized-module-function-docstrings" class="on-this-page-link">B. Standardized Module & Function Docstrings</a>
+        </li>
+      
+        <li class="on-this-page-item depth-3">
+          <a href="#c-commit-messages-pr-descriptions" class="on-this-page-link">C. Commit Messages & PR Descriptions</a>
+        </li>
+      
+        <li class="on-this-page-item depth-2">
+          <a href="#3-mandatory-execution-rules-for-engineers-ai-agents" class="on-this-page-link">3. Mandatory Execution Rules for Engineers & AI Agents</a>
+        </li>
+      
+        <li class="on-this-page-item depth-2">
+          <a href="#4-documentation-do-s-and-don-ts-matrix" class="on-this-page-link">4. Documentation Do's and Don'ts Matrix</a>
+        </li>
+      
+          </ul>
+        </nav>
+      </aside>
+    
   </div>
 
   <footer class="site-footer">
