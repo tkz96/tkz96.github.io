@@ -732,29 +732,29 @@ The operational standards, gate protocols, and architectural patterns detailed i
 ### 1. Academic & Industry References
 
 * **Agentic Workflows & Autonomous Coding:** 
-  * Anthropic Research — *Building Effective Agents & Context Engineering Patterns* (2024–2026).
-  * Google DeepMind — *Frontier Agent Architecture & Advanced Agentic Coding Specifications*.
-  * OpenAI — *Practices for Governance in AI-Assisted Software Development*.
+  * [Anthropic Research](https://www.anthropic.com/research/building-effective-agents) — *Building Effective Agents & Context Engineering Patterns* (2024–2026).
+  * [Google DeepMind](https://deepmind.google/) — *Frontier Agent Architecture & Advanced Agentic Coding Specifications*.
+  * [OpenAI Research](https://openai.com/research) — *Practices for Governance in AI-Assisted Software Development*.
 
 * **Software Engineering & API Standards:**
-  * **OpenAPI Specification (v3.1.0):** Standardized machine-readable REST API contracts for AI consumption.
-  * **Azure DevOps REST API Documentation:** Official specifications for Azure DevOps Work Item Tracking (`dev.azure.com`).
-  * **Conventional Commits (v1.0.0):** Specification for adding human and machine readable meaning to commit messages.
-  * **Behavior-Driven Development (BDD):** *Given / When / Then* formal specifications for product acceptance criteria.
+  * **[OpenAPI Specification (v3.1.0)](https://spec.openapis.org/oas/v3.1.0):** Standardized machine-readable REST API contracts for AI consumption.
+  * **[Azure DevOps REST API Documentation](https://learn.microsoft.com/en-us/rest/api/azure/devops/):** Official specifications for Azure DevOps Work Item Tracking (`dev.azure.com`).
+  * **[Conventional Commits (v1.0.0)](https://www.conventionalcommits.org/en/v1.0.0/):** Specification for adding human and machine readable meaning to commit messages.
+  * **[Behavior-Driven Development (BDD)](https://cucumber.io/docs/bdd/):** *Given / When / Then* formal specifications for product acceptance criteria.
 
 * **Architectural & Design Standards:**
-  * **Domain-Driven Design (DDD):** Eric Evans — Ubiquitous Language, Bounded Contexts, and Domain Artifacts.
-  * **Architecture Decision Records (ADRs):** Michael Nygard — Documenting architecturally significant decisions.
-  * **Swiss / International Typographic Style:** Josef Müller-Brockmann — Grid systems, typographic hierarchy, and disciplined visual structure in documentation.
+  * **[Domain-Driven Design (DDD)](https://www.domainlanguage.com/ddd/):** Eric Evans — Ubiquitous Language, Bounded Contexts, and Domain Artifacts.
+  * **[Architecture Decision Records (ADRs)](https://cognitect.com/blog/2011/11/15/documenting-architecture-decisions):** Michael Nygard — Documenting architecturally significant decisions.
+  * **[Swiss / International Typographic Style](https://en.wikipedia.org/wiki/International_Typographic_Style):** Josef Müller-Brockmann — Grid systems, typographic hierarchy, and disciplined visual structure in documentation.
 
 ### 2. Acknowledgements & Open-Source Foundation
 
 This playbook and its associated documentation engine rely on the vibrant open-source ecosystem and foundational enterprise technologies:
 
 * **Open-Source Tools & Libraries:**
-  * **Marked.js:** Fast Markdown parser built for high-performance static rendering.
-  * **Highlight.js:** Syntax highlighting for modern programming languages and data formats.
-  * **Node.js Ecosystem:** Runtime platform supporting automated documentation builds and continuous integration.
+  * **[Marked.js](https://marked.js.org/):** Fast Markdown parser built for high-performance static rendering.
+  * **[Highlight.js](https://highlightjs.org/):** Syntax highlighting for modern programming languages and data formats.
+  * **[Node.js Ecosystem](https://nodejs.org/):** Runtime platform supporting automated documentation builds and continuous integration.
 
 * **Enterprise Platforms & Community:**
-  * Special thanks to the enterprise engineering teams, AI researchers, and developer experience (DX) leaders whose field insights shaped the multi-gate security protocols, Azure DevOps work item schemas, and human-AI pair programming workflows presented in this guide.
+  * Special thanks to the enterprise engineering teams, AI researchers, and developer experience (DX) leaders whose field insights shaped the multi-gate security protocols, [Azure DevOps](https://azure.microsoft.com/en-us/products/devops/) work item schemas, and human-AI pair programming workflows presented in this guide.

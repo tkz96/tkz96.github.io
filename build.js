@@ -133,6 +133,13 @@ renderer.image = function({ href, title, text }) {
 </figure>`;
 };
 
+renderer.link = function({ href, title, text }) {
+  const isExternal = href && (href.startsWith('http://') || href.startsWith('https://'));
+  const targetAttr = isExternal ? ' target="_blank" rel="noopener noreferrer"' : '';
+  const titleAttr = title ? ` title="${title}"` : '';
+  return `<a href="${href}"${titleAttr}${targetAttr}>${text}</a>`;
+};
+
 marked.use({ renderer });
 
 function cleanMarkdownTables(markdown) {
