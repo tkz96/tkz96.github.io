@@ -235,7 +235,8 @@ const chapterConfigs = [
   { id: 'azure-devops-tickets', filename: '07-azure-devops-tickets.html', title: '7. Azure DevOps Ticket Standards', num: '07', match: '7. How to Write Tickets for Azure DevOps (dev.azure.com)' },
   { id: 'documentation-planning', filename: '08-documentation-planning.html', title: '8. Documentation Standards', num: '08', match: '8. Documentation as a First-Class Citizen & Planning Standards' },
   { id: 'skills-library', filename: '09-skills-library.html', title: '9. Recommended Skills Library', num: '09', match: '9. Recommended Skills Library' },
-  { id: 'hybrid-architecture', filename: '10-hybrid-architecture.html', title: '10. Hybrid Architecture', num: '10', match: '10. The Dream: Hybrid Frontier/Local Execution Architecture' }
+  { id: 'hybrid-architecture', filename: '10-hybrid-architecture.html', title: '10. Hybrid Architecture', num: '10', match: '10. The Dream: Hybrid Frontier/Local Execution Architecture' },
+  { id: 'references-acknowledgements', filename: '11-references-acknowledgements.html', title: '11. References & Acknowledgements', num: '11', match: '11. References & Acknowledgements' }
 ];
 
 // Group tokens by chapter
@@ -275,11 +276,23 @@ for (const token of rawTokens) {
   }
 }
 
+function formatDDMMYYYY(date) {
+  const d = String(date.getDate()).padStart(2, '0');
+  const m = String(date.getMonth() + 1).padStart(2, '0');
+  const y = date.getFullYear();
+  return `${d}-${m}-${y}`;
+}
+
 // Generate Overview Chapter Content for index.html if empty
 if (chapters[0].tokens.length < 5) {
+  const markdownStats = fs.statSync(markdownPath);
+  const lastUpdatedDate = formatDDMMYYYY(markdownStats.mtime);
+
   const overviewMarkdown = `
 # The AI Development Playbook
 ## Executive Operational Standard for AI-Augmented Software Engineering
+
+> **Last Updated:** <span class="doc-date">${lastUpdatedDate}</span>
 
 Welcome to the enterprise operational standard for software development organizations integrating autonomous AI agents across the SDLC.
 
@@ -295,6 +308,7 @@ Welcome to the enterprise operational standard for software development organiza
 - [08. Documentation Standards](08-documentation-planning.html) — ADRs, PRDs, Glossaries, and code-level documentation rules.
 - [09. Recommended Skills Library](09-skills-library.html) — Reusable playbooks, audit tools, and custom skills.
 - [10. Hybrid Architecture](10-hybrid-architecture.html) — Frontier vs local model execution split and routing.
+- [11. References & Acknowledgements](11-references-acknowledgements.html) — Key research, industry standards, specifications, and acknowledgements.
 `;
   chapters[0].tokens = marked.lexer(overviewMarkdown);
 }
@@ -389,7 +403,10 @@ chapters.forEach((chapter, index) => {
         </div>
         <div class="theme-slider-popover-wrapper">
           <button type="button" class="theme-toggle-btn" id="theme-popover-trigger" aria-label="Adjust Contrast Theme Level" aria-expanded="false" onclick="toggleThemePopover()">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+            <span class="theme-icon-wrapper" aria-hidden="true">
+              <svg class="theme-icon icon-sun" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+              <svg class="theme-icon icon-moon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+            </span>
             <span class="theme-level-badge" id="theme-level-badge">Theme: 2/6</span>
           </button>
 

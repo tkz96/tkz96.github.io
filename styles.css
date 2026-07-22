@@ -957,6 +957,47 @@ code:not(pre code) {
   align-items: center;
   gap: 6px;
   transition: border-color 0.15s ease, background-color 0.15s ease;
+.theme-icon-wrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 15px;
+  height: 15px;
+  overflow: hidden;
+}
+
+.theme-icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s ease;
+}
+
+/* Light themes: Sun visible in center, Moon pushed down */
+html[data-theme="light"] .icon-sun,
+html:not([data-theme="dark"]) .icon-sun {
+  transform: translateY(0) rotate(0deg);
+  opacity: 1;
+}
+
+html[data-theme="light"] .icon-moon,
+html:not([data-theme="dark"]) .icon-moon {
+  transform: translateY(140%) rotate(-45deg);
+  opacity: 0;
+}
+
+/* Dark themes: Sun slides down out of button, Moon slides up into center */
+html[data-theme="dark"] .icon-sun {
+  transform: translateY(140%) rotate(45deg);
+  opacity: 0;
+}
+
+html[data-theme="dark"] .icon-moon {
+  transform: translateY(0) rotate(0deg);
+  opacity: 1;
 }
 
 .theme-toggle-btn:hover {
@@ -964,10 +1005,24 @@ code:not(pre code) {
   background-color: var(--bg-surface-hover);
 }
 
+.theme-toggle-btn:hover .icon-sun {
+  transform: translateY(0) rotate(20deg);
+}
+
+.theme-toggle-btn:hover .icon-moon {
+  transform: translateY(0) rotate(-15deg);
+}
+
 .theme-level-badge {
-  font-family: var(--font-mono);
+  font-family: 'Departure Mono', var(--font-mono);
   font-size: 0.75rem;
   letter-spacing: 0.02em;
+}
+
+.doc-date, .last-updated-date {
+  font-family: 'Departure Mono', var(--font-mono);
+  font-weight: 700;
+  letter-spacing: 0.05em;
 }
 
 .theme-popover-card {

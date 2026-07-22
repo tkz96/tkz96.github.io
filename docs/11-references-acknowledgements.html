@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Swiss design operational standard for enterprise AI software development.">
-  <title>4. Phase 2: Developer Experience — The AI Development Playbook</title>
+  <title>11. References & Acknowledgements — The AI Development Playbook</title>
   <script src="theme-init.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -23,7 +23,7 @@
       </div>
       <div class="header-controls">
         <div class="header-meta">
-          <span class="chapter-badge">CHAPTER 04</span>
+          <span class="chapter-badge">CHAPTER 11</span>
         </div>
         <div class="theme-slider-popover-wrapper">
           <button type="button" class="theme-toggle-btn" id="theme-popover-trigger" aria-label="Adjust Contrast Theme Level" aria-expanded="false" onclick="toggleThemePopover()">
@@ -120,7 +120,7 @@
         </a>
       </li>
     
-      <li class="toc-item active-chapter">
+      <li class="toc-item ">
         <a href="04-developer-experience.html" onclick="closeMobileDrawer()">
           <span class="toc-num">04.</span>
           <span class="toc-text">4. Phase 2: Developer Experience</span>
@@ -169,7 +169,7 @@
         </a>
       </li>
     
-      <li class="toc-item ">
+      <li class="toc-item active-chapter">
         <a href="11-references-acknowledgements.html" onclick="closeMobileDrawer()">
           <span class="toc-num">11.</span>
           <span class="toc-text">11. References & Acknowledgements</span>
@@ -181,34 +181,63 @@
 
     <main class="content-wrapper" id="main-content">
       <article class="prose">
-        <h1 id="4-phase-2-designing-the-developer-experience" class="doc-title">4. Phase 2: Designing the Developer Experience</h1><p>Day-to-day interactions with agents require specific execution patterns depending on the task domain:</p>
+        <h1 id="11-references-acknowledgements" class="doc-title">11. References & Acknowledgements</h1><p>The operational standards, gate protocols, and architectural patterns detailed in this playbook build upon foundational research, enterprise frameworks, open-source tools, and industry standards across autonomous software development and AI engineering.</p>
+<h2 id="1-academic-industry-references" class="heading-anchor-group">
+  <span class="heading-text">1. Academic & Industry References</span>
+  <a class="heading-anchor" href="#1-academic-industry-references" aria-label="Anchor link to 1. Academic & Industry References">#</a>
+</h2><ul>
+<li><p><strong>Agentic Workflows &amp; Autonomous Coding:</strong> </p>
 <ul>
-<li><p><strong>Environment Configuration:</strong> Agents operating in developer environments must run within sandboxed containers, isolated from production credentials or sensitive keys.</p>
+<li>Anthropic Research — <em>Building Effective Agents &amp; Context Engineering Patterns</em> (2024–2026).</li>
+<li>Google DeepMind — <em>Frontier Agent Architecture &amp; Advanced Agentic Coding Specifications</em>.</li>
+<li>OpenAI — <em>Practices for Governance in AI-Assisted Software Development</em>.</li>
+</ul>
 </li>
-<li><p><strong>Frontend Workflows:</strong> Provide agents with strict design tokens (color scales, typography, spacing variables). Mandate accessibility standards and automated visual regression testing.</p>
+<li><p><strong>Software Engineering &amp; API Standards:</strong></p>
+<ul>
+<li><strong>OpenAPI Specification (v3.1.0):</strong> Standardized machine-readable REST API contracts for AI consumption.</li>
+<li><strong>Azure DevOps REST API Documentation:</strong> Official specifications for Azure DevOps Work Item Tracking (<code>dev.azure.com</code>).</li>
+<li><strong>Conventional Commits (v1.0.0):</strong> Specification for adding human and machine readable meaning to commit messages.</li>
+<li><strong>Behavior-Driven Development (BDD):</strong> <em>Given / When / Then</em> formal specifications for product acceptance criteria.</li>
+</ul>
 </li>
-<li><p><strong>Backend Workflows:</strong> Always supply documented API contracts (OpenAPI specifications) before implementation. Enforce additive, reversible database migrations.</p>
-</li>
-<li><p><strong>Feature Development, Bugs &amp; Refactoring:</strong> Use planning skills to achieve complete alignment before coding. Reproduce bugs with failing tests first. Execute small, incremental refactors backed by test suites.</p>
+<li><p><strong>Architectural &amp; Design Standards:</strong></p>
+<ul>
+<li><strong>Domain-Driven Design (DDD):</strong> Eric Evans — Ubiquitous Language, Bounded Contexts, and Domain Artifacts.</li>
+<li><strong>Architecture Decision Records (ADRs):</strong> Michael Nygard — Documenting architecturally significant decisions.</li>
+<li><strong>Swiss / International Typographic Style:</strong> Josef Müller-Brockmann — Grid systems, typographic hierarchy, and disciplined visual structure in documentation.</li>
+</ul>
 </li>
 </ul>
-<hr>
+<h2 id="2-acknowledgements-open-source-foundation" class="heading-anchor-group">
+  <span class="heading-text">2. Acknowledgements & Open-Source Foundation</span>
+  <a class="heading-anchor" href="#2-acknowledgements-open-source-foundation" aria-label="Anchor link to 2. Acknowledgements & Open-Source Foundation">#</a>
+</h2><p>This playbook and its associated documentation engine rely on the vibrant open-source ecosystem and foundational enterprise technologies:</p>
+<ul>
+<li><p><strong>Open-Source Tools &amp; Libraries:</strong></p>
+<ul>
+<li><strong>Marked.js:</strong> Fast Markdown parser built for high-performance static rendering.</li>
+<li><strong>Highlight.js:</strong> Syntax highlighting for modern programming languages and data formats.</li>
+<li><strong>Node.js Ecosystem:</strong> Runtime platform supporting automated documentation builds and continuous integration.</li>
+</ul>
+</li>
+<li><p><strong>Enterprise Platforms &amp; Community:</strong></p>
+<ul>
+<li>Special thanks to the enterprise engineering teams, AI researchers, and developer experience (DX) leaders whose field insights shaped the multi-gate security protocols, Azure DevOps work item schemas, and human-AI pair programming workflows presented in this guide.</li>
+</ul>
+</li>
+</ul>
 
       </article>
       
     <nav class="pagination-nav" aria-label="Chapter Pagination">
       
-        <a href="03-preparing-codebase.html" class="pagination-btn prev-btn">
+        <a href="10-hybrid-architecture.html" class="pagination-btn prev-btn">
           <span class="pagination-label"><span class="nav-arrow">←</span> PREVIOUS CHAPTER</span>
-          <span class="pagination-title">3. Phase 1: Preparing Codebase</span>
+          <span class="pagination-title">10. Hybrid Architecture</span>
         </a>
       
-      
-        <a href="05-quality-security-assurance.html" class="pagination-btn next-btn">
-          <span class="pagination-label">NEXT CHAPTER <span class="nav-arrow">→</span></span>
-          <span class="pagination-title">5. Phase 3: Quality & Security</span>
-        </a>
-      
+      <div class="pagination-placeholder"></div>
     </nav>
   
     </main>

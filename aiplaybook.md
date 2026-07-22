@@ -2,6 +2,8 @@
 
 ## Complete Enterprise Operational Standard with Azure DevOps Integration & Documentation Standards
 
+> **Last Updated:** <span class="doc-date">22-07-2026</span>
+
 This playbook serves as both a practical field guide for software engineers and an operational standard for enterprise development organizations. It provides a complete framework for integrating autonomous AI agents across every stage of the Software Development Life Cycle (SDLC) while enforcing strict quality, security, governance standards, precise work item structuring in Azure DevOps (`dev.azure.com`), and rigorous documentation practices.
 
 ---
@@ -16,6 +18,9 @@ This playbook serves as both a practical field guide for software engineers and 
 6. [End-to-End Enterprise Workflows, Gates & Governance](06-enterprise-workflows-gates.html)
 7. [How to Write Tickets for Azure DevOps](07-azure-devops-tickets.html)
 8. [Documentation as a First-Class Citizen & Planning Standards](08-documentation-planning.html)
+9. [Recommended Skills Library](09-skills-library.html)
+10. [The Dream: Hybrid Frontier/Local Execution Architecture](10-hybrid-architecture.html)
+11. [References & Acknowledgements](11-references-acknowledgements.html)
 
 ---
 
@@ -717,3 +722,39 @@ The optimal enterprise AI architecture splits tasks between cloud-based frontier
 | **Local / Edge Models** | Gemma 4, Qwen 3.6, DeepSeek V4 class | Repetitive code generation, linter loops, unit test writing, and localized refactoring in sandboxed setups. |
 
 This hybrid structure ensures expensive frontier models are reserved for critical judgment calls, while fast local models handle repetitive implementation tasks across large engineering organizations.
+
+---
+
+## 11. References & Acknowledgements
+
+The operational standards, gate protocols, and architectural patterns detailed in this playbook build upon foundational research, enterprise frameworks, open-source tools, and industry standards across autonomous software development and AI engineering.
+
+### 1. Academic & Industry References
+
+* **Agentic Workflows & Autonomous Coding:** 
+  * Anthropic Research — *Building Effective Agents & Context Engineering Patterns* (2024–2026).
+  * Google DeepMind — *Frontier Agent Architecture & Advanced Agentic Coding Specifications*.
+  * OpenAI — *Practices for Governance in AI-Assisted Software Development*.
+
+* **Software Engineering & API Standards:**
+  * **OpenAPI Specification (v3.1.0):** Standardized machine-readable REST API contracts for AI consumption.
+  * **Azure DevOps REST API Documentation:** Official specifications for Azure DevOps Work Item Tracking (`dev.azure.com`).
+  * **Conventional Commits (v1.0.0):** Specification for adding human and machine readable meaning to commit messages.
+  * **Behavior-Driven Development (BDD):** *Given / When / Then* formal specifications for product acceptance criteria.
+
+* **Architectural & Design Standards:**
+  * **Domain-Driven Design (DDD):** Eric Evans — Ubiquitous Language, Bounded Contexts, and Domain Artifacts.
+  * **Architecture Decision Records (ADRs):** Michael Nygard — Documenting architecturally significant decisions.
+  * **Swiss / International Typographic Style:** Josef Müller-Brockmann — Grid systems, typographic hierarchy, and disciplined visual structure in documentation.
+
+### 2. Acknowledgements & Open-Source Foundation
+
+This playbook and its associated documentation engine rely on the vibrant open-source ecosystem and foundational enterprise technologies:
+
+* **Open-Source Tools & Libraries:**
+  * **Marked.js:** Fast Markdown parser built for high-performance static rendering.
+  * **Highlight.js:** Syntax highlighting for modern programming languages and data formats.
+  * **Node.js Ecosystem:** Runtime platform supporting automated documentation builds and continuous integration.
+
+* **Enterprise Platforms & Community:**
+  * Special thanks to the enterprise engineering teams, AI researchers, and developer experience (DX) leaders whose field insights shaped the multi-gate security protocols, Azure DevOps work item schemas, and human-AI pair programming workflows presented in this guide.
