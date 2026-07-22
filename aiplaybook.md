@@ -727,7 +727,7 @@ This hybrid structure ensures expensive frontier models are reserved for critica
 
 ## 11. References & Acknowledgements
 
-The operational standards, gate protocols, and architectural patterns detailed in this playbook build upon foundational research, enterprise frameworks, open-source tools, and industry standards across autonomous software development and AI engineering.
+The operational standards, gate protocols, and architectural patterns detailed in this playbook build upon foundational research, enterprise frameworks, open-source tools, AI platforms, agentic skill ecosystems, and web design standards across autonomous software development and AI engineering.
 
 ### 1. Academic & Industry References
 
@@ -747,14 +747,60 @@ The operational standards, gate protocols, and architectural patterns detailed i
   * **[Architecture Decision Records (ADRs)](https://cognitect.com/blog/2011/11/15/documenting-architecture-decisions):** Michael Nygard — Documenting architecturally significant decisions.
   * **[Swiss / International Typographic Style](https://en.wikipedia.org/wiki/International_Typographic_Style):** Josef Müller-Brockmann — Grid systems, typographic hierarchy, and disciplined visual structure in documentation.
 
-### 2. Acknowledgements & Open-Source Foundation
+### 2. AI Platform, Tooling & Core Web Technologies
 
-This playbook and its associated documentation engine rely on the vibrant open-source ecosystem and foundational enterprise technologies:
+This documentation platform and playbook were engineered using cutting-edge AI development environments, frontier models, and foundational web standards:
 
-* **Open-Source Tools & Libraries:**
-  * **[Marked.js](https://marked.js.org/):** Fast Markdown parser built for high-performance static rendering.
-  * **[Highlight.js](https://highlightjs.org/):** Syntax highlighting for modern programming languages and data formats.
-  * **[Node.js Ecosystem](https://nodejs.org/):** Runtime platform supporting automated documentation builds and continuous integration.
+* **AI Coding Environment & Intelligence:**
+  * **[Antigravity IDE](https://deepmind.google/):** Google DeepMind's advanced agentic coding environment for multi-agent software engineering, context awareness, and pair programming execution.
+  * **[Gemini 3.6 Flash](https://deepmind.google/technologies/gemini/):** Google DeepMind's high-speed, high-reasoning frontier AI model powering real-time code synthesis, design iteration, and document compilation.
+
+* **Core Frontend Technology Stack:**
+  * **[HTML5](https://developer.mozilla.org/en-US/docs/Web/HTML):** Semantic landmark architecture (`<header>`, `<main>`, `<aside>`, `<nav>`, `<article>`, `<footer>`, `<details>`, `<summary>`), high accessibility standards, and clean DOM structures.
+  * **[Vanilla CSS3](https://developer.mozilla.org/en-US/docs/Web/CSS):** Zero-dependency design system using CSS Custom Properties, 12-column Swiss grid layout, Flexbox, multi-level theme controller (6 contrast levels from Stark OLED to Stark Light), and responsive media queries.
+  * **[Vanilla JavaScript (ES6+)](https://developer.mozilla.org/en-US/docs/Web/JavaScript):** Lightweight client-side scripts powering dynamic theme switching, mobile navigation drawer, Table of Contents scrollspy tracking, and clipboard code copying without heavy runtime framework bloat.
+
+* **Hosting & Platform Infrastructure:**
+  * **[GitHub Pages](https://pages.github.com/):** Static site hosting platform deploying the generated HTML documentation engine from the `/docs` root directory.
+  * **[Git & GitHub](https://github.com/):** Distributed version control system and repository host (`tkz96.github.io`).
+
+### 3. Agent Skill Ecosystems & Design Frameworks
+
+The UI craft, design system, and minimal code practices in this documentation engine were guided by specialized agentic skill packages:
+
+* **[Smooth UI Skills & Plugins](https://skills.smoothui.dev/):** Comprehensive UI design and craft skill suite:
+  * **`ui-craft` & `sddesign`:** Architectural design rules, anti-slop guidelines, color contrast standards, and Spec-Driven Design pipeline.
+  * **`tokens`:** 3-layer design token system auditing and establishing theme custom variables.
+  * **`heuristic` & `audit`:** Scored heuristic critique based on Nielsen's design laws and automated pre-ship verification passes (`finalize`, `colorize`, `shape`, `brief`, `remember`, `start`, `polish`, `bolder`, `quieter`, `typeset`, `animate`, `delight`).
+
+* **[Matt Pocock & AI Hero](https://aihero.dev/):** Developer experience insights and Matt Pocock's **Ponytail** skill suite:
+  * **`ponytail` & `ponytail-review`:** Hyper-minimal, YAGNI-driven coding methodology enforcing standard library functions, native browser/platform features, and elimination of unnecessary code bloat or speculative abstractions.
+  * **`ponytail-audit`, `ponytail-debt`, `ponytail-gain` & `ponytail-help`:** Repository-wide over-engineering debt tracking and minimalism scorecards.
+
+* **Swiss Docs Site Skill (`swiss-docs-site`):** Custom documentation site skill converting Markdown playbooks into static, grid-aligned, highly accessible documentation sites in the International Typographic Style.
+
+### 4. Typography, Fonts & Iconography Libraries
+
+* **Google Fonts Ecosystem:**
+  * **[Inter](https://fonts.google.com/specimen/Inter):** Clean, versatile grotesque sans-serif used for primary body prose, structural navigation, headings, and interface components.
+  * **[JetBrains Mono](https://fonts.google.com/specimen/JetBrains+Mono):** High-readability monospaced font for technical specifications, code blocks, terminal logs, and data attributes.
+  * **[Manrope](https://fonts.google.com/specimen/Manrope):** Geometric sans-serif typeface used across project landing pages and feature showcases.
+
+* **Self-Hosted Retro/Pixel Typography:**
+  * **[Departure Mono](https://departuremono.com/):** Pixelated monospaced font by Emily Brooks (licensed under SIL Open Font License 1.1) hosted locally (`assets/fonts/DepartureMono-Regular.woff2`) for retro-technical badges and micro-typography.
+
+* **Iconography & Visual Assets:**
+  * **Inline SVG Vector System:** Handcrafted SVG vector icons for interactive UI elements (theme sun/moon icons, chevrons, close drawer buttons, heading anchor links `#`).
+  * **Social Icon Collection:** Vector social media icons (`assets/icons/social-icons/`) for Twitter/X, LinkedIn, Medium, GitHub, and AngelList.
+  * **Custom Favicon:** Clean vector-rendered brand icon (`assets/favicon.ico`).
+
+### 5. Build Engine & Development Runtime
+
+* **Open-Source Tools & Build Pipeline:**
+  * **[Marked.js](https://marked.js.org/):** High-performance Markdown parser and HTML AST generator (v18.0.6).
+  * **[Highlight.js](https://highlightjs.org/):** Syntax highlighting engine for modern programming languages and data formats (v11.11.1).
+  * **[Node.js Ecosystem](https://nodejs.org/):** Runtime environment supporting custom static site generation (`build.js`).
+  * **[Python HTTP Server](https://docs.python.org/3/library/http.server.html):** Python 3 local development web server (`python3 -m http.server 9090`).
 
 * **Enterprise Platforms & Community:**
   * Special thanks to the enterprise engineering teams, AI researchers, and developer experience (DX) leaders whose field insights shaped the multi-gate security protocols, [Azure DevOps](https://azure.microsoft.com/en-us/products/devops/) work item schemas, and human-AI pair programming workflows presented in this guide.
